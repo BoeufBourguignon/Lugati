@@ -53,7 +53,7 @@ CREATE TABLE session (
 
 CREATE TABLE activite (
     numActivite int NOT NULL IDENTITY,
-    libelle varchar(30),
+    libelle varchar(100),
     tarif int,
     nbPlaces int,
     date date,
