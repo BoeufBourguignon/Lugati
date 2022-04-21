@@ -1,5 +1,5 @@
 USE master;
-DROP DATABASE base_lugati;
+DROP DATABASE IF EXISTS base_lugati;
 
 CREATE DATABASE base_lugati;
 USE base_lugati;
