@@ -2,7 +2,7 @@
 
 INSERT INTO ligue (nomLigue,adresse,cp,ville)
 VALUES
-  ('Paris Saint-Germain Football Club','24 rue du Commandant-Guilbaud ','75016','Paris'),
+  ('Qatar Saint-Germain Football Club','24 rue du Commandant-Guilbaud ','75016','Paris'),
   ('Olympique de Marseille','3 Bd Michelet,','13008 ','Marseille'),
   ('Olympique lyonnais','196 Av. Paul Santy','69007','Lyon'),
   ('Real Madrid Club de Fútbol','Avenida Concha Espina 1 28036 Madrid','28025','Madrid'),
