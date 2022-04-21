@@ -28,6 +28,7 @@ VALUES
   ('Odile','CROC','F',1,'1 rue des Pertuisanes','Montpellier','34000',5),
   ('Afida','TURNER','F',1,'11 rue de Biche','Woippy','57140',4);
 
+
 INSERT INTO session (libelle,tarif,nbPlaces,date,heure)
 VALUES
   ('Session d’inauguration',26,64,'24-10-2021','11:53'),
@@ -38,6 +39,7 @@ VALUES
   ('Le doppage dans les JO',29,63,'7-5-2021','1:03'),
   ('Le sport pour les nuls',33,17,'6-11-2022','11:48');
 
+
 INSERT INTO activite (libelle,tarif,nbPlaces,date,heure)
 VALUES
   ('Patinoire sur bois d''acacia brut',39,17,'31-1-2023','09:30'),
@@ -47,9 +49,8 @@ VALUES
   ('Atelier mécanique',37,51,'8-2-2023','14:00'),
   ('Rénovation de livres',35,37,'17-4-2023','14:00'),
   ('Barbecue collectif',39,11,'6-10-2021','14:00');
- select * from participant P
-	join hebergement H on H.idHebergement = P.idHebergement
-	where nomHebergement = 'L''Auberge espagnole'
+
+
 INSERT INTO inscrire (numSession, idParticipant)
 VALUES
     (1,1),
@@ -59,6 +60,7 @@ VALUES
     (4,5),
     (5,6),
     (6,7);
+
 
 INSERT INTO participer (numActivite, idParticipant)
 VALUES
