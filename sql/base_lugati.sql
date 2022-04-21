@@ -15,7 +15,7 @@ CREATE TABLE ligue (
 
 CREATE TABLE hebergement (
     idHebergement int NOT NULL IDENTITY,
-    nomHerbergement varchar(30),
+    nomHebergement varchar(30),
     adresse varchar(50),
     ville varchar(30),
     cp varchar(5),
