@@ -1,3 +1,3 @@
-# Lugati :)
+# Lugati :) 👌🍌
 
 Logiciel
