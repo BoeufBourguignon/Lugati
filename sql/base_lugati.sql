@@ -45,7 +45,7 @@ CREATE TABLE session (
     libelle varchar(100),
     tarif int,
     nbPlaces int,
-    date datetime,
+    date date,
     heure time,
     CONSTRAINT pk_numSession PRIMARY KEY (numSession)
 );
@@ -56,7 +56,7 @@ CREATE TABLE activite (
     libelle varchar(30),
     tarif int,
     nbPlaces int,
-    date datetime,
+    date date,
     heure time,
     CONSTRAINT pk_numActivite PRIMARY KEY (numActivite)
 );
