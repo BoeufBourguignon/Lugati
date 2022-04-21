@@ -42,7 +42,7 @@ CREATE TABLE participant (
 
 CREATE TABLE session (
     numSession int NOT NULL IDENTITY,
-    libelle varchar(30),
+    libelle varchar(100),
     tarif int,
     nbPlaces int,
     date datetime,
