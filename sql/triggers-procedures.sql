@@ -64,3 +64,14 @@ begin
 	end
 end
 go
+
+--Procédure qui obtient le prix total à payer (sessions et activités comprises) pour un idParticipant passé en paramètres
+
+create or alter procedure MontantTotalCongressiste (@idP int)
+as
+	select SUM(S.tarif) + SUM(A.tarif) as prixTotal
+	from activite A
+		join participer P ON P.numActivite = A.numActivite
+		join inscrire I ON I.idParticipant = P.idParticipant
+		join session S ON S.numSession = I.numSession
+	where P.idParticipant = @idP
