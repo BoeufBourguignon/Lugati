@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31624.102
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinLugati", "WinLugati\WinLugati.csproj", "{9B172325-1760-469A-B8B0-644595A4FA4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Passerelle", "Passerelle\Passerelle.csproj", "{1D68CE2A-FC56-49F3-87F5-7A0F66C2057E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{9B172325-1760-469A-B8B0-644595A4FA4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B172325-1760-469A-B8B0-644595A4FA4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B172325-1760-469A-B8B0-644595A4FA4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D68CE2A-FC56-49F3-87F5-7A0F66C2057E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D68CE2A-FC56-49F3-87F5-7A0F66C2057E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D68CE2A-FC56-49F3-87F5-7A0F66C2057E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D68CE2A-FC56-49F3-87F5-7A0F66C2057E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
