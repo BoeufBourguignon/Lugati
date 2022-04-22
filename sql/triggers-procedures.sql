@@ -91,7 +91,7 @@ go
 --Procédure qui obtient le nombre de places dispo pour un idActivite passé en paramètres
 create or alter procedure NbPlaceParActivite (@numA int)
 as
-	select (nbPlaces - COUNT(A.idParticipant)) as nbPlaceDisponible
+	select (nbPlaces - COUNT(P.idParticipant)) as nbPlaceDisponible
 	from activite A
 		left join participer P on P.numActivite = A.numActivite
 	where A.numActivite = @numA
