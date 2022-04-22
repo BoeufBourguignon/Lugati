@@ -19,7 +19,7 @@ namespace Passerelle
         /// Retourne tous les hotels présent dans la base de données
         /// </summary>
         /// <returns>Collection d'hotels</returns>
-        public static List<hebergement> GetLesVoyages()
+        public static List<Hebergement> GetLesVoyages()
         {
             List<Voyage> lesVoyages = new List<Voyage>();
 
