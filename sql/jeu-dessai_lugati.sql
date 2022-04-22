@@ -31,7 +31,7 @@ VALUES
 
 INSERT INTO session (libelle,tarif,nbPlaces,date,heure)
 VALUES
-  ('Session d’inauguration',26,64,'24-10-2021','09:00'),
+  ('Session d’inauguration',26,64,'31-1-2023','09:00'),
   ('Evaluation psychologique du sportif',30,38,'08-04-2023','09:00'),
   ('Pratiques sportives et usages de drogues',23,37,'9-9-2021','14:30'),
   ('Le burnout sportif comparé au syndrome de surentraînement',23,45,'30-6-2021','09:00'),
@@ -60,7 +60,6 @@ VALUES
     (4,5),
     (5,6),
     (6,7);
-
 
 INSERT INTO participer (numActivite, idParticipant)
 VALUES

@@ -1,6 +1,6 @@
 -- TRIGGERS
-create trigger tiu_participer on participer 
-after insert, update
+create or alter trigger tiu_participer on participer 
+instead of insert, update
 as
 begin
 	declare cursParticiper cursor
@@ -8,6 +8,7 @@ begin
 		select idParticipant, numActivite
 		from inserted 
 	declare @idParticipant int, @numActivite int
+	open cursParticiper
 	fetch next from cursParticiper into @idParticipant, @numActivite
 	while(@@FETCH_STATUS = 0)
 	begin
@@ -17,6 +18,7 @@ begin
 			from activite 
 			where numActivite = @numActivite
 		)
+		print @dateActivite
 
 		if(@dateActivite IN (
 				select concat(date, ' ', heure) from activite a join participer p on a.numActivite = p.numActivite and p.idParticipant = @idParticipant
@@ -29,11 +31,13 @@ begin
 
 		fetch next from cursParticiper into @idParticipant, @numActivite
 	end
+	close cursParticiper
+	deallocate cursParticiper
 end
 go
 
-create trigger tiu_inscrire on inscrire 
-after insert, update
+create or alter trigger tiu_inscrire on inscrire 
+instead of insert, update
 as
 begin
 	declare cursParticiper cursor
@@ -41,6 +45,7 @@ begin
 		select idParticipant, numSession
 		from inserted 
 	declare @idParticipant int, @numSession int
+	open cursParticiper
 	fetch next from cursParticiper into @idParticipant, @numSession
 	while(@@FETCH_STATUS = 0)
 	begin
@@ -62,6 +67,8 @@ begin
 
 		fetch next from cursParticiper into @idParticipant, @numSession
 	end
+	close cursParticiper
+	deallocate cursParticiper
 end
 go
 
