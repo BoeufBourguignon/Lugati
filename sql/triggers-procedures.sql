@@ -65,8 +65,8 @@ begin
 end
 go
 
---Procédure qui obtient le prix total à payer (sessions et activités comprises) pour un idParticipant passé en paramètres
 
+--Procédure qui obtient le prix total à payer (sessions et activités comprises) pour un idParticipant passé en paramètres
 create or alter procedure MontantTotalCongressiste (@idP int)
 as
 	select SUM(S.tarif) + SUM(A.tarif) as prixTotal
@@ -75,3 +75,25 @@ as
 		join inscrire I ON I.idParticipant = P.idParticipant
 		join session S ON S.numSession = I.numSession
 	where P.idParticipant = @idP
+go
+
+
+--Le nombre de places disponibles à une session donnée;
+create or alter procedure NbPlaceParSession (@numS int)
+as
+	select (nbPlaces - COUNT(I.idParticipant)) as nbPlaceDisponible
+	from session S
+		left join inscrire I on S.numSession = I.numSession
+	where S.numSession = @numS
+	group by S.nbPlaces
+go
+
+--Procédure qui obtient le nombre de places dispo pour un idActivite passé en paramètres
+create or alter procedure NbPlaceParActivite (@numA int)
+as
+	select (nbPlaces - COUNT(A.idParticipant)) as nbPlaceDisponible
+	from activite A
+		left join participer P on P.numActivite = A.numActivite
+	where A.numActivite = @numA
+	group by A.nbPlaces
+go
