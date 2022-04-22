@@ -104,3 +104,9 @@ as
 	where A.numActivite = @numA
 	group by A.nbPlaces
 go
+
+
+--Droits
+GRANT EXEC ON NbPlaceParActivite TO LugatiApp;
+GRANT EXEC ON NbPlaceParSession TO LugatiApp;
+GRANT EXEC ON MontantTotalCongressiste TO LugatiApp;

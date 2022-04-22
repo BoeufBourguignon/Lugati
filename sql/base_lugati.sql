@@ -4,6 +4,7 @@ DROP DATABASE IF EXISTS base_lugati;
 CREATE DATABASE base_lugati;
 USE base_lugati;
 
+
 CREATE TABLE ligue (
     idLigue int NOT NULL IDENTITY,
     nomLigue varchar(100),
@@ -77,3 +78,15 @@ CREATE TABLE inscrire (
     CONSTRAINT fk_inscrire_numSession FOREIGN KEY (numSession) REFERENCES session(numSession),
     CONSTRAINT fk_inscrire_idParticipant FOREIGN KEY (idParticipant) REFERENCES participant(idParticipant)
 );
+
+
+CREATE LOGIN LugatiApp WITH PASSWORD = 'b4n4n3';
+CREATE USER LugatiApp FOR LOGIN LugatiApp;
+--Droits tables
+GRANT INSERT, UPDATE, DELETE, SELECT ON ligue TO LugatiApp;
+GRANT INSERT, UPDATE, DELETE, SELECT ON activite TO LugatiApp;
+GRANT INSERT, UPDATE, DELETE, SELECT ON hebergement TO LugatiApp;
+GRANT INSERT, UPDATE, DELETE, SELECT ON inscrire TO LugatiApp;
+GRANT INSERT, UPDATE, DELETE, SELECT ON participant TO LugatiApp;
+GRANT INSERT, UPDATE, DELETE, SELECT ON participer TO LugatiApp;
+GRANT INSERT, UPDATE, DELETE, SELECT ON session TO LugatiApp;
