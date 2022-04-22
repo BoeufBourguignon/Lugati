@@ -10,7 +10,7 @@ namespace Passerelle
     public static class Passerelle
     {
         private static SqlConnection connexionBaseTravel = new SqlConnection(
-            "Data Source=DESKTOP-1QBGM1M;" +
+            "Data Source=" + Environment.MachineName.ToString() + ";" +
             "Initial Catalog=base_lugati;" +
             "User Id=LugatiApp;" +
             "Password=b4n4n3");
