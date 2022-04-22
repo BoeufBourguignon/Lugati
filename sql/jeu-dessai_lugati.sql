@@ -31,24 +31,24 @@ VALUES
 
 INSERT INTO session (libelle,tarif,nbPlaces,date,heure)
 VALUES
-  ('Session d’inauguration',26,64,'24-10-2021','11:53'),
-  ('Evaluation psychologique du sportif',30,38,'08-04-2023','2:03'),
-  ('Pratiques sportives et usages de drogues',23,37,'9-9-2021','9:48'),
-  ('Le burnout sportif comparé au syndrome de surentraînement',23,45,'30-6-2021','1:43'),
-  ('Courir en extérieur sous la pluie',27,29,'11-8-2021','2:22'),
-  ('Le doppage dans les JO',29,63,'7-5-2021','1:03'),
-  ('Le sport pour les nuls',33,17,'6-11-2022','11:48');
+  ('Session d’inauguration',26,64,'24-10-2021','09:00'),
+  ('Evaluation psychologique du sportif',30,38,'08-04-2023','09:00'),
+  ('Pratiques sportives et usages de drogues',23,37,'9-9-2021','14:30'),
+  ('Le burnout sportif comparé au syndrome de surentraînement',23,45,'30-6-2021','09:00'),
+  ('Courir en extérieur sous la pluie',27,29,'11-8-2021','14:30'),
+  ('Le doppage dans les JO',29,63,'7-5-2021','14:30'),
+  ('Le sport pour les nuls',33,17,'6-11-2022','14:30');
 
 
 INSERT INTO activite (libelle,tarif,nbPlaces,date,heure)
 VALUES
-  ('Patinoire sur bois d''acacia brut',39,17,'31-1-2023','09:30'),
-  ('Ouho',38,42,'7-10-2022','09:30'),
-  ('Corde à sauter en extérieur',39,26,'16-10-2021','09:30'),
-  ('Course de trottinettes',33,73,'28-2-2022','14:00'),
-  ('Atelier mécanique',37,51,'8-2-2023','14:00'),
-  ('Rénovation de livres',35,37,'17-4-2023','14:00'),
-  ('Barbecue collectif',39,11,'6-10-2021','14:00');
+  ('Patinoire sur bois d''acacia brut',39,17,'31-1-2023','09:00'),
+  ('Ouho',38,42,'7-10-2022','09:00'),
+  ('Corde à sauter en extérieur',39,26,'16-10-2021','09:00'),
+  ('Course de trottinettes',33,73,'28-2-2022','14:30'),
+  ('Atelier mécanique',37,51,'8-2-2023','14:30'),
+  ('Rénovation de livres',35,37,'17-4-2023','14:30'),
+  ('Barbecue collectif',39,11,'6-10-2021','14:30');
 
 
 INSERT INTO inscrire (numSession, idParticipant)
