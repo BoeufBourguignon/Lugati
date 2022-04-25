@@ -9,49 +9,52 @@ namespace Passerelle
 {
     public static class Passerelle
     {
-        private static SqlConnection connexionBaseTravel = new SqlConnection(
+        private static SqlConnection connexionBaseLugati = new SqlConnection(
             "Data Source=" + Environment.MachineName.ToString() + ";" +
             "Initial Catalog=base_lugati;" +
             "User Id=LugatiApp;" +
             "Password=b4n4n3");
 
         /// <summary>
-        /// Retourne tous les hotels présent dans la base de données
+        /// Retourne tous les Hotels présent dans la base de données
         /// </summary>
-        /// <returns>Collection d'hotels</returns>
-        public static List<Hebergement> GetLesVoyages()
+        /// <returns>Collection d'Hotels</returns>
+        public static List<Hebergement> GetLesHebergements()
         {
-            List<Voyage> lesVoyages = new List<Voyage>();
+            List<Hebergement> lesHebergements = new List<Hebergement>();
 
-            SqlCommand reqLesVoyages =
-                new SqlCommand("SELECT num, titre, nbPlace, tarif " +
-                                "FROM Voyage",
-                ClassePasserelle.connexionBaseTravel);
+            SqlCommand reqLesHebergements =
+                new SqlCommand("SELECT idHebergement, nomHebergement, adresse, ville, CP, tel, nbEtoiles, prix " +
+                                "FROM Hebergement",
+                Passerelle.connexionBaseLugati);
 
-            ClassePasserelle.connexionBaseTravel.Open();
+                Passerelle.connexionBaseLugati.Open();
 
-            SqlDataReader readerLesVoyages = reqLesVoyages.ExecuteReader();
+            SqlDataReader readerLesHebergements = reqLesHebergements.ExecuteReader();
 
-            if (readerLesVoyages.HasRows)
+            if (readerLesHebergements.HasRows)
             {
-                while (readerLesVoyages.Read())
+                while (readerLesHebergements.Read())
                 {
-                    lesVoyages.Add(new Voyage(
-                            (int)readerLesVoyages[0],
-                            readerLesVoyages[1].ToString(),
-                            (int)readerLesVoyages[2],
-                            (int)readerLesVoyages[3])
-                        );
+                    lesHebergements.Add(new Hebergement(
+                            (int)readerLesHebergements[0],
+                            readerLesHebergements[1].ToString(),
+                            readerLesHebergements[2].ToString(),
+                            readerLesHebergements[3].ToString(),
+                            readerLesHebergements[4].ToString(),
+                            readerLesHebergements[5].ToString(),
+                            (int)readerLesHebergements[6],
+                            (int)readerLesHebergements[7]));
                 }
             }
             else
             {
-                throw new Exception("Il n'existe aucun voyage");
+                throw new Exception("Il n'existe aucun Hebergements");
             }
 
-            ClassePasserelle.connexionBaseTravel.Close();
+            Passerelle.connexionBaseLugati.Close();
 
-            return lesVoyages;
+            return lesHebergements;
         }
     }
 }
