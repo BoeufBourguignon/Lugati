@@ -56,6 +56,8 @@ namespace WinLugati
             this.textBoxNbEtoileHotel = new System.Windows.Forms.TextBox();
             this.BtnValiderHotel = new System.Windows.Forms.Button();
             this.BtnAnnulerHotel = new System.Windows.Forms.Button();
+            this.BtnSupprimerHotel = new System.Windows.Forms.Button();
+            this.BtnModifierHotel = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridHebergement)).BeginInit();
             this.SuspendLayout();
@@ -278,12 +280,37 @@ namespace WinLugati
             this.BtnAnnulerHotel.UseVisualStyleBackColor = true;
             this.BtnAnnulerHotel.Click += new System.EventHandler(this.BtnAnnulerHotel_Click);
             // 
+            // BtnSupprimerHotel
+            // 
+            this.BtnSupprimerHotel.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.BtnSupprimerHotel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.BtnSupprimerHotel.Location = new System.Drawing.Point(122, 236);
+            this.BtnSupprimerHotel.Name = "BtnSupprimerHotel";
+            this.BtnSupprimerHotel.Size = new System.Drawing.Size(102, 36);
+            this.BtnSupprimerHotel.TabIndex = 22;
+            this.BtnSupprimerHotel.Text = "Supprimer un Hotel";
+            this.BtnSupprimerHotel.UseVisualStyleBackColor = false;
+            this.BtnSupprimerHotel.Click += new System.EventHandler(this.BtnSupprimerHotel_Click);
+            // 
+            // BtnModifierHotel
+            // 
+            this.BtnModifierHotel.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.BtnModifierHotel.Location = new System.Drawing.Point(231, 236);
+            this.BtnModifierHotel.Name = "BtnModifierHotel";
+            this.BtnModifierHotel.Size = new System.Drawing.Size(95, 36);
+            this.BtnModifierHotel.TabIndex = 23;
+            this.BtnModifierHotel.Text = "Modifier un Hotel";
+            this.BtnModifierHotel.UseVisualStyleBackColor = false;
+            this.BtnModifierHotel.Click += new System.EventHandler(this.BtnModifierHotel_Click);
+            // 
             // FrmHebergement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
             this.ClientSize = new System.Drawing.Size(590, 489);
+            this.Controls.Add(this.BtnModifierHotel);
+            this.Controls.Add(this.BtnSupprimerHotel);
             this.Controls.Add(this.BtnAnnulerHotel);
             this.Controls.Add(this.BtnValiderHotel);
             this.Controls.Add(this.textBoxNbEtoileHotel);
@@ -341,6 +368,8 @@ namespace WinLugati
         private System.Windows.Forms.TextBox textBoxNbEtoileHotel;
         private System.Windows.Forms.Button BtnValiderHotel;
         private System.Windows.Forms.Button BtnAnnulerHotel;
+        private System.Windows.Forms.Button BtnSupprimerHotel;
+        private System.Windows.Forms.Button BtnModifierHotel;
     }
 }
 

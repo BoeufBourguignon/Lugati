@@ -19,28 +19,19 @@ namespace Passerelle
             "Password=b4n4n3");
 
         /// <summary>
-        /// Retourne tous les hotels présent dans la base de données
+        /// Retourne tous les Hotels présent dans la base de données
         /// </summary>
-        /// <returns>Collection d'hotels</returns>
-<<<<<<< Updated upstream
-        public static List<Hebergement> GetLesVoyages()
-=======
+        /// <returns>Collection d'Hotels</returns>
         public static List<Hebergement> GetLesHebergements()
->>>>>>> Stashed changes
         {
             List<Hebergement> lesHebergements = new List<Hebergement>();
 
             SqlCommand reqLesHebergements =
-<<<<<<< HEAD
-                new SqlCommand("SELECT idHebergement, nomHebergement, adresse, ville, cp, tel, nbEtoiles, prix " +
-                                "FROM hebergement",
-=======
                 new SqlCommand("SELECT idHebergement, nomHebergement, adresse, ville, cp, tel, nbEtoile, prix " +
                                 "FROM Hebergement",
->>>>>>> ebb4011 (FrmHebergement_V2_Lulu)
                 Passerelle.connexionBaseLugati);
 
-            Passerelle.connexionBaseLugati.Open();
+                Passerelle.connexionBaseLugati.Open();
 
             SqlDataReader readerLesHebergements = reqLesHebergements.ExecuteReader();
 
@@ -56,13 +47,12 @@ namespace Passerelle
                             readerLesHebergements[4].ToString(),
                             readerLesHebergements[5].ToString(),
                             (int)readerLesHebergements[6],
-                            (int)readerLesHebergements[7])
-                        );
+                            (int)readerLesHebergements[7]));
                 }
             }
             else
             {
-                throw new Exception("Il n'existe aucun hébergement");
+                throw new Exception("Il n'existe aucun Hebergements");
             }
 
             Passerelle.connexionBaseLugati.Close();
@@ -149,6 +139,27 @@ namespace Passerelle
             Passerelle.connexionBaseLugati.Close();
 
             return id;
+        }
+        /// <summary>
+        /// Supprime un Hotel dans la Base de donnée.
+        /// </summary>
+        /// <param name="lesIdHebergements">Liste des IdHerbegement rechercher</param>
+        public static void SupprimerLesHebergements(List<int> lesIdHebergements)
+        {
+            string reqWhereStr = "IN (" + lesIdHebergements[0];
+            foreach (int unId in lesIdHebergements)
+            {
+                reqWhereStr += ", " + unId;
+            }
+            reqWhereStr += ") ";
+
+            SqlCommand reqSupprimerHebergement = new SqlCommand("DELETE FROM Hebergement WHERE idHebergement " + reqWhereStr, Passerelle.connexionBaseLugati);
+
+            Passerelle.connexionBaseLugati.Open();
+
+            reqSupprimerHebergement.ExecuteNonQuery();
+
+            Passerelle.connexionBaseLugati.Close();
         }
     }
 }
