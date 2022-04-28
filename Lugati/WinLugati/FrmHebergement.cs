@@ -36,6 +36,11 @@ namespace WinLugati
 
             BtnValiderHotel.Visible = false;
             BtnAnnulerHotel.Visible = false;
+
+            BtnValiderModifHotel.Visible = false;
+            BtnAnnulerModifHotel.Visible = false;
+
+            comboBoxIdHotel.Visible = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -52,6 +57,17 @@ namespace WinLugati
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            try
+            {
+                //On charge la comboBox avec tous les voyages de la base de données au chargement du formulaire
+                comboBoxIdHotel.DataSource = Passerelle.Passerelle.GetLesHebergements();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur au chargement des données :\n" + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
             }
         }
 
@@ -148,33 +164,57 @@ namespace WinLugati
 
         private void BtnModifierHotel_Click(object sender, EventArgs e)
         {
-            Hebergement hotelSelectionne = (Hebergement)comboBxLesVoyages.SelectedItem;
-            if (string.IsNullOrWhiteSpace(txtTitre.Text) || string.IsNullOrWhiteSpace(txtNombrePlaces.Text) || string.IsNullOrWhiteSpace(txtTarif.Text))
+            labelNomHotel.Visible = true;
+            labelAdresseHotel.Visible = true;
+            labelVilleHotel.Visible = true;
+            labelCPHotel.Visible = true;
+            labelTelHotel.Visible = true;
+            labelNbEtoileHotel.Visible = true;
+            labelPrixHotel.Visible = true;
+
+            textBoxNomHotel.Visible = true;
+            textBoxAdresseHotel.Visible = true;
+            textBoxVilleHotel.Visible = true;
+            textBoxCPHotel.Visible = true;
+            textBoxTelHotel.Visible = true;
+            textBoxNbEtoileHotel.Visible = true;
+            textBoxPrixHotel.Visible = true;
+
+            BtnValiderModifHotel.Visible = true;
+            BtnAnnulerModifHotel.Visible = true;
+
+            comboBoxIdHotel.Visible = true;
+        }
+
+        private void BtnValiderModifHotel_Click(object sender, EventArgs e)
+        {
+            Hebergement hebergementSelectionne = (Hebergement)comboBoxIdHotel.SelectedItem;
+            if (string.IsNullOrWhiteSpace(textBoxNomHotel.Text) ||
+                string.IsNullOrWhiteSpace(textBoxAdresseHotel.Text) ||
+                string.IsNullOrWhiteSpace(textBoxVilleHotel.Text) ||
+                string.IsNullOrWhiteSpace(textBoxCPHotel.Text) ||
+                string.IsNullOrWhiteSpace(textBoxTelHotel.Text) ||
+                string.IsNullOrWhiteSpace(textBoxPrixHotel.Text) ||
+                string.IsNullOrWhiteSpace(textBoxNbEtoileHotel.Text)
+            )
             {
                 MessageBox.Show("Vous devez remplir TOUS les champs !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (int.Parse(txtNombrePlaces.Text) < gridClient.RowCount)
-            {
-                MessageBox.Show(
-                    "Le nouveau nombre de places ne peut pas être inférieur au nombre de participants actuel !",
-                    "Erreur",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
             }
             else
             {
                 //On demande à l'utilisateur de confirmer la modification
-                if (MessageBox.Show("Etes-vous sûr de vouloir modifier le voyage ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Etes-vous sûr de vouloir modifier le hebergement ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     try
                     {
                         //L'utilisateur confirme la modification des valeurs
-                        ClassePasserelle.ModifierVoyage(voyageSelectio nne.Num, txtTitre.Text, int.Parse(txtNombrePlaces.Text), int.Parse(txtTarif.Text));
+                        Passerelle.Passerelle.ModifierHebergement(hebergementSelectionne.idHebergement, textBoxNomHotel.Text, textBoxAdresseHotel.Text, textBoxVilleHotel.Text, textBoxCPHotel.Text, textBoxTelHotel.Text, int.Parse(textBoxNbEtoileHotel.Text), int.Parse(textBoxPrixHotel.Text));
 
                         //On actualise la comboBox
-                        int index = comboBxLesVoyages.SelectedIndex; //On sauvegarde l'index du voyage modifié
-                        comboBxLesVoyages.DataSource = ClassePasserelle.GetLesVoyages(); //On recharge tous les voyages dans la comboBox
-                        comboBxLesVoyages.SelectedIndex = index; //On sélectionne l'index du voyage modifié dans la comboBox
+                        int index = comboBoxIdHotel.SelectedIndex; //On sauvegarde l'index du hebergement modifié
+                        comboBoxIdHotel.DataSource = Passerelle.Passerelle.GetLesHebergements(); //On recharge tous les hebergements dans la comboBox
+                        comboBoxIdHotel.SelectedIndex = index; //On sélectionne l'index du hebergement modifié dans la comboBox
+                        this.Close();
                     }
                     catch (Exception ex)
                     {
@@ -183,12 +223,42 @@ namespace WinLugati
                 }
                 else
                 {
-                    //On affiche à nouveau le détail du voyage
-                    txtTitre.Text = voyageSelectionne.Titre;
-                    txtNombrePlaces.Text = voyageSelectionne.NbPlace.ToString();
-                    txtTarif.Text = voyageSelectionne.Tarif.ToString();
+                    //On affiche à nouveau le détail du hebergement
+                    textBoxNomHotel.Text = hebergementSelectionne.nomHebergement;
+                    textBoxAdresseHotel.Text = hebergementSelectionne.adresse;
+                    textBoxVilleHotel.Text = hebergementSelectionne.ville;
+                    textBoxCPHotel.Text = hebergementSelectionne.cp;
+                    textBoxTelHotel.Text = hebergementSelectionne.tel;
+                    textBoxNbEtoileHotel.Text = hebergementSelectionne.nbEtoile.ToString();
+                    textBoxPrixHotel.Text = hebergementSelectionne.prix.ToString();
                 }
             }
+        }
+
+        private void BtnAnnulerModifHotel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void comboBoxIdHotel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //A chaque changement d'index dans la comboBox, on récupère le voyage selectionné
+            Hebergement hotelSelectionne = (Hebergement)comboBoxIdHotel.SelectedItem;
+
+            //On affiche son détail dans les TextBox
+            AfficheDetailHotel(hotelSelectionne);
+        }
+
+        private void AfficheDetailHotel(Hebergement unHotel)
+        {
+            //On affiche dans les différents composants les données de l'objet voyage passé en paramètre
+            textBoxNomHotel.Text = unHotel.nomHebergement;
+            textBoxAdresseHotel.Text = unHotel.adresse;
+            textBoxVilleHotel.Text = unHotel.ville;
+            textBoxCPHotel.Text = unHotel.cp;
+            textBoxTelHotel.Text = unHotel.tel;
+            textBoxNbEtoileHotel.Text = unHotel.nbEtoile.ToString();
+            textBoxPrixHotel.Text = unHotel.prix.ToString();
         }
     }
 }

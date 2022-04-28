@@ -26,6 +26,11 @@ namespace Passerelle
             this.nbEtoile = nbEtoile;
             this.prix = prix;
         }
+
+        public override string ToString()
+        {
+            return this.idHebergement + " . " + this.nomHebergement;
+        }
     }
     /// <summary>
     /// Class
