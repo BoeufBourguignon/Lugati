@@ -58,8 +58,15 @@ namespace WinLugati
             this.BtnAnnulerHotel = new System.Windows.Forms.Button();
             this.BtnSupprimerHotel = new System.Windows.Forms.Button();
             this.BtnModifierHotel = new System.Windows.Forms.Button();
+            this.BtnValiderModifHotel = new System.Windows.Forms.Button();
+            this.BtnAnnulerModifHotel = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.comboBoxIdHotel = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridHebergement)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -133,7 +140,7 @@ namespace WinLugati
             // BtnAjouterHebergement
             // 
             this.BtnAjouterHebergement.BackColor = System.Drawing.Color.GhostWhite;
-            this.BtnAjouterHebergement.Location = new System.Drawing.Point(18, 235);
+            this.BtnAjouterHebergement.Location = new System.Drawing.Point(19, 18);
             this.BtnAjouterHebergement.Name = "BtnAjouterHebergement";
             this.BtnAjouterHebergement.Size = new System.Drawing.Size(98, 37);
             this.BtnAjouterHebergement.TabIndex = 2;
@@ -145,7 +152,7 @@ namespace WinLugati
             // 
             this.labelNomHotel.AutoSize = true;
             this.labelNomHotel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelNomHotel.Location = new System.Drawing.Point(7, 285);
+            this.labelNomHotel.Location = new System.Drawing.Point(8, 68);
             this.labelNomHotel.Name = "labelNomHotel";
             this.labelNomHotel.Size = new System.Drawing.Size(63, 13);
             this.labelNomHotel.TabIndex = 4;
@@ -153,7 +160,7 @@ namespace WinLugati
             // 
             // textBoxNomHotel
             // 
-            this.textBoxNomHotel.Location = new System.Drawing.Point(76, 285);
+            this.textBoxNomHotel.Location = new System.Drawing.Point(77, 68);
             this.textBoxNomHotel.Name = "textBoxNomHotel";
             this.textBoxNomHotel.Size = new System.Drawing.Size(100, 20);
             this.textBoxNomHotel.TabIndex = 6;
@@ -162,7 +169,7 @@ namespace WinLugati
             // 
             this.labelAdresseHotel.AutoSize = true;
             this.labelAdresseHotel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelAdresseHotel.Location = new System.Drawing.Point(7, 311);
+            this.labelAdresseHotel.Location = new System.Drawing.Point(8, 94);
             this.labelAdresseHotel.Name = "labelAdresseHotel";
             this.labelAdresseHotel.Size = new System.Drawing.Size(50, 13);
             this.labelAdresseHotel.TabIndex = 7;
@@ -170,7 +177,7 @@ namespace WinLugati
             // 
             // textBoxAdresseHotel
             // 
-            this.textBoxAdresseHotel.Location = new System.Drawing.Point(63, 311);
+            this.textBoxAdresseHotel.Location = new System.Drawing.Point(64, 94);
             this.textBoxAdresseHotel.Name = "textBoxAdresseHotel";
             this.textBoxAdresseHotel.Size = new System.Drawing.Size(113, 20);
             this.textBoxAdresseHotel.TabIndex = 8;
@@ -179,7 +186,7 @@ namespace WinLugati
             // 
             this.labelPrixHotel.AutoSize = true;
             this.labelPrixHotel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelPrixHotel.Location = new System.Drawing.Point(7, 339);
+            this.labelPrixHotel.Location = new System.Drawing.Point(8, 122);
             this.labelPrixHotel.Name = "labelPrixHotel";
             this.labelPrixHotel.Size = new System.Drawing.Size(30, 13);
             this.labelPrixHotel.TabIndex = 9;
@@ -189,7 +196,7 @@ namespace WinLugati
             // 
             this.labelVilleHotel.AutoSize = true;
             this.labelVilleHotel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelVilleHotel.Location = new System.Drawing.Point(7, 365);
+            this.labelVilleHotel.Location = new System.Drawing.Point(8, 148);
             this.labelVilleHotel.Name = "labelVilleHotel";
             this.labelVilleHotel.Size = new System.Drawing.Size(32, 13);
             this.labelVilleHotel.TabIndex = 10;
@@ -199,7 +206,7 @@ namespace WinLugati
             // 
             this.labelCPHotel.AutoSize = true;
             this.labelCPHotel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelCPHotel.Location = new System.Drawing.Point(7, 390);
+            this.labelCPHotel.Location = new System.Drawing.Point(8, 173);
             this.labelCPHotel.Name = "labelCPHotel";
             this.labelCPHotel.Size = new System.Drawing.Size(70, 13);
             this.labelCPHotel.TabIndex = 11;
@@ -209,7 +216,7 @@ namespace WinLugati
             // 
             this.labelTelHotel.AutoSize = true;
             this.labelTelHotel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelTelHotel.Location = new System.Drawing.Point(7, 414);
+            this.labelTelHotel.Location = new System.Drawing.Point(8, 197);
             this.labelTelHotel.Name = "labelTelHotel";
             this.labelTelHotel.Size = new System.Drawing.Size(64, 13);
             this.labelTelHotel.TabIndex = 12;
@@ -217,28 +224,28 @@ namespace WinLugati
             // 
             // textBoxPrixHotel
             // 
-            this.textBoxPrixHotel.Location = new System.Drawing.Point(43, 339);
+            this.textBoxPrixHotel.Location = new System.Drawing.Point(44, 122);
             this.textBoxPrixHotel.Name = "textBoxPrixHotel";
             this.textBoxPrixHotel.Size = new System.Drawing.Size(133, 20);
             this.textBoxPrixHotel.TabIndex = 13;
             // 
             // textBoxVilleHotel
             // 
-            this.textBoxVilleHotel.Location = new System.Drawing.Point(43, 365);
+            this.textBoxVilleHotel.Location = new System.Drawing.Point(44, 148);
             this.textBoxVilleHotel.Name = "textBoxVilleHotel";
             this.textBoxVilleHotel.Size = new System.Drawing.Size(134, 20);
             this.textBoxVilleHotel.TabIndex = 14;
             // 
             // textBoxCPHotel
             // 
-            this.textBoxCPHotel.Location = new System.Drawing.Point(76, 387);
+            this.textBoxCPHotel.Location = new System.Drawing.Point(77, 170);
             this.textBoxCPHotel.Name = "textBoxCPHotel";
             this.textBoxCPHotel.Size = new System.Drawing.Size(100, 20);
             this.textBoxCPHotel.TabIndex = 15;
             // 
             // textBoxTelHotel
             // 
-            this.textBoxTelHotel.Location = new System.Drawing.Point(77, 414);
+            this.textBoxTelHotel.Location = new System.Drawing.Point(78, 197);
             this.textBoxTelHotel.Name = "textBoxTelHotel";
             this.textBoxTelHotel.Size = new System.Drawing.Size(100, 20);
             this.textBoxTelHotel.TabIndex = 16;
@@ -247,7 +254,7 @@ namespace WinLugati
             // 
             this.labelNbEtoileHotel.AutoSize = true;
             this.labelNbEtoileHotel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelNbEtoileHotel.Location = new System.Drawing.Point(201, 285);
+            this.labelNbEtoileHotel.Location = new System.Drawing.Point(202, 68);
             this.labelNbEtoileHotel.Name = "labelNbEtoileHotel";
             this.labelNbEtoileHotel.Size = new System.Drawing.Size(91, 13);
             this.labelNbEtoileHotel.TabIndex = 17;
@@ -255,14 +262,14 @@ namespace WinLugati
             // 
             // textBoxNbEtoileHotel
             // 
-            this.textBoxNbEtoileHotel.Location = new System.Drawing.Point(293, 282);
+            this.textBoxNbEtoileHotel.Location = new System.Drawing.Point(294, 65);
             this.textBoxNbEtoileHotel.Name = "textBoxNbEtoileHotel";
-            this.textBoxNbEtoileHotel.Size = new System.Drawing.Size(112, 20);
+            this.textBoxNbEtoileHotel.Size = new System.Drawing.Size(93, 20);
             this.textBoxNbEtoileHotel.TabIndex = 19;
             // 
             // BtnValiderHotel
             // 
-            this.BtnValiderHotel.Location = new System.Drawing.Point(204, 327);
+            this.BtnValiderHotel.Location = new System.Drawing.Point(205, 110);
             this.BtnValiderHotel.Name = "BtnValiderHotel";
             this.BtnValiderHotel.Size = new System.Drawing.Size(122, 37);
             this.BtnValiderHotel.TabIndex = 20;
@@ -272,7 +279,7 @@ namespace WinLugati
             // 
             // BtnAnnulerHotel
             // 
-            this.BtnAnnulerHotel.Location = new System.Drawing.Point(204, 377);
+            this.BtnAnnulerHotel.Location = new System.Drawing.Point(205, 160);
             this.BtnAnnulerHotel.Name = "BtnAnnulerHotel";
             this.BtnAnnulerHotel.Size = new System.Drawing.Size(122, 34);
             this.BtnAnnulerHotel.TabIndex = 21;
@@ -284,7 +291,7 @@ namespace WinLugati
             // 
             this.BtnSupprimerHotel.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.BtnSupprimerHotel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.BtnSupprimerHotel.Location = new System.Drawing.Point(122, 236);
+            this.BtnSupprimerHotel.Location = new System.Drawing.Point(123, 19);
             this.BtnSupprimerHotel.Name = "BtnSupprimerHotel";
             this.BtnSupprimerHotel.Size = new System.Drawing.Size(102, 36);
             this.BtnSupprimerHotel.TabIndex = 22;
@@ -295,7 +302,7 @@ namespace WinLugati
             // BtnModifierHotel
             // 
             this.BtnModifierHotel.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.BtnModifierHotel.Location = new System.Drawing.Point(231, 236);
+            this.BtnModifierHotel.Location = new System.Drawing.Point(30, 15);
             this.BtnModifierHotel.Name = "BtnModifierHotel";
             this.BtnModifierHotel.Size = new System.Drawing.Size(95, 36);
             this.BtnModifierHotel.TabIndex = 23;
@@ -303,39 +310,95 @@ namespace WinLugati
             this.BtnModifierHotel.UseVisualStyleBackColor = false;
             this.BtnModifierHotel.Click += new System.EventHandler(this.BtnModifierHotel_Click);
             // 
+            // BtnValiderModifHotel
+            // 
+            this.BtnValiderModifHotel.Location = new System.Drawing.Point(17, 106);
+            this.BtnValiderModifHotel.Name = "BtnValiderModifHotel";
+            this.BtnValiderModifHotel.Size = new System.Drawing.Size(122, 37);
+            this.BtnValiderModifHotel.TabIndex = 24;
+            this.BtnValiderModifHotel.Text = "Valider";
+            this.BtnValiderModifHotel.UseVisualStyleBackColor = true;
+            this.BtnValiderModifHotel.Click += new System.EventHandler(this.BtnValiderModifHotel_Click);
+            // 
+            // BtnAnnulerModifHotel
+            // 
+            this.BtnAnnulerModifHotel.Location = new System.Drawing.Point(17, 156);
+            this.BtnAnnulerModifHotel.Name = "BtnAnnulerModifHotel";
+            this.BtnAnnulerModifHotel.Size = new System.Drawing.Size(122, 34);
+            this.BtnAnnulerModifHotel.TabIndex = 25;
+            this.BtnAnnulerModifHotel.Text = "Annuler";
+            this.BtnAnnulerModifHotel.UseVisualStyleBackColor = true;
+            this.BtnAnnulerModifHotel.Click += new System.EventHandler(this.BtnAnnulerModifHotel_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.groupBox2.Controls.Add(this.comboBoxIdHotel);
+            this.groupBox2.Controls.Add(this.BtnValiderModifHotel);
+            this.groupBox2.Controls.Add(this.BtnModifierHotel);
+            this.groupBox2.Controls.Add(this.BtnAnnulerModifHotel);
+            this.groupBox2.Location = new System.Drawing.Point(411, 239);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(158, 223);
+            this.groupBox2.TabIndex = 26;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Modifier";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.groupBox3.Controls.Add(this.BtnSupprimerHotel);
+            this.groupBox3.Controls.Add(this.BtnAjouterHebergement);
+            this.groupBox3.Controls.Add(this.labelNomHotel);
+            this.groupBox3.Controls.Add(this.BtnAnnulerHotel);
+            this.groupBox3.Controls.Add(this.textBoxNomHotel);
+            this.groupBox3.Controls.Add(this.BtnValiderHotel);
+            this.groupBox3.Controls.Add(this.labelAdresseHotel);
+            this.groupBox3.Controls.Add(this.textBoxNbEtoileHotel);
+            this.groupBox3.Controls.Add(this.textBoxAdresseHotel);
+            this.groupBox3.Controls.Add(this.labelNbEtoileHotel);
+            this.groupBox3.Controls.Add(this.labelPrixHotel);
+            this.groupBox3.Controls.Add(this.textBoxTelHotel);
+            this.groupBox3.Controls.Add(this.labelVilleHotel);
+            this.groupBox3.Controls.Add(this.textBoxCPHotel);
+            this.groupBox3.Controls.Add(this.labelCPHotel);
+            this.groupBox3.Controls.Add(this.textBoxVilleHotel);
+            this.groupBox3.Controls.Add(this.labelTelHotel);
+            this.groupBox3.Controls.Add(this.textBoxPrixHotel);
+            this.groupBox3.Location = new System.Drawing.Point(12, 235);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(393, 227);
+            this.groupBox3.TabIndex = 27;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Ajouter ou Supprimer";
+            // 
+            // comboBoxIdHotel
+            // 
+            this.comboBoxIdHotel.FormattingEnabled = true;
+            this.comboBoxIdHotel.Location = new System.Drawing.Point(18, 61);
+            this.comboBoxIdHotel.Name = "comboBoxIdHotel";
+            this.comboBoxIdHotel.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxIdHotel.TabIndex = 26;
+            this.comboBoxIdHotel.SelectedIndexChanged += new System.EventHandler(this.comboBoxIdHotel_SelectedIndexChanged);
+            // 
             // FrmHebergement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
             this.ClientSize = new System.Drawing.Size(590, 489);
-            this.Controls.Add(this.BtnModifierHotel);
-            this.Controls.Add(this.BtnSupprimerHotel);
-            this.Controls.Add(this.BtnAnnulerHotel);
-            this.Controls.Add(this.BtnValiderHotel);
-            this.Controls.Add(this.textBoxNbEtoileHotel);
-            this.Controls.Add(this.labelNbEtoileHotel);
-            this.Controls.Add(this.textBoxTelHotel);
-            this.Controls.Add(this.textBoxCPHotel);
-            this.Controls.Add(this.textBoxVilleHotel);
-            this.Controls.Add(this.textBoxPrixHotel);
-            this.Controls.Add(this.labelTelHotel);
-            this.Controls.Add(this.labelCPHotel);
-            this.Controls.Add(this.labelVilleHotel);
-            this.Controls.Add(this.labelPrixHotel);
-            this.Controls.Add(this.textBoxAdresseHotel);
-            this.Controls.Add(this.labelAdresseHotel);
-            this.Controls.Add(this.textBoxNomHotel);
-            this.Controls.Add(this.labelNomHotel);
-            this.Controls.Add(this.BtnAjouterHebergement);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmHebergement";
             this.Text = "FrmHebergements";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridHebergement)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -370,6 +433,11 @@ namespace WinLugati
         private System.Windows.Forms.Button BtnAnnulerHotel;
         private System.Windows.Forms.Button BtnSupprimerHotel;
         private System.Windows.Forms.Button BtnModifierHotel;
+        private System.Windows.Forms.Button BtnValiderModifHotel;
+        private System.Windows.Forms.Button BtnAnnulerModifHotel;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ComboBox comboBoxIdHotel;
     }
 }
 

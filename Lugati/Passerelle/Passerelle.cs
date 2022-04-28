@@ -161,5 +161,27 @@ namespace Passerelle
 
             Passerelle.connexionBaseLugati.Close();
         }
+
+        public static void ModifierHebergement(int idHebergement, string nomHebergement, string adresse, string ville, string cp, string tel, int nbEtoile, int prix)
+        {
+            SqlCommand reqModifierHebergement =
+                new SqlCommand("UPDATE Hebergement SET nomHebergement = @nomHebergement, adresse = @adresse, ville = @ville, cp = @cp, tel = @tel, nbEtoile = @nbEtoile, prix = @prix " +
+                                "WHERE idHebergement = @idHebergement",
+                Passerelle.connexionBaseLugati);
+            reqModifierHebergement.Parameters.AddWithValue("@nomHebergement", nomHebergement);
+            reqModifierHebergement.Parameters.AddWithValue("@adresse", adresse);
+            reqModifierHebergement.Parameters.AddWithValue("@ville", ville);
+            reqModifierHebergement.Parameters.AddWithValue("@cp", cp);
+            reqModifierHebergement.Parameters.AddWithValue("@tel", tel);
+            reqModifierHebergement.Parameters.AddWithValue("@nbEtoile", nbEtoile);
+            reqModifierHebergement.Parameters.AddWithValue("@prix", prix);
+            reqModifierHebergement.Parameters.AddWithValue("@idHebergement", idHebergement);
+
+            Passerelle.connexionBaseLugati.Open();
+
+            reqModifierHebergement.ExecuteNonQuery();
+
+            Passerelle.connexionBaseLugati.Close();
+        }
     }
 }
