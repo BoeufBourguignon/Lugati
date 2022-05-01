@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Passerelle
 {
     public static class Passerelle
@@ -58,6 +59,46 @@ namespace Passerelle
             Passerelle.connexionBaseLugati.Close();
 
             return lesHebergements;
+        }
+
+        /// <summary>
+        /// Retourne toutes les sessions présentes dans la base de données
+        /// </summary>
+        /// <returns>Collection de sessions</returns>
+        public static List<Session> GetLesSessions()
+        {
+            List<Session> lesSessions = new List<Session>();
+
+            SqlCommand reqLesSessions =
+                new SqlCommand("SELECT numSession, libelle, tarif, nbPlaces, date, heure " +
+                                "FROM Session",
+                Passerelle.connexionBaseLugati);
+
+            Passerelle.connexionBaseLugati.Open();
+
+            SqlDataReader readerLesSessions = reqLesSessions.ExecuteReader();
+
+            if (readerLesSessions.HasRows)
+            {
+                while (readerLesSessions.Read())
+                {
+                    lesSessions.Add(new Session(
+                            (int)readerLesSessions[0],
+                            readerLesSessions[1].ToString(),
+                            (int)readerLesSessions[2],
+                            (int)readerLesSessions[3],
+                            Convert.ToDateTime((string)readerLesSessions[4])),
+                            Convert.ToDateTime((string)readerLesSessions[5]));
+                }
+            }
+            else
+            {
+                throw new Exception("Il n'existe aucune Sessions");
+            }
+
+            Passerelle.connexionBaseLugati.Close();
+
+            return lesSessions;
         }
 
         /// <summary>
