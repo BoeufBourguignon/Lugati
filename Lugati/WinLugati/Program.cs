@@ -13,7 +13,7 @@ namespace WinLugati
         /// </summary>
         [STAThread]
         static void Main()
-        {
+        {aa
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FrmHebergement());
