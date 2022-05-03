@@ -20,13 +20,11 @@ namespace WinLugati
 
         private void FrmSession_Load(object sender, EventArgs e)
         {
-            //Permet de faire d'ajouter dans le datagrid chaque ligne de données liées à la Table Session.
             try
             {
                 foreach (Session uneSession in Passerelle.Passerelle.GetLesSessions())
                 {
-                    string[] row = { uneSession.numSession.ToString(), uneSession.libelle, uneSession.tarif.ToString(), uneSession.nbPlaces.ToString(), 
-                        uneSession.date.ToShortDateString(), uneSession.heure.ToShortTimeString()};
+                    string[] row = { uneSession.numSession.ToString(), uneSession.libelle, uneSession.tarif.ToString(), uneSession.nbPlaces.ToString(), uneSession.date.ToString(), uneSession.heure };
                     dataGridSession.Rows.Add(row);
                 }
             }

@@ -46,12 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmActivite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmActivite.Designer.cs">
+      <DependentUpon>FrmActivite.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmHebergement.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include=".Designer.cs">
       <DependentUpon>FrmHebergement.cs</DependentUpon>
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmParticipant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmParticipant.Designer.cs">
+      <DependentUpon>FrmParticipant.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmSession.cs">
       <SubType>Form</SubType>
@@ -61,8 +73,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmActivite.resx">
+      <DependentUpon>FrmActivite.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmHebergement.resx">
       <DependentUpon>FrmHebergement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmParticipant.resx">
+      <DependentUpon>FrmParticipant.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSession.resx">
       <DependentUpon>FrmSession.cs</DependentUpon>

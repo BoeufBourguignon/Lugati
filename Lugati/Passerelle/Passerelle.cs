@@ -87,8 +87,8 @@ namespace Passerelle
                             readerLesSessions[1].ToString(),
                             (int)readerLesSessions[2],
                             (int)readerLesSessions[3],
-                            Convert.ToDateTime((string)readerLesSessions[4])),
-                            Convert.ToDateTime((string)readerLesSessions[5]));
+                            Convert.ToDateTime(readerLesSessions[4]),
+                            (readerLesSessions[5].ToString())));
                 }
             }
             else
@@ -100,6 +100,83 @@ namespace Passerelle
 
             return lesSessions;
         }
+
+        public static List<Activite> GetLesActivites()
+        {
+            List<Activite> lesActivites = new List<Activite>();
+
+            SqlCommand reqLesActivites =
+                new SqlCommand("SELECT numActivite, libelle, tarif, nbPlaces, date, heure " +
+                                "FROM Activite",
+                Passerelle.connexionBaseLugati);
+
+            Passerelle.connexionBaseLugati.Open();
+
+            SqlDataReader readerLesActivites = reqLesActivites.ExecuteReader();
+
+            if (readerLesActivites.HasRows)
+            {
+                while (readerLesActivites.Read())
+                {
+                    lesActivites.Add(new Activite(
+                            (int)readerLesActivites[0],
+                            readerLesActivites[1].ToString(),
+                            (int)readerLesActivites[2],
+                            (int)readerLesActivites[3],
+                            Convert.ToDateTime(readerLesActivites[4]),
+                            readerLesActivites[5].ToString()));
+                }
+            }
+            else
+            {
+                throw new Exception("Il n'existe aucune Sessions");
+            }
+
+            Passerelle.connexionBaseLugati.Close();
+
+            return lesActivites;
+        }
+
+        public static List<Participant> GetLesParticipants()
+        {
+            List<Participant> lesParticipants = new List<Participant>();
+
+            SqlCommand reqLesParticipants =
+                new SqlCommand("SELECT idParticipant, nom, prenom, genre, idLigue, adresse, ville, cp, idHebergement " + 
+                                "FROM Participant",
+                Passerelle.connexionBaseLugati);
+
+            Passerelle.connexionBaseLugati.Open();
+
+            SqlDataReader readerLesParticipants = reqLesParticipants.ExecuteReader();
+
+            if (readerLesParticipants.HasRows)
+            {
+                while (readerLesParticipants.Read())
+                {
+                    lesParticipants.Add(new Participant(
+                            (int)readerLesParticipants[0],
+                            readerLesParticipants[1].ToString(),
+                            readerLesParticipants[2].ToString(),
+                            (char)readerLesParticipants[3],
+                            readerLesParticipants[4].ToString(),
+                            readerLesParticipants[5].ToString(),
+                            readerLesParticipants[6].ToString(),
+                            readerLesParticipants[7].ToString(),
+                            readerLesParticipants[8].ToString()));
+                }
+            }
+            else
+            {
+                throw new Exception("Il n'existe aucune Sessions");
+            }
+
+            Passerelle.connexionBaseLugati.Close();
+
+            return lesParticipants;
+        }
+
+
 
         /// <summary>
         /// Ajoute un nouveau hotel dans la base de données et retourne le numéro de ce nouveau hotel
