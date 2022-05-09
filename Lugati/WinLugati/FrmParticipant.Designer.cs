@@ -180,7 +180,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(244, 49);
             this.button1.TabIndex = 3;
-            this.button1.Text = "Voir tous les Particpants";
+            this.button1.Text = "Voir tous les Participants";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // label2
