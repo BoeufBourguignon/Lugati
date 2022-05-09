@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Passerelle
 {
     public static class Passerelle
@@ -59,6 +60,123 @@ namespace Passerelle
 
             return lesHebergements;
         }
+
+        /// <summary>
+        /// Retourne toutes les sessions présentes dans la base de données
+        /// </summary>
+        /// <returns>Collection de sessions</returns>
+        public static List<Session> GetLesSessions()
+        {
+            List<Session> lesSessions = new List<Session>();
+
+            SqlCommand reqLesSessions =
+                new SqlCommand("SELECT numSession, libelle, tarif, nbPlaces, date, heure " +
+                                "FROM Session",
+                Passerelle.connexionBaseLugati);
+
+            Passerelle.connexionBaseLugati.Open();
+
+            SqlDataReader readerLesSessions = reqLesSessions.ExecuteReader();
+
+            if (readerLesSessions.HasRows)
+            {
+                while (readerLesSessions.Read())
+                {
+                    lesSessions.Add(new Session(
+                            (int)readerLesSessions[0],
+                            readerLesSessions[1].ToString(),
+                            (int)readerLesSessions[2],
+                            (int)readerLesSessions[3],
+                            Convert.ToDateTime(readerLesSessions[4]),
+                            (readerLesSessions[5].ToString())));
+                }
+            }
+            else
+            {
+                throw new Exception("Il n'existe aucune Sessions");
+            }
+
+            Passerelle.connexionBaseLugati.Close();
+
+            return lesSessions;
+        }
+
+        public static List<Activite> GetLesActivites()
+        {
+            List<Activite> lesActivites = new List<Activite>();
+
+            SqlCommand reqLesActivites =
+                new SqlCommand("SELECT numActivite, libelle, tarif, nbPlaces, date, heure " +
+                                "FROM Activite",
+                Passerelle.connexionBaseLugati);
+
+            Passerelle.connexionBaseLugati.Open();
+
+            SqlDataReader readerLesActivites = reqLesActivites.ExecuteReader();
+
+            if (readerLesActivites.HasRows)
+            {
+                while (readerLesActivites.Read())
+                {
+                    lesActivites.Add(new Activite(
+                            (int)readerLesActivites[0],
+                            readerLesActivites[1].ToString(),
+                            (int)readerLesActivites[2],
+                            (int)readerLesActivites[3],
+                            Convert.ToDateTime(readerLesActivites[4]),
+                            readerLesActivites[5].ToString()));
+                }
+            }
+            else
+            {
+                throw new Exception("Il n'existe aucune Sessions");
+            }
+
+            Passerelle.connexionBaseLugati.Close();
+
+            return lesActivites;
+        }
+
+        public static List<Participant> GetLesParticipants()
+        {
+            List<Participant> lesParticipants = new List<Participant>();
+
+            SqlCommand reqLesParticipants =
+                new SqlCommand("SELECT idParticipant, nom, prenom, genre, idLigue, adresse, ville, cp, idHebergement " + 
+                                "FROM Participant",
+                Passerelle.connexionBaseLugati);
+
+            Passerelle.connexionBaseLugati.Open();
+
+            SqlDataReader readerLesParticipants = reqLesParticipants.ExecuteReader();
+
+            if (readerLesParticipants.HasRows)
+            {
+                while (readerLesParticipants.Read())
+                {
+                    lesParticipants.Add(new Participant(
+                            (int)readerLesParticipants[0],
+                            readerLesParticipants[1].ToString(),
+                            readerLesParticipants[2].ToString(),
+                            (char)readerLesParticipants[3],
+                            readerLesParticipants[4].ToString(),
+                            readerLesParticipants[5].ToString(),
+                            readerLesParticipants[6].ToString(),
+                            readerLesParticipants[7].ToString(),
+                            readerLesParticipants[8].ToString()));
+                }
+            }
+            else
+            {
+                throw new Exception("Il n'existe aucune Sessions");
+            }
+
+            Passerelle.connexionBaseLugati.Close();
+
+            return lesParticipants;
+        }
+
+
 
         /// <summary>
         /// Ajoute un nouveau hotel dans la base de données et retourne le numéro de ce nouveau hotel
@@ -158,6 +276,28 @@ namespace Passerelle
             Passerelle.connexionBaseLugati.Open();
 
             reqSupprimerHebergement.ExecuteNonQuery();
+
+            Passerelle.connexionBaseLugati.Close();
+        }
+
+        public static void ModifierHebergement(int idHebergement, string nomHebergement, string adresse, string ville, string cp, string tel, int nbEtoile, int prix)
+        {
+            SqlCommand reqModifierHebergement =
+                new SqlCommand("UPDATE Hebergement SET nomHebergement = @nomHebergement, adresse = @adresse, ville = @ville, cp = @cp, tel = @tel, nbEtoile = @nbEtoile, prix = @prix " +
+                                "WHERE idHebergement = @idHebergement",
+                Passerelle.connexionBaseLugati);
+            reqModifierHebergement.Parameters.AddWithValue("@nomHebergement", nomHebergement);
+            reqModifierHebergement.Parameters.AddWithValue("@adresse", adresse);
+            reqModifierHebergement.Parameters.AddWithValue("@ville", ville);
+            reqModifierHebergement.Parameters.AddWithValue("@cp", cp);
+            reqModifierHebergement.Parameters.AddWithValue("@tel", tel);
+            reqModifierHebergement.Parameters.AddWithValue("@nbEtoile", nbEtoile);
+            reqModifierHebergement.Parameters.AddWithValue("@prix", prix);
+            reqModifierHebergement.Parameters.AddWithValue("@idHebergement", idHebergement);
+
+            Passerelle.connexionBaseLugati.Open();
+
+            reqModifierHebergement.ExecuteNonQuery();
 
             Passerelle.connexionBaseLugati.Close();
         }
