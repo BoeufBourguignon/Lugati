@@ -101,7 +101,7 @@ namespace Passerelle
         //public Ligue ligue { get; set; }
 
         public int idLigue { get; set; }
-        public int idHebergement { get; set}
+        public int idHebergement { get; set; }
         public Participant() { }
 
         public Participant(int idParticipant, string nom, string prenom, char genre, string adresse, string ville, string cp, int idHebergement, int idLigue)

@@ -31,5 +31,50 @@ namespace WinLugati
 
             }
         }
+
+        private void hebergementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(Application.OpenForms["FrmHebergement"] == null)
+            {
+                FrmHebergement frmH = new FrmHebergement();
+                frmH.MdiParent = this;
+                frmH.Show();
+            }
+            else
+            {
+                Application.OpenForms["FrmHebergement"].BringToFront();
+
+            }
+        }
+
+        private void sessionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["FrmSession"] == null)
+            {
+                FrmSession frmS = new FrmSession();
+                frmS.MdiParent = this;
+                frmS.Show();
+            }
+            else
+            {
+                Application.OpenForms["FrmSession"].BringToFront();
+
+            }
+        }
+
+        private void activiteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["FrmActivite"] == null)
+            {
+                FrmActivite frmA = new FrmActivite();
+                frmA.MdiParent = this;
+                frmA.Show();
+            }
+            else
+            {
+                Application.OpenForms["FrmActivite"].BringToFront();
+
+            }
+        }
     }
 }
