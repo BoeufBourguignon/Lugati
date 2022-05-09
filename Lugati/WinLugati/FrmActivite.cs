@@ -33,5 +33,23 @@ namespace WinLugati
                 MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void BtnAjouterHebergement_Click(object sender, EventArgs e)
+        {
+            labelLibelleActivite.Visible = true;
+            labelTarifActivite.Visible = true;
+            labelNbPlacesActivite.Visible = true;
+            labelDateActivite.Visible = true;
+            labelHeureActivite.Visible = true;
+
+            textBoxLibelleActivite.Visible = true;
+            textBoxTarifActivite.Visible = true;
+            textBoxNbPlacesActivite.Visible = true;
+            textBoxDateActivite.Visible = true;
+            textBoxHeureActivite.Visible = true;
+
+            BtnValiderActivite.Visible = true;
+            BtnAnnulerActivite.Visible = true;
+        }
     }
 }

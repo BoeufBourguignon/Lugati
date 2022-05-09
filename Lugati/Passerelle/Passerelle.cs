@@ -154,16 +154,16 @@ namespace Passerelle
             {
                 while (readerLesParticipants.Read())
                 {
-                    lesParticipants.Add(new Participant(
-                            (int)readerLesParticipants[0],
-                            readerLesParticipants[1].ToString(),
-                            readerLesParticipants[2].ToString(),
-                            (char)readerLesParticipants[3],
-                            readerLesParticipants[4].ToString(),
-                            readerLesParticipants[5].ToString(),
-                            readerLesParticipants[6].ToString(),
-                            readerLesParticipants[7].ToString(),
-                            readerLesParticipants[8].ToString()));
+                    //lesParticipants.Add(new Participant(
+                    //        (int)readerLesParticipants[0],
+                    //        readerLesParticipants[1].ToString(),
+                    //        readerLesParticipants[2].ToString(),
+                    //        (char)readerLesParticipants[3],
+                    //        readerLesParticipants[4].ToString(),
+                    //        readerLesParticipants[5].ToString(),
+                    //        readerLesParticipants[6].ToString(),
+                    //        readerLesParticipants[7].ToString(),
+                    //        readerLesParticipants[8].ToString()));
                 }
             }
             else
