@@ -61,8 +61,8 @@ namespace WinLugati
             this.BtnValiderModifHotel = new System.Windows.Forms.Button();
             this.BtnAnnulerModifHotel = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.comboBoxIdHotel = new System.Windows.Forms.ComboBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridHebergement)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -93,7 +93,10 @@ namespace WinLugati
             this.nbEtoile,
             this.prix});
             this.dataGridHebergement.Location = new System.Drawing.Point(12, 19);
+            this.dataGridHebergement.MultiSelect = false;
             this.dataGridHebergement.Name = "dataGridHebergement";
+            this.dataGridHebergement.ReadOnly = true;
+            this.dataGridHebergement.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridHebergement.Size = new System.Drawing.Size(554, 181);
             this.dataGridHebergement.TabIndex = 0;
             // 
@@ -101,41 +104,49 @@ namespace WinLugati
             // 
             this.idHebergement.HeaderText = "idHebergement";
             this.idHebergement.Name = "idHebergement";
+            this.idHebergement.ReadOnly = true;
             // 
             // nomHebergement
             // 
             this.nomHebergement.HeaderText = "nomHebergement";
             this.nomHebergement.Name = "nomHebergement";
+            this.nomHebergement.ReadOnly = true;
             // 
             // adresse
             // 
             this.adresse.HeaderText = "adresse";
             this.adresse.Name = "adresse";
+            this.adresse.ReadOnly = true;
             // 
             // ville
             // 
             this.ville.HeaderText = "ville";
             this.ville.Name = "ville";
+            this.ville.ReadOnly = true;
             // 
             // CP
             // 
             this.CP.HeaderText = "CP";
             this.CP.Name = "CP";
+            this.CP.ReadOnly = true;
             // 
             // tel
             // 
             this.tel.HeaderText = "tel";
             this.tel.Name = "tel";
+            this.tel.ReadOnly = true;
             // 
             // nbEtoile
             // 
             this.nbEtoile.HeaderText = "nbEtoile";
             this.nbEtoile.Name = "nbEtoile";
+            this.nbEtoile.ReadOnly = true;
             // 
             // prix
             // 
             this.prix.HeaderText = "prix";
             this.prix.Name = "prix";
+            this.prix.ReadOnly = true;
             // 
             // BtnAjouterHebergement
             // 
@@ -344,6 +355,15 @@ namespace WinLugati
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Modifier";
             // 
+            // comboBoxIdHotel
+            // 
+            this.comboBoxIdHotel.FormattingEnabled = true;
+            this.comboBoxIdHotel.Location = new System.Drawing.Point(18, 61);
+            this.comboBoxIdHotel.Name = "comboBoxIdHotel";
+            this.comboBoxIdHotel.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxIdHotel.TabIndex = 26;
+            this.comboBoxIdHotel.SelectedIndexChanged += new System.EventHandler(this.comboBoxIdHotel_SelectedIndexChanged);
+            // 
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.SystemColors.ButtonShadow;
@@ -371,15 +391,6 @@ namespace WinLugati
             this.groupBox3.TabIndex = 27;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Ajouter ou Supprimer";
-            // 
-            // comboBoxIdHotel
-            // 
-            this.comboBoxIdHotel.FormattingEnabled = true;
-            this.comboBoxIdHotel.Location = new System.Drawing.Point(18, 61);
-            this.comboBoxIdHotel.Name = "comboBoxIdHotel";
-            this.comboBoxIdHotel.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxIdHotel.TabIndex = 26;
-            this.comboBoxIdHotel.SelectedIndexChanged += new System.EventHandler(this.comboBoxIdHotel_SelectedIndexChanged);
             // 
             // FrmHebergement
             // 
