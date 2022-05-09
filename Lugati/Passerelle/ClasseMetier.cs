@@ -97,12 +97,14 @@ namespace Passerelle
         public string adresse { get; set; }
         public string ville { get; set; }
         public string cp { get; set; }
-        public Hebergement hebergement { get; set; }
-        public Ligue ligue { get; set; }
+        //public Hebergement hebergement { get; set; }
+        //public Ligue ligue { get; set; }
 
+        public int idLigue { get; set; }
+        public int idHebergement { get; set}
         public Participant() { }
 
-        public Participant(int idParticipant, string nom, string prenom, char genre, string adresse, string ville, string cp, Hebergement hebergement, Ligue ligue)
+        public Participant(int idParticipant, string nom, string prenom, char genre, string adresse, string ville, string cp, int idHebergement, int idLigue)
         {
             this.idParticipant = idParticipant;
             this.nom = nom;
@@ -111,8 +113,8 @@ namespace Passerelle
             this.adresse = adresse;
             this.ville = ville;
             this.cp = cp;
-            this.hebergement = hebergement;
-            this.ligue = ligue;
+            this.idHebergement = idHebergement;
+            this.idLigue = idLigue;
         }
     }
 
