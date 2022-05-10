@@ -103,7 +103,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="Properties\DataSources\Passerelle.Hebergement.datasource" />
+    <None Include="Properties\DataSources\Lugati.dll.Hebergement.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -118,9 +118,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Passerelle\Passerelle.csproj">
+    <ProjectReference Include="..\Passerelle\Lugati.dll.csproj">
       <Project>{1d68ce2a-fc56-49f3-87f5-7a0f66c2057e}</Project>
-      <Name>Passerelle</Name>
+      <Name>Lugati.dll</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

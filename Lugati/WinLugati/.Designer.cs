@@ -29,8 +29,8 @@ namespace WinLugati
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmHebergement));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridHebergement = new System.Windows.Forms.DataGridView();
             this.idHebergement = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomHebergement = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,21 +64,16 @@ namespace WinLugati
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.comboBoxIdHotel = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox1.SuspendLayout();
+            this.bindSrcHebergement = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridHebergement)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindSrcHebergement)).BeginInit();
             this.SuspendLayout();
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.dataGridHebergement);
-            resources.ApplyResources(this.groupBox1, "groupBox1");
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.TabStop = false;
             // 
             // dataGridHebergement
             // 
+            this.dataGridHebergement.AutoGenerateColumns = false;
             this.dataGridHebergement.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.dataGridHebergement.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridHebergement.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -90,13 +85,12 @@ namespace WinLugati
             this.tel,
             this.nbEtoile,
             this.prix});
-            this.dataGridHebergement.Location = new System.Drawing.Point(12, 19);
+            this.dataGridHebergement.DataSource = this.bindSrcHebergement;
+            resources.ApplyResources(this.dataGridHebergement, "dataGridHebergement");
             this.dataGridHebergement.MultiSelect = false;
             this.dataGridHebergement.Name = "dataGridHebergement";
             this.dataGridHebergement.ReadOnly = true;
             this.dataGridHebergement.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridHebergement.Size = new System.Drawing.Size(554, 181);
-            this.dataGridHebergement.TabIndex = 0;
             // 
             // idHebergement
             // 
@@ -294,15 +288,6 @@ namespace WinLugati
             this.comboBoxIdHotel.Name = "comboBoxIdHotel";
             this.comboBoxIdHotel.SelectedIndexChanged += new System.EventHandler(this.comboBoxIdHotel_SelectedIndexChanged);
             // 
-            // comboBoxIdHotel
-            // 
-            this.comboBoxIdHotel.FormattingEnabled = true;
-            this.comboBoxIdHotel.Location = new System.Drawing.Point(18, 61);
-            this.comboBoxIdHotel.Name = "comboBoxIdHotel";
-            this.comboBoxIdHotel.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxIdHotel.TabIndex = 26;
-            this.comboBoxIdHotel.SelectedIndexChanged += new System.EventHandler(this.comboBoxIdHotel_SelectedIndexChanged);
-            // 
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.SystemColors.ButtonShadow;
@@ -327,30 +312,31 @@ namespace WinLugati
             resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Ajouter ou Supprimer";
+            // 
+            // bindSrcHebergement
+            // 
+            this.bindSrcHebergement.DataSource = typeof(Lugati.dll.Hebergement);
             // 
             // FrmHebergement
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
+            this.Controls.Add(this.dataGridHebergement);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
             this.Name = "FrmHebergement";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridHebergement)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindSrcHebergement)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dataGridHebergement;
         private System.Windows.Forms.DataGridViewTextBoxColumn idHebergement;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomHebergement;
@@ -384,6 +370,7 @@ namespace WinLugati
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ComboBox comboBoxIdHotel;
+        private System.Windows.Forms.BindingSource bindSrcHebergement;
     }
 }
 
