@@ -103,7 +103,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Properties\DataSources\Passerelle.Activite.datasource" />
     <None Include="Properties\DataSources\Passerelle.Hebergement.datasource" />
+    <None Include="Properties\DataSources\Passerelle.Ligue.datasource" />
+    <None Include="Properties\DataSources\Passerelle.Participant.datasource" />
+    <None Include="Properties\DataSources\Passerelle.Passerelle.datasource" />
+    <None Include="Properties\DataSources\Passerelle.Session.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

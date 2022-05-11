@@ -142,7 +142,7 @@ namespace Passerelle
             List<Participant> lesParticipants = new List<Participant>();
 
             SqlCommand reqLesParticipants =
-                new SqlCommand("SELECT idParticipant, nom, prenom, genre, idLigue, adresse, ville, cp, idHebergement " + 
+                new SqlCommand("SELECT idParticipant, nom, prenom, genre, adresse, ville, cp, idHebergement, idLigue " + 
                                 "FROM Participant",
                 Passerelle.connexionBaseLugati);
 

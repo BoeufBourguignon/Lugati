@@ -79,11 +79,8 @@ namespace WinLugati
 
         private void FrmMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if()
-            {
-
-            }
-            
+          if (MessageBox.Show("Etes-vous sûr de vouloir quitter ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+              e.Cancel = true;
         }
     }
 }
