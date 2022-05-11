@@ -142,7 +142,7 @@ namespace Lugati.dll
             List<Participant> lesParticipants = new List<Participant>();
 
             SqlCommand reqLesParticipants =
-                new SqlCommand("SELECT idParticipant, nom, prenom, genre, idLigue, adresse, ville, cp, idHebergement " + 
+                new SqlCommand("SELECT idParticipant, nom, prenom, genre, adresse, ville, cp, idHebergement, idLigue " + 
                                 "FROM Participant",
                 Passerelle.connexionBaseLugati);
 
@@ -154,16 +154,29 @@ namespace Lugati.dll
             {
                 while (readerLesParticipants.Read())
                 {
-                    lesParticipants.Add(new Participant(
-                            (int)readerLesParticipants[0],
-                            readerLesParticipants[1].ToString(),
-                            readerLesParticipants[2].ToString(),
-                            (char)readerLesParticipants[3],
-                            readerLesParticipants[4].ToString(),
-                            readerLesParticipants[5].ToString(),
-                            readerLesParticipants[6].ToString(),
-                            (int)readerLesParticipants[7],
-                            (int)readerLesParticipants[8]));
+                    Participant p = new Participant();
+                    p.idParticipant = (int)readerLesParticipants[0];
+                    p.prenom = readerLesParticipants[1].ToString();
+                    p.nom = readerLesParticipants[2].ToString();
+                    p.genre = Convert.ToChar(readerLesParticipants[3].ToString());
+                    p.adresse = readerLesParticipants[4].ToString();
+                    p.cp = readerLesParticipants[5].ToString();
+                    p.ville = readerLesParticipants[6].ToString();
+                    p.idLigue = (int)readerLesParticipants[7];
+                    p.idHebergement = (int)readerLesParticipants[8];
+
+                    lesParticipants.Add(p);
+
+                    //lesParticipants.Add(new Participant(
+                    //        (int)readerLesParticipants[0],
+                    //        readerLesParticipants[1].ToString(),
+                    //        readerLesParticipants[2].ToString(),
+                    //        Convert.ToChar(readerLesParticipants[3].ToString()),
+                    //        readerLesParticipants[4].ToString(),
+                    //        readerLesParticipants[5].ToString(),
+                    //        readerLesParticipants[6].ToString(),
+                    //        (int)readerLesParticipants[7],
+                    //        (int)readerLesParticipants[8]));
                 }
             }
             else
