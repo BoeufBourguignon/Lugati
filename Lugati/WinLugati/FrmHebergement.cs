@@ -1,14 +1,15 @@
-﻿using Passerelle;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+
+using Lugati.dll;
 
 namespace WinLugati
 {
@@ -17,6 +18,8 @@ namespace WinLugati
         public FrmHebergement()
         {
             InitializeComponent();
+
+            dataGridHebergement.DataSource = Passerelle.GetLesHebergements();
 
             labelNomHotel.Visible = false;
             labelAdresseHotel.Visible = false;
@@ -41,34 +44,6 @@ namespace WinLugati
             BtnAnnulerModifHotel.Visible = false;
 
             comboBoxIdHotel.Visible = false;
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            //Permet de faire d'ajouter dans le datagrid chaque ligne de données liées à la Table Hebergement.
-            try
-            {
-                foreach (Hebergement unHebergement in Passerelle.Passerelle.GetLesHebergements())
-                {
-                    string[] row = { unHebergement.idHebergement.ToString(), unHebergement.nomHebergement, unHebergement.adresse, unHebergement.ville, unHebergement.cp, unHebergement.tel, unHebergement.nbEtoile.ToString(), unHebergement.prix.ToString()};
-                    dataGridHebergement.Rows.Add(row);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            try
-            {
-                //On charge la comboBox avec tous les voyages de la base de données au chargement du formulaire
-                comboBoxIdHotel.DataSource = Passerelle.Passerelle.GetLesHebergements();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erreur au chargement des données :\n" + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.Close();
-            }
         }
 
         private void BtnAjouterHebergement_Click(object sender, EventArgs e)
@@ -116,10 +91,10 @@ namespace WinLugati
             {
                 try
                 {
-                    int idHotel = Passerelle.Passerelle.GetIdHebergement(textBoxNomHotel.Text, textBoxAdresseHotel.Text, textBoxVilleHotel.Text, textBoxCPHotel.Text, textBoxTelHotel.Text, int.Parse(textBoxNbEtoileHotel.Text), int.Parse(textBoxPrixHotel.Text));
+                    int idHotel = Passerelle.GetIdHebergement(textBoxNomHotel.Text, textBoxAdresseHotel.Text, textBoxVilleHotel.Text, textBoxCPHotel.Text, textBoxTelHotel.Text, int.Parse(textBoxNbEtoileHotel.Text), int.Parse(textBoxPrixHotel.Text));
                     if (idHotel == 0)
                     {
-                        idHotel = Passerelle.Passerelle.AjouterHebergement(textBoxNomHotel.Text, textBoxAdresseHotel.Text, textBoxVilleHotel.Text, textBoxCPHotel.Text, textBoxTelHotel.Text, int.Parse(textBoxNbEtoileHotel.Text), int.Parse(textBoxPrixHotel.Text));
+                        idHotel = Passerelle.AjouterHebergement(textBoxNomHotel.Text, textBoxAdresseHotel.Text, textBoxVilleHotel.Text, textBoxCPHotel.Text, textBoxTelHotel.Text, int.Parse(textBoxNbEtoileHotel.Text), int.Parse(textBoxPrixHotel.Text));
                         this.Close();
                     }
                     else
@@ -144,7 +119,7 @@ namespace WinLugati
                 }
                 try
                 {
-                    Passerelle.Passerelle.SupprimerLesHebergements(hotelsASupprimer);
+                    Passerelle.SupprimerLesHebergements(hotelsASupprimer);
 
                     if (dataGridHebergement.SelectedRows.Count == 1)
                     {
@@ -208,11 +183,11 @@ namespace WinLugati
                     try
                     {
                         //L'utilisateur confirme la modification des valeurs
-                        Passerelle.Passerelle.ModifierHebergement(hebergementSelectionne.idHebergement, textBoxNomHotel.Text, textBoxAdresseHotel.Text, textBoxVilleHotel.Text, textBoxCPHotel.Text, textBoxTelHotel.Text, int.Parse(textBoxNbEtoileHotel.Text), int.Parse(textBoxPrixHotel.Text));
+                        Passerelle.ModifierHebergement(hebergementSelectionne.idHebergement, textBoxNomHotel.Text, textBoxAdresseHotel.Text, textBoxVilleHotel.Text, textBoxCPHotel.Text, textBoxTelHotel.Text, int.Parse(textBoxNbEtoileHotel.Text), int.Parse(textBoxPrixHotel.Text));
 
                         //On actualise la comboBox
                         int index = comboBoxIdHotel.SelectedIndex; //On sauvegarde l'index du hebergement modifié
-                        comboBoxIdHotel.DataSource = Passerelle.Passerelle.GetLesHebergements(); //On recharge tous les hebergements dans la comboBox
+                        comboBoxIdHotel.DataSource = Passerelle.GetLesHebergements(); //On recharge tous les hebergements dans la comboBox
                         comboBoxIdHotel.SelectedIndex = index; //On sélectionne l'index du hebergement modifié dans la comboBox
                         this.Close();
                     }

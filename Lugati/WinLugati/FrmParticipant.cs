@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Passerelle;
 
+using Lugati.dll;
+
 namespace WinLugati
 {
     public partial class FrmParticipant : Form

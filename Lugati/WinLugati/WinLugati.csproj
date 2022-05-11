@@ -55,9 +55,8 @@
     <Compile Include="FrmHebergement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include=".Designer.cs">
+    <Compile Include="FrmHebergement.Designer.cs">
       <DependentUpon>FrmHebergement.cs</DependentUpon>
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmMenu.cs">
       <SubType>Form</SubType>
@@ -123,9 +122,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Passerelle\Passerelle.csproj">
+    <ProjectReference Include="..\Passerelle\Lugati.dll.csproj">
       <Project>{1d68ce2a-fc56-49f3-87f5-7a0f66c2057e}</Project>
-      <Name>Passerelle</Name>
+      <Name>Lugati.dll</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

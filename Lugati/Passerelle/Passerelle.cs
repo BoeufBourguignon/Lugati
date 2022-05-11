@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace Passerelle
+namespace Lugati.dll
 {
     public static class Passerelle
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Passerelle
+namespace Lugati.dll
 {
     /// <summary>
     /// Class 
@@ -12,8 +12,16 @@ namespace Passerelle
     /// </summary>
     public class Hebergement
     {
-        public int idHebergement, nbEtoile, prix;
-        public string nomHebergement, adresse, ville, cp, tel;
+        public int idHebergement { get; set; }
+        public int nbEtoile { get; set; }
+        public int prix { get; set; }
+        public string nomHebergement { get; set; }
+        public string adresse { get; set; }
+        public string ville { get; set; }
+        public string cp { get; set; }
+        public string tel { get; set; }
+
+        public Hebergement() { }
 
         public Hebergement(int idHebergement, string nomHebergement, string adresse, string ville, string cp, string tel, int nbEtoile, int prix)
         {
@@ -32,6 +40,7 @@ namespace Passerelle
             return this.idHebergement + " . " + this.nomHebergement;
         }
     }
+
     /// <summary>
     /// Class
     /// <c>Session</c>
@@ -146,7 +155,4 @@ namespace Passerelle
         }
 
     }
-
-
-
 }

@@ -1,6 +1,7 @@
 -- TRIGGERS
-create or alter trigger tiu_participer on participer 
-instead of insert, update
+-- Vérification qu'une personne ne participe pas à deux sessions/activités en même temps lors de l'ajout d'une activité
+create or alter trigger ti_participer on participer 
+instead of insert
 as
 begin
 	declare cursParticiper cursor
@@ -18,15 +19,15 @@ begin
 			from activite 
 			where numActivite = @numActivite
 		)
-		print @dateActivite
 
 		if(@dateActivite IN (
 				select concat(date, ' ', heure) from activite a join participer p on a.numActivite = p.numActivite and p.idParticipant = @idParticipant
 				union
 				select concat(date, ' ', heure) from session s join inscrire i on i.numSession = s.numSession and i.idParticipant = @idParticipant)
 			)
-			throw 50001, 'Une personne ne peut pas participer à deux sessions ou activités en même temps', 0
-		else 
+			print 'Le participant n°' + convert(varchar(10), @idParticipant) + ' ne peut pas participer à l''activité n°' + convert(varchar(10), @numActivite) 
+				+ '. Il a déjà quelque chose de prévu à cette heure là ce jour.'
+		else
 			insert into participer (idParticipant, numActivite) values (@idParticipant, @numActivite)
 
 		fetch next from cursParticiper into @idParticipant, @numActivite
@@ -36,8 +37,9 @@ begin
 end
 go
 
-create or alter trigger tiu_inscrire on inscrire 
-instead of insert, update
+-- Pareil mais lors d'un ajout d'une session
+create or alter trigger ti_inscrire on inscrire 
+instead of insert
 as
 begin
 	declare cursParticiper cursor
@@ -61,7 +63,8 @@ begin
 				union
 				select concat(date, ' ', heure) from session s join inscrire i on i.numSession = s.numSession and i.idParticipant = @idParticipant)
 			)
-			throw 50001, 'Une personne ne peut pas participer à deux sessions ou activités en même temps', 0
+			print 'Le participant n°' + convert(varchar(10), @idParticipant) + ' ne peut pas participer à l''activité n°' + convert(varchar(10), @numSession) 
+				+ '. Il a déjà quelque chose de prévu à cette heure là ce jour.'
 		else 
 			insert into inscrire(idParticipant, numSession) values (@idParticipant, @numSession)
 
@@ -70,7 +73,7 @@ begin
 	close cursParticiper
 	deallocate cursParticiper
 end
-go
+go 
 
 
 --Procédure qui obtient le prix total à payer (sessions et activités comprises) pour un idParticipant passé en paramètres
