@@ -104,6 +104,9 @@
     </Compile>
     <None Include="Properties\DataSources\Lugati.dll.Activite.datasource" />
     <None Include="Properties\DataSources\Lugati.dll.Hebergement.datasource" />
+    <None Include="Properties\DataSources\Lugati.dll.Ligue.datasource" />
+    <None Include="Properties\DataSources\Lugati.dll.Participant.datasource" />
+    <None Include="Properties\DataSources\Lugati.dll.Session.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
