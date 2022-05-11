@@ -33,8 +33,6 @@
             this.dataGridActivite = new System.Windows.Forms.DataGridView();
             this.bindSrcActivite = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.BtnSupprimerHotel = new System.Windows.Forms.Button();
-            this.BtnAjouterHebergement = new System.Windows.Forms.Button();
             this.labelLibelleActivite = new System.Windows.Forms.Label();
             this.BtnAnnulerActivite = new System.Windows.Forms.Button();
             this.textBoxLibelleActivite = new System.Windows.Forms.TextBox();
@@ -47,17 +45,18 @@
             this.labelDateActivite = new System.Windows.Forms.Label();
             this.textBoxNbPlacesActivite = new System.Windows.Forms.TextBox();
             this.labelHeureActivite = new System.Windows.Forms.Label();
+            this.BtnSupprimerHotel = new System.Windows.Forms.Button();
+            this.BtnAjouterHebergement = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.comboBoxIdHotel = new System.Windows.Forms.ComboBox();
             this.BtnValiderModifActivite = new System.Windows.Forms.Button();
-            this.BtnModifierActivite = new System.Windows.Forms.Button();
             this.BtnAnnulerModifActivite = new System.Windows.Forms.Button();
-            this.numActiviteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.libelleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.heureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tarifDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nbPlacesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BtnModifierActivite = new System.Windows.Forms.Button();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridActivite)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindSrcActivite)).BeginInit();
@@ -84,12 +83,11 @@
             this.dataGridActivite.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.dataGridActivite.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridActivite.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.numActiviteDataGridViewTextBoxColumn,
-            this.libelleDataGridViewTextBoxColumn,
-            this.dateDataGridViewTextBoxColumn,
-            this.heureDataGridViewTextBoxColumn,
-            this.tarifDataGridViewTextBoxColumn,
-            this.nbPlacesDataGridViewTextBoxColumn});
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5});
             this.dataGridActivite.DataSource = this.bindSrcActivite;
             this.dataGridActivite.Location = new System.Drawing.Point(6, 19);
             this.dataGridActivite.MultiSelect = false;
@@ -101,7 +99,7 @@
             // 
             // bindSrcActivite
             // 
-            this.bindSrcActivite.DataSource = typeof(Passerelle.Activite);
+            this.bindSrcActivite.DataSource = typeof(Lugati.dll.Activite);
             // 
             // groupBox3
             // 
@@ -124,30 +122,6 @@
             this.groupBox3.TabIndex = 28;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Ajouter ou Supprimer";
-            // 
-            // BtnSupprimerHotel
-            // 
-            this.BtnSupprimerHotel.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.BtnSupprimerHotel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.BtnSupprimerHotel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.BtnSupprimerHotel.Location = new System.Drawing.Point(220, 216);
-            this.BtnSupprimerHotel.Name = "BtnSupprimerHotel";
-            this.BtnSupprimerHotel.Size = new System.Drawing.Size(102, 36);
-            this.BtnSupprimerHotel.TabIndex = 22;
-            this.BtnSupprimerHotel.Text = "Supprimer une activité";
-            this.BtnSupprimerHotel.UseVisualStyleBackColor = false;
-            // 
-            // BtnAjouterHebergement
-            // 
-            this.BtnAjouterHebergement.BackColor = System.Drawing.Color.GhostWhite;
-            this.BtnAjouterHebergement.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.BtnAjouterHebergement.Location = new System.Drawing.Point(26, 215);
-            this.BtnAjouterHebergement.Name = "BtnAjouterHebergement";
-            this.BtnAjouterHebergement.Size = new System.Drawing.Size(98, 37);
-            this.BtnAjouterHebergement.TabIndex = 2;
-            this.BtnAjouterHebergement.Text = "Ajouter une activité";
-            this.BtnAjouterHebergement.UseVisualStyleBackColor = false;
-            this.BtnAjouterHebergement.Click += new System.EventHandler(this.BtnAjouterHebergement_Click);
             // 
             // labelLibelleActivite
             // 
@@ -259,6 +233,30 @@
             this.labelHeureActivite.TabIndex = 12;
             this.labelHeureActivite.Text = "Heure :";
             // 
+            // BtnSupprimerHotel
+            // 
+            this.BtnSupprimerHotel.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.BtnSupprimerHotel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.BtnSupprimerHotel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.BtnSupprimerHotel.Location = new System.Drawing.Point(220, 216);
+            this.BtnSupprimerHotel.Name = "BtnSupprimerHotel";
+            this.BtnSupprimerHotel.Size = new System.Drawing.Size(102, 36);
+            this.BtnSupprimerHotel.TabIndex = 22;
+            this.BtnSupprimerHotel.Text = "Supprimer une activité";
+            this.BtnSupprimerHotel.UseVisualStyleBackColor = false;
+            // 
+            // BtnAjouterHebergement
+            // 
+            this.BtnAjouterHebergement.BackColor = System.Drawing.Color.GhostWhite;
+            this.BtnAjouterHebergement.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.BtnAjouterHebergement.Location = new System.Drawing.Point(26, 215);
+            this.BtnAjouterHebergement.Name = "BtnAjouterHebergement";
+            this.BtnAjouterHebergement.Size = new System.Drawing.Size(98, 37);
+            this.BtnAjouterHebergement.TabIndex = 2;
+            this.BtnAjouterHebergement.Text = "Ajouter une activité";
+            this.BtnAjouterHebergement.UseVisualStyleBackColor = false;
+            this.BtnAjouterHebergement.Click += new System.EventHandler(this.BtnAjouterHebergement_Click);
+            // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.AppWorkspace;
@@ -290,6 +288,16 @@
             this.BtnValiderModifActivite.Text = "Valider";
             this.BtnValiderModifActivite.UseVisualStyleBackColor = true;
             // 
+            // BtnAnnulerModifActivite
+            // 
+            this.BtnAnnulerModifActivite.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.BtnAnnulerModifActivite.Location = new System.Drawing.Point(16, 113);
+            this.BtnAnnulerModifActivite.Name = "BtnAnnulerModifActivite";
+            this.BtnAnnulerModifActivite.Size = new System.Drawing.Size(122, 34);
+            this.BtnAnnulerModifActivite.TabIndex = 25;
+            this.BtnAnnulerModifActivite.Text = "Annuler";
+            this.BtnAnnulerModifActivite.UseVisualStyleBackColor = true;
+            // 
             // BtnModifierActivite
             // 
             this.BtnModifierActivite.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -301,57 +309,40 @@
             this.BtnModifierActivite.Text = "Modifier une activité";
             this.BtnModifierActivite.UseVisualStyleBackColor = false;
             // 
-            // BtnAnnulerModifActivite
+            // dataGridViewTextBoxColumn1
             // 
-            this.BtnAnnulerModifActivite.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.BtnAnnulerModifActivite.Location = new System.Drawing.Point(16, 113);
-            this.BtnAnnulerModifActivite.Name = "BtnAnnulerModifActivite";
-            this.BtnAnnulerModifActivite.Size = new System.Drawing.Size(122, 34);
-            this.BtnAnnulerModifActivite.TabIndex = 25;
-            this.BtnAnnulerModifActivite.Text = "Annuler";
-            this.BtnAnnulerModifActivite.UseVisualStyleBackColor = true;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "tarif";
+            this.dataGridViewTextBoxColumn1.HeaderText = "tarif";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // numActiviteDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn2
             // 
-            this.numActiviteDataGridViewTextBoxColumn.DataPropertyName = "numActivite";
-            this.numActiviteDataGridViewTextBoxColumn.HeaderText = "Numéro";
-            this.numActiviteDataGridViewTextBoxColumn.Name = "numActiviteDataGridViewTextBoxColumn";
-            this.numActiviteDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "nbPlaces";
+            this.dataGridViewTextBoxColumn2.HeaderText = "nbPlaces";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
-            // libelleDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn3
             // 
-            this.libelleDataGridViewTextBoxColumn.DataPropertyName = "libelle";
-            this.libelleDataGridViewTextBoxColumn.HeaderText = "Libellé";
-            this.libelleDataGridViewTextBoxColumn.Name = "libelleDataGridViewTextBoxColumn";
-            this.libelleDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "libelle";
+            this.dataGridViewTextBoxColumn3.HeaderText = "libelle";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
-            // dateDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn4
             // 
-            this.dateDataGridViewTextBoxColumn.DataPropertyName = "date";
-            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
-            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
-            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "date";
+            this.dataGridViewTextBoxColumn4.HeaderText = "date";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
-            // heureDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn5
             // 
-            this.heureDataGridViewTextBoxColumn.DataPropertyName = "heure";
-            this.heureDataGridViewTextBoxColumn.HeaderText = "Heure";
-            this.heureDataGridViewTextBoxColumn.Name = "heureDataGridViewTextBoxColumn";
-            this.heureDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // tarifDataGridViewTextBoxColumn
-            // 
-            this.tarifDataGridViewTextBoxColumn.DataPropertyName = "tarif";
-            this.tarifDataGridViewTextBoxColumn.HeaderText = "Tarif";
-            this.tarifDataGridViewTextBoxColumn.Name = "tarifDataGridViewTextBoxColumn";
-            this.tarifDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nbPlacesDataGridViewTextBoxColumn
-            // 
-            this.nbPlacesDataGridViewTextBoxColumn.DataPropertyName = "nbPlaces";
-            this.nbPlacesDataGridViewTextBoxColumn.HeaderText = "Nombre de places";
-            this.nbPlacesDataGridViewTextBoxColumn.Name = "nbPlacesDataGridViewTextBoxColumn";
-            this.nbPlacesDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "heure";
+            this.dataGridViewTextBoxColumn5.HeaderText = "heure";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
             // FrmActivite
             // 
@@ -408,5 +399,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn heureDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tarifDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nbPlacesDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
     }
 }
