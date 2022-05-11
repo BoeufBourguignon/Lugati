@@ -58,13 +58,13 @@ namespace WinLugati
             this.dataGridHebergement = new System.Windows.Forms.DataGridView();
             this.bindSrcHebergement = new System.Windows.Forms.BindingSource(this.components);
             this.idHebergementDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nbEtoileDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prixDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomHebergementDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nbEtoileDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.adresseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.villeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.villeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prixDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridHebergement)).BeginInit();
@@ -253,13 +253,13 @@ namespace WinLugati
             this.dataGridHebergement.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridHebergement.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idHebergementDataGridViewTextBoxColumn,
-            this.nbEtoileDataGridViewTextBoxColumn,
-            this.prixDataGridViewTextBoxColumn,
             this.nomHebergementDataGridViewTextBoxColumn,
+            this.nbEtoileDataGridViewTextBoxColumn,
             this.adresseDataGridViewTextBoxColumn,
-            this.villeDataGridViewTextBoxColumn,
             this.cpDataGridViewTextBoxColumn,
-            this.telDataGridViewTextBoxColumn});
+            this.villeDataGridViewTextBoxColumn,
+            this.telDataGridViewTextBoxColumn,
+            this.prixDataGridViewTextBoxColumn});
             this.dataGridHebergement.DataSource = this.bindSrcHebergement;
             this.dataGridHebergement.Name = "dataGridHebergement";
             this.dataGridHebergement.ReadOnly = true;
@@ -276,26 +276,19 @@ namespace WinLugati
             this.idHebergementDataGridViewTextBoxColumn.Name = "idHebergementDataGridViewTextBoxColumn";
             this.idHebergementDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // nbEtoileDataGridViewTextBoxColumn
-            // 
-            this.nbEtoileDataGridViewTextBoxColumn.DataPropertyName = "nbEtoile";
-            resources.ApplyResources(this.nbEtoileDataGridViewTextBoxColumn, "nbEtoileDataGridViewTextBoxColumn");
-            this.nbEtoileDataGridViewTextBoxColumn.Name = "nbEtoileDataGridViewTextBoxColumn";
-            this.nbEtoileDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // prixDataGridViewTextBoxColumn
-            // 
-            this.prixDataGridViewTextBoxColumn.DataPropertyName = "prix";
-            resources.ApplyResources(this.prixDataGridViewTextBoxColumn, "prixDataGridViewTextBoxColumn");
-            this.prixDataGridViewTextBoxColumn.Name = "prixDataGridViewTextBoxColumn";
-            this.prixDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // nomHebergementDataGridViewTextBoxColumn
             // 
             this.nomHebergementDataGridViewTextBoxColumn.DataPropertyName = "nomHebergement";
             resources.ApplyResources(this.nomHebergementDataGridViewTextBoxColumn, "nomHebergementDataGridViewTextBoxColumn");
             this.nomHebergementDataGridViewTextBoxColumn.Name = "nomHebergementDataGridViewTextBoxColumn";
             this.nomHebergementDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nbEtoileDataGridViewTextBoxColumn
+            // 
+            this.nbEtoileDataGridViewTextBoxColumn.DataPropertyName = "nbEtoile";
+            resources.ApplyResources(this.nbEtoileDataGridViewTextBoxColumn, "nbEtoileDataGridViewTextBoxColumn");
+            this.nbEtoileDataGridViewTextBoxColumn.Name = "nbEtoileDataGridViewTextBoxColumn";
+            this.nbEtoileDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // adresseDataGridViewTextBoxColumn
             // 
@@ -304,13 +297,6 @@ namespace WinLugati
             this.adresseDataGridViewTextBoxColumn.Name = "adresseDataGridViewTextBoxColumn";
             this.adresseDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // villeDataGridViewTextBoxColumn
-            // 
-            this.villeDataGridViewTextBoxColumn.DataPropertyName = "ville";
-            resources.ApplyResources(this.villeDataGridViewTextBoxColumn, "villeDataGridViewTextBoxColumn");
-            this.villeDataGridViewTextBoxColumn.Name = "villeDataGridViewTextBoxColumn";
-            this.villeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // cpDataGridViewTextBoxColumn
             // 
             this.cpDataGridViewTextBoxColumn.DataPropertyName = "cp";
@@ -318,12 +304,26 @@ namespace WinLugati
             this.cpDataGridViewTextBoxColumn.Name = "cpDataGridViewTextBoxColumn";
             this.cpDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // villeDataGridViewTextBoxColumn
+            // 
+            this.villeDataGridViewTextBoxColumn.DataPropertyName = "ville";
+            resources.ApplyResources(this.villeDataGridViewTextBoxColumn, "villeDataGridViewTextBoxColumn");
+            this.villeDataGridViewTextBoxColumn.Name = "villeDataGridViewTextBoxColumn";
+            this.villeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // telDataGridViewTextBoxColumn
             // 
             this.telDataGridViewTextBoxColumn.DataPropertyName = "tel";
             resources.ApplyResources(this.telDataGridViewTextBoxColumn, "telDataGridViewTextBoxColumn");
             this.telDataGridViewTextBoxColumn.Name = "telDataGridViewTextBoxColumn";
             this.telDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // prixDataGridViewTextBoxColumn
+            // 
+            this.prixDataGridViewTextBoxColumn.DataPropertyName = "prix";
+            resources.ApplyResources(this.prixDataGridViewTextBoxColumn, "prixDataGridViewTextBoxColumn");
+            this.prixDataGridViewTextBoxColumn.Name = "prixDataGridViewTextBoxColumn";
+            this.prixDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // FrmHebergement
             // 
@@ -371,13 +371,13 @@ namespace WinLugati
         private System.Windows.Forms.BindingSource bindSrcHebergement;
         private System.Windows.Forms.DataGridView dataGridHebergement;
         private System.Windows.Forms.DataGridViewTextBoxColumn idHebergementDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nbEtoileDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prixDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomHebergementDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nbEtoileDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn adresseDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn villeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cpDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn villeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn telDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prixDataGridViewTextBoxColumn;
     }
 }
 

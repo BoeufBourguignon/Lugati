@@ -735,12 +735,60 @@
   <data name="&gt;&gt;groupBox3.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <metadata name="bindSrcHebergement.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <data name="dataGridHebergement.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
+  <data name="idHebergementDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Identifiant</value>
+  </data>
+  <data name="idHebergementDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
+    <value>78</value>
+  </data>
+  <data name="nomHebergementDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="nomHebergementDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
+    <value>54</value>
+  </data>
+  <data name="nbEtoileDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Etoiles</value>
+  </data>
+  <data name="nbEtoileDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
+    <value>63</value>
+  </data>
+  <data name="adresseDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Adresse</value>
+  </data>
+  <data name="adresseDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
+    <value>70</value>
+  </data>
+  <data name="cpDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>CP</value>
+  </data>
+  <data name="cpDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
+    <value>46</value>
+  </data>
+  <data name="villeDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Ville</value>
+  </data>
+  <data name="villeDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
+    <value>51</value>
+  </data>
+  <data name="telDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Téléphone</value>
+  </data>
+  <data name="telDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
+    <value>83</value>
+  </data>
+  <data name="prixDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Prix</value>
+  </data>
+  <data name="prixDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
+    <value>49</value>
+  </data>
+  <metadata name="bindSrcHebergement.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <data name="dataGridHebergement.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 12</value>
   </data>
@@ -762,57 +810,6 @@
   <data name="&gt;&gt;dataGridHebergement.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="bindSrcHebergement.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <data name="idHebergementDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>Identifiant</value>
-  </data>
-  <data name="idHebergementDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
-    <value>78</value>
-  </data>
-  <data name="nbEtoileDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>Etoiles</value>
-  </data>
-  <data name="nbEtoileDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
-    <value>63</value>
-  </data>
-  <data name="prixDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>Prix</value>
-  </data>
-  <data name="prixDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
-    <value>49</value>
-  </data>
-  <data name="nomHebergementDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>Nom</value>
-  </data>
-  <data name="nomHebergementDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
-    <value>54</value>
-  </data>
-  <data name="adresseDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>Adresse</value>
-  </data>
-  <data name="adresseDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
-    <value>70</value>
-  </data>
-  <data name="villeDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>Ville</value>
-  </data>
-  <data name="villeDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
-    <value>51</value>
-  </data>
-  <data name="cpDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>CP</value>
-  </data>
-  <data name="cpDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
-    <value>46</value>
-  </data>
-  <data name="telDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>Téléphone</value>
-  </data>
-  <data name="telDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
-    <value>83</value>
-  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -821,9 +818,6 @@
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>731, 513</value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>FrmHebergements</value>
@@ -840,22 +834,16 @@
   <data name="&gt;&gt;idHebergementDataGridViewTextBoxColumn.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;nbEtoileDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>nbEtoileDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;nbEtoileDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;prixDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>prixDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;prixDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;nomHebergementDataGridViewTextBoxColumn.Name" xml:space="preserve">
     <value>nomHebergementDataGridViewTextBoxColumn</value>
   </data>
   <data name="&gt;&gt;nomHebergementDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nbEtoileDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>nbEtoileDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;nbEtoileDataGridViewTextBoxColumn.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;adresseDataGridViewTextBoxColumn.Name" xml:space="preserve">
@@ -864,22 +852,28 @@
   <data name="&gt;&gt;adresseDataGridViewTextBoxColumn.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;villeDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>villeDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;villeDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;cpDataGridViewTextBoxColumn.Name" xml:space="preserve">
     <value>cpDataGridViewTextBoxColumn</value>
   </data>
   <data name="&gt;&gt;cpDataGridViewTextBoxColumn.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;villeDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>villeDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;villeDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;telDataGridViewTextBoxColumn.Name" xml:space="preserve">
     <value>telDataGridViewTextBoxColumn</value>
   </data>
   <data name="&gt;&gt;telDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;prixDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>prixDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;prixDataGridViewTextBoxColumn.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
