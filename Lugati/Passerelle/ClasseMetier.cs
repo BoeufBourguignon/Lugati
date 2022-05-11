@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Passerelle
+namespace Lugati.dll
 {
     /// <summary>
     /// Class 
@@ -12,8 +12,16 @@ namespace Passerelle
     /// </summary>
     public class Hebergement
     {
-        public int idHebergement, nbEtoile, prix;
-        public string nomHebergement, adresse, ville, cp, tel;
+        public int idHebergement { get; set; }
+        public int nbEtoile { get; set; }
+        public int prix { get; set; }
+        public string nomHebergement { get; set; }
+        public string adresse { get; set; }
+        public string ville { get; set; }
+        public string cp { get; set; }
+        public string tel { get; set; }
+
+        public Hebergement() { }
 
         public Hebergement(int idHebergement, string nomHebergement, string adresse, string ville, string cp, string tel, int nbEtoile, int prix)
         {
@@ -98,12 +106,14 @@ namespace Passerelle
         public string adresse { get; set; }
         public string ville { get; set; }
         public string cp { get; set; }
-        public Hebergement hebergement { get; set; }
-        public Ligue ligue { get; set; }
+        //public Hebergement hebergement { get; set; }
+        //public Ligue ligue { get; set; }
 
+        public int idLigue { get; set; }
+        public int idHebergement { get; set; }
         public Participant() { }
 
-        public Participant(int idParticipant, string nom, string prenom, char genre, string adresse, string ville, string cp, Hebergement hebergement, Ligue ligue)
+        public Participant(int idParticipant, string nom, string prenom, char genre, string adresse, string ville, string cp, int idHebergement, int idLigue)
         {
             this.idParticipant = idParticipant;
             this.nom = nom;
@@ -112,8 +122,8 @@ namespace Passerelle
             this.adresse = adresse;
             this.ville = ville;
             this.cp = cp;
-            this.hebergement = hebergement;
-            this.ligue = ligue;
+            this.idHebergement = idHebergement;
+            this.idLigue = idLigue;
         }
     }
 
@@ -144,55 +154,5 @@ namespace Passerelle
             this.ville = ville;
         }
 
-    }
-
-        public Activite() { }
-
-        public Activite(int numActivite, string libelle, int tarif, int nbPlace, DateTime date, DateTime heure)
-        {
-            this.numActivite = numActivite;
-            this.libelle = libelle;
-            this.tarif = tarif;
-            this.nbPlace = nbPlace;
-            this.date = date;
-            this.heure = heure;
-        }
-    }
-
-    /// <summary>
-    /// Class
-    /// <c>Participant</c>
-    /// </summary>
-    public class Participant
-    {
-        public int idParticipant { get; set; }
-        public string nom { get; set; }
-        public string prenom { get; set; }
-        public char genre { get; set; }
-        public string adresse { get; set; }
-        public string ville { get; set; }
-        public string cp { get; set; }
-        public Hebergement hebergement { get; set; }
-        public Ligue ligue { get; set; }
-
-        public Participant() { }
-
-        public Participant(int idParticipant, string nom, string prenom, char genre, string adresse, string ville, string cp, Hebergement hebergement, Ligue ligue)
-        {
-            this.idParticipant = idParticipant;
-            this.nom = nom;
-            this.prenom = prenom;
-            this.genre = genre;
-            this.adresse = adresse;
-            this.ville = ville;
-            this.cp = cp;
-            this.hebergement = hebergement;
-            this.ligue = ligue;
-        }
-    }
-
-    public class Ligue
-    {
-        //TODO (Gaby)
     }
 }

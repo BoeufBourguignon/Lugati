@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace Passerelle
+namespace Lugati.dll
 {
     public static class Passerelle
     {
@@ -162,8 +162,8 @@ namespace Passerelle
                             readerLesParticipants[4].ToString(),
                             readerLesParticipants[5].ToString(),
                             readerLesParticipants[6].ToString(),
-                            readerLesParticipants[7].ToString(),
-                            readerLesParticipants[8].ToString()));
+                            (int)readerLesParticipants[7],
+                            (int)readerLesParticipants[8]));
                 }
             }
             else

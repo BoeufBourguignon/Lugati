@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Passerelle;
+
+using Lugati.dll;
 
 namespace WinLugati
 {
@@ -22,7 +23,7 @@ namespace WinLugati
         {
             try
             {
-                foreach (Session uneSession in Passerelle.Passerelle.GetLesSessions())
+                foreach (Session uneSession in Passerelle.GetLesSessions())
                 {
                     string[] row = { uneSession.numSession.ToString(), uneSession.libelle, uneSession.tarif.ToString(), uneSession.nbPlaces.ToString(), uneSession.date.ToString(), uneSession.heure };
                     dataGridSession.Rows.Add(row);
