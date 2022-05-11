@@ -17,22 +17,26 @@ namespace WinLugati
         public FrmActivite()
         {
             InitializeComponent();
+
+            dataGridActivite.DataSource = Passerelle.GetLesActivites();
         }
 
-        private void FrmActivite_Load(object sender, EventArgs e)
+        private void BtnAjouterHebergement_Click(object sender, EventArgs e)
         {
-            try
-            {
-                foreach (Activite uneActivite in Passerelle.GetLesActivites())
-                {
-                    string[] row = { uneActivite.numActivite.ToString(), uneActivite.libelle, uneActivite.tarif.ToString(), uneActivite.nbPlaces.ToString(), uneActivite.date.ToString(), uneActivite.heure };
-                    dataGridActivite.Rows.Add(row);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            labelLibelleActivite.Visible = true;
+            labelTarifActivite.Visible = true;
+            labelNbPlacesActivite.Visible = true;
+            labelDateActivite.Visible = true;
+            labelHeureActivite.Visible = true;
+
+            textBoxLibelleActivite.Visible = true;
+            textBoxTarifActivite.Visible = true;
+            textBoxNbPlacesActivite.Visible = true;
+            textBoxDateActivite.Visible = true;
+            textBoxHeureActivite.Visible = true;
+
+            BtnValiderActivite.Visible = true;
+            BtnAnnulerActivite.Visible = true;
         }
     }
 }

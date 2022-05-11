@@ -11,6 +11,8 @@ using System.Windows.Forms;
 
 using Lugati.dll;
 
+using Lugati.dll;
+
 namespace WinLugati
 {
     public partial class FrmHebergement : Form
