@@ -118,11 +118,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Passerelle\Passerelle.csproj">
-      <Project>{1d68ce2a-fc56-49f3-87f5-7a0f66c2057e}</Project>
-      <Name>Passerelle</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
