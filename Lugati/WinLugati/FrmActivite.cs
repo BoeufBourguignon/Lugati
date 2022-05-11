@@ -19,7 +19,7 @@ namespace WinLugati
         {
             InitializeComponent();
 
-            dataGridActivite.DataSource = Passerelle.Passerelle.GetLesActivites();
+            dataGridActivite.DataSource = Passerelle.GetLesActivites();
         }
 
         private void BtnAjouterHebergement_Click(object sender, EventArgs e)
