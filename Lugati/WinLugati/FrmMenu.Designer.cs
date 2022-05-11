@@ -64,7 +64,7 @@
             // participantToolStripMenuItem
             // 
             this.participantToolStripMenuItem.Name = "participantToolStripMenuItem";
-            this.participantToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.participantToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.participantToolStripMenuItem.Text = "Participant";
             this.participantToolStripMenuItem.Click += new System.EventHandler(this.participantToolStripMenuItem_Click);
             // 
@@ -79,7 +79,7 @@
             // hebergementToolStripMenuItem
             // 
             this.hebergementToolStripMenuItem.Name = "hebergementToolStripMenuItem";
-            this.hebergementToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.hebergementToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.hebergementToolStripMenuItem.Text = "Hebergement";
             this.hebergementToolStripMenuItem.Click += new System.EventHandler(this.hebergementToolStripMenuItem_Click);
             // 
@@ -94,7 +94,7 @@
             // sessionToolStripMenuItem
             // 
             this.sessionToolStripMenuItem.Name = "sessionToolStripMenuItem";
-            this.sessionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sessionToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.sessionToolStripMenuItem.Text = "Session";
             this.sessionToolStripMenuItem.Click += new System.EventHandler(this.sessionToolStripMenuItem_Click);
             // 
@@ -109,7 +109,7 @@
             // activiteToolStripMenuItem
             // 
             this.activiteToolStripMenuItem.Name = "activiteToolStripMenuItem";
-            this.activiteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.activiteToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.activiteToolStripMenuItem.Text = "Activite";
             this.activiteToolStripMenuItem.Click += new System.EventHandler(this.activiteToolStripMenuItem_Click);
             // 
@@ -123,6 +123,7 @@
             this.MainMenuStrip = this.menuStrip;
             this.Name = "FrmMenu";
             this.Text = "FrmMenu";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMenu_FormClosing);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
