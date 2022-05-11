@@ -55,9 +55,8 @@
     <Compile Include="FrmHebergement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include=".Designer.cs">
+    <Compile Include="FrmHebergement.Designer.cs">
       <DependentUpon>FrmHebergement.cs</DependentUpon>
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmMenu.cs">
       <SubType>Form</SubType>

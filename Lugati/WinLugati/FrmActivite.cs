@@ -23,7 +23,7 @@ namespace WinLugati
         {
             try
             {
-                foreach (Activite uneActivite in Passerelle.Passerelle.GetLesActivites())
+                foreach (Activite uneActivite in Passerelle.GetLesActivites())
                 {
                     string[] row = { uneActivite.numActivite.ToString(), uneActivite.libelle, uneActivite.tarif.ToString(), uneActivite.nbPlaces.ToString(), uneActivite.date.ToString(), uneActivite.heure };
                     dataGridActivite.Rows.Add(row);

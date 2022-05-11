@@ -229,10 +229,10 @@
     <value>6</value>
   </data>
   <data name="textBoxAdresseHotel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>64, 94</value>
+    <value>77, 94</value>
   </data>
   <data name="textBoxAdresseHotel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>113, 20</value>
+    <value>100, 20</value>
   </data>
   <data name="textBoxAdresseHotel.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -370,10 +370,10 @@
     <value>16</value>
   </data>
   <data name="textBoxPrixHotel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>44, 122</value>
+    <value>77, 122</value>
   </data>
   <data name="textBoxPrixHotel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 20</value>
+    <value>100, 20</value>
   </data>
   <data name="textBoxPrixHotel.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -391,10 +391,10 @@
     <value>17</value>
   </data>
   <data name="textBoxVilleHotel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>44, 148</value>
+    <value>77, 148</value>
   </data>
   <data name="textBoxVilleHotel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>134, 20</value>
+    <value>100, 20</value>
   </data>
   <data name="textBoxVilleHotel.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -436,7 +436,7 @@
     <value>78, 197</value>
   </data>
   <data name="textBoxTelHotel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
+    <value>99, 20</value>
   </data>
   <data name="textBoxTelHotel.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -688,7 +688,7 @@
     <value>0</value>
   </data>
   <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>411, 239</value>
+    <value>561, 210</value>
   </data>
   <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
     <value>158, 223</value>
@@ -712,7 +712,7 @@
     <value>2</value>
   </data>
   <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 235</value>
+    <value>340, 288</value>
   </data>
   <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
     <value>393, 227</value>
@@ -738,35 +738,14 @@
   <metadata name="bindSrcHebergement.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="idHebergementDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>idHebergement</value>
-  </data>
-  <data name="nbEtoileDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>nbEtoile</value>
-  </data>
-  <data name="prixDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>prix</value>
-  </data>
-  <data name="nomHebergementDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>nomHebergement</value>
-  </data>
-  <data name="adresseDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>adresse</value>
-  </data>
-  <data name="villeDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>ville</value>
-  </data>
-  <data name="cpDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>cp</value>
-  </data>
-  <data name="telDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>tel</value>
+  <data name="dataGridHebergement.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
   </data>
   <data name="dataGridHebergement.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 12</value>
   </data>
   <data name="dataGridHebergement.Size" type="System.Drawing.Size, System.Drawing">
-    <value>589, 192</value>
+    <value>707, 192</value>
   </data>
   <data name="dataGridHebergement.TabIndex" type="System.Int32, mscorlib">
     <value>28</value>
@@ -783,6 +762,57 @@
   <data name="&gt;&gt;dataGridHebergement.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <metadata name="bindSrcHebergement.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="idHebergementDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Identifiant</value>
+  </data>
+  <data name="idHebergementDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
+    <value>78</value>
+  </data>
+  <data name="nbEtoileDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Etoiles</value>
+  </data>
+  <data name="nbEtoileDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
+    <value>63</value>
+  </data>
+  <data name="prixDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Prix</value>
+  </data>
+  <data name="prixDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
+    <value>49</value>
+  </data>
+  <data name="nomHebergementDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="nomHebergementDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
+    <value>54</value>
+  </data>
+  <data name="adresseDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Adresse</value>
+  </data>
+  <data name="adresseDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
+    <value>70</value>
+  </data>
+  <data name="villeDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Ville</value>
+  </data>
+  <data name="villeDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
+    <value>51</value>
+  </data>
+  <data name="cpDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>CP</value>
+  </data>
+  <data name="cpDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
+    <value>46</value>
+  </data>
+  <data name="telDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Téléphone</value>
+  </data>
+  <data name="telDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
+    <value>83</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -790,7 +820,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>613, 489</value>
+    <value>731, 513</value>
   </data>
   <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>

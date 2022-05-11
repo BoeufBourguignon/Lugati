@@ -19,6 +19,8 @@ namespace WinLugati
         {
             InitializeComponent();
 
+            dataGridHebergement.DataSource = Passerelle.GetLesHebergements();
+
             labelNomHotel.Visible = false;
             labelAdresseHotel.Visible = false;
             labelVilleHotel.Visible = false;
@@ -42,34 +44,6 @@ namespace WinLugati
             BtnAnnulerModifHotel.Visible = false;
 
             comboBoxIdHotel.Visible = false;
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            //Permet de faire d'ajouter dans le datagrid chaque ligne de données liées à la Table Hebergement.
-            try
-            {
-                foreach (Hebergement unHebergement in Passerelle.GetLesHebergements())
-                {
-                    string[] row = { unHebergement.idHebergement.ToString(), unHebergement.nomHebergement, unHebergement.adresse, unHebergement.ville, unHebergement.cp, unHebergement.tel, unHebergement.nbEtoile.ToString(), unHebergement.prix.ToString()};
-                    dataGridHebergement.Rows.Add(row);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            try
-            {
-                //On charge la comboBox avec tous les voyages de la base de données au chargement du formulaire
-                comboBoxIdHotel.DataSource = Passerelle.GetLesHebergements();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erreur au chargement des données :\n" + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.Close();
-            }
         }
 
         private void BtnAjouterHebergement_Click(object sender, EventArgs e)

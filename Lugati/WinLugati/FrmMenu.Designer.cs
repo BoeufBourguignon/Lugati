@@ -123,7 +123,6 @@
             this.MainMenuStrip = this.menuStrip;
             this.Name = "FrmMenu";
             this.Text = "FrmMenu";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMenu_FormClosing);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
