@@ -76,5 +76,14 @@ namespace WinLugati
 
             }
         }
+
+        private void FrmMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if()
+            {
+
+            }
+            
+        }
     }
 }
