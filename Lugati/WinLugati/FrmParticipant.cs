@@ -22,6 +22,7 @@ namespace WinLugati
         private void FrmParticipant_Load(object sender, EventArgs e)
         {
             bindingSourceParticipant.DataSource = Passerelle.GetLesParticipants();
+            comboBoxParticipant.DataSource = Passerelle.GetLesParticipants();
         }
     }
 }
