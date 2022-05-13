@@ -23,6 +23,29 @@ namespace WinLugati
         private void FrmParticipant_Load(object sender, EventArgs e)
         {
             bindingSourceParticipant.DataSource = Passerelle.GetLesParticipants();
+
+            //bindingSourceParticipant.DataSource = (Participant)comboBoxParticipant.SelectedItem;
+        }
+
+        private void btnValiderParticipant_Click(object sender, EventArgs e)
+        {
+            this.bindingSourceParticipant.EndEdit();
+
+            Participant PartAAjouter = (Participant)this.bindingSourceParticipant.Current;
+
+            try
+            {
+                Passerelle.AddPart(PartAAjouter);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnAnnulerParticipant_Click(object sender, EventArgs e)
+        {
+            this.bindingSourceParticipant.CancelEdit();
         }
     }
 }

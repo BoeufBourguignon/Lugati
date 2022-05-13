@@ -62,6 +62,37 @@ namespace Lugati.dll
         }
 
         /// <summary>
+        /// Ajoute l'employé passé en paramètre à la base de données.
+        /// </summary>
+        /// <param name="">Instance d'Employe contenant les données à ajouter</param>
+        public static void AddPart(Participant unPart)
+        {
+            SqlCommand reqAddPart = new SqlCommand(
+                "INSERT INTO Participant (idParticipant, nom, prenom, genre, adresse, ville, cp, idHebergement, idLigue) " +
+                "VALUES (@id, @n, @p, @g, @a, @v, @c, @idH, @idL)",
+                Passerelle.connexionBaseLugati);
+            reqAddPart.Parameters.AddWithValue("@id", unPart.idParticipant);
+            reqAddPart.Parameters.AddWithValue("@n", unPart.nom);
+            reqAddPart.Parameters.AddWithValue("@p", unPart.prenom);
+            reqAddPart.Parameters.AddWithValue("@g", unPart.genre);
+            reqAddPart.Parameters.AddWithValue("@a", unPart.adresse);
+            reqAddPart.Parameters.AddWithValue("@v", unPart.ville);
+            reqAddPart.Parameters.AddWithValue("@c", unPart.cp);
+            reqAddPart.Parameters.AddWithValue("@idH", unPart.idHebergement);
+            reqAddPart.Parameters.AddWithValue("@idL", unPart.idLigue);
+            try
+            {
+                Passerelle.connexionBaseLugati.Open();
+
+                reqAddPart.ExecuteNonQuery();
+            }
+            finally
+            {
+                Passerelle.connexionBaseLugati.Close();
+            }
+        }
+
+        /// <summary>
         /// Retourne toutes les sessions présentes dans la base de données
         /// </summary>
         /// <returns>Collection de sessions</returns>
@@ -154,16 +185,18 @@ namespace Lugati.dll
             {
                 while (readerLesParticipants.Read())
                 {
-                    lesParticipants.Add(new Participant(
-                            (int)readerLesParticipants[0],
-                            readerLesParticipants[1].ToString(),
-                            readerLesParticipants[2].ToString(),
-                            (char)readerLesParticipants[3],
-                            readerLesParticipants[4].ToString(),
-                            readerLesParticipants[5].ToString(),
-                            readerLesParticipants[6].ToString(),
-                            (int)readerLesParticipants[7],
-                            (int)readerLesParticipants[8]));
+                    Participant p = new Participant();
+                    p.idParticipant = (int)readerLesParticipants[0];
+                    p.prenom = readerLesParticipants[1].ToString();
+                    p.nom = readerLesParticipants[2].ToString();
+                    p.genre = Convert.ToChar(readerLesParticipants[3].ToString());
+                    p.adresse = readerLesParticipants[4].ToString();
+                    p.cp = readerLesParticipants[5].ToString();
+                    p.ville = readerLesParticipants[6].ToString();
+                    p.idLigue = (int)readerLesParticipants[7];
+                    p.idHebergement = (int)readerLesParticipants[8];
+
+                    lesParticipants.Add(p);
                 }
             }
             else
