@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Passerelle;
+using Lugati;
 
 using Lugati.dll;
 
@@ -22,7 +22,7 @@ namespace WinLugati
 
         private void FrmParticipant_Load(object sender, EventArgs e)
         {
-            bindingSourceParticipant.DataSource = Passerelle.Passerelle.GetLesParticipants();
+            bindingSourceParticipant.DataSource = Passerelle.GetLesParticipants();
         }
     }
 }

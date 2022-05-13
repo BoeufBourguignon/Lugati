@@ -1,4 +1,6 @@
-﻿namespace WinLugati
+﻿using Lugati.dll;
+
+namespace WinLugati
 {
     partial class FrmParticipant
     {
@@ -359,7 +361,7 @@
             // 
             // bindingSourceParticipant
             // 
-            this.bindingSourceParticipant.DataSource = typeof(Passerelle.Participant);
+            this.bindingSourceParticipant.DataSource = typeof(Participant);
             // 
             // idParticipantDataGridViewTextBoxColumn
             // 
