@@ -29,13 +29,19 @@ namespace WinLugati
 
         private void btnValiderParticipant_Click(object sender, EventArgs e)
         {
-            this.bindingSourceParticipant.EndEdit();
-
-            Participant PartAAjouter = (Participant)this.bindingSourceParticipant.Current;
-
             try
             {
-                Passerelle.AddPart(PartAAjouter);
+                Participant c = (Participant)this.bindingSourceParticipant.Current;
+                if (c.idParticipant == 0)
+                {
+                    c.idParticipant = Passerelle.AjouterParticipant(c);
+                }
+                else
+                {
+                    Passerelle.ModifierParticipant(c);
+                }
+                this.bindingSourceParticipant.EndEdit();
+                MessageBox.Show("La a été enregistré", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -46,6 +52,29 @@ namespace WinLugati
         private void btnAnnulerParticipant_Click(object sender, EventArgs e)
         {
             this.bindingSourceParticipant.CancelEdit();
+        }
+
+        private void btnAjouterParticipant_Click(object sender, EventArgs e)
+        {
+            this.bindingSourceParticipant.AddNew();
+
+        }
+
+        private void btnSupprimerPart_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Etes-vous sur de vouloir supprimer ce Participant ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                try
+                {
+                    Passerelle.SupprimerParticipant((int)((Participant)this.bindingSourceParticipant.Current).idParticipant);
+                    this.bindingSourceParticipant.EndEdit();
+                    MessageBox.Show("Le Participant a été enregistré", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

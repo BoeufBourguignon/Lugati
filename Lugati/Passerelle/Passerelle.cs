@@ -95,6 +95,71 @@ namespace Lugati.dll
             return lesActivites;
         }
 
+        #region Participant
+        /// <summary>
+        /// Ajouter un participant
+        /// </summary>
+        /// <param name="p">Paramètre</param>
+        /// <returns></returns>
+        public static int AjouterParticipant(Participant p)
+        {
+            SqlCommand reqAjouterParticipant =
+                new SqlCommand("INSERT INTO Participant (nom, prenom, genre, adresse, ville, cp, idHebergement, idLigue) " +
+                                "OUTPUT INSERTED.idParticipant " +
+                                "VALUES (@nom, @prenom, @genre, @adresse, @ville, @cp, @idHebergement, @idLigue)",
+                Passerelle.connexionBaseLugati);
+            reqAjouterParticipant.Parameters.AddWithValue("@nom", p.nom);
+            reqAjouterParticipant.Parameters.AddWithValue("@prenom", p.prenom);
+            reqAjouterParticipant.Parameters.AddWithValue("@genre", p.genre);
+            reqAjouterParticipant.Parameters.AddWithValue("@adresse", p.adresse);
+            reqAjouterParticipant.Parameters.AddWithValue("@ville", p.ville);
+            reqAjouterParticipant.Parameters.AddWithValue("@cp", p.cp);
+            reqAjouterParticipant.Parameters.AddWithValue("@idHebergement", p.idHebergement);
+            reqAjouterParticipant.Parameters.AddWithValue("@idLigue", p.idLigue);
+
+            int id = 0;
+
+            try
+            {
+                Passerelle.connexionBaseLugati.Open();
+
+                id = (int)reqAjouterParticipant.ExecuteScalar();
+            }
+            finally
+            {
+                Passerelle.connexionBaseLugati.Close();
+            }
+
+            return id;
+        }
+
+        public static void ModifierParticipant(Participant p)
+        {
+            SqlCommand reqModifierParticipant =
+                new SqlCommand("UPDATE Participant SET nom = @nom, prenom = @prenom, genre = @genre, adresse = @adresse, ville = @ville, cp = @cp, idHebergement = @idHebergement, idLigue = @idLigue " +
+                                "WHERE idParticipant = @idParticipant",
+                Passerelle.connexionBaseLugati);
+            reqModifierParticipant.Parameters.AddWithValue("@nom", p.nom);
+            reqModifierParticipant.Parameters.AddWithValue("@prenom", p.prenom);
+            reqModifierParticipant.Parameters.AddWithValue("@genre", p.genre);
+            reqModifierParticipant.Parameters.AddWithValue("@adresse", p.adresse);
+            reqModifierParticipant.Parameters.AddWithValue("@ville", p.ville);
+            reqModifierParticipant.Parameters.AddWithValue("@cp", p.cp);
+            reqModifierParticipant.Parameters.AddWithValue("@idHebergement", p.idHebergement);
+            reqModifierParticipant.Parameters.AddWithValue("@idLigue", p.idLigue);
+            reqModifierParticipant.Parameters.AddWithValue("@idParticipant", p.idParticipant);
+            try
+            {
+                Passerelle.connexionBaseLugati.Open();
+
+                reqModifierParticipant.ExecuteNonQuery();
+            }
+            finally
+            {
+                Passerelle.connexionBaseLugati.Close();
+            }
+        }
+
         public static List<Participant> GetLesParticipants()
         {
             List<Participant> lesParticipants = new List<Participant>();
@@ -114,12 +179,12 @@ namespace Lugati.dll
                 {
                     Participant p = new Participant();
                     p.idParticipant = (int)readerLesParticipants[0];
-                    p.prenom = readerLesParticipants[1].ToString();
-                    p.nom = readerLesParticipants[2].ToString();
+                    p.prenom = readerLesParticipants[2].ToString();
+                    p.nom = readerLesParticipants[1].ToString();
                     p.genre = Convert.ToChar(readerLesParticipants[3].ToString());
                     p.adresse = readerLesParticipants[4].ToString();
-                    p.cp = readerLesParticipants[5].ToString();
-                    p.ville = readerLesParticipants[6].ToString();
+                    p.cp = readerLesParticipants[6].ToString();
+                    p.ville = readerLesParticipants[5].ToString();
                     p.idLigue = (int)readerLesParticipants[7];
                     p.idHebergement = (int)readerLesParticipants[8];
 
@@ -135,6 +200,27 @@ namespace Lugati.dll
 
             return lesParticipants;
         }
+
+        public static void SupprimerParticipant(int idParticipant)
+        {
+            SqlCommand reqSupprimerParticipant = new SqlCommand(
+                "DELETE FROM Participant WHERE idParticipant = @id",
+                Passerelle.connexionBaseLugati);
+
+            reqSupprimerParticipant.Parameters.AddWithValue("@id", idParticipant);
+
+            try
+            {
+                Passerelle.connexionBaseLugati.Open();
+
+                reqSupprimerParticipant.ExecuteNonQuery();
+            }
+            finally
+            {
+                Passerelle.connexionBaseLugati.Close();
+            }
+        }
+        #endregion
 
         #region Hebergement
         /// <summary>

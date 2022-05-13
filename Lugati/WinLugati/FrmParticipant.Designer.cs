@@ -35,16 +35,6 @@ namespace WinLugati
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridParticipant = new System.Windows.Forms.DataGridView();
-            this.idParticipantDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prenomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.genreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.adresseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.villeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idLigueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idHebergementDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindingSourceParticipant = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.textBoxGenre = new System.Windows.Forms.TextBox();
             this.btnAnnulerParticipant = new System.Windows.Forms.Button();
@@ -67,12 +57,24 @@ namespace WinLugati
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.btnAjouterParticipant = new System.Windows.Forms.Button();
+            this.btnSupprimerPart = new System.Windows.Forms.Button();
+            this.idParticipantDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prenomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.genreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.adresseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.villeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idLigueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idHebergementDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSourceParticipant = new System.Windows.Forms.BindingSource(this.components);
             this.tabParticipant.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridParticipant)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceParticipant)).BeginInit();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceParticipant)).BeginInit();
             this.SuspendLayout();
             // 
             // tabParticipant
@@ -84,7 +86,7 @@ namespace WinLugati
             this.tabParticipant.Location = new System.Drawing.Point(12, 12);
             this.tabParticipant.Name = "tabParticipant";
             this.tabParticipant.SelectedIndex = 0;
-            this.tabParticipant.Size = new System.Drawing.Size(573, 426);
+            this.tabParticipant.Size = new System.Drawing.Size(573, 413);
             this.tabParticipant.TabIndex = 0;
             // 
             // tabPage1
@@ -93,7 +95,7 @@ namespace WinLugati
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(565, 400);
+            this.tabPage1.Size = new System.Drawing.Size(565, 387);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Participant Existant";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -101,10 +103,11 @@ namespace WinLugati
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Gainsboro;
+            this.groupBox1.Controls.Add(this.btnSupprimerPart);
             this.groupBox1.Controls.Add(this.dataGridParticipant);
             this.groupBox1.Location = new System.Drawing.Point(3, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(553, 388);
+            this.groupBox1.Size = new System.Drawing.Size(553, 385);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Les Participants :";
@@ -130,78 +133,12 @@ namespace WinLugati
             this.dataGridParticipant.Name = "dataGridParticipant";
             this.dataGridParticipant.ReadOnly = true;
             this.dataGridParticipant.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridParticipant.Size = new System.Drawing.Size(541, 363);
+            this.dataGridParticipant.Size = new System.Drawing.Size(541, 168);
             this.dataGridParticipant.TabIndex = 0;
-            // 
-            // idParticipantDataGridViewTextBoxColumn
-            // 
-            this.idParticipantDataGridViewTextBoxColumn.DataPropertyName = "idParticipant";
-            this.idParticipantDataGridViewTextBoxColumn.HeaderText = "idParticipant";
-            this.idParticipantDataGridViewTextBoxColumn.Name = "idParticipantDataGridViewTextBoxColumn";
-            this.idParticipantDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nomDataGridViewTextBoxColumn
-            // 
-            this.nomDataGridViewTextBoxColumn.DataPropertyName = "nom";
-            this.nomDataGridViewTextBoxColumn.HeaderText = "nom";
-            this.nomDataGridViewTextBoxColumn.Name = "nomDataGridViewTextBoxColumn";
-            this.nomDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // prenomDataGridViewTextBoxColumn
-            // 
-            this.prenomDataGridViewTextBoxColumn.DataPropertyName = "prenom";
-            this.prenomDataGridViewTextBoxColumn.HeaderText = "prenom";
-            this.prenomDataGridViewTextBoxColumn.Name = "prenomDataGridViewTextBoxColumn";
-            this.prenomDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // genreDataGridViewTextBoxColumn
-            // 
-            this.genreDataGridViewTextBoxColumn.DataPropertyName = "genre";
-            this.genreDataGridViewTextBoxColumn.HeaderText = "genre";
-            this.genreDataGridViewTextBoxColumn.Name = "genreDataGridViewTextBoxColumn";
-            this.genreDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // adresseDataGridViewTextBoxColumn
-            // 
-            this.adresseDataGridViewTextBoxColumn.DataPropertyName = "adresse";
-            this.adresseDataGridViewTextBoxColumn.HeaderText = "adresse";
-            this.adresseDataGridViewTextBoxColumn.Name = "adresseDataGridViewTextBoxColumn";
-            this.adresseDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // villeDataGridViewTextBoxColumn
-            // 
-            this.villeDataGridViewTextBoxColumn.DataPropertyName = "ville";
-            this.villeDataGridViewTextBoxColumn.HeaderText = "ville";
-            this.villeDataGridViewTextBoxColumn.Name = "villeDataGridViewTextBoxColumn";
-            this.villeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cpDataGridViewTextBoxColumn
-            // 
-            this.cpDataGridViewTextBoxColumn.DataPropertyName = "cp";
-            this.cpDataGridViewTextBoxColumn.HeaderText = "cp";
-            this.cpDataGridViewTextBoxColumn.Name = "cpDataGridViewTextBoxColumn";
-            this.cpDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // idLigueDataGridViewTextBoxColumn
-            // 
-            this.idLigueDataGridViewTextBoxColumn.DataPropertyName = "idLigue";
-            this.idLigueDataGridViewTextBoxColumn.HeaderText = "idLigue";
-            this.idLigueDataGridViewTextBoxColumn.Name = "idLigueDataGridViewTextBoxColumn";
-            this.idLigueDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // idHebergementDataGridViewTextBoxColumn
-            // 
-            this.idHebergementDataGridViewTextBoxColumn.DataPropertyName = "idHebergement";
-            this.idHebergementDataGridViewTextBoxColumn.HeaderText = "idHebergement";
-            this.idHebergementDataGridViewTextBoxColumn.Name = "idHebergementDataGridViewTextBoxColumn";
-            this.idHebergementDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // bindingSourceParticipant
-            // 
-            this.bindingSourceParticipant.DataSource = typeof(Lugati.dll.Participant);
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btnAjouterParticipant);
             this.tabPage2.Controls.Add(this.textBoxGenre);
             this.tabPage2.Controls.Add(this.btnAnnulerParticipant);
             this.tabPage2.Controls.Add(this.btnValiderParticipant);
@@ -224,7 +161,7 @@ namespace WinLugati
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(565, 400);
+            this.tabPage2.Size = new System.Drawing.Size(565, 387);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Participant Ajouter";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -240,7 +177,7 @@ namespace WinLugati
             // btnAnnulerParticipant
             // 
             this.btnAnnulerParticipant.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btnAnnulerParticipant.Location = new System.Drawing.Point(306, 320);
+            this.btnAnnulerParticipant.Location = new System.Drawing.Point(306, 278);
             this.btnAnnulerParticipant.Name = "btnAnnulerParticipant";
             this.btnAnnulerParticipant.Size = new System.Drawing.Size(100, 54);
             this.btnAnnulerParticipant.TabIndex = 19;
@@ -251,11 +188,11 @@ namespace WinLugati
             // btnValiderParticipant
             // 
             this.btnValiderParticipant.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnValiderParticipant.Location = new System.Drawing.Point(136, 320);
+            this.btnValiderParticipant.Location = new System.Drawing.Point(306, 156);
             this.btnValiderParticipant.Name = "btnValiderParticipant";
-            this.btnValiderParticipant.Size = new System.Drawing.Size(96, 54);
+            this.btnValiderParticipant.Size = new System.Drawing.Size(100, 54);
             this.btnValiderParticipant.TabIndex = 18;
-            this.btnValiderParticipant.Text = "Valider";
+            this.btnValiderParticipant.Text = "Enregistrer Modif";
             this.btnValiderParticipant.UseVisualStyleBackColor = false;
             this.btnValiderParticipant.Click += new System.EventHandler(this.btnValiderParticipant_Click);
             // 
@@ -401,7 +338,7 @@ namespace WinLugati
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(565, 400);
+            this.tabPage3.Size = new System.Drawing.Size(565, 387);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Inscriptions";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -411,10 +348,98 @@ namespace WinLugati
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(565, 400);
+            this.tabPage4.Size = new System.Drawing.Size(565, 387);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Montant";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // btnAjouterParticipant
+            // 
+            this.btnAjouterParticipant.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnAjouterParticipant.Location = new System.Drawing.Point(306, 219);
+            this.btnAjouterParticipant.Name = "btnAjouterParticipant";
+            this.btnAjouterParticipant.Size = new System.Drawing.Size(100, 46);
+            this.btnAjouterParticipant.TabIndex = 21;
+            this.btnAjouterParticipant.Text = "Ajouter";
+            this.btnAjouterParticipant.UseVisualStyleBackColor = false;
+            this.btnAjouterParticipant.Click += new System.EventHandler(this.btnAjouterParticipant_Click);
+            // 
+            // btnSupprimerPart
+            // 
+            this.btnSupprimerPart.Location = new System.Drawing.Point(168, 242);
+            this.btnSupprimerPart.Name = "btnSupprimerPart";
+            this.btnSupprimerPart.Size = new System.Drawing.Size(195, 32);
+            this.btnSupprimerPart.TabIndex = 1;
+            this.btnSupprimerPart.Text = "Supprimer un Participant";
+            this.btnSupprimerPart.UseVisualStyleBackColor = true;
+            this.btnSupprimerPart.Click += new System.EventHandler(this.btnSupprimerPart_Click);
+            // 
+            // idParticipantDataGridViewTextBoxColumn
+            // 
+            this.idParticipantDataGridViewTextBoxColumn.DataPropertyName = "idParticipant";
+            this.idParticipantDataGridViewTextBoxColumn.HeaderText = "idParticipant";
+            this.idParticipantDataGridViewTextBoxColumn.Name = "idParticipantDataGridViewTextBoxColumn";
+            this.idParticipantDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nomDataGridViewTextBoxColumn
+            // 
+            this.nomDataGridViewTextBoxColumn.DataPropertyName = "nom";
+            this.nomDataGridViewTextBoxColumn.HeaderText = "nom";
+            this.nomDataGridViewTextBoxColumn.Name = "nomDataGridViewTextBoxColumn";
+            this.nomDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // prenomDataGridViewTextBoxColumn
+            // 
+            this.prenomDataGridViewTextBoxColumn.DataPropertyName = "prenom";
+            this.prenomDataGridViewTextBoxColumn.HeaderText = "prenom";
+            this.prenomDataGridViewTextBoxColumn.Name = "prenomDataGridViewTextBoxColumn";
+            this.prenomDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // genreDataGridViewTextBoxColumn
+            // 
+            this.genreDataGridViewTextBoxColumn.DataPropertyName = "genre";
+            this.genreDataGridViewTextBoxColumn.HeaderText = "genre";
+            this.genreDataGridViewTextBoxColumn.Name = "genreDataGridViewTextBoxColumn";
+            this.genreDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // adresseDataGridViewTextBoxColumn
+            // 
+            this.adresseDataGridViewTextBoxColumn.DataPropertyName = "adresse";
+            this.adresseDataGridViewTextBoxColumn.HeaderText = "adresse";
+            this.adresseDataGridViewTextBoxColumn.Name = "adresseDataGridViewTextBoxColumn";
+            this.adresseDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // villeDataGridViewTextBoxColumn
+            // 
+            this.villeDataGridViewTextBoxColumn.DataPropertyName = "ville";
+            this.villeDataGridViewTextBoxColumn.HeaderText = "ville";
+            this.villeDataGridViewTextBoxColumn.Name = "villeDataGridViewTextBoxColumn";
+            this.villeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cpDataGridViewTextBoxColumn
+            // 
+            this.cpDataGridViewTextBoxColumn.DataPropertyName = "cp";
+            this.cpDataGridViewTextBoxColumn.HeaderText = "cp";
+            this.cpDataGridViewTextBoxColumn.Name = "cpDataGridViewTextBoxColumn";
+            this.cpDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idLigueDataGridViewTextBoxColumn
+            // 
+            this.idLigueDataGridViewTextBoxColumn.DataPropertyName = "idLigue";
+            this.idLigueDataGridViewTextBoxColumn.HeaderText = "idLigue";
+            this.idLigueDataGridViewTextBoxColumn.Name = "idLigueDataGridViewTextBoxColumn";
+            this.idLigueDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idHebergementDataGridViewTextBoxColumn
+            // 
+            this.idHebergementDataGridViewTextBoxColumn.DataPropertyName = "idHebergement";
+            this.idHebergementDataGridViewTextBoxColumn.HeaderText = "idHebergement";
+            this.idHebergementDataGridViewTextBoxColumn.Name = "idHebergementDataGridViewTextBoxColumn";
+            this.idHebergementDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bindingSourceParticipant
+            // 
+            this.bindingSourceParticipant.DataSource = typeof(Lugati.dll.Participant);
             // 
             // FrmParticipant
             // 
@@ -429,9 +454,9 @@ namespace WinLugati
             this.tabPage1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridParticipant)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceParticipant)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceParticipant)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -474,5 +499,7 @@ namespace WinLugati
         private System.Windows.Forms.Button btnValiderParticipant;
         private System.Windows.Forms.Button btnAnnulerParticipant;
         private System.Windows.Forms.TextBox textBoxGenre;
+        private System.Windows.Forms.Button btnAjouterParticipant;
+        private System.Windows.Forms.Button btnSupprimerPart;
     }
 }
