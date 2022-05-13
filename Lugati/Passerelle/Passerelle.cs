@@ -20,48 +20,6 @@ namespace Lugati.dll
             "Password=b4n4n3");
 
         /// <summary>
-        /// Retourne tous les Hotels présent dans la base de données
-        /// </summary>
-        /// <returns>Collection d'Hotels</returns>
-        public static List<Hebergement> GetLesHebergements()
-        {
-            List<Hebergement> lesHebergements = new List<Hebergement>();
-
-            SqlCommand reqLesHebergements =
-                new SqlCommand("SELECT idHebergement, nomHebergement, adresse, ville, cp, tel, nbEtoile, prix " +
-                                "FROM Hebergement",
-                Passerelle.connexionBaseLugati);
-
-                Passerelle.connexionBaseLugati.Open();
-
-            SqlDataReader readerLesHebergements = reqLesHebergements.ExecuteReader();
-
-            if (readerLesHebergements.HasRows)
-            {
-                while (readerLesHebergements.Read())
-                {
-                    lesHebergements.Add(new Hebergement(
-                            (int)readerLesHebergements[0],
-                            readerLesHebergements[1].ToString(),
-                            readerLesHebergements[2].ToString(),
-                            readerLesHebergements[3].ToString(),
-                            readerLesHebergements[4].ToString(),
-                            readerLesHebergements[5].ToString(),
-                            (int)readerLesHebergements[6],
-                            (int)readerLesHebergements[7]));
-                }
-            }
-            else
-            {
-                throw new Exception("Il n'existe aucun Hebergements");
-            }
-
-            Passerelle.connexionBaseLugati.Close();
-
-            return lesHebergements;
-        }
-
-        /// <summary>
         /// Retourne toutes les sessions présentes dans la base de données
         /// </summary>
         /// <returns>Collection de sessions</returns>
@@ -176,130 +134,139 @@ namespace Lugati.dll
             return lesParticipants;
         }
 
+        #region Hebergement
+        /// <summary>
+        /// Retourne tous les Hotels présent dans la base de données
+        /// </summary>
+        /// <returns>Collection d'Hotels</returns>
+        public static List<Hebergement> GetLesHebergements()
+        {
+            List<Hebergement> lesHebergements = new List<Hebergement>();
 
+            SqlCommand reqLesHebergements =
+                new SqlCommand("SELECT idHebergement, nomHebergement, adresse, ville, cp, tel, nbEtoile, prix " +
+                                "FROM Hebergement",
+                Passerelle.connexionBaseLugati);
+
+                Passerelle.connexionBaseLugati.Open();
+
+            SqlDataReader readerLesHebergements = reqLesHebergements.ExecuteReader();
+
+            if (readerLesHebergements.HasRows)
+            {
+                while (readerLesHebergements.Read())
+                {
+                    lesHebergements.Add(new Hebergement(
+                            (int)readerLesHebergements[0],
+                            readerLesHebergements[1].ToString(),
+                            readerLesHebergements[2].ToString(),
+                            readerLesHebergements[3].ToString(),
+                            readerLesHebergements[4].ToString(),
+                            readerLesHebergements[5].ToString(),
+                            (int)readerLesHebergements[6],
+                            (int)readerLesHebergements[7]));
+                }
+            }
+            else
+            {
+                throw new Exception("Il n'existe aucun Hebergements");
+            }
+
+            Passerelle.connexionBaseLugati.Close();
+
+            return lesHebergements;
+        }
 
         /// <summary>
-        /// Ajoute un nouveau hotel dans la base de données et retourne le numéro de ce nouveau hotel
+        /// Ajoute un heberegment à la base de donénes
         /// </summary>
-        /// <param name="nomHebergement">Nom du nouveau Hotel</param>
-        /// <param name="adresse">adresse du nouveau Hotel</param>
-        /// <param name="ville">ville du nouveau Hotel</param>
-        /// <param name="cp">Code Postal du nouveau Hotel</param>
-        /// <param name="tel">Numero de Telephone du nouveau Hotel</param>
-        /// <param name="nbEtoile">Nombre d'étoile du nouveau Hotel</param>
-        /// <param name="prix">Prix du nouveau Hotel</param>
-        public static int AjouterHebergement(string nomHebergement, string adresse, string ville, string cp, string tel, int nbEtoile, int prix)
+        /// <param name="h">Hebergement à ajouter</param>
+        /// <returns>Id de l'hebergement ajouté</returns>
+        public static int AjouterHebergement(Hebergement h)
         {
             SqlCommand reqAjouterHebergement =
                 new SqlCommand("INSERT INTO Hebergement (nomHebergement, adresse, ville, cp, tel, nbEtoile, prix) " +
                                 "OUTPUT INSERTED.idHebergement " +
                                 "VALUES (@nomHebergement, @adresse, @ville, @cp, @tel, @nbEtoile, @prix)",
                 Passerelle.connexionBaseLugati);
-            reqAjouterHebergement.Parameters.AddWithValue("@nomHebergement", nomHebergement);
-            reqAjouterHebergement.Parameters.AddWithValue("@adresse", adresse);
-            reqAjouterHebergement.Parameters.AddWithValue("@ville", ville);
-            reqAjouterHebergement.Parameters.AddWithValue("@cp", cp);
-            reqAjouterHebergement.Parameters.AddWithValue("@tel", tel);
-            reqAjouterHebergement.Parameters.AddWithValue("@nbEtoile", nbEtoile);
-            reqAjouterHebergement.Parameters.AddWithValue("@prix", prix);
+            reqAjouterHebergement.Parameters.AddWithValue("@nomHebergement", h.nomHebergement);
+            reqAjouterHebergement.Parameters.AddWithValue("@adresse", h.adresse);
+            reqAjouterHebergement.Parameters.AddWithValue("@ville", h.ville);
+            reqAjouterHebergement.Parameters.AddWithValue("@cp", h.cp);
+            reqAjouterHebergement.Parameters.AddWithValue("@tel", h.tel);
+            reqAjouterHebergement.Parameters.AddWithValue("@nbEtoile", h.nbEtoile);
+            reqAjouterHebergement.Parameters.AddWithValue("@prix", h.prix);
 
-            Passerelle.connexionBaseLugati.Open();
-
-            int id = (int)reqAjouterHebergement.ExecuteScalar();
-
-            Passerelle.connexionBaseLugati.Close();
-
-            return id;
-        }
-
-        /// <summary>
-        /// Retourne l'identifiant du Hebergement correspondant aux valeurs passés en paramètre à partir de la base de données.
-        /// On considère que 2 Hebergements identiques ne peuvent pas exister dans la base de données.
-        /// </summary>
-        /// <param name="nomHebergement">Nom de l'hotel rechercher</param>
-        /// <param name="adresse">adresse de l'hotel rechercher</param>
-        /// <param name="ville">Ville de l'hotel rechercher</param>
-        /// <param name="cp">Code Postal de l'hotel rechercher</param>
-        /// <param name="tel">telephone de l'hotel rechercher</param>
-        /// <param name="nbEtoile">Nombre d'étoile de l'hotel rechercher</param>
-        /// <param name="prix">Prix de l'hotel rechercher</param>
-        /// <returns></returns>
-        public static int GetIdHebergement(string nomHebergement, string adresse, string ville, string cp, string tel, int nbEtoile, int prix)
-        {
             int id = 0;
 
-            SqlCommand reqGetHebergement =
-                new SqlCommand("SELECT idHebergement FROM Hebergement " +
-                                "WHERE nomHebergement = @nomHebergement " +
-                                "AND adresse = @adresse " +
-                                "AND ville = @ville " +
-                                "AND cp = @cp " +
-                                "AND tel = @tel " +
-                                "AND nbEtoile = @nbEtoile " +
-                                "AND prix = @prix ",
-                Passerelle.connexionBaseLugati);
-            reqGetHebergement.Parameters.AddWithValue("@nomHebergement", nomHebergement);
-            reqGetHebergement.Parameters.AddWithValue("@adresse", adresse);
-            reqGetHebergement.Parameters.AddWithValue("@ville", ville);
-            reqGetHebergement.Parameters.AddWithValue("@cp", cp);
-            reqGetHebergement.Parameters.AddWithValue("@tel", tel);
-            reqGetHebergement.Parameters.AddWithValue("@nbEtoile", nbEtoile);
-            reqGetHebergement.Parameters.AddWithValue("@prix", prix);
-
-            Passerelle.connexionBaseLugati.Open();
-
-            object retourReq = reqGetHebergement.ExecuteScalar();
-            if (retourReq != null)
+            try
             {
-                id = (int)retourReq;
-            }
+                Passerelle.connexionBaseLugati.Open();
 
-            Passerelle.connexionBaseLugati.Close();
+                id = (int)reqAjouterHebergement.ExecuteScalar();
+            }
+            finally
+            {
+                Passerelle.connexionBaseLugati.Close();
+            }
 
             return id;
         }
+
         /// <summary>
-        /// Supprime un Hotel dans la Base de donnée.
+        /// Supprimer un hébergement
         /// </summary>
-        /// <param name="lesIdHebergements">Liste des IdHerbegement rechercher</param>
-        public static void SupprimerLesHebergements(List<int> lesIdHebergements)
+        /// <param name="idHebergement">Hebergement à supprimer</param>
+        public static void SupprimerHebergement(int idHebergement)
         {
-            string reqWhereStr = "IN (" + lesIdHebergements[0];
-            foreach (int unId in lesIdHebergements)
+            SqlCommand reqSupprimerHebergement = new SqlCommand(
+                "DELETE FROM Hebergement WHERE idHebergement = @id",
+                Passerelle.connexionBaseLugati);
+
+            reqSupprimerHebergement.Parameters.AddWithValue("@id", idHebergement);
+
+            try
             {
-                reqWhereStr += ", " + unId;
+                Passerelle.connexionBaseLugati.Open();
+
+                reqSupprimerHebergement.ExecuteNonQuery();
             }
-            reqWhereStr += ") ";
-
-            SqlCommand reqSupprimerHebergement = new SqlCommand("DELETE FROM Hebergement WHERE idHebergement " + reqWhereStr, Passerelle.connexionBaseLugati);
-
-            Passerelle.connexionBaseLugati.Open();
-
-            reqSupprimerHebergement.ExecuteNonQuery();
-
-            Passerelle.connexionBaseLugati.Close();
+            finally
+            {
+                Passerelle.connexionBaseLugati.Close();
+            }
         }
 
-        public static void ModifierHebergement(int idHebergement, string nomHebergement, string adresse, string ville, string cp, string tel, int nbEtoile, int prix)
+        /// <summary>
+        /// Modifie un hebergement dans la base de données
+        /// </summary>
+        /// <param name="h">Hebergement à modifier</param>
+        public static void ModifierHebergement(Hebergement h)
         {
             SqlCommand reqModifierHebergement =
                 new SqlCommand("UPDATE Hebergement SET nomHebergement = @nomHebergement, adresse = @adresse, ville = @ville, cp = @cp, tel = @tel, nbEtoile = @nbEtoile, prix = @prix " +
                                 "WHERE idHebergement = @idHebergement",
                 Passerelle.connexionBaseLugati);
-            reqModifierHebergement.Parameters.AddWithValue("@nomHebergement", nomHebergement);
-            reqModifierHebergement.Parameters.AddWithValue("@adresse", adresse);
-            reqModifierHebergement.Parameters.AddWithValue("@ville", ville);
-            reqModifierHebergement.Parameters.AddWithValue("@cp", cp);
-            reqModifierHebergement.Parameters.AddWithValue("@tel", tel);
-            reqModifierHebergement.Parameters.AddWithValue("@nbEtoile", nbEtoile);
-            reqModifierHebergement.Parameters.AddWithValue("@prix", prix);
-            reqModifierHebergement.Parameters.AddWithValue("@idHebergement", idHebergement);
+            reqModifierHebergement.Parameters.AddWithValue("@nomHebergement", h.nomHebergement);
+            reqModifierHebergement.Parameters.AddWithValue("@adresse", h.adresse);
+            reqModifierHebergement.Parameters.AddWithValue("@ville", h.ville);
+            reqModifierHebergement.Parameters.AddWithValue("@cp", h.cp);
+            reqModifierHebergement.Parameters.AddWithValue("@tel", h.tel);
+            reqModifierHebergement.Parameters.AddWithValue("@nbEtoile", h.nbEtoile);
+            reqModifierHebergement.Parameters.AddWithValue("@prix", h.prix);
+            reqModifierHebergement.Parameters.AddWithValue("@idHebergement", h.idHebergement);
 
-            Passerelle.connexionBaseLugati.Open();
+            try
+            {
+                Passerelle.connexionBaseLugati.Open();
 
-            reqModifierHebergement.ExecuteNonQuery();
-
-            Passerelle.connexionBaseLugati.Close();
+                reqModifierHebergement.ExecuteNonQuery();
+            }
+            finally
+            {
+                Passerelle.connexionBaseLugati.Close();
+            }
         }
+        #endregion
     }
 }
