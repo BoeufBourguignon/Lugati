@@ -217,24 +217,50 @@ namespace Lugati.dll
         /// Supprimer un hébergement
         /// </summary>
         /// <param name="idHebergement">Hebergement à supprimer</param>
-        public static void SupprimerHebergement(int idHebergement)
+        public static bool SupprimerHebergement(int idHebergement)
         {
-            SqlCommand reqSupprimerHebergement = new SqlCommand(
-                "DELETE FROM Hebergement WHERE idHebergement = @id",
+            bool peutEtreSupprime = false;
+
+            //On vérifie que l'hébergement peut être supprimée
+            SqlCommand reqPeutEtreSupprime = new SqlCommand(
+                "SELECT count(*) FROM participant WHERE idHebergement = @id",
                 Passerelle.connexionBaseLugati);
+            reqPeutEtreSupprime.Parameters.AddWithValue("@id", idHebergement);
 
-            reqSupprimerHebergement.Parameters.AddWithValue("@id", idHebergement);
-
+            int nbParticipantsHeberges = 0;
             try
             {
                 Passerelle.connexionBaseLugati.Open();
 
-                reqSupprimerHebergement.ExecuteNonQuery();
+                nbParticipantsHeberges = (int)reqPeutEtreSupprime.ExecuteScalar();
             }
             finally
             {
                 Passerelle.connexionBaseLugati.Close();
             }
+
+            if(nbParticipantsHeberges == 0)
+            {
+                peutEtreSupprime = true;
+
+                SqlCommand reqSupprimerHebergement = new SqlCommand(
+                "DELETE FROM Hebergement WHERE idHebergement = @id",
+                Passerelle.connexionBaseLugati);
+                reqSupprimerHebergement.Parameters.AddWithValue("@id", idHebergement);
+
+                try
+                {
+                    Passerelle.connexionBaseLugati.Open();
+
+                    reqSupprimerHebergement.ExecuteNonQuery();
+                }
+                finally
+                {
+                    Passerelle.connexionBaseLugati.Close();
+                }
+            }
+
+            return peutEtreSupprime;
         }
 
         /// <summary>

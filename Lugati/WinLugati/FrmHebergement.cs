@@ -41,9 +41,15 @@ namespace WinLugati
             {
                 try
                 {
-                    Passerelle.SupprimerHebergement((int)((Hebergement)this.bindSrcHebergement.Current).idHebergement);
-                    this.bindSrcHebergement.EndEdit();
-                    MessageBox.Show("L'hebergement a été enregistré", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if(Passerelle.SupprimerHebergement((int)((Hebergement)this.bindSrcHebergement.Current).idHebergement) == false)
+                    {
+                        MessageBox.Show("L'hebergement ne peut pas être supprimé car il héberge des participants", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        this.bindSrcHebergement.EndEdit();
+                        MessageBox.Show("L'hebergement a été supprimée", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
                 catch(Exception ex)
                 {
@@ -71,9 +77,9 @@ namespace WinLugati
                     Passerelle.ModifierHebergement(h);
                 }
                 this.bindSrcHebergement.EndEdit();
-                MessageBox.Show("L'hebergement a été enregistré", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Les modifications ont été enregistrées", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
