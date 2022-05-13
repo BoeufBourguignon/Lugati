@@ -49,7 +49,10 @@ namespace WinLugati
             this.btnAjouterHotel = new System.Windows.Forms.Button();
             this.grpInfos = new System.Windows.Forms.GroupBox();
             this.dataGridHebergement = new System.Windows.Forms.DataGridView();
-            this.bindSrcHebergement = new System.Windows.Forms.BindingSource(this.components);
+            this.grpAjouterSupprimer = new System.Windows.Forms.GroupBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnAnnuler = new System.Windows.Forms.Button();
+            this.btnEnregistrerHotel = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,15 +61,12 @@ namespace WinLugati
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grpAjouterSupprimer = new System.Windows.Forms.GroupBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnAnnuler = new System.Windows.Forms.Button();
-            this.btnEnregistrerHotel = new System.Windows.Forms.Button();
+            this.bindSrcHebergement = new System.Windows.Forms.BindingSource(this.components);
             this.grpInfos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridHebergement)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindSrcHebergement)).BeginInit();
             this.grpAjouterSupprimer.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindSrcHebergement)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSupprimerHotel
@@ -76,11 +76,12 @@ namespace WinLugati
             resources.ApplyResources(this.btnSupprimerHotel, "btnSupprimerHotel");
             this.btnSupprimerHotel.Name = "btnSupprimerHotel";
             this.btnSupprimerHotel.UseVisualStyleBackColor = false;
+            this.btnSupprimerHotel.Click += new System.EventHandler(this.btnSupprimerHotel_Click);
             // 
             // labelNomHotel
             // 
             resources.ApplyResources(this.labelNomHotel, "labelNomHotel");
-            this.labelNomHotel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelNomHotel.ForeColor = System.Drawing.Color.White;
             this.labelNomHotel.Name = "labelNomHotel";
             // 
             // textBoxNomHotel
@@ -92,7 +93,7 @@ namespace WinLugati
             // labelAdresseHotel
             // 
             resources.ApplyResources(this.labelAdresseHotel, "labelAdresseHotel");
-            this.labelAdresseHotel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelAdresseHotel.ForeColor = System.Drawing.Color.White;
             this.labelAdresseHotel.Name = "labelAdresseHotel";
             // 
             // textBoxAdresseHotel
@@ -104,25 +105,25 @@ namespace WinLugati
             // labelPrixHotel
             // 
             resources.ApplyResources(this.labelPrixHotel, "labelPrixHotel");
-            this.labelPrixHotel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelPrixHotel.ForeColor = System.Drawing.Color.White;
             this.labelPrixHotel.Name = "labelPrixHotel";
             // 
             // labelVilleHotel
             // 
             resources.ApplyResources(this.labelVilleHotel, "labelVilleHotel");
-            this.labelVilleHotel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelVilleHotel.ForeColor = System.Drawing.Color.White;
             this.labelVilleHotel.Name = "labelVilleHotel";
             // 
             // labelCPHotel
             // 
             resources.ApplyResources(this.labelCPHotel, "labelCPHotel");
-            this.labelCPHotel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelCPHotel.ForeColor = System.Drawing.Color.White;
             this.labelCPHotel.Name = "labelCPHotel";
             // 
             // labelTelHotel
             // 
             resources.ApplyResources(this.labelTelHotel, "labelTelHotel");
-            this.labelTelHotel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelTelHotel.ForeColor = System.Drawing.Color.White;
             this.labelTelHotel.Name = "labelTelHotel";
             // 
             // textBoxPrixHotel
@@ -152,7 +153,7 @@ namespace WinLugati
             // labelNbEtoileHotel
             // 
             resources.ApplyResources(this.labelNbEtoileHotel, "labelNbEtoileHotel");
-            this.labelNbEtoileHotel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelNbEtoileHotel.ForeColor = System.Drawing.Color.White;
             this.labelNbEtoileHotel.Name = "labelNbEtoileHotel";
             // 
             // textBoxNbEtoileHotel
@@ -168,11 +169,12 @@ namespace WinLugati
             resources.ApplyResources(this.btnAjouterHotel, "btnAjouterHotel");
             this.btnAjouterHotel.Name = "btnAjouterHotel";
             this.btnAjouterHotel.UseVisualStyleBackColor = false;
+            this.btnAjouterHotel.Click += new System.EventHandler(this.btnAjouterHotel_Click);
             // 
             // grpInfos
             // 
             resources.ApplyResources(this.grpInfos, "grpInfos");
-            this.grpInfos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.grpInfos.BackColor = System.Drawing.Color.Transparent;
             this.grpInfos.Controls.Add(this.labelNomHotel);
             this.grpInfos.Controls.Add(this.textBoxNomHotel);
             this.grpInfos.Controls.Add(this.labelAdresseHotel);
@@ -198,7 +200,7 @@ namespace WinLugati
             resources.ApplyResources(this.dataGridHebergement, "dataGridHebergement");
             this.dataGridHebergement.AutoGenerateColumns = false;
             this.dataGridHebergement.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridHebergement.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.dataGridHebergement.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.dataGridHebergement.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridHebergement.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -215,9 +217,43 @@ namespace WinLugati
             this.dataGridHebergement.ReadOnly = true;
             this.dataGridHebergement.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             // 
-            // bindSrcHebergement
+            // grpAjouterSupprimer
             // 
-            this.bindSrcHebergement.DataSource = typeof(Lugati.dll.Hebergement);
+            resources.ApplyResources(this.grpAjouterSupprimer, "grpAjouterSupprimer");
+            this.grpAjouterSupprimer.BackColor = System.Drawing.Color.Transparent;
+            this.grpAjouterSupprimer.Controls.Add(this.btnSupprimerHotel);
+            this.grpAjouterSupprimer.Controls.Add(this.btnAjouterHotel);
+            this.grpAjouterSupprimer.ForeColor = System.Drawing.Color.White;
+            this.grpAjouterSupprimer.Name = "grpAjouterSupprimer";
+            this.grpAjouterSupprimer.TabStop = false;
+            // 
+            // groupBox1
+            // 
+            resources.ApplyResources(this.groupBox1, "groupBox1");
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.btnAnnuler);
+            this.groupBox1.Controls.Add(this.btnEnregistrerHotel);
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.TabStop = false;
+            // 
+            // btnAnnuler
+            // 
+            this.btnAnnuler.BackColor = System.Drawing.Color.White;
+            this.btnAnnuler.ForeColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.btnAnnuler, "btnAnnuler");
+            this.btnAnnuler.Name = "btnAnnuler";
+            this.btnAnnuler.UseVisualStyleBackColor = false;
+            this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
+            // 
+            // btnEnregistrerHotel
+            // 
+            this.btnEnregistrerHotel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnEnregistrerHotel.ForeColor = System.Drawing.SystemColors.ControlText;
+            resources.ApplyResources(this.btnEnregistrerHotel, "btnEnregistrerHotel");
+            this.btnEnregistrerHotel.Name = "btnEnregistrerHotel";
+            this.btnEnregistrerHotel.UseVisualStyleBackColor = false;
+            this.btnEnregistrerHotel.Click += new System.EventHandler(this.btnEnregistrerHotel_Click);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -275,48 +311,16 @@ namespace WinLugati
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
-            // grpAjouterSupprimer
+            // bindSrcHebergement
             // 
-            resources.ApplyResources(this.grpAjouterSupprimer, "grpAjouterSupprimer");
-            this.grpAjouterSupprimer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.grpAjouterSupprimer.Controls.Add(this.btnSupprimerHotel);
-            this.grpAjouterSupprimer.Controls.Add(this.btnAjouterHotel);
-            this.grpAjouterSupprimer.ForeColor = System.Drawing.Color.White;
-            this.grpAjouterSupprimer.Name = "grpAjouterSupprimer";
-            this.grpAjouterSupprimer.TabStop = false;
-            // 
-            // groupBox1
-            // 
-            resources.ApplyResources(this.groupBox1, "groupBox1");
-            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.groupBox1.Controls.Add(this.btnAnnuler);
-            this.groupBox1.Controls.Add(this.btnEnregistrerHotel);
-            this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.TabStop = false;
-            // 
-            // btnAnnuler
-            // 
-            this.btnAnnuler.BackColor = System.Drawing.Color.White;
-            this.btnAnnuler.ForeColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.btnAnnuler, "btnAnnuler");
-            this.btnAnnuler.Name = "btnAnnuler";
-            this.btnAnnuler.UseVisualStyleBackColor = false;
-            // 
-            // btnEnregistrerHotel
-            // 
-            this.btnEnregistrerHotel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnEnregistrerHotel.ForeColor = System.Drawing.SystemColors.ControlText;
-            resources.ApplyResources(this.btnEnregistrerHotel, "btnEnregistrerHotel");
-            this.btnEnregistrerHotel.Name = "btnEnregistrerHotel";
-            this.btnEnregistrerHotel.UseVisualStyleBackColor = false;
+            this.bindSrcHebergement.DataSource = typeof(Lugati.dll.Hebergement);
             // 
             // FrmHebergement
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grpAjouterSupprimer);
             this.Controls.Add(this.dataGridHebergement);
@@ -325,9 +329,9 @@ namespace WinLugati
             this.grpInfos.ResumeLayout(false);
             this.grpInfos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridHebergement)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindSrcHebergement)).EndInit();
             this.grpAjouterSupprimer.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bindSrcHebergement)).EndInit();
             this.ResumeLayout(false);
 
         }
