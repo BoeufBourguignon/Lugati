@@ -23,7 +23,7 @@ namespace WinLugati
         private void FrmParticipant_Load(object sender, EventArgs e)
         {
             bindingSourceParticipant.DataSource = Passerelle.GetLesParticipants();
-
+            bindingSourceParticiper.DataSource = Passerelle.GetLesParticipations();
             //bindingSourceParticipant.DataSource = (Participant)comboBoxParticipant.SelectedItem;
         }
 
@@ -69,6 +69,59 @@ namespace WinLugati
                     Passerelle.SupprimerParticipant((int)((Participant)this.bindingSourceParticipant.Current).idParticipant);
                     this.bindingSourceParticipant.EndEdit();
                     MessageBox.Show("Le Participant a été enregistré", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void buttonAjouterInscriptionActivite_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Participer c = (Participer)this.bindingSourceParticiper.Current;
+                c.idParticipant = Passerelle.AjouterParticiper(c);
+                this.bindingSourceParticiper.EndEdit();
+                MessageBox.Show("La a été enregistré", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            this.bindingSourceParticiper.AddNew();
+        }
+
+        private void buttonSupprimerActivite_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Etes-vous sur de vouloir supprimer cette activité pour ce participant ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                try
+                {
+                    Passerelle.SupprimerParticiper((int)((Participer)this.bindingSourceParticiper.Current).idParticipant);
+                    this.bindingSourceParticiper.EndEdit();
+                    MessageBox.Show("Le Participant a été supprimé", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void buttonSupprimerSession_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Etes-vous sur de vouloir supprimer cette activité pour ce participant ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                try
+                {
+                    Passerelle.SupprimerInscrire((int)((Inscrire)this.bindingSourceParticiper.Current).idParticipant);
+                    this.bindingSourceInscrire.EndEdit();
+                    MessageBox.Show("Le Participant a été supprimé", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
                 }
                 catch (Exception ex)
                 {

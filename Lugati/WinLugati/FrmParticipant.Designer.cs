@@ -34,8 +34,10 @@ namespace WinLugati
             this.tabParticipant = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnSupprimerPart = new System.Windows.Forms.Button();
             this.dataGridParticipant = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnAjouterParticipant = new System.Windows.Forms.Button();
             this.textBoxGenre = new System.Windows.Forms.TextBox();
             this.btnAnnulerParticipant = new System.Windows.Forms.Button();
             this.btnValiderParticipant = new System.Windows.Forms.Button();
@@ -57,8 +59,15 @@ namespace WinLugati
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.btnAjouterParticipant = new System.Windows.Forms.Button();
-            this.btnSupprimerPart = new System.Windows.Forms.Button();
+            this.groupBoxActivite = new System.Windows.Forms.GroupBox();
+            this.groupBoxSession = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.buttonAjouterInscriptionActivite = new System.Windows.Forms.Button();
+            this.dataGridViewParticiper = new System.Windows.Forms.DataGridView();
+            this.textBoxIdParticipantA = new System.Windows.Forms.TextBox();
+            this.textBoxNumActivite = new System.Windows.Forms.TextBox();
+            this.buttonSupprimerActivite = new System.Windows.Forms.Button();
             this.idParticipantDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prenomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,12 +78,32 @@ namespace WinLugati
             this.idLigueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idHebergementDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingSourceParticipant = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSourceParticiper = new System.Windows.Forms.BindingSource(this.components);
+            this.idParticipantDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numActiviteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewInscrire = new System.Windows.Forms.DataGridView();
+            this.bindingSourceInscrire = new System.Windows.Forms.BindingSource(this.components);
+            this.idParticipantDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numSessionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonSupprimerSession = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBoxIdParticipantS = new System.Windows.Forms.TextBox();
+            this.textBoxNumSession = new System.Windows.Forms.TextBox();
+            this.buttonAjouterInscriptionSession = new System.Windows.Forms.Button();
             this.tabParticipant.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridParticipant)).BeginInit();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.groupBoxActivite.SuspendLayout();
+            this.groupBoxSession.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewParticiper)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceParticipant)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceParticiper)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInscrire)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceInscrire)).BeginInit();
             this.SuspendLayout();
             // 
             // tabParticipant
@@ -112,6 +141,16 @@ namespace WinLugati
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Les Participants :";
             // 
+            // btnSupprimerPart
+            // 
+            this.btnSupprimerPart.Location = new System.Drawing.Point(168, 242);
+            this.btnSupprimerPart.Name = "btnSupprimerPart";
+            this.btnSupprimerPart.Size = new System.Drawing.Size(195, 32);
+            this.btnSupprimerPart.TabIndex = 1;
+            this.btnSupprimerPart.Text = "Supprimer un Participant";
+            this.btnSupprimerPart.UseVisualStyleBackColor = true;
+            this.btnSupprimerPart.Click += new System.EventHandler(this.btnSupprimerPart_Click);
+            // 
             // dataGridParticipant
             // 
             this.dataGridParticipant.AutoGenerateColumns = false;
@@ -128,7 +167,7 @@ namespace WinLugati
             this.idLigueDataGridViewTextBoxColumn,
             this.idHebergementDataGridViewTextBoxColumn});
             this.dataGridParticipant.DataSource = this.bindingSourceParticipant;
-            this.dataGridParticipant.Location = new System.Drawing.Point(6, 19);
+            this.dataGridParticipant.Location = new System.Drawing.Point(3, 19);
             this.dataGridParticipant.MultiSelect = false;
             this.dataGridParticipant.Name = "dataGridParticipant";
             this.dataGridParticipant.ReadOnly = true;
@@ -165,6 +204,17 @@ namespace WinLugati
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Participant Ajouter";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnAjouterParticipant
+            // 
+            this.btnAjouterParticipant.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnAjouterParticipant.Location = new System.Drawing.Point(306, 219);
+            this.btnAjouterParticipant.Name = "btnAjouterParticipant";
+            this.btnAjouterParticipant.Size = new System.Drawing.Size(100, 46);
+            this.btnAjouterParticipant.TabIndex = 21;
+            this.btnAjouterParticipant.Text = "Ajouter";
+            this.btnAjouterParticipant.UseVisualStyleBackColor = false;
+            this.btnAjouterParticipant.Click += new System.EventHandler(this.btnAjouterParticipant_Click);
             // 
             // textBoxGenre
             // 
@@ -335,6 +385,8 @@ namespace WinLugati
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.groupBoxSession);
+            this.tabPage3.Controls.Add(this.groupBoxActivite);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -353,26 +405,109 @@ namespace WinLugati
             this.tabPage4.Text = "Montant";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // btnAjouterParticipant
+            // groupBoxActivite
             // 
-            this.btnAjouterParticipant.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnAjouterParticipant.Location = new System.Drawing.Point(306, 219);
-            this.btnAjouterParticipant.Name = "btnAjouterParticipant";
-            this.btnAjouterParticipant.Size = new System.Drawing.Size(100, 46);
-            this.btnAjouterParticipant.TabIndex = 21;
-            this.btnAjouterParticipant.Text = "Ajouter";
-            this.btnAjouterParticipant.UseVisualStyleBackColor = false;
-            this.btnAjouterParticipant.Click += new System.EventHandler(this.btnAjouterParticipant_Click);
+            this.groupBoxActivite.BackColor = System.Drawing.Color.LightGray;
+            this.groupBoxActivite.Controls.Add(this.buttonSupprimerActivite);
+            this.groupBoxActivite.Controls.Add(this.textBoxNumActivite);
+            this.groupBoxActivite.Controls.Add(this.textBoxIdParticipantA);
+            this.groupBoxActivite.Controls.Add(this.dataGridViewParticiper);
+            this.groupBoxActivite.Controls.Add(this.buttonAjouterInscriptionActivite);
+            this.groupBoxActivite.Controls.Add(this.label11);
+            this.groupBoxActivite.Controls.Add(this.label1);
+            this.groupBoxActivite.Location = new System.Drawing.Point(6, 6);
+            this.groupBoxActivite.Name = "groupBoxActivite";
+            this.groupBoxActivite.Size = new System.Drawing.Size(270, 375);
+            this.groupBoxActivite.TabIndex = 0;
+            this.groupBoxActivite.TabStop = false;
+            this.groupBoxActivite.Text = "Inscription Pour Activite";
             // 
-            // btnSupprimerPart
+            // groupBoxSession
             // 
-            this.btnSupprimerPart.Location = new System.Drawing.Point(168, 242);
-            this.btnSupprimerPart.Name = "btnSupprimerPart";
-            this.btnSupprimerPart.Size = new System.Drawing.Size(195, 32);
-            this.btnSupprimerPart.TabIndex = 1;
-            this.btnSupprimerPart.Text = "Supprimer un Participant";
-            this.btnSupprimerPart.UseVisualStyleBackColor = true;
-            this.btnSupprimerPart.Click += new System.EventHandler(this.btnSupprimerPart_Click);
+            this.groupBoxSession.BackColor = System.Drawing.Color.LightGray;
+            this.groupBoxSession.Controls.Add(this.buttonAjouterInscriptionSession);
+            this.groupBoxSession.Controls.Add(this.textBoxNumSession);
+            this.groupBoxSession.Controls.Add(this.textBoxIdParticipantS);
+            this.groupBoxSession.Controls.Add(this.label13);
+            this.groupBoxSession.Controls.Add(this.label12);
+            this.groupBoxSession.Controls.Add(this.buttonSupprimerSession);
+            this.groupBoxSession.Controls.Add(this.dataGridViewInscrire);
+            this.groupBoxSession.Location = new System.Drawing.Point(283, 6);
+            this.groupBoxSession.Name = "groupBoxSession";
+            this.groupBoxSession.Size = new System.Drawing.Size(276, 375);
+            this.groupBoxSession.TabIndex = 1;
+            this.groupBoxSession.TabStop = false;
+            this.groupBoxSession.Text = "Inscription Pour Session";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(19, 235);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(72, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "IdParticipant :";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(19, 278);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(73, 13);
+            this.label11.TabIndex = 3;
+            this.label11.Text = "NumActivite : ";
+            // 
+            // buttonAjouterInscriptionActivite
+            // 
+            this.buttonAjouterInscriptionActivite.Location = new System.Drawing.Point(54, 335);
+            this.buttonAjouterInscriptionActivite.Name = "buttonAjouterInscriptionActivite";
+            this.buttonAjouterInscriptionActivite.Size = new System.Drawing.Size(162, 26);
+            this.buttonAjouterInscriptionActivite.TabIndex = 4;
+            this.buttonAjouterInscriptionActivite.Text = "Ajouter";
+            this.buttonAjouterInscriptionActivite.UseVisualStyleBackColor = true;
+            this.buttonAjouterInscriptionActivite.Click += new System.EventHandler(this.buttonAjouterInscriptionActivite_Click);
+            // 
+            // dataGridViewParticiper
+            // 
+            this.dataGridViewParticiper.AutoGenerateColumns = false;
+            this.dataGridViewParticiper.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewParticiper.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idParticipantDataGridViewTextBoxColumn1,
+            this.numActiviteDataGridViewTextBoxColumn});
+            this.dataGridViewParticiper.DataSource = this.bindingSourceParticiper;
+            this.dataGridViewParticiper.Location = new System.Drawing.Point(6, 19);
+            this.dataGridViewParticiper.MultiSelect = false;
+            this.dataGridViewParticiper.Name = "dataGridViewParticiper";
+            this.dataGridViewParticiper.ReadOnly = true;
+            this.dataGridViewParticiper.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewParticiper.Size = new System.Drawing.Size(258, 150);
+            this.dataGridViewParticiper.TabIndex = 7;
+            // 
+            // textBoxIdParticipantA
+            // 
+            this.textBoxIdParticipantA.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceParticiper, "idParticipant", true));
+            this.textBoxIdParticipantA.Location = new System.Drawing.Point(98, 235);
+            this.textBoxIdParticipantA.Name = "textBoxIdParticipantA";
+            this.textBoxIdParticipantA.Size = new System.Drawing.Size(118, 20);
+            this.textBoxIdParticipantA.TabIndex = 8;
+            // 
+            // textBoxNumActivite
+            // 
+            this.textBoxNumActivite.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceParticiper, "numActivite", true));
+            this.textBoxNumActivite.Location = new System.Drawing.Point(99, 278);
+            this.textBoxNumActivite.Name = "textBoxNumActivite";
+            this.textBoxNumActivite.Size = new System.Drawing.Size(117, 20);
+            this.textBoxNumActivite.TabIndex = 9;
+            // 
+            // buttonSupprimerActivite
+            // 
+            this.buttonSupprimerActivite.Location = new System.Drawing.Point(54, 188);
+            this.buttonSupprimerActivite.Name = "buttonSupprimerActivite";
+            this.buttonSupprimerActivite.Size = new System.Drawing.Size(162, 23);
+            this.buttonSupprimerActivite.TabIndex = 10;
+            this.buttonSupprimerActivite.Text = "Supprimer";
+            this.buttonSupprimerActivite.UseVisualStyleBackColor = true;
+            this.buttonSupprimerActivite.Click += new System.EventHandler(this.buttonSupprimerActivite_Click);
             // 
             // idParticipantDataGridViewTextBoxColumn
             // 
@@ -441,6 +576,109 @@ namespace WinLugati
             // 
             this.bindingSourceParticipant.DataSource = typeof(Lugati.dll.Participant);
             // 
+            // bindingSourceParticiper
+            // 
+            this.bindingSourceParticiper.DataSource = typeof(Lugati.dll.Participer);
+            // 
+            // idParticipantDataGridViewTextBoxColumn1
+            // 
+            this.idParticipantDataGridViewTextBoxColumn1.DataPropertyName = "idParticipant";
+            this.idParticipantDataGridViewTextBoxColumn1.HeaderText = "idParticipant";
+            this.idParticipantDataGridViewTextBoxColumn1.Name = "idParticipantDataGridViewTextBoxColumn1";
+            this.idParticipantDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // numActiviteDataGridViewTextBoxColumn
+            // 
+            this.numActiviteDataGridViewTextBoxColumn.DataPropertyName = "numActivite";
+            this.numActiviteDataGridViewTextBoxColumn.HeaderText = "numActivite";
+            this.numActiviteDataGridViewTextBoxColumn.Name = "numActiviteDataGridViewTextBoxColumn";
+            this.numActiviteDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataGridViewInscrire
+            // 
+            this.dataGridViewInscrire.AutoGenerateColumns = false;
+            this.dataGridViewInscrire.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewInscrire.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idParticipantDataGridViewTextBoxColumn2,
+            this.numSessionDataGridViewTextBoxColumn});
+            this.dataGridViewInscrire.DataSource = this.bindingSourceInscrire;
+            this.dataGridViewInscrire.Location = new System.Drawing.Point(7, 20);
+            this.dataGridViewInscrire.MultiSelect = false;
+            this.dataGridViewInscrire.Name = "dataGridViewInscrire";
+            this.dataGridViewInscrire.ReadOnly = true;
+            this.dataGridViewInscrire.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewInscrire.Size = new System.Drawing.Size(263, 150);
+            this.dataGridViewInscrire.TabIndex = 0;
+            // 
+            // bindingSourceInscrire
+            // 
+            this.bindingSourceInscrire.DataSource = typeof(Lugati.dll.Inscrire);
+            // 
+            // idParticipantDataGridViewTextBoxColumn2
+            // 
+            this.idParticipantDataGridViewTextBoxColumn2.DataPropertyName = "idParticipant";
+            this.idParticipantDataGridViewTextBoxColumn2.HeaderText = "idParticipant";
+            this.idParticipantDataGridViewTextBoxColumn2.Name = "idParticipantDataGridViewTextBoxColumn2";
+            this.idParticipantDataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // numSessionDataGridViewTextBoxColumn
+            // 
+            this.numSessionDataGridViewTextBoxColumn.DataPropertyName = "numSession";
+            this.numSessionDataGridViewTextBoxColumn.HeaderText = "numSession";
+            this.numSessionDataGridViewTextBoxColumn.Name = "numSessionDataGridViewTextBoxColumn";
+            this.numSessionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // buttonSupprimerSession
+            // 
+            this.buttonSupprimerSession.Location = new System.Drawing.Point(56, 187);
+            this.buttonSupprimerSession.Name = "buttonSupprimerSession";
+            this.buttonSupprimerSession.Size = new System.Drawing.Size(160, 23);
+            this.buttonSupprimerSession.TabIndex = 1;
+            this.buttonSupprimerSession.Text = "Supprimer";
+            this.buttonSupprimerSession.UseVisualStyleBackColor = true;
+            this.buttonSupprimerSession.Click += new System.EventHandler(this.buttonSupprimerSession_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(17, 234);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(71, 13);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "idParticipant :";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(20, 284);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(75, 13);
+            this.label13.TabIndex = 3;
+            this.label13.Text = "NumSession : ";
+            // 
+            // textBoxIdParticipantS
+            // 
+            this.textBoxIdParticipantS.Location = new System.Drawing.Point(95, 234);
+            this.textBoxIdParticipantS.Name = "textBoxIdParticipantS";
+            this.textBoxIdParticipantS.Size = new System.Drawing.Size(121, 20);
+            this.textBoxIdParticipantS.TabIndex = 4;
+            // 
+            // textBoxNumSession
+            // 
+            this.textBoxNumSession.Location = new System.Drawing.Point(101, 281);
+            this.textBoxNumSession.Name = "textBoxNumSession";
+            this.textBoxNumSession.Size = new System.Drawing.Size(114, 20);
+            this.textBoxNumSession.TabIndex = 5;
+            // 
+            // buttonAjouterInscriptionSession
+            // 
+            this.buttonAjouterInscriptionSession.Location = new System.Drawing.Point(56, 335);
+            this.buttonAjouterInscriptionSession.Name = "buttonAjouterInscriptionSession";
+            this.buttonAjouterInscriptionSession.Size = new System.Drawing.Size(160, 23);
+            this.buttonAjouterInscriptionSession.TabIndex = 6;
+            this.buttonAjouterInscriptionSession.Text = "Ajouter";
+            this.buttonAjouterInscriptionSession.UseVisualStyleBackColor = true;
+            // 
             // FrmParticipant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -456,7 +694,16 @@ namespace WinLugati
             ((System.ComponentModel.ISupportInitialize)(this.dataGridParticipant)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.groupBoxActivite.ResumeLayout(false);
+            this.groupBoxActivite.PerformLayout();
+            this.groupBoxSession.ResumeLayout(false);
+            this.groupBoxSession.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewParticiper)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceParticipant)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceParticiper)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInscrire)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceInscrire)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -501,5 +748,27 @@ namespace WinLugati
         private System.Windows.Forms.TextBox textBoxGenre;
         private System.Windows.Forms.Button btnAjouterParticipant;
         private System.Windows.Forms.Button btnSupprimerPart;
+        private System.Windows.Forms.GroupBox groupBoxSession;
+        private System.Windows.Forms.GroupBox groupBoxActivite;
+        private System.Windows.Forms.Button buttonAjouterInscriptionActivite;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.BindingSource bindingSourceParticiper;
+        private System.Windows.Forms.DataGridView dataGridViewParticiper;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idParticipantDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numActiviteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button buttonSupprimerActivite;
+        private System.Windows.Forms.TextBox textBoxNumActivite;
+        private System.Windows.Forms.TextBox textBoxIdParticipantA;
+        private System.Windows.Forms.Button buttonAjouterInscriptionSession;
+        private System.Windows.Forms.TextBox textBoxNumSession;
+        private System.Windows.Forms.TextBox textBoxIdParticipantS;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button buttonSupprimerSession;
+        private System.Windows.Forms.DataGridView dataGridViewInscrire;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idParticipantDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numSessionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource bindingSourceInscrire;
     }
 }

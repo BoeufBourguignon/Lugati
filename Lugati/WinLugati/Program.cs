@@ -16,7 +16,7 @@ namespace WinLugati
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmParticipant());
+            Application.Run(new FrmMenu());
         }
     }
 }

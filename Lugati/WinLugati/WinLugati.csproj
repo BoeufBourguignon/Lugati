@@ -102,6 +102,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Properties\DataSources\Lugati.dll.Inscrire.datasource" />
+    <None Include="Properties\DataSources\Lugati.dll.Participer.datasource" />
     <None Include="Properties\DataSources\Passerelle.Activite.datasource" />
     <None Include="Properties\DataSources\Passerelle.Hebergement.datasource" />
     <None Include="Properties\DataSources\Passerelle.Ligue.datasource" />

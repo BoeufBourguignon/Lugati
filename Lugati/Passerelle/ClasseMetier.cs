@@ -153,6 +153,42 @@ namespace Lugati.dll
             this.cp = cp;
             this.ville = ville;
         }
+    }
+
+    /// <summary>
+    /// Class
+    /// <c>Inscrire</c>
+    /// </summary>
+    public class Inscrire
+    {
+        public int idParticipant { get; set; }
+
+        public int numSession { get; set; }
+        public Inscrire() { }
+
+        public Inscrire(int idParticipant, int numSession)
+        {
+            this.idParticipant = idParticipant;
+            this.numSession = numSession;
+        }
+    }
+
+    /// <summary>
+    /// Class
+    /// <c>Participer</c>
+    /// </summary>
+    public class Participer
+    {
+        public int idParticipant { get; set; }
+        public int numActivite { get; set; }
+
+        public Participer() { }
+        
+        public Participer(int idParticipant, int numActivite)
+        {
+            this.idParticipant = idParticipant;
+            this.numActivite = numActivite;
+        }
 
     }
 }
