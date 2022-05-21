@@ -24,6 +24,7 @@ namespace WinLugati
         {
             bindingSourceParticipant.DataSource = Passerelle.GetLesParticipants();
             bindingSourceParticiper.DataSource = Passerelle.GetLesParticipations();
+            bindingSourceInscrire.DataSource = Passerelle.GetLesInscriptions();
             //bindingSourceParticipant.DataSource = (Participant)comboBoxParticipant.SelectedItem;
         }
 
@@ -118,7 +119,7 @@ namespace WinLugati
             {
                 try
                 {
-                    Passerelle.SupprimerInscrire((int)((Inscrire)this.bindingSourceParticiper.Current).idParticipant);
+                    Passerelle.SupprimerInscrire((int)((Inscrire)this.bindingSourceInscrire.Current).idParticipant);
                     this.bindingSourceInscrire.EndEdit();
                     MessageBox.Show("Le Participant a été supprimé", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
@@ -128,6 +129,22 @@ namespace WinLugati
                     MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void buttonAjouterInscriptionSession_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Inscrire c = (Inscrire)this.bindingSourceInscrire.Current;
+                c.idParticipant = Passerelle.AjouterInscription(c);
+                this.bindingSourceInscrire.EndEdit();
+                MessageBox.Show("La a été enregistré", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            this.bindingSourceInscrire.AddNew();
         }
     }
 }
