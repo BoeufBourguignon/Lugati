@@ -61,6 +61,92 @@ namespace Lugati.dll
 
             return lesSessions;
         }
+        /// <summary>
+        /// Ajoute la Session à la BDD
+        /// </summary>
+        /// <param name="s">paramètre de session</param>
+        /// <returns></returns>
+        public static int AjouterSession(Session s)
+        {
+            SqlCommand reqAjouterSession =
+                new SqlCommand("INSERT INTO Session (libelle, tarif, nbPlaces, date, heure) " +
+                                "OUTPUT INSERTED.numSession " +
+                                "VALUES (@libelle, @tarif, @nbPlaces, @date, @heure)",
+                Passerelle.connexionBaseLugati);
+            reqAjouterSession.Parameters.AddWithValue("@libelle", s.libelle);
+            reqAjouterSession.Parameters.AddWithValue("@tarif", s.tarif);
+            reqAjouterSession.Parameters.AddWithValue("@nbPlaces", s.nbPlaces);
+            reqAjouterSession.Parameters.AddWithValue("@date", s.date);
+            reqAjouterSession.Parameters.AddWithValue("@heure", s.heure);
+
+            int id = 0;
+
+            try
+            {
+                Passerelle.connexionBaseLugati.Open();
+
+                id = (int)reqAjouterSession.ExecuteScalar();
+            }
+            finally
+            {
+                Passerelle.connexionBaseLugati.Close();
+            }
+
+            return id;
+        }
+
+        /// <summary>
+        /// Supprimer une Session
+        /// </summary>
+        /// <param name="numSession"></param>
+        public static void SupprimerSession(int numSession)
+        {
+            SqlCommand reqSupprimerSession = new SqlCommand(
+                "DELETE FROM Session WHERE numSession = @id",
+                Passerelle.connexionBaseLugati);
+
+            reqSupprimerSession.Parameters.AddWithValue("@id", numSession);
+
+            try
+            {
+                Passerelle.connexionBaseLugati.Open();
+
+                reqSupprimerSession.ExecuteNonQuery();
+            }
+            finally
+            {
+                Passerelle.connexionBaseLugati.Close();
+            }
+        }
+
+        /// <summary>
+        /// Modification session
+        /// </summary>
+        /// <param name="s"></param>
+        public static void ModifierSession(Session s)
+        {
+            SqlCommand reqModifierSession =
+                new SqlCommand("UPDATE Session SET libelle = @libelle, tarif = @tarif, nbPlaces = @nbPlaces, date = @date, heure = @heure " +
+                                "WHERE numSession = @numSession",
+                Passerelle.connexionBaseLugati);
+            reqModifierSession.Parameters.AddWithValue("@libelle", s.libelle);
+            reqModifierSession.Parameters.AddWithValue("@tarif", s.tarif);
+            reqModifierSession.Parameters.AddWithValue("@nbPlaces", s.nbPlaces);
+            reqModifierSession.Parameters.AddWithValue("@date", s.date);
+            reqModifierSession.Parameters.AddWithValue("@heure", s.heure);
+            reqModifierSession.Parameters.AddWithValue("@numSession", s.numSession);
+
+            try
+            {
+                Passerelle.connexionBaseLugati.Open();
+
+                reqModifierSession.ExecuteNonQuery();
+            }
+            finally
+            {
+                Passerelle.connexionBaseLugati.Close();
+            }
+        }
 
         #endregion
 
