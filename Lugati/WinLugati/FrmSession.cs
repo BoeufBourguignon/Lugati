@@ -17,33 +17,66 @@ namespace WinLugati
         public FrmSession()
         {
             InitializeComponent();
-        }
 
-        private void FrmSession_Load(object sender, EventArgs e)
-        {
             try
             {
-                foreach (Session uneSession in Passerelle.GetLesSessions())
-                {
-                    string[] row = { uneSession.numSession.ToString(), uneSession.libelle, uneSession.tarif.ToString(), uneSession.nbPlaces.ToString(), uneSession.date.ToString(), uneSession.heure };
-                    dataGridSession.Rows.Add(row);
-                }
+                this.bindingSourceSession.DataSource = Passerelle.GetLesSessions();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
 
-            //try
-            //{
-            //    //On charge la comboBox avec tous les voyages de la base de données au chargement du formulaire
-            //    //comboBoxIdHotel.DataSource = Passerelle.Passerelle.GetLesHebergements();
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Erreur au chargement des données :\n" + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    this.Close();
-            //}
+        private void btnAjouterSession_Click(object sender, EventArgs e)
+        {
+            this.bindingSourceSession.AddNew();
+        }
+
+        private void btnSupprimerSession_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Etes-vous sur de vouloir supprimer cette Session ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                try
+                {
+                    Passerelle.SupprimerSession((int)((Session)this.bindingSourceSession.Current).numSession);
+                    this.bindingSourceSession.EndEdit();
+                    this.Close();
+                    MessageBox.Show("La Session sélectionner a été supprimé", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnEnregistrerSession_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Session s = (Session)this.bindingSourceSession.Current;
+                if (s.numSession == 0)
+                {
+                    Passerelle.AjouterSession(s);
+                }
+                else
+                {
+                    Passerelle.ModifierSession(s);
+                }
+                this.bindingSourceSession.EndEdit();
+                MessageBox.Show("La Session a été enregistré", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnAnnuler_Click(object sender, EventArgs e)
+        {
+
+            this.bindingSourceSession.CancelEdit();
         }
     }
 }

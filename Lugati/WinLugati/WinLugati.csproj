@@ -102,11 +102,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="Properties\DataSources\Lugati.dll.Activite.datasource" />
-    <None Include="Properties\DataSources\Lugati.dll.Hebergement.datasource" />
-    <None Include="Properties\DataSources\Lugati.dll.Ligue.datasource" />
-    <None Include="Properties\DataSources\Lugati.dll.Participant.datasource" />
-    <None Include="Properties\DataSources\Lugati.dll.Session.datasource" />
+    <None Include="Properties\DataSources\Lugati.dll.Activite1.datasource" />
+    <None Include="Properties\DataSources\Lugati.dll.Inscrire.datasource" />
+    <None Include="Properties\DataSources\Lugati.dll.Participant1.datasource" />
+    <None Include="Properties\DataSources\Lugati.dll.Participer.datasource" />
+    <None Include="Properties\DataSources\Lugati.dll.Session1.datasource" />
+    <None Include="Properties\DataSources\Passerelle.Activite.datasource" />
+    <None Include="Properties\DataSources\Passerelle.Hebergement.datasource" />
+    <None Include="Properties\DataSources\Passerelle.Ligue.datasource" />
+    <None Include="Properties\DataSources\Passerelle.Participant.datasource" />
+    <None Include="Properties\DataSources\Passerelle.Passerelle.datasource" />
+    <None Include="Properties\DataSources\Passerelle.Session.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

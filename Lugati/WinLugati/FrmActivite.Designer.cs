@@ -31,38 +31,36 @@
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridActivite = new System.Windows.Forms.DataGridView();
-            this.bindSrcActivite = new System.Windows.Forms.BindingSource(this.components);
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.labelLibelleActivite = new System.Windows.Forms.Label();
-            this.BtnAnnulerActivite = new System.Windows.Forms.Button();
-            this.textBoxLibelleActivite = new System.Windows.Forms.TextBox();
-            this.BtnValiderActivite = new System.Windows.Forms.Button();
-            this.labelTarifActivite = new System.Windows.Forms.Label();
-            this.textBoxTarifActivite = new System.Windows.Forms.TextBox();
-            this.textBoxHeureActivite = new System.Windows.Forms.TextBox();
-            this.labelNbPlacesActivite = new System.Windows.Forms.Label();
-            this.textBoxDateActivite = new System.Windows.Forms.TextBox();
-            this.labelDateActivite = new System.Windows.Forms.Label();
-            this.textBoxNbPlacesActivite = new System.Windows.Forms.TextBox();
-            this.labelHeureActivite = new System.Windows.Forms.Label();
-            this.BtnSupprimerHotel = new System.Windows.Forms.Button();
-            this.BtnAjouterHebergement = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.comboBoxIdHotel = new System.Windows.Forms.ComboBox();
-            this.BtnValiderModifActivite = new System.Windows.Forms.Button();
-            this.BtnAnnulerModifActivite = new System.Windows.Forms.Button();
-            this.BtnModifierActivite = new System.Windows.Forms.Button();
+            this.bindingSourceActivite = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnAnnuler = new System.Windows.Forms.Button();
+            this.btnEnregistrerActivite = new System.Windows.Forms.Button();
+            this.grpAjouterSupprimer = new System.Windows.Forms.GroupBox();
+            this.btnSupprimerActivite = new System.Windows.Forms.Button();
+            this.btnAjouterActivite = new System.Windows.Forms.Button();
+            this.grpInfos = new System.Windows.Forms.GroupBox();
+            this.labelLibelleSession = new System.Windows.Forms.Label();
+            this.textBoxLibelleActivite = new System.Windows.Forms.TextBox();
+            this.labelAdresseHotel = new System.Windows.Forms.Label();
+            this.textBoxDateActivite = new System.Windows.Forms.TextBox();
+            this.labelPrixHotel = new System.Windows.Forms.Label();
+            this.textBoxNbPlaceActivite = new System.Windows.Forms.TextBox();
+            this.labelVilleHotel = new System.Windows.Forms.Label();
+            this.textBoxHeureActivite = new System.Windows.Forms.TextBox();
+            this.labelTelHotel = new System.Windows.Forms.Label();
+            this.textBoxTarifActivite = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridActivite)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindSrcActivite)).BeginInit();
-            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceActivite)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.grpAjouterSupprimer.SuspendLayout();
+            this.grpInfos.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -71,7 +69,7 @@
             this.groupBox1.Controls.Add(this.dataGridActivite);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(660, 193);
+            this.groupBox1.Size = new System.Drawing.Size(722, 251);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Les Activités :";
@@ -90,226 +88,18 @@
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6});
-            this.dataGridActivite.DataSource = this.bindSrcActivite;
+            this.dataGridActivite.DataSource = this.bindingSourceActivite;
             this.dataGridActivite.Location = new System.Drawing.Point(6, 19);
             this.dataGridActivite.MultiSelect = false;
             this.dataGridActivite.Name = "dataGridActivite";
             this.dataGridActivite.ReadOnly = true;
             this.dataGridActivite.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridActivite.Size = new System.Drawing.Size(644, 168);
+            this.dataGridActivite.Size = new System.Drawing.Size(696, 179);
             this.dataGridActivite.TabIndex = 0;
             // 
-            // bindSrcActivite
+            // bindingSourceActivite
             // 
-            this.bindSrcActivite.DataSource = typeof(Lugati.dll.Activite);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.groupBox3.Controls.Add(this.labelLibelleActivite);
-            this.groupBox3.Controls.Add(this.BtnAnnulerActivite);
-            this.groupBox3.Controls.Add(this.textBoxLibelleActivite);
-            this.groupBox3.Controls.Add(this.BtnValiderActivite);
-            this.groupBox3.Controls.Add(this.labelTarifActivite);
-            this.groupBox3.Controls.Add(this.textBoxTarifActivite);
-            this.groupBox3.Controls.Add(this.textBoxHeureActivite);
-            this.groupBox3.Controls.Add(this.labelNbPlacesActivite);
-            this.groupBox3.Controls.Add(this.textBoxDateActivite);
-            this.groupBox3.Controls.Add(this.labelDateActivite);
-            this.groupBox3.Controls.Add(this.textBoxNbPlacesActivite);
-            this.groupBox3.Controls.Add(this.labelHeureActivite);
-            this.groupBox3.Location = new System.Drawing.Point(12, 276);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(450, 162);
-            this.groupBox3.TabIndex = 28;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Ajouter ou Supprimer";
-            // 
-            // labelLibelleActivite
-            // 
-            this.labelLibelleActivite.AutoSize = true;
-            this.labelLibelleActivite.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelLibelleActivite.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.labelLibelleActivite.Location = new System.Drawing.Point(11, 21);
-            this.labelLibelleActivite.Name = "labelLibelleActivite";
-            this.labelLibelleActivite.Size = new System.Drawing.Size(43, 13);
-            this.labelLibelleActivite.TabIndex = 4;
-            this.labelLibelleActivite.Text = "Libellé :";
-            // 
-            // BtnAnnulerActivite
-            // 
-            this.BtnAnnulerActivite.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.BtnAnnulerActivite.Location = new System.Drawing.Point(257, 100);
-            this.BtnAnnulerActivite.Name = "BtnAnnulerActivite";
-            this.BtnAnnulerActivite.Size = new System.Drawing.Size(122, 34);
-            this.BtnAnnulerActivite.TabIndex = 21;
-            this.BtnAnnulerActivite.Text = "Annuler";
-            this.BtnAnnulerActivite.UseVisualStyleBackColor = true;
-            // 
-            // textBoxLibelleActivite
-            // 
-            this.textBoxLibelleActivite.Location = new System.Drawing.Point(80, 21);
-            this.textBoxLibelleActivite.Name = "textBoxLibelleActivite";
-            this.textBoxLibelleActivite.Size = new System.Drawing.Size(100, 20);
-            this.textBoxLibelleActivite.TabIndex = 6;
-            // 
-            // BtnValiderActivite
-            // 
-            this.BtnValiderActivite.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.BtnValiderActivite.Location = new System.Drawing.Point(257, 38);
-            this.BtnValiderActivite.Name = "BtnValiderActivite";
-            this.BtnValiderActivite.Size = new System.Drawing.Size(122, 37);
-            this.BtnValiderActivite.TabIndex = 20;
-            this.BtnValiderActivite.Text = "Valider";
-            this.BtnValiderActivite.UseVisualStyleBackColor = true;
-            // 
-            // labelTarifActivite
-            // 
-            this.labelTarifActivite.AutoSize = true;
-            this.labelTarifActivite.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelTarifActivite.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.labelTarifActivite.Location = new System.Drawing.Point(11, 47);
-            this.labelTarifActivite.Name = "labelTarifActivite";
-            this.labelTarifActivite.Size = new System.Drawing.Size(34, 13);
-            this.labelTarifActivite.TabIndex = 7;
-            this.labelTarifActivite.Text = "Tarif :";
-            // 
-            // textBoxTarifActivite
-            // 
-            this.textBoxTarifActivite.Location = new System.Drawing.Point(67, 47);
-            this.textBoxTarifActivite.Name = "textBoxTarifActivite";
-            this.textBoxTarifActivite.Size = new System.Drawing.Size(113, 20);
-            this.textBoxTarifActivite.TabIndex = 8;
-            // 
-            // textBoxHeureActivite
-            // 
-            this.textBoxHeureActivite.Location = new System.Drawing.Point(80, 127);
-            this.textBoxHeureActivite.Name = "textBoxHeureActivite";
-            this.textBoxHeureActivite.Size = new System.Drawing.Size(100, 20);
-            this.textBoxHeureActivite.TabIndex = 16;
-            // 
-            // labelNbPlacesActivite
-            // 
-            this.labelNbPlacesActivite.AutoSize = true;
-            this.labelNbPlacesActivite.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelNbPlacesActivite.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.labelNbPlacesActivite.Location = new System.Drawing.Point(10, 72);
-            this.labelNbPlacesActivite.Name = "labelNbPlacesActivite";
-            this.labelNbPlacesActivite.Size = new System.Drawing.Size(76, 13);
-            this.labelNbPlacesActivite.TabIndex = 10;
-            this.labelNbPlacesActivite.Text = "Nb de places :";
-            // 
-            // textBoxDateActivite
-            // 
-            this.textBoxDateActivite.Location = new System.Drawing.Point(79, 100);
-            this.textBoxDateActivite.Name = "textBoxDateActivite";
-            this.textBoxDateActivite.Size = new System.Drawing.Size(100, 20);
-            this.textBoxDateActivite.TabIndex = 15;
-            // 
-            // labelDateActivite
-            // 
-            this.labelDateActivite.AutoSize = true;
-            this.labelDateActivite.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelDateActivite.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.labelDateActivite.Location = new System.Drawing.Point(10, 103);
-            this.labelDateActivite.Name = "labelDateActivite";
-            this.labelDateActivite.Size = new System.Drawing.Size(36, 13);
-            this.labelDateActivite.TabIndex = 11;
-            this.labelDateActivite.Text = "Date :";
-            // 
-            // textBoxNbPlacesActivite
-            // 
-            this.textBoxNbPlacesActivite.Location = new System.Drawing.Point(92, 72);
-            this.textBoxNbPlacesActivite.Name = "textBoxNbPlacesActivite";
-            this.textBoxNbPlacesActivite.Size = new System.Drawing.Size(88, 20);
-            this.textBoxNbPlacesActivite.TabIndex = 14;
-            // 
-            // labelHeureActivite
-            // 
-            this.labelHeureActivite.AutoSize = true;
-            this.labelHeureActivite.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelHeureActivite.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.labelHeureActivite.Location = new System.Drawing.Point(10, 127);
-            this.labelHeureActivite.Name = "labelHeureActivite";
-            this.labelHeureActivite.Size = new System.Drawing.Size(42, 13);
-            this.labelHeureActivite.TabIndex = 12;
-            this.labelHeureActivite.Text = "Heure :";
-            // 
-            // BtnSupprimerHotel
-            // 
-            this.BtnSupprimerHotel.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.BtnSupprimerHotel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.BtnSupprimerHotel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.BtnSupprimerHotel.Location = new System.Drawing.Point(220, 216);
-            this.BtnSupprimerHotel.Name = "BtnSupprimerHotel";
-            this.BtnSupprimerHotel.Size = new System.Drawing.Size(102, 36);
-            this.BtnSupprimerHotel.TabIndex = 22;
-            this.BtnSupprimerHotel.Text = "Supprimer une activité";
-            this.BtnSupprimerHotel.UseVisualStyleBackColor = false;
-            // 
-            // BtnAjouterHebergement
-            // 
-            this.BtnAjouterHebergement.BackColor = System.Drawing.Color.GhostWhite;
-            this.BtnAjouterHebergement.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.BtnAjouterHebergement.Location = new System.Drawing.Point(26, 215);
-            this.BtnAjouterHebergement.Name = "BtnAjouterHebergement";
-            this.BtnAjouterHebergement.Size = new System.Drawing.Size(98, 37);
-            this.BtnAjouterHebergement.TabIndex = 2;
-            this.BtnAjouterHebergement.Text = "Ajouter une activité";
-            this.BtnAjouterHebergement.UseVisualStyleBackColor = false;
-            this.BtnAjouterHebergement.Click += new System.EventHandler(this.BtnAjouterHebergement_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.groupBox2.Controls.Add(this.comboBoxIdHotel);
-            this.groupBox2.Controls.Add(this.BtnValiderModifActivite);
-            this.groupBox2.Controls.Add(this.BtnAnnulerModifActivite);
-            this.groupBox2.Location = new System.Drawing.Point(514, 276);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(158, 162);
-            this.groupBox2.TabIndex = 29;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Modifier";
-            // 
-            // comboBoxIdHotel
-            // 
-            this.comboBoxIdHotel.FormattingEnabled = true;
-            this.comboBoxIdHotel.Location = new System.Drawing.Point(17, 18);
-            this.comboBoxIdHotel.Name = "comboBoxIdHotel";
-            this.comboBoxIdHotel.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxIdHotel.TabIndex = 26;
-            // 
-            // BtnValiderModifActivite
-            // 
-            this.BtnValiderModifActivite.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.BtnValiderModifActivite.Location = new System.Drawing.Point(16, 63);
-            this.BtnValiderModifActivite.Name = "BtnValiderModifActivite";
-            this.BtnValiderModifActivite.Size = new System.Drawing.Size(122, 37);
-            this.BtnValiderModifActivite.TabIndex = 24;
-            this.BtnValiderModifActivite.Text = "Valider";
-            this.BtnValiderModifActivite.UseVisualStyleBackColor = true;
-            // 
-            // BtnAnnulerModifActivite
-            // 
-            this.BtnAnnulerModifActivite.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.BtnAnnulerModifActivite.Location = new System.Drawing.Point(16, 113);
-            this.BtnAnnulerModifActivite.Name = "BtnAnnulerModifActivite";
-            this.BtnAnnulerModifActivite.Size = new System.Drawing.Size(122, 34);
-            this.BtnAnnulerModifActivite.TabIndex = 25;
-            this.BtnAnnulerModifActivite.Text = "Annuler";
-            this.BtnAnnulerModifActivite.UseVisualStyleBackColor = true;
-            // 
-            // BtnModifierActivite
-            // 
-            this.BtnModifierActivite.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.BtnModifierActivite.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.BtnModifierActivite.Location = new System.Drawing.Point(397, 216);
-            this.BtnModifierActivite.Name = "BtnModifierActivite";
-            this.BtnModifierActivite.Size = new System.Drawing.Size(95, 36);
-            this.BtnModifierActivite.TabIndex = 23;
-            this.BtnModifierActivite.Text = "Modifier une activité";
-            this.BtnModifierActivite.UseVisualStyleBackColor = false;
+            this.bindingSourceActivite.DataSource = typeof(Lugati.dll.Activite);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -353,26 +143,221 @@
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.BackColor = System.Drawing.Color.Salmon;
+            this.groupBox2.Controls.Add(this.btnAnnuler);
+            this.groupBox2.Controls.Add(this.btnEnregistrerActivite);
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
+            this.groupBox2.Location = new System.Drawing.Point(603, 419);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(126, 119);
+            this.groupBox2.TabIndex = 36;
+            this.groupBox2.TabStop = false;
+            // 
+            // btnAnnuler
+            // 
+            this.btnAnnuler.BackColor = System.Drawing.Color.White;
+            this.btnAnnuler.ForeColor = System.Drawing.Color.Black;
+            this.btnAnnuler.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnAnnuler.Location = new System.Drawing.Point(6, 65);
+            this.btnAnnuler.Name = "btnAnnuler";
+            this.btnAnnuler.Size = new System.Drawing.Size(114, 40);
+            this.btnAnnuler.TabIndex = 2;
+            this.btnAnnuler.Text = "Annuler";
+            this.btnAnnuler.UseVisualStyleBackColor = false;
+            this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
+            // 
+            // btnEnregistrerActivite
+            // 
+            this.btnEnregistrerActivite.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnEnregistrerActivite.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnEnregistrerActivite.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnEnregistrerActivite.Location = new System.Drawing.Point(6, 19);
+            this.btnEnregistrerActivite.Name = "btnEnregistrerActivite";
+            this.btnEnregistrerActivite.Size = new System.Drawing.Size(114, 40);
+            this.btnEnregistrerActivite.TabIndex = 22;
+            this.btnEnregistrerActivite.Text = "Enregistrer modifications";
+            this.btnEnregistrerActivite.UseVisualStyleBackColor = false;
+            this.btnEnregistrerActivite.Click += new System.EventHandler(this.btnEnregistrerActivite_Click);
+            // 
+            // grpAjouterSupprimer
+            // 
+            this.grpAjouterSupprimer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpAjouterSupprimer.BackColor = System.Drawing.Color.Salmon;
+            this.grpAjouterSupprimer.Controls.Add(this.btnSupprimerActivite);
+            this.grpAjouterSupprimer.Controls.Add(this.btnAjouterActivite);
+            this.grpAjouterSupprimer.ForeColor = System.Drawing.Color.White;
+            this.grpAjouterSupprimer.Location = new System.Drawing.Point(603, 280);
+            this.grpAjouterSupprimer.Name = "grpAjouterSupprimer";
+            this.grpAjouterSupprimer.Size = new System.Drawing.Size(126, 119);
+            this.grpAjouterSupprimer.TabIndex = 35;
+            this.grpAjouterSupprimer.TabStop = false;
+            // 
+            // btnSupprimerActivite
+            // 
+            this.btnSupprimerActivite.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnSupprimerActivite.ForeColor = System.Drawing.Color.Black;
+            this.btnSupprimerActivite.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnSupprimerActivite.Location = new System.Drawing.Point(6, 65);
+            this.btnSupprimerActivite.Name = "btnSupprimerActivite";
+            this.btnSupprimerActivite.Size = new System.Drawing.Size(114, 40);
+            this.btnSupprimerActivite.TabIndex = 2;
+            this.btnSupprimerActivite.Text = "Supprimer une Activite";
+            this.btnSupprimerActivite.UseVisualStyleBackColor = false;
+            this.btnSupprimerActivite.Click += new System.EventHandler(this.btnSupprimerActivite_Click);
+            // 
+            // btnAjouterActivite
+            // 
+            this.btnAjouterActivite.BackColor = System.Drawing.Color.White;
+            this.btnAjouterActivite.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnAjouterActivite.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnAjouterActivite.Location = new System.Drawing.Point(6, 19);
+            this.btnAjouterActivite.Name = "btnAjouterActivite";
+            this.btnAjouterActivite.Size = new System.Drawing.Size(114, 40);
+            this.btnAjouterActivite.TabIndex = 22;
+            this.btnAjouterActivite.Text = "Ajouter une Activite";
+            this.btnAjouterActivite.UseVisualStyleBackColor = false;
+            this.btnAjouterActivite.Click += new System.EventHandler(this.btnAjouterActivite_Click);
+            // 
+            // grpInfos
+            // 
+            this.grpInfos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpInfos.BackColor = System.Drawing.Color.Salmon;
+            this.grpInfos.Controls.Add(this.labelLibelleSession);
+            this.grpInfos.Controls.Add(this.textBoxLibelleActivite);
+            this.grpInfos.Controls.Add(this.labelAdresseHotel);
+            this.grpInfos.Controls.Add(this.textBoxDateActivite);
+            this.grpInfos.Controls.Add(this.labelPrixHotel);
+            this.grpInfos.Controls.Add(this.textBoxNbPlaceActivite);
+            this.grpInfos.Controls.Add(this.labelVilleHotel);
+            this.grpInfos.Controls.Add(this.textBoxHeureActivite);
+            this.grpInfos.Controls.Add(this.labelTelHotel);
+            this.grpInfos.Controls.Add(this.textBoxTarifActivite);
+            this.grpInfos.ForeColor = System.Drawing.Color.White;
+            this.grpInfos.Location = new System.Drawing.Point(18, 279);
+            this.grpInfos.Name = "grpInfos";
+            this.grpInfos.Size = new System.Drawing.Size(507, 259);
+            this.grpInfos.TabIndex = 34;
+            this.grpInfos.TabStop = false;
+            this.grpInfos.Text = "Informations";
+            // 
+            // labelLibelleSession
+            // 
+            this.labelLibelleSession.AutoSize = true;
+            this.labelLibelleSession.ForeColor = System.Drawing.Color.White;
+            this.labelLibelleSession.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.labelLibelleSession.Location = new System.Drawing.Point(54, 58);
+            this.labelLibelleSession.Name = "labelLibelleSession";
+            this.labelLibelleSession.Size = new System.Drawing.Size(43, 13);
+            this.labelLibelleSession.TabIndex = 4;
+            this.labelLibelleSession.Text = "Libelle :";
+            // 
+            // textBoxLibelleActivite
+            // 
+            this.textBoxLibelleActivite.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceActivite, "libelle", true));
+            this.textBoxLibelleActivite.Location = new System.Drawing.Point(97, 55);
+            this.textBoxLibelleActivite.Name = "textBoxLibelleActivite";
+            this.textBoxLibelleActivite.Size = new System.Drawing.Size(150, 20);
+            this.textBoxLibelleActivite.TabIndex = 6;
+            // 
+            // labelAdresseHotel
+            // 
+            this.labelAdresseHotel.AutoSize = true;
+            this.labelAdresseHotel.ForeColor = System.Drawing.Color.White;
+            this.labelAdresseHotel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.labelAdresseHotel.Location = new System.Drawing.Point(283, 83);
+            this.labelAdresseHotel.Name = "labelAdresseHotel";
+            this.labelAdresseHotel.Size = new System.Drawing.Size(36, 13);
+            this.labelAdresseHotel.TabIndex = 7;
+            this.labelAdresseHotel.Text = "Date :";
+            // 
+            // textBoxDateActivite
+            // 
+            this.textBoxDateActivite.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceActivite, "date", true));
+            this.textBoxDateActivite.Location = new System.Drawing.Point(334, 78);
+            this.textBoxDateActivite.Name = "textBoxDateActivite";
+            this.textBoxDateActivite.Size = new System.Drawing.Size(150, 20);
+            this.textBoxDateActivite.TabIndex = 8;
+            // 
+            // labelPrixHotel
+            // 
+            this.labelPrixHotel.AutoSize = true;
+            this.labelPrixHotel.ForeColor = System.Drawing.Color.White;
+            this.labelPrixHotel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.labelPrixHotel.Location = new System.Drawing.Point(57, 101);
+            this.labelPrixHotel.Name = "labelPrixHotel";
+            this.labelPrixHotel.Size = new System.Drawing.Size(34, 13);
+            this.labelPrixHotel.TabIndex = 9;
+            this.labelPrixHotel.Text = "Tarif :";
+            // 
+            // textBoxNbPlaceActivite
+            // 
+            this.textBoxNbPlaceActivite.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceActivite, "nbPlaces", true));
+            this.textBoxNbPlaceActivite.Location = new System.Drawing.Point(97, 141);
+            this.textBoxNbPlaceActivite.Name = "textBoxNbPlaceActivite";
+            this.textBoxNbPlaceActivite.Size = new System.Drawing.Size(150, 20);
+            this.textBoxNbPlaceActivite.TabIndex = 16;
+            // 
+            // labelVilleHotel
+            // 
+            this.labelVilleHotel.AutoSize = true;
+            this.labelVilleHotel.ForeColor = System.Drawing.Color.White;
+            this.labelVilleHotel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.labelVilleHotel.Location = new System.Drawing.Point(286, 124);
+            this.labelVilleHotel.Name = "labelVilleHotel";
+            this.labelVilleHotel.Size = new System.Drawing.Size(42, 13);
+            this.labelVilleHotel.TabIndex = 10;
+            this.labelVilleHotel.Text = "Heure :";
+            // 
+            // textBoxHeureActivite
+            // 
+            this.textBoxHeureActivite.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceActivite, "heure", true));
+            this.textBoxHeureActivite.Location = new System.Drawing.Point(334, 121);
+            this.textBoxHeureActivite.Name = "textBoxHeureActivite";
+            this.textBoxHeureActivite.Size = new System.Drawing.Size(150, 20);
+            this.textBoxHeureActivite.TabIndex = 14;
+            // 
+            // labelTelHotel
+            // 
+            this.labelTelHotel.AutoSize = true;
+            this.labelTelHotel.ForeColor = System.Drawing.Color.White;
+            this.labelTelHotel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.labelTelHotel.Location = new System.Drawing.Point(33, 144);
+            this.labelTelHotel.Name = "labelTelHotel";
+            this.labelTelHotel.Size = new System.Drawing.Size(57, 13);
+            this.labelTelHotel.TabIndex = 12;
+            this.labelTelHotel.Text = "nbPlaces :";
+            // 
+            // textBoxTarifActivite
+            // 
+            this.textBoxTarifActivite.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceActivite, "tarif", true));
+            this.textBoxTarifActivite.Location = new System.Drawing.Point(97, 98);
+            this.textBoxTarifActivite.Name = "textBoxTarifActivite";
+            this.textBoxTarifActivite.Size = new System.Drawing.Size(150, 20);
+            this.textBoxTarifActivite.TabIndex = 13;
+            // 
             // FrmActivite
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Brown;
-            this.ClientSize = new System.Drawing.Size(687, 450);
-            this.Controls.Add(this.BtnSupprimerHotel);
-            this.Controls.Add(this.BtnAjouterHebergement);
-            this.Controls.Add(this.BtnModifierActivite);
+            this.ClientSize = new System.Drawing.Size(820, 572);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.grpAjouterSupprimer);
+            this.Controls.Add(this.grpInfos);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmActivite";
             this.Text = "FrmActivite";
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridActivite)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindSrcActivite)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceActivite)).EndInit();
             this.groupBox2.ResumeLayout(false);
+            this.grpAjouterSupprimer.ResumeLayout(false);
+            this.grpInfos.ResumeLayout(false);
+            this.grpInfos.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -381,27 +366,6 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dataGridActivite;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button BtnSupprimerHotel;
-        private System.Windows.Forms.Button BtnAjouterHebergement;
-        private System.Windows.Forms.Label labelLibelleActivite;
-        private System.Windows.Forms.Button BtnAnnulerActivite;
-        private System.Windows.Forms.TextBox textBoxLibelleActivite;
-        private System.Windows.Forms.Button BtnValiderActivite;
-        private System.Windows.Forms.Label labelTarifActivite;
-        private System.Windows.Forms.TextBox textBoxTarifActivite;
-        private System.Windows.Forms.TextBox textBoxHeureActivite;
-        private System.Windows.Forms.Label labelNbPlacesActivite;
-        private System.Windows.Forms.TextBox textBoxDateActivite;
-        private System.Windows.Forms.Label labelDateActivite;
-        private System.Windows.Forms.TextBox textBoxNbPlacesActivite;
-        private System.Windows.Forms.Label labelHeureActivite;
-        private System.Windows.Forms.BindingSource bindSrcActivite;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox comboBoxIdHotel;
-        private System.Windows.Forms.Button BtnValiderModifActivite;
-        private System.Windows.Forms.Button BtnModifierActivite;
-        private System.Windows.Forms.Button BtnAnnulerModifActivite;
         private System.Windows.Forms.DataGridViewTextBoxColumn numActiviteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn libelleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
@@ -414,5 +378,23 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.BindingSource bindingSourceActivite;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnAnnuler;
+        private System.Windows.Forms.Button btnEnregistrerActivite;
+        private System.Windows.Forms.GroupBox grpAjouterSupprimer;
+        private System.Windows.Forms.Button btnSupprimerActivite;
+        private System.Windows.Forms.Button btnAjouterActivite;
+        private System.Windows.Forms.GroupBox grpInfos;
+        private System.Windows.Forms.Label labelLibelleSession;
+        private System.Windows.Forms.TextBox textBoxLibelleActivite;
+        private System.Windows.Forms.Label labelAdresseHotel;
+        private System.Windows.Forms.TextBox textBoxDateActivite;
+        private System.Windows.Forms.Label labelPrixHotel;
+        private System.Windows.Forms.TextBox textBoxNbPlaceActivite;
+        private System.Windows.Forms.Label labelVilleHotel;
+        private System.Windows.Forms.TextBox textBoxHeureActivite;
+        private System.Windows.Forms.Label labelTelHotel;
+        private System.Windows.Forms.TextBox textBoxTarifActivite;
     }
 }
