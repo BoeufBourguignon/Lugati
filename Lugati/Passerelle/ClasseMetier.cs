@@ -53,6 +53,8 @@ namespace Lugati.dll
         public string libelle { get; set; }
         public DateTime date { get; set; }
         public string heure { get; set; }//Conversion heure de type "time" en type "string" pour l'affichage dans le DataGrid.
+
+        public Session() { }
         
 
         public Session(int numSession, string libelle, int tarif, int nbPlaces, DateTime date, string heure)

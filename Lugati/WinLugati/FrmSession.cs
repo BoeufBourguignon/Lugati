@@ -41,6 +41,7 @@ namespace WinLugati
                 {
                     Passerelle.SupprimerSession((int)((Session)this.bindingSourceSession.Current).numSession);
                     this.bindingSourceSession.EndEdit();
+                    this.Close();
                     MessageBox.Show("La Session sélectionner a été supprimé", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)

@@ -186,6 +186,90 @@ namespace Lugati.dll
 
             return lesActivites;
         }
+        /// <summary>
+        /// Ajouter Activiter
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        public static int AjouterActivite(Activite a)
+        {
+            SqlCommand reqAjouterActivite =
+                new SqlCommand("INSERT INTO Activite (libelle, tarif, nbPlaces, date, heure) " +
+                                "OUTPUT INSERTED.numActivite " +
+                                "VALUES (@libelle, @tarif, @nbPlaces, @date, @heure)",
+                Passerelle.connexionBaseLugati);
+            reqAjouterActivite.Parameters.AddWithValue("@libelle", a.libelle);
+            reqAjouterActivite.Parameters.AddWithValue("@tarif", a.tarif);
+            reqAjouterActivite.Parameters.AddWithValue("@nbPlaces", a.nbPlaces);
+            reqAjouterActivite.Parameters.AddWithValue("@date", a.date);
+            reqAjouterActivite.Parameters.AddWithValue("@heure", a.heure);
+
+            int id = 0;
+
+            try
+            {
+                Passerelle.connexionBaseLugati.Open();
+
+                id = (int)reqAjouterActivite.ExecuteScalar();
+            }
+            finally
+            {
+                Passerelle.connexionBaseLugati.Close();
+            }
+
+            return id;
+        }
+        /// <summary>
+        /// Supprimer Activiter
+        /// </summary>
+        /// <param name="numActivite"></param>
+        public static void SupprimerActivite(int numActivite)
+        {
+            SqlCommand reqSupprimerActivite = new SqlCommand(
+                "DELETE FROM Activite WHERE numActivite = @id",
+                Passerelle.connexionBaseLugati);
+
+            reqSupprimerActivite.Parameters.AddWithValue("@id", numActivite);
+
+            try
+            {
+                Passerelle.connexionBaseLugati.Open();
+
+                reqSupprimerActivite.ExecuteNonQuery();
+            }
+            finally
+            {
+                Passerelle.connexionBaseLugati.Close();
+            }
+        }
+        /// <summary>
+        /// Modification Activite
+        /// </summary>
+        /// <param name="a"></param>
+        public static void ModifierActivite(Activite a)
+        {
+            SqlCommand reqModifierActivite =
+                new SqlCommand("UPDATE Activite SET libelle = @libelle, tarif = @tarif, nbPlaces = @nbPlaces, date = @date, heure = @heure " +
+                                "WHERE numActivite = @numActivite",
+                Passerelle.connexionBaseLugati);
+            reqModifierActivite.Parameters.AddWithValue("@libelle", a.libelle);
+            reqModifierActivite.Parameters.AddWithValue("@tarif", a.tarif);
+            reqModifierActivite.Parameters.AddWithValue("@nbPlaces", a.nbPlaces);
+            reqModifierActivite.Parameters.AddWithValue("@date", a.date);
+            reqModifierActivite.Parameters.AddWithValue("@heure", a.heure);
+            reqModifierActivite.Parameters.AddWithValue("@numSession", a.numActivite);
+
+            try
+            {
+                Passerelle.connexionBaseLugati.Open();
+
+                reqModifierActivite.ExecuteNonQuery();
+            }
+            finally
+            {
+                Passerelle.connexionBaseLugati.Close();
+            }
+        }
 
         #endregion
 

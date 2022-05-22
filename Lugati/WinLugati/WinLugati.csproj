@@ -102,6 +102,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Properties\DataSources\Lugati.dll.Activite1.datasource" />
     <None Include="Properties\DataSources\Lugati.dll.Inscrire.datasource" />
     <None Include="Properties\DataSources\Lugati.dll.Participant1.datasource" />
     <None Include="Properties\DataSources\Lugati.dll.Participer.datasource" />
