@@ -76,7 +76,6 @@
     <Compile Include="FrmSession.Designer.cs">
       <DependentUpon>FrmSession.cs</DependentUpon>
     </Compile>
-    <Compile Include="Passerelle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmActivite.resx">

@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.Diagnostics;
+
 
 namespace Lugati.dll
 {
@@ -699,10 +701,10 @@ namespace Lugati.dll
         public static float GetLeMontantTotal(int idParticipant)
         {
             SqlCommand reqLesMontants =
-                new SqlCommand("execute MontantTotalCongressiste @idParticipant",
+                new SqlCommand("MontantTotalCongressiste",
                 Passerelle.connexionBaseLugati);
         
-            reqLesMontants.Parameters.AddWithValue("@idParticipant", idParticipant);
+            reqLesMontants.Parameters.AddWithValue("@idP", idParticipant);
 
             reqLesMontants.CommandType = CommandType.StoredProcedure;
 
@@ -711,7 +713,7 @@ namespace Lugati.dll
             try
             {
                 Passerelle.connexionBaseLugati.Open();
-                montantTot = (float)reqLesMontants.ExecuteScalar();
+                montantTot = float.Parse(reqLesMontants.ExecuteScalar().ToString());
             }
             finally
             {
