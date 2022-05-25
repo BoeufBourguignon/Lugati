@@ -30,7 +30,9 @@ namespace WinLugati
 
         private void btnAjouterSession_Click(object sender, EventArgs e)
         {
+            this.dataGridSession.Enabled = false;
             this.bindingSourceSession.AddNew();
+            this.dateTimePickerDate.Value = DateTime.Now;
         }
 
         private void btnSupprimerSession_Click(object sender, EventArgs e)
@@ -41,8 +43,8 @@ namespace WinLugati
                 {
                     Passerelle.SupprimerSession((int)((Session)this.bindingSourceSession.Current).numSession);
                     this.bindingSourceSession.RemoveCurrent();
-                    //this.bindingSourceSession.EndEdit();
-                    MessageBox.Show("La Session sélectionner a été supprimé", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.bindingSourceSession.MoveFirst();
+                    MessageBox.Show("La Session sélectionnée a été supprimée", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
@@ -54,6 +56,7 @@ namespace WinLugati
 
         private void btnEnregistrerSession_Click(object sender, EventArgs e)
         {
+            this.dataGridSession.Enabled = true;
             this.bindingSourceSession.EndEdit();
             Session s = (Session)this.bindingSourceSession.Current;
             try

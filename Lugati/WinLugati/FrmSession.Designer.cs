@@ -36,6 +36,11 @@
             this.btnSupprimerSession = new System.Windows.Forms.Button();
             this.btnAjouterSession = new System.Windows.Forms.Button();
             this.grpInfos = new System.Windows.Forms.GroupBox();
+            this.comboBoxHeure = new System.Windows.Forms.ComboBox();
+            this.bindingSourceSession = new System.Windows.Forms.BindingSource(this.components);
+            this.dateTimePickerDate = new System.Windows.Forms.DateTimePicker();
+            this.maskedTextBoxNbPlaces = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBoxTarif = new System.Windows.Forms.MaskedTextBox();
             this.labelLibelleSession = new System.Windows.Forms.Label();
             this.textBoxLibelleSession = new System.Windows.Forms.TextBox();
             this.labelAdresseHotel = new System.Windows.Forms.Label();
@@ -43,22 +48,17 @@
             this.labelVilleHotel = new System.Windows.Forms.Label();
             this.labelTelHotel = new System.Windows.Forms.Label();
             this.dataGridSession = new System.Windows.Forms.DataGridView();
-            this.maskedTextBoxTarif = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBoxNbPlaces = new System.Windows.Forms.MaskedTextBox();
-            this.dateTimePickerDate = new System.Windows.Forms.DateTimePicker();
             this.numSessionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tarifDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nbPlacesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.libelleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.heureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindingSourceSession = new System.Windows.Forms.BindingSource(this.components);
-            this.comboBoxHeure = new System.Windows.Forms.ComboBox();
             this.groupBox2.SuspendLayout();
             this.grpAjouterSupprimer.SuspendLayout();
             this.grpInfos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridSession)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSession)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridSession)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -162,6 +162,52 @@
             this.grpInfos.TabStop = false;
             this.grpInfos.Text = "Informations";
             // 
+            // comboBoxHeure
+            // 
+            this.comboBoxHeure.BackColor = System.Drawing.Color.White;
+            this.comboBoxHeure.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.bindingSourceSession, "heure", true));
+            this.comboBoxHeure.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxHeure.FormattingEnabled = true;
+            this.comboBoxHeure.Items.AddRange(new object[] {
+            "09:00",
+            "14:30"});
+            this.comboBoxHeure.Location = new System.Drawing.Point(290, 140);
+            this.comboBoxHeure.Name = "comboBoxHeure";
+            this.comboBoxHeure.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxHeure.TabIndex = 20;
+            // 
+            // bindingSourceSession
+            // 
+            this.bindingSourceSession.AllowNew = true;
+            this.bindingSourceSession.DataSource = typeof(Lugati.dll.Session);
+            // 
+            // dateTimePickerDate
+            // 
+            this.dateTimePickerDate.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bindingSourceSession, "date", true));
+            this.dateTimePickerDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerDate.Location = new System.Drawing.Point(290, 96);
+            this.dateTimePickerDate.Name = "dateTimePickerDate";
+            this.dateTimePickerDate.Size = new System.Drawing.Size(193, 20);
+            this.dateTimePickerDate.TabIndex = 19;
+            // 
+            // maskedTextBoxNbPlaces
+            // 
+            this.maskedTextBoxNbPlaces.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceSession, "nbPlaces", true));
+            this.maskedTextBoxNbPlaces.Location = new System.Drawing.Point(73, 159);
+            this.maskedTextBoxNbPlaces.Mask = "9999";
+            this.maskedTextBoxNbPlaces.Name = "maskedTextBoxNbPlaces";
+            this.maskedTextBoxNbPlaces.Size = new System.Drawing.Size(150, 20);
+            this.maskedTextBoxNbPlaces.TabIndex = 18;
+            // 
+            // maskedTextBoxTarif
+            // 
+            this.maskedTextBoxTarif.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceSession, "tarif", true));
+            this.maskedTextBoxTarif.Location = new System.Drawing.Point(73, 116);
+            this.maskedTextBoxTarif.Mask = "9999";
+            this.maskedTextBoxTarif.Name = "maskedTextBoxTarif";
+            this.maskedTextBoxTarif.Size = new System.Drawing.Size(150, 20);
+            this.maskedTextBoxTarif.TabIndex = 17;
+            // 
             // labelLibelleSession
             // 
             this.labelLibelleSession.AutoSize = true;
@@ -252,32 +298,6 @@
             this.dataGridSession.Size = new System.Drawing.Size(715, 194);
             this.dataGridSession.TabIndex = 0;
             // 
-            // maskedTextBoxTarif
-            // 
-            this.maskedTextBoxTarif.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceSession, "tarif", true));
-            this.maskedTextBoxTarif.Location = new System.Drawing.Point(73, 116);
-            this.maskedTextBoxTarif.Mask = "9999";
-            this.maskedTextBoxTarif.Name = "maskedTextBoxTarif";
-            this.maskedTextBoxTarif.Size = new System.Drawing.Size(150, 20);
-            this.maskedTextBoxTarif.TabIndex = 17;
-            // 
-            // maskedTextBoxNbPlaces
-            // 
-            this.maskedTextBoxNbPlaces.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceSession, "nbPlaces", true));
-            this.maskedTextBoxNbPlaces.Location = new System.Drawing.Point(73, 159);
-            this.maskedTextBoxNbPlaces.Mask = "9999";
-            this.maskedTextBoxNbPlaces.Name = "maskedTextBoxNbPlaces";
-            this.maskedTextBoxNbPlaces.Size = new System.Drawing.Size(150, 20);
-            this.maskedTextBoxNbPlaces.TabIndex = 18;
-            // 
-            // dateTimePickerDate
-            // 
-            this.dateTimePickerDate.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bindingSourceSession, "date", true));
-            this.dateTimePickerDate.Location = new System.Drawing.Point(290, 96);
-            this.dateTimePickerDate.Name = "dateTimePickerDate";
-            this.dateTimePickerDate.Size = new System.Drawing.Size(193, 20);
-            this.dateTimePickerDate.TabIndex = 19;
-            // 
             // numSessionDataGridViewTextBoxColumn
             // 
             this.numSessionDataGridViewTextBoxColumn.DataPropertyName = "numSession";
@@ -326,29 +346,11 @@
             this.heureDataGridViewTextBoxColumn.ReadOnly = true;
             this.heureDataGridViewTextBoxColumn.Width = 59;
             // 
-            // bindingSourceSession
-            // 
-            this.bindingSourceSession.AllowNew = true;
-            this.bindingSourceSession.DataSource = typeof(Lugati.dll.Session);
-            // 
-            // comboBoxHeure
-            // 
-            this.comboBoxHeure.BackColor = System.Drawing.Color.White;
-            this.comboBoxHeure.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.bindingSourceSession, "heure", true));
-            this.comboBoxHeure.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxHeure.FormattingEnabled = true;
-            this.comboBoxHeure.Items.AddRange(new object[] {
-            "09:00",
-            "14:30"});
-            this.comboBoxHeure.Location = new System.Drawing.Point(290, 140);
-            this.comboBoxHeure.Name = "comboBoxHeure";
-            this.comboBoxHeure.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxHeure.TabIndex = 20;
-            // 
             // FrmSession
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.ClientSize = new System.Drawing.Size(739, 488);
             this.Controls.Add(this.dataGridSession);
@@ -362,8 +364,8 @@
             this.grpAjouterSupprimer.ResumeLayout(false);
             this.grpInfos.ResumeLayout(false);
             this.grpInfos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridSession)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSession)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridSession)).EndInit();
             this.ResumeLayout(false);
 
         }

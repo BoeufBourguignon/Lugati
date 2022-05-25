@@ -20,11 +20,6 @@ namespace WinLugati
         {
             InitializeComponent();
 
-            this.InitializeDataSource();
-        }
-
-        private void InitializeDataSource()
-        {
             try
             {
                 this.bindSrcHebergement.DataSource = Passerelle.GetLesHebergements();
@@ -38,6 +33,7 @@ namespace WinLugati
 
         private void btnAjouterHotel_Click(object sender, EventArgs e)
         {
+            this.dataGridHebergement.Enabled = false;
             this.bindSrcHebergement.AddNew();
         }
 
@@ -60,20 +56,21 @@ namespace WinLugati
                 catch(Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
                 }
-                this.InitializeDataSource();
             }
         }
 
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
             this.bindSrcHebergement.CancelEdit();
+            this.dataGridHebergement.Enabled = true;
         }
 
         private void btnEnregistrerHotel_Click(object sender, EventArgs e)
         {
-            Hebergement h = (Hebergement)this.bindSrcHebergement.Current;
             this.bindSrcHebergement.EndEdit();
+            Hebergement h = (Hebergement)this.bindSrcHebergement.Current;
             try
             {
                 if (h.idHebergement == 0)
@@ -85,12 +82,13 @@ namespace WinLugati
                     Passerelle.ModifierHebergement(h);
                 }
                 MessageBox.Show("Les modifications ont été enregistrées", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.dataGridHebergement.Enabled = true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
             }
-            this.InitializeDataSource();
         }
     }
 }
