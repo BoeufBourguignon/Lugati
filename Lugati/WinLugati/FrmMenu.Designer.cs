@@ -33,6 +33,7 @@
             this.frmHebergementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.frmSessionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.frmActiviteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.frmLigueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,7 +43,8 @@
             this.frmParticipantToolStripMenuItem,
             this.frmHebergementToolStripMenuItem,
             this.frmSessionToolStripMenuItem,
-            this.frmActiviteToolStripMenuItem});
+            this.frmActiviteToolStripMenuItem,
+            this.frmLigueToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(800, 24);
@@ -77,6 +79,13 @@
             this.frmActiviteToolStripMenuItem.Text = "FrmActivite";
             this.frmActiviteToolStripMenuItem.Click += new System.EventHandler(this.frmActiviteToolStripMenuItem_Click);
             // 
+            // frmLigueToolStripMenuItem
+            // 
+            this.frmLigueToolStripMenuItem.Name = "frmLigueToolStripMenuItem";
+            this.frmLigueToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.frmLigueToolStripMenuItem.Text = "FrmLigue";
+            this.frmLigueToolStripMenuItem.Click += new System.EventHandler(this.frmLigueToolStripMenuItem_Click);
+            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -101,5 +110,6 @@
         private System.Windows.Forms.ToolStripMenuItem frmHebergementToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem frmSessionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem frmActiviteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem frmLigueToolStripMenuItem;
     }
 }

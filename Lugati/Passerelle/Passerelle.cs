@@ -785,5 +785,42 @@ namespace Lugati.dll
             return nbPlaceS;
         }
         #endregion
+
+        #region Ligue
+        public static List<Ligue> GetLesLigues()
+        {
+            List<Ligue> lesLigues = new List<Ligue>();
+
+            SqlCommand reqlesLigues =
+                new SqlCommand("SELECT idLigue, nomLigue, adresse, cp, ville " +
+                                "FROM Ligue",
+                Passerelle.connexionBaseLugati);
+
+            Passerelle.connexionBaseLugati.Open();
+
+            SqlDataReader readerLesLigues = reqlesLigues.ExecuteReader();
+
+            if (readerLesLigues.HasRows)
+            {
+                while (readerLesLigues.Read())
+                {
+                    lesLigues.Add(new Ligue(
+                            (int)readerLesLigues[0],
+                            readerLesLigues[1].ToString(),
+                            readerLesLigues[2].ToString(),
+                            readerLesLigues[3].ToString(),
+                            readerLesLigues[4].ToString()));
+                }
+            }
+            else
+            {
+                throw new Exception("Il n'existe aucune Sessions");
+            }
+
+            Passerelle.connexionBaseLugati.Close();
+
+            return lesLigues;
+        }
+        #endregion
     }
 }

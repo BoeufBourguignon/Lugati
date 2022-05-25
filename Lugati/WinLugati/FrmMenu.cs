@@ -84,5 +84,20 @@ namespace WinLugati
 
             }
         }
+
+        private void frmLigueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["FrmLigue"] == null)
+            {
+                FrmLigue frmL = new FrmLigue();
+                frmL.MdiParent = this;
+                frmL.Show();
+            }
+            else
+            {
+                Application.OpenForms["FrmLigue"].BringToFront();
+
+            }
+        }
     }
 }
