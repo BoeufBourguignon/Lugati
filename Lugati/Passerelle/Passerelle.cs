@@ -697,7 +697,7 @@ namespace Lugati.dll
         }
         #endregion
 
-        #region ProcedureMontantTotal
+        #region ProcedureMontantTotal //////////////////////////////////////////////////////////
         public static float GetLeMontantTotal(int idParticipant)
         {
             SqlCommand reqLesMontants =
@@ -721,6 +721,68 @@ namespace Lugati.dll
             }
 
             return montantTot;
+        }
+        #endregion
+
+        #region ProcedureNbPlace /////////////////////////////////////////////////////////
+        /// <summary>
+        /// Procedure Nombre de Place par Activites
+        /// </summary>
+        /// <param name="numActivite"></param>
+        /// <returns></returns>
+        public static float GetNbPlaceByActivite(int numActivite)
+        {
+            SqlCommand reqLesActivites =
+                new SqlCommand("NbPlaceParActivite",
+                Passerelle.connexionBaseLugati);
+
+            reqLesActivites.Parameters.AddWithValue("@numA", numActivite);
+
+            reqLesActivites.CommandType = CommandType.StoredProcedure;
+
+            float nbPlaceA = 0;
+
+            try
+            {
+                Passerelle.connexionBaseLugati.Open();
+                nbPlaceA = float.Parse(reqLesActivites.ExecuteScalar().ToString());
+            }
+            finally
+            {
+                Passerelle.connexionBaseLugati.Close();
+            }
+
+            return nbPlaceA;
+        }
+
+        /// <summary>
+        /// Nombre de Place par Sessions
+        /// </summary>
+        /// <param name="numSession"></param>
+        /// <returns></returns>
+        public static float GetNbPlaceBySession(int numSession)
+        {
+            SqlCommand reqLesSessions =
+                new SqlCommand("NbPlaceParSession",
+                Passerelle.connexionBaseLugati);
+
+            reqLesSessions.Parameters.AddWithValue("@numS", numSession);
+
+            reqLesSessions.CommandType = CommandType.StoredProcedure;
+
+            float nbPlaceS = 0;
+
+            try
+            {
+                Passerelle.connexionBaseLugati.Open();
+                nbPlaceS = float.Parse(reqLesSessions.ExecuteScalar().ToString());
+            }
+            finally
+            {
+                Passerelle.connexionBaseLugati.Close();
+            }
+
+            return nbPlaceS;
         }
         #endregion
     }

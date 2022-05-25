@@ -19,7 +19,13 @@ namespace WinLugati
             InitializeComponent();
         }
 
-        private void participantToolStripMenuItem_Click(object sender, EventArgs e)
+        private void FrmMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+          if (MessageBox.Show("Etes-vous sûr de vouloir quitter ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+              e.Cancel = true;
+        }
+
+        private void frmParticipantToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms["FrmParticipant"] == null)
             {
@@ -34,9 +40,9 @@ namespace WinLugati
             }
         }
 
-        private void hebergementToolStripMenuItem_Click(object sender, EventArgs e)
+        private void frmHebergementToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(Application.OpenForms["FrmHebergement"] == null)
+            if (Application.OpenForms["FrmHebergement"] == null)
             {
                 FrmHebergement frmH = new FrmHebergement();
                 frmH.MdiParent = this;
@@ -49,7 +55,7 @@ namespace WinLugati
             }
         }
 
-        private void sessionToolStripMenuItem_Click(object sender, EventArgs e)
+        private void frmSessionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms["FrmSession"] == null)
             {
@@ -64,7 +70,7 @@ namespace WinLugati
             }
         }
 
-        private void activiteToolStripMenuItem_Click(object sender, EventArgs e)
+        private void frmActiviteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms["FrmActivite"] == null)
             {
@@ -77,12 +83,6 @@ namespace WinLugati
                 Application.OpenForms["FrmActivite"].BringToFront();
 
             }
-        }
-
-        private void FrmMenu_FormClosing(object sender, FormClosingEventArgs e)
-        {
-          if (MessageBox.Show("Etes-vous sûr de vouloir quitter ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
-              e.Cancel = true;
         }
     }
 }
