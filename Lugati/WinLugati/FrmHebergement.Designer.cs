@@ -46,6 +46,7 @@ namespace WinLugati
             this.labelNbEtoileHotel = new System.Windows.Forms.Label();
             this.btnAjouterHotel = new System.Windows.Forms.Button();
             this.grpInfos = new System.Windows.Forms.GroupBox();
+            this.maskedTextBoxNbEtoileHotel = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBoxTel = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBoxPrix = new System.Windows.Forms.MaskedTextBox();
             this.dataGridHebergement = new System.Windows.Forms.DataGridView();
@@ -61,7 +62,6 @@ namespace WinLugati
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnAnnuler = new System.Windows.Forms.Button();
             this.btnEnregistrerHotel = new System.Windows.Forms.Button();
-            this.maskedTextBoxNbEtoileHotel = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.bindSrcHebergement)).BeginInit();
             this.grpInfos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridHebergement)).BeginInit();
@@ -178,6 +178,12 @@ namespace WinLugati
             this.grpInfos.ForeColor = System.Drawing.Color.White;
             this.grpInfos.Name = "grpInfos";
             this.grpInfos.TabStop = false;
+            // 
+            // maskedTextBoxNbEtoileHotel
+            // 
+            this.maskedTextBoxNbEtoileHotel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindSrcHebergement, "nbEtoile", true));
+            resources.ApplyResources(this.maskedTextBoxNbEtoileHotel, "maskedTextBoxNbEtoileHotel");
+            this.maskedTextBoxNbEtoileHotel.Name = "maskedTextBoxNbEtoileHotel";
             // 
             // maskedTextBoxTel
             // 
@@ -308,12 +314,6 @@ namespace WinLugati
             this.btnEnregistrerHotel.Name = "btnEnregistrerHotel";
             this.btnEnregistrerHotel.UseVisualStyleBackColor = false;
             this.btnEnregistrerHotel.Click += new System.EventHandler(this.btnEnregistrerHotel_Click);
-            // 
-            // maskedTextBoxNbEtoileHotel
-            // 
-            this.maskedTextBoxNbEtoileHotel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindSrcHebergement, "nbEtoile", true));
-            resources.ApplyResources(this.maskedTextBoxNbEtoileHotel, "maskedTextBoxNbEtoileHotel");
-            this.maskedTextBoxNbEtoileHotel.Name = "maskedTextBoxNbEtoileHotel";
             // 
             // FrmHebergement
             // 
