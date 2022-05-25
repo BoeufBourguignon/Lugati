@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -703,8 +702,6 @@ namespace Lugati.dll
                 Passerelle.connexionBaseLugati);
         
             reqLesMontants.Parameters.AddWithValue("@idParticipant", idParticipant);
-
-            reqLesMontants.CommandType = CommandType.StoredProcedure;
 
             float montantTot = 0;
 

@@ -25,7 +25,16 @@ namespace WinLugati
             bindingSourceParticipant.DataSource = Passerelle.GetLesParticipants();
             bindingSourceParticiper.DataSource = Passerelle.GetLesParticipations();
             bindingSourceInscrire.DataSource = Passerelle.GetLesInscriptions();
-            //bindingSourceParticipant.DataSource = (Participant)comboBoxParticipant.SelectedItem;
+
+            try
+            {
+                Participant c = (Participant)this.bindingSourceParticipant.Current;
+                textBoxMontant.Text = Passerelle.GetLeMontantTotal(c.idParticipant).ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnValiderParticipant_Click(object sender, EventArgs e)
