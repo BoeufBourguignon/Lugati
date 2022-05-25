@@ -58,23 +58,28 @@ namespace WinLugati
             this.textBoxNom = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.groupBoxActivite = new System.Windows.Forms.GroupBox();
             this.groupBoxSession = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.buttonAjouterInscriptionActivite = new System.Windows.Forms.Button();
-            this.dataGridViewParticiper = new System.Windows.Forms.DataGridView();
-            this.textBoxIdParticipantA = new System.Windows.Forms.TextBox();
-            this.textBoxNumActivite = new System.Windows.Forms.TextBox();
-            this.buttonSupprimerActivite = new System.Windows.Forms.Button();
-            this.dataGridViewInscrire = new System.Windows.Forms.DataGridView();
-            this.buttonSupprimerSession = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.textBoxIdParticipantS = new System.Windows.Forms.TextBox();
-            this.textBoxNumSession = new System.Windows.Forms.TextBox();
             this.buttonAjouterInscriptionSession = new System.Windows.Forms.Button();
+            this.textBoxNumSession = new System.Windows.Forms.TextBox();
+            this.textBoxIdParticipantS = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.buttonSupprimerSession = new System.Windows.Forms.Button();
+            this.dataGridViewInscrire = new System.Windows.Forms.DataGridView();
+            this.groupBoxActivite = new System.Windows.Forms.GroupBox();
+            this.buttonSupprimerActivite = new System.Windows.Forms.Button();
+            this.textBoxNumActivite = new System.Windows.Forms.TextBox();
+            this.textBoxIdParticipantA = new System.Windows.Forms.TextBox();
+            this.dataGridViewParticiper = new System.Windows.Forms.DataGridView();
+            this.buttonAjouterInscriptionActivite = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.textBoxMontant = new System.Windows.Forms.TextBox();
+            this.labelMontant = new System.Windows.Forms.Label();
+            this.dataGridParticipant2 = new System.Windows.Forms.DataGridView();
+            this.labelNbPlaceActivite = new System.Windows.Forms.Label();
+            this.textBoxNbPlaceDispoA = new System.Windows.Forms.TextBox();
             this.idParticipantDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prenomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -85,22 +90,35 @@ namespace WinLugati
             this.idLigueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idHebergementDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingSourceParticipant = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSourceInscrire = new System.Windows.Forms.BindingSource(this.components);
             this.idParticipantDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numSessionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindingSourceInscrire = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceParticiper = new System.Windows.Forms.BindingSource(this.components);
             this.idParticipantDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numActiviteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idParticipantDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prenomDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.genreDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.adresseDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.villeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cpDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idLigueDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idHebergementDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBoxNbPlaceDispoS = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.tabParticipant.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridParticipant)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            this.groupBoxActivite.SuspendLayout();
             this.groupBoxSession.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewParticiper)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInscrire)).BeginInit();
+            this.groupBoxActivite.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewParticiper)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridParticipant2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceParticipant)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceInscrire)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceParticiper)).BeginInit();
@@ -395,36 +413,11 @@ namespace WinLugati
             this.tabPage3.Text = "Inscriptions";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // tabPage4
-            // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(565, 387);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Montant";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxActivite
-            // 
-            this.groupBoxActivite.BackColor = System.Drawing.Color.LightGray;
-            this.groupBoxActivite.Controls.Add(this.buttonSupprimerActivite);
-            this.groupBoxActivite.Controls.Add(this.textBoxNumActivite);
-            this.groupBoxActivite.Controls.Add(this.textBoxIdParticipantA);
-            this.groupBoxActivite.Controls.Add(this.dataGridViewParticiper);
-            this.groupBoxActivite.Controls.Add(this.buttonAjouterInscriptionActivite);
-            this.groupBoxActivite.Controls.Add(this.label11);
-            this.groupBoxActivite.Controls.Add(this.label1);
-            this.groupBoxActivite.Location = new System.Drawing.Point(6, 6);
-            this.groupBoxActivite.Name = "groupBoxActivite";
-            this.groupBoxActivite.Size = new System.Drawing.Size(270, 375);
-            this.groupBoxActivite.TabIndex = 0;
-            this.groupBoxActivite.TabStop = false;
-            this.groupBoxActivite.Text = "Inscription Pour Activite";
-            // 
             // groupBoxSession
             // 
             this.groupBoxSession.BackColor = System.Drawing.Color.LightGray;
+            this.groupBoxSession.Controls.Add(this.textBoxNbPlaceDispoS);
+            this.groupBoxSession.Controls.Add(this.label14);
             this.groupBoxSession.Controls.Add(this.buttonAjouterInscriptionSession);
             this.groupBoxSession.Controls.Add(this.textBoxNumSession);
             this.groupBoxSession.Controls.Add(this.textBoxIdParticipantS);
@@ -439,23 +432,136 @@ namespace WinLugati
             this.groupBoxSession.TabStop = false;
             this.groupBoxSession.Text = "Inscription Pour Session";
             // 
-            // label1
+            // buttonAjouterInscriptionSession
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 235);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "IdParticipant :";
+            this.buttonAjouterInscriptionSession.Location = new System.Drawing.Point(56, 335);
+            this.buttonAjouterInscriptionSession.Name = "buttonAjouterInscriptionSession";
+            this.buttonAjouterInscriptionSession.Size = new System.Drawing.Size(160, 23);
+            this.buttonAjouterInscriptionSession.TabIndex = 6;
+            this.buttonAjouterInscriptionSession.Text = "Ajouter";
+            this.buttonAjouterInscriptionSession.UseVisualStyleBackColor = true;
+            this.buttonAjouterInscriptionSession.Click += new System.EventHandler(this.buttonAjouterInscriptionSession_Click);
             // 
-            // label11
+            // textBoxNumSession
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(19, 278);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(73, 13);
-            this.label11.TabIndex = 3;
-            this.label11.Text = "NumActivite : ";
+            this.textBoxNumSession.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceInscrire, "numSession", true));
+            this.textBoxNumSession.Location = new System.Drawing.Point(101, 310);
+            this.textBoxNumSession.Name = "textBoxNumSession";
+            this.textBoxNumSession.Size = new System.Drawing.Size(114, 20);
+            this.textBoxNumSession.TabIndex = 5;
+            // 
+            // textBoxIdParticipantS
+            // 
+            this.textBoxIdParticipantS.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceInscrire, "idParticipant", true));
+            this.textBoxIdParticipantS.Location = new System.Drawing.Point(95, 263);
+            this.textBoxIdParticipantS.Name = "textBoxIdParticipantS";
+            this.textBoxIdParticipantS.Size = new System.Drawing.Size(121, 20);
+            this.textBoxIdParticipantS.TabIndex = 4;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(20, 313);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(75, 13);
+            this.label13.TabIndex = 3;
+            this.label13.Text = "NumSession : ";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(17, 263);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(71, 13);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "idParticipant :";
+            // 
+            // buttonSupprimerSession
+            // 
+            this.buttonSupprimerSession.Location = new System.Drawing.Point(56, 224);
+            this.buttonSupprimerSession.Name = "buttonSupprimerSession";
+            this.buttonSupprimerSession.Size = new System.Drawing.Size(160, 23);
+            this.buttonSupprimerSession.TabIndex = 1;
+            this.buttonSupprimerSession.Text = "Supprimer";
+            this.buttonSupprimerSession.UseVisualStyleBackColor = true;
+            this.buttonSupprimerSession.Click += new System.EventHandler(this.buttonSupprimerSession_Click);
+            // 
+            // dataGridViewInscrire
+            // 
+            this.dataGridViewInscrire.AutoGenerateColumns = false;
+            this.dataGridViewInscrire.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewInscrire.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idParticipantDataGridViewTextBoxColumn2,
+            this.numSessionDataGridViewTextBoxColumn});
+            this.dataGridViewInscrire.DataSource = this.bindingSourceInscrire;
+            this.dataGridViewInscrire.Location = new System.Drawing.Point(7, 68);
+            this.dataGridViewInscrire.MultiSelect = false;
+            this.dataGridViewInscrire.Name = "dataGridViewInscrire";
+            this.dataGridViewInscrire.ReadOnly = true;
+            this.dataGridViewInscrire.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewInscrire.Size = new System.Drawing.Size(263, 150);
+            this.dataGridViewInscrire.TabIndex = 0;
+            // 
+            // groupBoxActivite
+            // 
+            this.groupBoxActivite.BackColor = System.Drawing.Color.LightGray;
+            this.groupBoxActivite.Controls.Add(this.textBoxNbPlaceDispoA);
+            this.groupBoxActivite.Controls.Add(this.labelNbPlaceActivite);
+            this.groupBoxActivite.Controls.Add(this.buttonSupprimerActivite);
+            this.groupBoxActivite.Controls.Add(this.textBoxNumActivite);
+            this.groupBoxActivite.Controls.Add(this.textBoxIdParticipantA);
+            this.groupBoxActivite.Controls.Add(this.dataGridViewParticiper);
+            this.groupBoxActivite.Controls.Add(this.buttonAjouterInscriptionActivite);
+            this.groupBoxActivite.Controls.Add(this.label11);
+            this.groupBoxActivite.Controls.Add(this.label1);
+            this.groupBoxActivite.Location = new System.Drawing.Point(6, 6);
+            this.groupBoxActivite.Name = "groupBoxActivite";
+            this.groupBoxActivite.Size = new System.Drawing.Size(270, 375);
+            this.groupBoxActivite.TabIndex = 0;
+            this.groupBoxActivite.TabStop = false;
+            this.groupBoxActivite.Text = "Inscription Pour Activite";
+            // 
+            // buttonSupprimerActivite
+            // 
+            this.buttonSupprimerActivite.Location = new System.Drawing.Point(54, 224);
+            this.buttonSupprimerActivite.Name = "buttonSupprimerActivite";
+            this.buttonSupprimerActivite.Size = new System.Drawing.Size(162, 23);
+            this.buttonSupprimerActivite.TabIndex = 10;
+            this.buttonSupprimerActivite.Text = "Supprimer";
+            this.buttonSupprimerActivite.UseVisualStyleBackColor = true;
+            this.buttonSupprimerActivite.Click += new System.EventHandler(this.buttonSupprimerActivite_Click);
+            // 
+            // textBoxNumActivite
+            // 
+            this.textBoxNumActivite.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceParticiper, "numActivite", true));
+            this.textBoxNumActivite.Location = new System.Drawing.Point(99, 306);
+            this.textBoxNumActivite.Name = "textBoxNumActivite";
+            this.textBoxNumActivite.Size = new System.Drawing.Size(117, 20);
+            this.textBoxNumActivite.TabIndex = 9;
+            // 
+            // textBoxIdParticipantA
+            // 
+            this.textBoxIdParticipantA.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceParticiper, "idParticipant", true));
+            this.textBoxIdParticipantA.Location = new System.Drawing.Point(98, 263);
+            this.textBoxIdParticipantA.Name = "textBoxIdParticipantA";
+            this.textBoxIdParticipantA.Size = new System.Drawing.Size(118, 20);
+            this.textBoxIdParticipantA.TabIndex = 8;
+            // 
+            // dataGridViewParticiper
+            // 
+            this.dataGridViewParticiper.AutoGenerateColumns = false;
+            this.dataGridViewParticiper.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewParticiper.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idParticipantDataGridViewTextBoxColumn1,
+            this.numActiviteDataGridViewTextBoxColumn});
+            this.dataGridViewParticiper.DataSource = this.bindingSourceParticiper;
+            this.dataGridViewParticiper.Location = new System.Drawing.Point(6, 68);
+            this.dataGridViewParticiper.MultiSelect = false;
+            this.dataGridViewParticiper.Name = "dataGridViewParticiper";
+            this.dataGridViewParticiper.ReadOnly = true;
+            this.dataGridViewParticiper.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewParticiper.Size = new System.Drawing.Size(258, 150);
+            this.dataGridViewParticiper.TabIndex = 7;
             // 
             // buttonAjouterInscriptionActivite
             // 
@@ -467,117 +573,89 @@ namespace WinLugati
             this.buttonAjouterInscriptionActivite.UseVisualStyleBackColor = true;
             this.buttonAjouterInscriptionActivite.Click += new System.EventHandler(this.buttonAjouterInscriptionActivite_Click);
             // 
-            // dataGridViewParticiper
+            // label11
             // 
-            this.dataGridViewParticiper.AutoGenerateColumns = false;
-            this.dataGridViewParticiper.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewParticiper.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idParticipantDataGridViewTextBoxColumn1,
-            this.numActiviteDataGridViewTextBoxColumn});
-            this.dataGridViewParticiper.DataSource = this.bindingSourceParticiper;
-            this.dataGridViewParticiper.Location = new System.Drawing.Point(6, 19);
-            this.dataGridViewParticiper.MultiSelect = false;
-            this.dataGridViewParticiper.Name = "dataGridViewParticiper";
-            this.dataGridViewParticiper.ReadOnly = true;
-            this.dataGridViewParticiper.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewParticiper.Size = new System.Drawing.Size(258, 150);
-            this.dataGridViewParticiper.TabIndex = 7;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(19, 306);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(73, 13);
+            this.label11.TabIndex = 3;
+            this.label11.Text = "NumActivite : ";
             // 
-            // textBoxIdParticipantA
+            // label1
             // 
-            this.textBoxIdParticipantA.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceParticiper, "idParticipant", true));
-            this.textBoxIdParticipantA.Location = new System.Drawing.Point(98, 235);
-            this.textBoxIdParticipantA.Name = "textBoxIdParticipantA";
-            this.textBoxIdParticipantA.Size = new System.Drawing.Size(118, 20);
-            this.textBoxIdParticipantA.TabIndex = 8;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(19, 263);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(72, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "IdParticipant :";
             // 
-            // textBoxNumActivite
+            // tabPage4
             // 
-            this.textBoxNumActivite.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceParticiper, "numActivite", true));
-            this.textBoxNumActivite.Location = new System.Drawing.Point(99, 278);
-            this.textBoxNumActivite.Name = "textBoxNumActivite";
-            this.textBoxNumActivite.Size = new System.Drawing.Size(117, 20);
-            this.textBoxNumActivite.TabIndex = 9;
+            this.tabPage4.Controls.Add(this.textBoxMontant);
+            this.tabPage4.Controls.Add(this.labelMontant);
+            this.tabPage4.Controls.Add(this.dataGridParticipant2);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(565, 387);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Montant";
+            this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // buttonSupprimerActivite
+            // textBoxMontant
             // 
-            this.buttonSupprimerActivite.Location = new System.Drawing.Point(54, 188);
-            this.buttonSupprimerActivite.Name = "buttonSupprimerActivite";
-            this.buttonSupprimerActivite.Size = new System.Drawing.Size(162, 23);
-            this.buttonSupprimerActivite.TabIndex = 10;
-            this.buttonSupprimerActivite.Text = "Supprimer";
-            this.buttonSupprimerActivite.UseVisualStyleBackColor = true;
-            this.buttonSupprimerActivite.Click += new System.EventHandler(this.buttonSupprimerActivite_Click);
+            this.textBoxMontant.Location = new System.Drawing.Point(181, 225);
+            this.textBoxMontant.Name = "textBoxMontant";
+            this.textBoxMontant.Size = new System.Drawing.Size(181, 20);
+            this.textBoxMontant.TabIndex = 2;
             // 
-            // dataGridViewInscrire
+            // labelMontant
             // 
-            this.dataGridViewInscrire.AutoGenerateColumns = false;
-            this.dataGridViewInscrire.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewInscrire.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idParticipantDataGridViewTextBoxColumn2,
-            this.numSessionDataGridViewTextBoxColumn});
-            this.dataGridViewInscrire.DataSource = this.bindingSourceInscrire;
-            this.dataGridViewInscrire.Location = new System.Drawing.Point(7, 20);
-            this.dataGridViewInscrire.MultiSelect = false;
-            this.dataGridViewInscrire.Name = "dataGridViewInscrire";
-            this.dataGridViewInscrire.ReadOnly = true;
-            this.dataGridViewInscrire.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewInscrire.Size = new System.Drawing.Size(263, 150);
-            this.dataGridViewInscrire.TabIndex = 0;
+            this.labelMontant.AutoSize = true;
+            this.labelMontant.Location = new System.Drawing.Point(96, 228);
+            this.labelMontant.Name = "labelMontant";
+            this.labelMontant.Size = new System.Drawing.Size(79, 13);
+            this.labelMontant.TabIndex = 1;
+            this.labelMontant.Text = "Montant Total :";
             // 
-            // buttonSupprimerSession
+            // dataGridParticipant2
             // 
-            this.buttonSupprimerSession.Location = new System.Drawing.Point(56, 187);
-            this.buttonSupprimerSession.Name = "buttonSupprimerSession";
-            this.buttonSupprimerSession.Size = new System.Drawing.Size(160, 23);
-            this.buttonSupprimerSession.TabIndex = 1;
-            this.buttonSupprimerSession.Text = "Supprimer";
-            this.buttonSupprimerSession.UseVisualStyleBackColor = true;
-            this.buttonSupprimerSession.Click += new System.EventHandler(this.buttonSupprimerSession_Click);
+            this.dataGridParticipant2.AutoGenerateColumns = false;
+            this.dataGridParticipant2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridParticipant2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idParticipantDataGridViewTextBoxColumn3,
+            this.nomDataGridViewTextBoxColumn1,
+            this.prenomDataGridViewTextBoxColumn1,
+            this.genreDataGridViewTextBoxColumn1,
+            this.adresseDataGridViewTextBoxColumn1,
+            this.villeDataGridViewTextBoxColumn1,
+            this.cpDataGridViewTextBoxColumn1,
+            this.idLigueDataGridViewTextBoxColumn1,
+            this.idHebergementDataGridViewTextBoxColumn1});
+            this.dataGridParticipant2.DataSource = this.bindingSourceParticipant;
+            this.dataGridParticipant2.Location = new System.Drawing.Point(6, 6);
+            this.dataGridParticipant2.Name = "dataGridParticipant2";
+            this.dataGridParticipant2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridParticipant2.Size = new System.Drawing.Size(553, 175);
+            this.dataGridParticipant2.TabIndex = 0;
             // 
-            // label12
+            // labelNbPlaceActivite
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(17, 234);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(71, 13);
-            this.label12.TabIndex = 2;
-            this.label12.Text = "idParticipant :";
+            this.labelNbPlaceActivite.AutoSize = true;
+            this.labelNbPlaceActivite.Location = new System.Drawing.Point(19, 33);
+            this.labelNbPlaceActivite.Name = "labelNbPlaceActivite";
+            this.labelNbPlaceActivite.Size = new System.Drawing.Size(81, 13);
+            this.labelNbPlaceActivite.TabIndex = 11;
+            this.labelNbPlaceActivite.Text = "NbPlaceDispo :";
             // 
-            // label13
+            // textBoxNbPlaceDispoA
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(20, 284);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(75, 13);
-            this.label13.TabIndex = 3;
-            this.label13.Text = "NumSession : ";
-            // 
-            // textBoxIdParticipantS
-            // 
-            this.textBoxIdParticipantS.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceInscrire, "idParticipant", true));
-            this.textBoxIdParticipantS.Location = new System.Drawing.Point(95, 234);
-            this.textBoxIdParticipantS.Name = "textBoxIdParticipantS";
-            this.textBoxIdParticipantS.Size = new System.Drawing.Size(121, 20);
-            this.textBoxIdParticipantS.TabIndex = 4;
-            // 
-            // textBoxNumSession
-            // 
-            this.textBoxNumSession.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceInscrire, "numSession", true));
-            this.textBoxNumSession.Location = new System.Drawing.Point(101, 281);
-            this.textBoxNumSession.Name = "textBoxNumSession";
-            this.textBoxNumSession.Size = new System.Drawing.Size(114, 20);
-            this.textBoxNumSession.TabIndex = 5;
-            // 
-            // buttonAjouterInscriptionSession
-            // 
-            this.buttonAjouterInscriptionSession.Location = new System.Drawing.Point(56, 335);
-            this.buttonAjouterInscriptionSession.Name = "buttonAjouterInscriptionSession";
-            this.buttonAjouterInscriptionSession.Size = new System.Drawing.Size(160, 23);
-            this.buttonAjouterInscriptionSession.TabIndex = 6;
-            this.buttonAjouterInscriptionSession.Text = "Ajouter";
-            this.buttonAjouterInscriptionSession.UseVisualStyleBackColor = true;
-            this.buttonAjouterInscriptionSession.Click += new System.EventHandler(this.buttonAjouterInscriptionSession_Click);
+            this.textBoxNbPlaceDispoA.Location = new System.Drawing.Point(106, 30);
+            this.textBoxNbPlaceDispoA.Name = "textBoxNbPlaceDispoA";
+            this.textBoxNbPlaceDispoA.Size = new System.Drawing.Size(100, 20);
+            this.textBoxNbPlaceDispoA.TabIndex = 12;
             // 
             // idParticipantDataGridViewTextBoxColumn
             // 
@@ -645,6 +723,12 @@ namespace WinLugati
             // bindingSourceParticipant
             // 
             this.bindingSourceParticipant.DataSource = typeof(Lugati.dll.Participant);
+            this.bindingSourceParticipant.CurrentChanged += new System.EventHandler(this.bindingSourceParticipant_CurrentChanged);
+            // 
+            // bindingSourceInscrire
+            // 
+            this.bindingSourceInscrire.DataSource = typeof(Lugati.dll.Inscrire);
+            this.bindingSourceInscrire.CurrentChanged += new System.EventHandler(this.bindingSourceInscrire_CurrentChanged);
             // 
             // idParticipantDataGridViewTextBoxColumn2
             // 
@@ -660,13 +744,10 @@ namespace WinLugati
             this.numSessionDataGridViewTextBoxColumn.Name = "numSessionDataGridViewTextBoxColumn";
             this.numSessionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // bindingSourceInscrire
-            // 
-            this.bindingSourceInscrire.DataSource = typeof(Lugati.dll.Inscrire);
-            // 
             // bindingSourceParticiper
             // 
             this.bindingSourceParticiper.DataSource = typeof(Lugati.dll.Participer);
+            this.bindingSourceParticiper.CurrentChanged += new System.EventHandler(this.bindingSourceParticiper_CurrentChanged);
             // 
             // idParticipantDataGridViewTextBoxColumn1
             // 
@@ -681,6 +762,76 @@ namespace WinLugati
             this.numActiviteDataGridViewTextBoxColumn.HeaderText = "numActivite";
             this.numActiviteDataGridViewTextBoxColumn.Name = "numActiviteDataGridViewTextBoxColumn";
             this.numActiviteDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idParticipantDataGridViewTextBoxColumn3
+            // 
+            this.idParticipantDataGridViewTextBoxColumn3.DataPropertyName = "idParticipant";
+            this.idParticipantDataGridViewTextBoxColumn3.HeaderText = "idParticipant";
+            this.idParticipantDataGridViewTextBoxColumn3.Name = "idParticipantDataGridViewTextBoxColumn3";
+            // 
+            // nomDataGridViewTextBoxColumn1
+            // 
+            this.nomDataGridViewTextBoxColumn1.DataPropertyName = "nom";
+            this.nomDataGridViewTextBoxColumn1.HeaderText = "nom";
+            this.nomDataGridViewTextBoxColumn1.Name = "nomDataGridViewTextBoxColumn1";
+            // 
+            // prenomDataGridViewTextBoxColumn1
+            // 
+            this.prenomDataGridViewTextBoxColumn1.DataPropertyName = "prenom";
+            this.prenomDataGridViewTextBoxColumn1.HeaderText = "prenom";
+            this.prenomDataGridViewTextBoxColumn1.Name = "prenomDataGridViewTextBoxColumn1";
+            // 
+            // genreDataGridViewTextBoxColumn1
+            // 
+            this.genreDataGridViewTextBoxColumn1.DataPropertyName = "genre";
+            this.genreDataGridViewTextBoxColumn1.HeaderText = "genre";
+            this.genreDataGridViewTextBoxColumn1.Name = "genreDataGridViewTextBoxColumn1";
+            // 
+            // adresseDataGridViewTextBoxColumn1
+            // 
+            this.adresseDataGridViewTextBoxColumn1.DataPropertyName = "adresse";
+            this.adresseDataGridViewTextBoxColumn1.HeaderText = "adresse";
+            this.adresseDataGridViewTextBoxColumn1.Name = "adresseDataGridViewTextBoxColumn1";
+            // 
+            // villeDataGridViewTextBoxColumn1
+            // 
+            this.villeDataGridViewTextBoxColumn1.DataPropertyName = "ville";
+            this.villeDataGridViewTextBoxColumn1.HeaderText = "ville";
+            this.villeDataGridViewTextBoxColumn1.Name = "villeDataGridViewTextBoxColumn1";
+            // 
+            // cpDataGridViewTextBoxColumn1
+            // 
+            this.cpDataGridViewTextBoxColumn1.DataPropertyName = "cp";
+            this.cpDataGridViewTextBoxColumn1.HeaderText = "cp";
+            this.cpDataGridViewTextBoxColumn1.Name = "cpDataGridViewTextBoxColumn1";
+            // 
+            // idLigueDataGridViewTextBoxColumn1
+            // 
+            this.idLigueDataGridViewTextBoxColumn1.DataPropertyName = "idLigue";
+            this.idLigueDataGridViewTextBoxColumn1.HeaderText = "idLigue";
+            this.idLigueDataGridViewTextBoxColumn1.Name = "idLigueDataGridViewTextBoxColumn1";
+            // 
+            // idHebergementDataGridViewTextBoxColumn1
+            // 
+            this.idHebergementDataGridViewTextBoxColumn1.DataPropertyName = "idHebergement";
+            this.idHebergementDataGridViewTextBoxColumn1.HeaderText = "idHebergement";
+            this.idHebergementDataGridViewTextBoxColumn1.Name = "idHebergementDataGridViewTextBoxColumn1";
+            // 
+            // textBoxNbPlaceDispoS
+            // 
+            this.textBoxNbPlaceDispoS.Location = new System.Drawing.Point(115, 30);
+            this.textBoxNbPlaceDispoS.Name = "textBoxNbPlaceDispoS";
+            this.textBoxNbPlaceDispoS.Size = new System.Drawing.Size(100, 20);
+            this.textBoxNbPlaceDispoS.TabIndex = 14;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(28, 33);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(81, 13);
+            this.label14.TabIndex = 13;
+            this.label14.Text = "NbPlaceDispo :";
             // 
             // FrmParticipant
             // 
@@ -698,12 +849,15 @@ namespace WinLugati
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
-            this.groupBoxActivite.ResumeLayout(false);
-            this.groupBoxActivite.PerformLayout();
             this.groupBoxSession.ResumeLayout(false);
             this.groupBoxSession.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewParticiper)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInscrire)).EndInit();
+            this.groupBoxActivite.ResumeLayout(false);
+            this.groupBoxActivite.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewParticiper)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridParticipant2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceParticipant)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceInscrire)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceParticiper)).EndInit();
@@ -773,5 +927,21 @@ namespace WinLugati
         private System.Windows.Forms.DataGridViewTextBoxColumn idParticipantDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn numSessionDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource bindingSourceInscrire;
+        private System.Windows.Forms.DataGridView dataGridParticipant2;
+        private System.Windows.Forms.TextBox textBoxMontant;
+        private System.Windows.Forms.Label labelMontant;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idParticipantDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prenomDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn genreDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn adresseDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn villeDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cpDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idLigueDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idHebergementDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.TextBox textBoxNbPlaceDispoA;
+        private System.Windows.Forms.Label labelNbPlaceActivite;
+        private System.Windows.Forms.TextBox textBoxNbPlaceDispoS;
+        private System.Windows.Forms.Label label14;
     }
 }

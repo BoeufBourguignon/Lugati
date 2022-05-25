@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Lugati;
+//using Lugati;
 
 using Lugati.dll;
 
@@ -25,7 +25,8 @@ namespace WinLugati
             bindingSourceParticipant.DataSource = Passerelle.GetLesParticipants();
             bindingSourceParticiper.DataSource = Passerelle.GetLesParticipations();
             bindingSourceInscrire.DataSource = Passerelle.GetLesInscriptions();
-            //bindingSourceParticipant.DataSource = (Participant)comboBoxParticipant.SelectedItem;
+
+           
         }
 
         private void btnValiderParticipant_Click(object sender, EventArgs e)
@@ -145,6 +146,45 @@ namespace WinLugati
                 MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             this.bindingSourceInscrire.AddNew();
+        }
+
+        private void bindingSourceParticipant_CurrentChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Participant c = (Participant)this.bindingSourceParticipant.Current;
+                textBoxMontant.Text = Passerelle.GetLeMontantTotal(c.idParticipant).ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void bindingSourceParticiper_CurrentChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Participer pa = (Participer)this.bindingSourceParticiper.Current;
+                textBoxNbPlaceDispoA.Text = Passerelle.GetNbPlaceByActivite(pa.numActivite).ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void bindingSourceInscrire_CurrentChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Inscrire i = (Inscrire)this.bindingSourceInscrire.Current;
+                textBoxNbPlaceDispoS.Text = Passerelle.GetNbPlaceByActivite(i.numSession).ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

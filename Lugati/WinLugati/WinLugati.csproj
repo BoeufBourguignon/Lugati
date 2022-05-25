@@ -58,6 +58,12 @@
     <Compile Include="FrmHebergement.Designer.cs">
       <DependentUpon>FrmHebergement.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmLigue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLigue.Designer.cs">
+      <DependentUpon>FrmLigue.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,9 @@
     <EmbeddedResource Include="FrmHebergement.resx">
       <DependentUpon>FrmHebergement.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmLigue.resx">
+      <DependentUpon>FrmLigue.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMenu.resx">
       <DependentUpon>FrmMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -104,6 +113,7 @@
     </Compile>
     <None Include="Properties\DataSources\Lugati.dll.Activite1.datasource" />
     <None Include="Properties\DataSources\Lugati.dll.Inscrire.datasource" />
+    <None Include="Properties\DataSources\Lugati.dll.Ligue1.datasource" />
     <None Include="Properties\DataSources\Lugati.dll.Participant1.datasource" />
     <None Include="Properties\DataSources\Lugati.dll.Participer.datasource" />
     <None Include="Properties\DataSources\Lugati.dll.Session1.datasource" />

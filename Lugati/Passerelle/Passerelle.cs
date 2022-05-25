@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+using System.Diagnostics;
 
 
 namespace Lugati.dll
@@ -717,6 +720,132 @@ namespace Lugati.dll
             {
                 Passerelle.connexionBaseLugati.Close();
             }
+        }
+        #endregion
+
+        #region ProcedureMontantTotal //////////////////////////////////////////////////////////
+        public static float GetLeMontantTotal(int idParticipant)
+        {
+            SqlCommand reqLesMontants =
+                new SqlCommand("MontantTotalCongressiste",
+                Passerelle.connexionBaseLugati);
+        
+            reqLesMontants.Parameters.AddWithValue("@idP", idParticipant);
+
+            reqLesMontants.CommandType = CommandType.StoredProcedure;
+
+            float montantTot = 0;
+
+            try
+            {
+                Passerelle.connexionBaseLugati.Open();
+                montantTot = float.Parse(reqLesMontants.ExecuteScalar().ToString());
+            }
+            finally
+            {
+                Passerelle.connexionBaseLugati.Close();
+            }
+
+            return montantTot;
+        }
+        #endregion
+
+        #region ProcedureNbPlace /////////////////////////////////////////////////////////
+        /// <summary>
+        /// Procedure Nombre de Place par Activites
+        /// </summary>
+        /// <param name="numActivite"></param>
+        /// <returns></returns>
+        public static float GetNbPlaceByActivite(int numActivite)
+        {
+            SqlCommand reqLesActivites =
+                new SqlCommand("NbPlaceParActivite",
+                Passerelle.connexionBaseLugati);
+
+            reqLesActivites.Parameters.AddWithValue("@numA", numActivite);
+
+            reqLesActivites.CommandType = CommandType.StoredProcedure;
+
+            float nbPlaceA = 0;
+
+            try
+            {
+                Passerelle.connexionBaseLugati.Open();
+                nbPlaceA = float.Parse(reqLesActivites.ExecuteScalar().ToString());
+            }
+            finally
+            {
+                Passerelle.connexionBaseLugati.Close();
+            }
+
+            return nbPlaceA;
+        }
+
+        /// <summary>
+        /// Nombre de Place par Sessions
+        /// </summary>
+        /// <param name="numSession"></param>
+        /// <returns></returns>
+        public static float GetNbPlaceBySession(int numSession)
+        {
+            SqlCommand reqLesSessions =
+                new SqlCommand("NbPlaceParSession",
+                Passerelle.connexionBaseLugati);
+
+            reqLesSessions.Parameters.AddWithValue("@numS", numSession);
+
+            reqLesSessions.CommandType = CommandType.StoredProcedure;
+
+            float nbPlaceS = 0;
+
+            try
+            {
+                Passerelle.connexionBaseLugati.Open();
+                nbPlaceS = float.Parse(reqLesSessions.ExecuteScalar().ToString());
+            }
+            finally
+            {
+                Passerelle.connexionBaseLugati.Close();
+            }
+
+            return nbPlaceS;
+        }
+        #endregion
+
+        #region Ligue
+        public static List<Ligue> GetLesLigues()
+        {
+            List<Ligue> lesLigues = new List<Ligue>();
+
+            SqlCommand reqlesLigues =
+                new SqlCommand("SELECT idLigue, nomLigue, adresse, cp, ville " +
+                                "FROM Ligue",
+                Passerelle.connexionBaseLugati);
+
+            Passerelle.connexionBaseLugati.Open();
+
+            SqlDataReader readerLesLigues = reqlesLigues.ExecuteReader();
+
+            if (readerLesLigues.HasRows)
+            {
+                while (readerLesLigues.Read())
+                {
+                    lesLigues.Add(new Ligue(
+                            (int)readerLesLigues[0],
+                            readerLesLigues[1].ToString(),
+                            readerLesLigues[2].ToString(),
+                            readerLesLigues[3].ToString(),
+                            readerLesLigues[4].ToString()));
+                }
+            }
+            else
+            {
+                throw new Exception("Il n'existe aucune Sessions");
+            }
+
+            Passerelle.connexionBaseLugati.Close();
+
+            return lesLigues;
         }
         #endregion
     }

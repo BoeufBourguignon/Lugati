@@ -19,7 +19,13 @@ namespace WinLugati
             InitializeComponent();
         }
 
-        private void menuLugatiItemParticipant_Click(object sender, EventArgs e)
+        private void FrmMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+          if (MessageBox.Show("Etes-vous sûr de vouloir quitter ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+              e.Cancel = true;
+        }
+
+        private void frmParticipantToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms["FrmParticipant"] == null)
             {
@@ -64,7 +70,7 @@ namespace WinLugati
             }
         }
 
-        private void menuLugatiItemActivite_Click(object sender, EventArgs e)
+        private void frmActiviteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms["FrmActivite"] == null)
             {
@@ -75,6 +81,21 @@ namespace WinLugati
             else
             {
                 Application.OpenForms["FrmActivite"].BringToFront();
+
+            }
+        }
+
+        private void frmLigueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["FrmLigue"] == null)
+            {
+                FrmLigue frmL = new FrmLigue();
+                frmL.MdiParent = this;
+                frmL.Show();
+            }
+            else
+            {
+                Application.OpenForms["FrmLigue"].BringToFront();
 
             }
         }
