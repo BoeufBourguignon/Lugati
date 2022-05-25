@@ -25,21 +25,6 @@ namespace WinLugati
               e.Cancel = true;
         }
 
-        private void frmParticipantToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (Application.OpenForms["FrmParticipant"] == null)
-            {
-                FrmParticipant frmParticipant = new FrmParticipant();
-                frmParticipant.MdiParent = this;
-                frmParticipant.Show();
-            }
-            else
-            {
-                Application.OpenForms["FrmParticipant"].BringToFront();
-
-            }
-        }
-
         private void frmHebergementToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms["FrmHebergement"] == null)
@@ -70,7 +55,22 @@ namespace WinLugati
             }
         }
 
-        private void frmActiviteToolStripMenuItem_Click(object sender, EventArgs e)
+        private void menuLugatiItemParticipant_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["FrmParticipant"] == null)
+            {
+                FrmParticipant frmParticipant = new FrmParticipant();
+                frmParticipant.MdiParent = this;
+                frmParticipant.Show();
+            }
+            else
+            {
+                Application.OpenForms["FrmParticipant"].BringToFront();
+
+            }
+        }
+
+        private void menuLugatiItemActivite_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms["FrmActivite"] == null)
             {
@@ -85,7 +85,7 @@ namespace WinLugati
             }
         }
 
-        private void frmLigueToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ligueToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms["FrmLigue"] == null)
             {

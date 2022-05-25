@@ -33,6 +33,7 @@
             this.menuLugatiItemHebergement = new System.Windows.Forms.ToolStripMenuItem();
             this.menuLugatiItemSession = new System.Windows.Forms.ToolStripMenuItem();
             this.menuLugatiItemActivite = new System.Windows.Forms.ToolStripMenuItem();
+            this.ligueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuLugati.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,7 +43,8 @@
             this.menuLugatiItemParticipant,
             this.menuLugatiItemHebergement,
             this.menuLugatiItemSession,
-            this.menuLugatiItemActivite});
+            this.menuLugatiItemActivite,
+            this.ligueToolStripMenuItem});
             this.menuLugati.Location = new System.Drawing.Point(0, 0);
             this.menuLugati.Name = "menuLugati";
             this.menuLugati.Size = new System.Drawing.Size(800, 24);
@@ -52,30 +54,37 @@
             // menuLugatiItemParticipant
             // 
             this.menuLugatiItemParticipant.Name = "menuLugatiItemParticipant";
-            this.menuLugatiItemParticipant.Size = new System.Drawing.Size(81, 20);
-            this.menuLugatiItemParticipant.Text = "Participants";
+            this.menuLugatiItemParticipant.Size = new System.Drawing.Size(97, 20);
+            this.menuLugatiItemParticipant.Text = "FrmParticipant";
             this.menuLugatiItemParticipant.Click += new System.EventHandler(this.menuLugatiItemParticipant_Click);
             // 
             // menuLugatiItemHebergement
             // 
             this.menuLugatiItemHebergement.Name = "menuLugatiItemHebergement";
-            this.menuLugatiItemHebergement.Size = new System.Drawing.Size(92, 20);
-            this.menuLugatiItemHebergement.Text = "Hebergement";
+            this.menuLugatiItemHebergement.Size = new System.Drawing.Size(113, 20);
+            this.menuLugatiItemHebergement.Text = "FrmHebergement";
             this.menuLugatiItemHebergement.Click += new System.EventHandler(this.frmHebergementToolStripMenuItem_Click);
             // 
             // menuLugatiItemSession
             // 
             this.menuLugatiItemSession.Name = "menuLugatiItemSession";
-            this.menuLugatiItemSession.Size = new System.Drawing.Size(58, 20);
-            this.menuLugatiItemSession.Text = "Session";
+            this.menuLugatiItemSession.Size = new System.Drawing.Size(79, 20);
+            this.menuLugatiItemSession.Text = "FrmSession";
             this.menuLugatiItemSession.Click += new System.EventHandler(this.frmSessionToolStripMenuItem_Click);
             // 
             // menuLugatiItemActivite
             // 
             this.menuLugatiItemActivite.Name = "menuLugatiItemActivite";
-            this.menuLugatiItemActivite.Size = new System.Drawing.Size(59, 20);
-            this.menuLugatiItemActivite.Text = "Activite";
+            this.menuLugatiItemActivite.Size = new System.Drawing.Size(80, 20);
+            this.menuLugatiItemActivite.Text = "FrmActivite";
             this.menuLugatiItemActivite.Click += new System.EventHandler(this.menuLugatiItemActivite_Click);
+            // 
+            // ligueToolStripMenuItem
+            // 
+            this.ligueToolStripMenuItem.Name = "ligueToolStripMenuItem";
+            this.ligueToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.ligueToolStripMenuItem.Text = "FrmLigue";
+            this.ligueToolStripMenuItem.Click += new System.EventHandler(this.ligueToolStripMenuItem_Click);
             // 
             // FrmMenu
             // 
@@ -101,5 +110,6 @@
         private System.Windows.Forms.ToolStripMenuItem menuLugatiItemHebergement;
         private System.Windows.Forms.ToolStripMenuItem menuLugatiItemSession;
         private System.Windows.Forms.ToolStripMenuItem menuLugatiItemActivite;
+        private System.Windows.Forms.ToolStripMenuItem ligueToolStripMenuItem;
     }
 }

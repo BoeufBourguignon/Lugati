@@ -15,9 +15,7 @@ namespace WinLugati
     {
         public FrmLigue()
         {
-            InitializeComponent();
-
-            
+            InitializeComponent();    
         }
 
         private void FrmLigue_Load(object sender, EventArgs e)
