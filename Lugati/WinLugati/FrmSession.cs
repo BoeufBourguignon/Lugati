@@ -40,36 +40,38 @@ namespace WinLugati
                 try
                 {
                     Passerelle.SupprimerSession((int)((Session)this.bindingSourceSession.Current).numSession);
-                    this.bindingSourceSession.EndEdit();
-                    this.Close();
+                    this.bindingSourceSession.RemoveCurrent();
+                    //this.bindingSourceSession.EndEdit();
                     MessageBox.Show("La Session sélectionner a été supprimé", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
                 }
             }
         }
 
         private void btnEnregistrerSession_Click(object sender, EventArgs e)
         {
+            this.bindingSourceSession.EndEdit();
+            Session s = (Session)this.bindingSourceSession.Current;
             try
             {
-                Session s = (Session)this.bindingSourceSession.Current;
                 if (s.numSession == 0)
                 {
-                    Passerelle.AjouterSession(s);
+                    s.numSession = Passerelle.AjouterSession(s);
                 }
                 else
                 {
                     Passerelle.ModifierSession(s);
                 }
-                this.bindingSourceSession.EndEdit();
                 MessageBox.Show("La Session a été enregistré", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
             }
         }
 
