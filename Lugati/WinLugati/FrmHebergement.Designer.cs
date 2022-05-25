@@ -47,6 +47,8 @@ namespace WinLugati
             this.textBoxNbEtoileHotel = new System.Windows.Forms.TextBox();
             this.btnAjouterHotel = new System.Windows.Forms.Button();
             this.grpInfos = new System.Windows.Forms.GroupBox();
+            this.maskedTextBoxTel = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBoxPrix = new System.Windows.Forms.MaskedTextBox();
             this.dataGridHebergement = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,8 +62,7 @@ namespace WinLugati
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnAnnuler = new System.Windows.Forms.Button();
             this.btnEnregistrerHotel = new System.Windows.Forms.Button();
-            this.maskedTextBoxPrix = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBoxTel = new System.Windows.Forms.MaskedTextBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindSrcHebergement)).BeginInit();
             this.grpInfos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridHebergement)).BeginInit();
@@ -185,6 +186,18 @@ namespace WinLugati
             this.grpInfos.Name = "grpInfos";
             this.grpInfos.TabStop = false;
             // 
+            // maskedTextBoxTel
+            // 
+            this.maskedTextBoxTel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindSrcHebergement, "tel", true));
+            resources.ApplyResources(this.maskedTextBoxTel, "maskedTextBoxTel");
+            this.maskedTextBoxTel.Name = "maskedTextBoxTel";
+            // 
+            // maskedTextBoxPrix
+            // 
+            this.maskedTextBoxPrix.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindSrcHebergement, "prix", true));
+            resources.ApplyResources(this.maskedTextBoxPrix, "maskedTextBoxPrix");
+            this.maskedTextBoxPrix.Name = "maskedTextBoxPrix";
+            // 
             // dataGridHebergement
             // 
             this.dataGridHebergement.AllowUserToAddRows = false;
@@ -303,17 +316,12 @@ namespace WinLugati
             this.btnEnregistrerHotel.UseVisualStyleBackColor = false;
             this.btnEnregistrerHotel.Click += new System.EventHandler(this.btnEnregistrerHotel_Click);
             // 
-            // maskedTextBoxPrix
+            // button1
             // 
-            this.maskedTextBoxPrix.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindSrcHebergement, "prix", true));
-            resources.ApplyResources(this.maskedTextBoxPrix, "maskedTextBoxPrix");
-            this.maskedTextBoxPrix.Name = "maskedTextBoxPrix";
-            // 
-            // maskedTextBoxTel
-            // 
-            this.maskedTextBoxTel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindSrcHebergement, "tel", true));
-            resources.ApplyResources(this.maskedTextBoxTel, "maskedTextBoxTel");
-            this.maskedTextBoxTel.Name = "maskedTextBoxTel";
+            resources.ApplyResources(this.button1, "button1");
+            this.button1.Name = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FrmHebergement
             // 
@@ -321,6 +329,7 @@ namespace WinLugati
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grpAjouterSupprimer);
             this.Controls.Add(this.dataGridHebergement);
@@ -376,6 +385,7 @@ namespace WinLugati
         private System.Windows.Forms.Button btnEnregistrerHotel;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxPrix;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxTel;
+        private System.Windows.Forms.Button button1;
     }
 }
 
