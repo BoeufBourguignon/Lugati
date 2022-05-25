@@ -47,7 +47,7 @@ CREATE TABLE session (
     tarif int,
     nbPlaces int,
     date date,
-    heure varchar(5) CHECK (heure IN('09:30','14:00')),
+    heure varchar(5) CHECK (heure IN('09:00','14:30')),
     CONSTRAINT pk_numSession PRIMARY KEY (numSession)
 );
 
@@ -58,7 +58,7 @@ CREATE TABLE activite (
     tarif int,
     nbPlaces int,
     date date,
-    heure varchar(5) CHECK (heure IN('09:30','14:00')),
+    heure varchar(5) CHECK (heure IN('09:00','14:30')),
     CONSTRAINT pk_numActivite PRIMARY KEY (numActivite)
 );
 
