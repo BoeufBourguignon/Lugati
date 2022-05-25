@@ -31,6 +31,13 @@
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridSession = new System.Windows.Forms.DataGridView();
+            this.numSessionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tarifDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nbPlacesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.libelleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.heureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSourceSession = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnAnnuler = new System.Windows.Forms.Button();
             this.btnEnregistrerSession = new System.Windows.Forms.Button();
@@ -48,19 +55,12 @@
             this.textBoxHeureSession = new System.Windows.Forms.TextBox();
             this.labelTelHotel = new System.Windows.Forms.Label();
             this.textBoxTarifSession = new System.Windows.Forms.TextBox();
-            this.bindingSourceSession = new System.Windows.Forms.BindingSource(this.components);
-            this.numSessionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tarifDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nbPlacesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.libelleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.heureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSession)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSession)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.grpAjouterSupprimer.SuspendLayout();
             this.grpInfos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSession)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -76,6 +76,8 @@
             // 
             // dataGridSession
             // 
+            this.dataGridSession.AllowUserToAddRows = false;
+            this.dataGridSession.AllowUserToDeleteRows = false;
             this.dataGridSession.AutoGenerateColumns = false;
             this.dataGridSession.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.dataGridSession.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -94,6 +96,53 @@
             this.dataGridSession.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridSession.Size = new System.Drawing.Size(772, 194);
             this.dataGridSession.TabIndex = 0;
+            // 
+            // numSessionDataGridViewTextBoxColumn
+            // 
+            this.numSessionDataGridViewTextBoxColumn.DataPropertyName = "numSession";
+            this.numSessionDataGridViewTextBoxColumn.HeaderText = "numSession";
+            this.numSessionDataGridViewTextBoxColumn.Name = "numSessionDataGridViewTextBoxColumn";
+            this.numSessionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tarifDataGridViewTextBoxColumn
+            // 
+            this.tarifDataGridViewTextBoxColumn.DataPropertyName = "tarif";
+            this.tarifDataGridViewTextBoxColumn.HeaderText = "tarif";
+            this.tarifDataGridViewTextBoxColumn.Name = "tarifDataGridViewTextBoxColumn";
+            this.tarifDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nbPlacesDataGridViewTextBoxColumn
+            // 
+            this.nbPlacesDataGridViewTextBoxColumn.DataPropertyName = "nbPlaces";
+            this.nbPlacesDataGridViewTextBoxColumn.HeaderText = "nbPlaces";
+            this.nbPlacesDataGridViewTextBoxColumn.Name = "nbPlacesDataGridViewTextBoxColumn";
+            this.nbPlacesDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // libelleDataGridViewTextBoxColumn
+            // 
+            this.libelleDataGridViewTextBoxColumn.DataPropertyName = "libelle";
+            this.libelleDataGridViewTextBoxColumn.HeaderText = "libelle";
+            this.libelleDataGridViewTextBoxColumn.Name = "libelleDataGridViewTextBoxColumn";
+            this.libelleDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dateDataGridViewTextBoxColumn
+            // 
+            this.dateDataGridViewTextBoxColumn.DataPropertyName = "date";
+            this.dateDataGridViewTextBoxColumn.HeaderText = "date";
+            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // heureDataGridViewTextBoxColumn
+            // 
+            this.heureDataGridViewTextBoxColumn.DataPropertyName = "heure";
+            this.heureDataGridViewTextBoxColumn.HeaderText = "heure";
+            this.heureDataGridViewTextBoxColumn.Name = "heureDataGridViewTextBoxColumn";
+            this.heureDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bindingSourceSession
+            // 
+            this.bindingSourceSession.AllowNew = true;
+            this.bindingSourceSession.DataSource = typeof(Lugati.dll.Session);
             // 
             // groupBox2
             // 
@@ -291,53 +340,6 @@
             this.textBoxTarifSession.Size = new System.Drawing.Size(150, 20);
             this.textBoxTarifSession.TabIndex = 13;
             // 
-            // bindingSourceSession
-            // 
-            this.bindingSourceSession.AllowNew = true;
-            this.bindingSourceSession.DataSource = typeof(Lugati.dll.Session);
-            // 
-            // numSessionDataGridViewTextBoxColumn
-            // 
-            this.numSessionDataGridViewTextBoxColumn.DataPropertyName = "numSession";
-            this.numSessionDataGridViewTextBoxColumn.HeaderText = "numSession";
-            this.numSessionDataGridViewTextBoxColumn.Name = "numSessionDataGridViewTextBoxColumn";
-            this.numSessionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // tarifDataGridViewTextBoxColumn
-            // 
-            this.tarifDataGridViewTextBoxColumn.DataPropertyName = "tarif";
-            this.tarifDataGridViewTextBoxColumn.HeaderText = "tarif";
-            this.tarifDataGridViewTextBoxColumn.Name = "tarifDataGridViewTextBoxColumn";
-            this.tarifDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nbPlacesDataGridViewTextBoxColumn
-            // 
-            this.nbPlacesDataGridViewTextBoxColumn.DataPropertyName = "nbPlaces";
-            this.nbPlacesDataGridViewTextBoxColumn.HeaderText = "nbPlaces";
-            this.nbPlacesDataGridViewTextBoxColumn.Name = "nbPlacesDataGridViewTextBoxColumn";
-            this.nbPlacesDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // libelleDataGridViewTextBoxColumn
-            // 
-            this.libelleDataGridViewTextBoxColumn.DataPropertyName = "libelle";
-            this.libelleDataGridViewTextBoxColumn.HeaderText = "libelle";
-            this.libelleDataGridViewTextBoxColumn.Name = "libelleDataGridViewTextBoxColumn";
-            this.libelleDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dateDataGridViewTextBoxColumn
-            // 
-            this.dateDataGridViewTextBoxColumn.DataPropertyName = "date";
-            this.dateDataGridViewTextBoxColumn.HeaderText = "date";
-            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
-            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // heureDataGridViewTextBoxColumn
-            // 
-            this.heureDataGridViewTextBoxColumn.DataPropertyName = "heure";
-            this.heureDataGridViewTextBoxColumn.HeaderText = "heure";
-            this.heureDataGridViewTextBoxColumn.Name = "heureDataGridViewTextBoxColumn";
-            this.heureDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // FrmSession
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -353,11 +355,11 @@
             this.Text = "FrmSession";
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSession)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSession)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.grpAjouterSupprimer.ResumeLayout(false);
             this.grpInfos.ResumeLayout(false);
             this.grpInfos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSession)).EndInit();
             this.ResumeLayout(false);
 
         }

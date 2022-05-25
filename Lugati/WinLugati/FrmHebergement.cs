@@ -32,6 +32,7 @@ namespace WinLugati
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
             }
         }
 
@@ -90,11 +91,6 @@ namespace WinLugati
                 MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             this.InitializeDataSource();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Debug.WriteLine((Hebergement)this.bindSrcHebergement.Current);
         }
     }
 }

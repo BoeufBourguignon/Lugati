@@ -63,5 +63,20 @@ namespace WinLugati
 
             }
         }
+
+        private void menuLugatiItemActivite_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["FrmActivite"] == null)
+            {
+                FrmActivite frmS = new FrmActivite();
+                frmS.MdiParent = this;
+                frmS.Show();
+            }
+            else
+            {
+                Application.OpenForms["FrmActivite"].BringToFront();
+
+            }
+        }
     }
 }

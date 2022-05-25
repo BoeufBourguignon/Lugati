@@ -175,7 +175,7 @@
     <value>grpInfos</value>
   </data>
   <data name="&gt;&gt;labelNomHotel.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <metadata name="bindSrcHebergement.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -199,7 +199,7 @@
     <value>grpInfos</value>
   </data>
   <data name="&gt;&gt;textBoxNomHotel.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="labelAdresseHotel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -229,7 +229,7 @@
     <value>grpInfos</value>
   </data>
   <data name="&gt;&gt;labelAdresseHotel.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="textBoxAdresseHotel.Location" type="System.Drawing.Point, System.Drawing">
     <value>334, 78</value>
@@ -442,27 +442,6 @@
     <value>grpInfos</value>
   </data>
   <data name="&gt;&gt;labelNbEtoileHotel.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="textBoxNbEtoileHotel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>97, 184</value>
-  </data>
-  <data name="textBoxNbEtoileHotel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 20</value>
-  </data>
-  <data name="textBoxNbEtoileHotel.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
-  </data>
-  <data name="&gt;&gt;textBoxNbEtoileHotel.Name" xml:space="preserve">
-    <value>textBoxNbEtoileHotel</value>
-  </data>
-  <data name="&gt;&gt;textBoxNbEtoileHotel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBoxNbEtoileHotel.Parent" xml:space="preserve">
-    <value>grpInfos</value>
-  </data>
-  <data name="&gt;&gt;textBoxNbEtoileHotel.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
   <data name="btnAjouterHotel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
@@ -495,6 +474,30 @@
   <data name="grpInfos.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
   </data>
+  <data name="maskedTextBoxNbEtoileHotel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>97, 184</value>
+  </data>
+  <data name="maskedTextBoxNbEtoileHotel.Mask" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="maskedTextBoxNbEtoileHotel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 20</value>
+  </data>
+  <data name="maskedTextBoxNbEtoileHotel.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="&gt;&gt;maskedTextBoxNbEtoileHotel.Name" xml:space="preserve">
+    <value>maskedTextBoxNbEtoileHotel</value>
+  </data>
+  <data name="&gt;&gt;maskedTextBoxNbEtoileHotel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MaskedTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;maskedTextBoxNbEtoileHotel.Parent" xml:space="preserve">
+    <value>grpInfos</value>
+  </data>
+  <data name="&gt;&gt;maskedTextBoxNbEtoileHotel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="maskedTextBoxTel.Location" type="System.Drawing.Point, System.Drawing">
     <value>97, 141</value>
   </data>
@@ -517,7 +520,7 @@
     <value>grpInfos</value>
   </data>
   <data name="&gt;&gt;maskedTextBoxTel.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="maskedTextBoxPrix.Location" type="System.Drawing.Point, System.Drawing">
     <value>97, 98</value>
@@ -541,7 +544,7 @@
     <value>grpInfos</value>
   </data>
   <data name="&gt;&gt;maskedTextBoxPrix.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="grpInfos.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 218</value>
@@ -565,7 +568,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;grpInfos.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="dataGridHebergement.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -637,7 +640,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dataGridHebergement.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="grpAjouterSupprimer.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -661,7 +664,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;grpAjouterSupprimer.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="groupBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -739,30 +742,6 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>525, 337</value>
-  </data>
-  <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <data name="button1.TabIndex" type="System.Int32, mscorlib">
-    <value>31</value>
-  </data>
-  <data name="button1.Text" xml:space="preserve">
-    <value>test</value>
-  </data>
-  <data name="&gt;&gt;button1.Name" xml:space="preserve">
-    <value>button1</value>
-  </data>
-  <data name="&gt;&gt;button1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

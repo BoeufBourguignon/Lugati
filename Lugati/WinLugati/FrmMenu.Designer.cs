@@ -75,6 +75,7 @@
             this.menuLugatiItemActivite.Name = "menuLugatiItemActivite";
             this.menuLugatiItemActivite.Size = new System.Drawing.Size(59, 20);
             this.menuLugatiItemActivite.Text = "Activite";
+            this.menuLugatiItemActivite.Click += new System.EventHandler(this.menuLugatiItemActivite_Click);
             // 
             // FrmMenu
             // 
