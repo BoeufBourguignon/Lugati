@@ -43,7 +43,7 @@ namespace WinLugati
         {
             this.EnableModif(true);
             this.bindingSourceActivite.AddNew();
-            ((Activite)this.bindingSourceActivite.Current).date = DateTime.Now;
+            ((Activite)this.bindingSourceActivite.Current).date = DateTime.Today;
         }
 
         private void btnSupprimerActivite_Click(object sender, EventArgs e)
@@ -52,7 +52,7 @@ namespace WinLugati
             {
                 try
                 {
-                    if (Passerelle.SupprimerHebergement((int)((Activite)this.bindingSourceActivite.Current).numActivite) == false)
+                    if (Passerelle.SupprimerActivite((int)((Activite)this.bindingSourceActivite.Current).numActivite) == false)
                     {
                         MessageBox.Show("L'activité ne peut pas être supprimée car elle contient des participants", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }

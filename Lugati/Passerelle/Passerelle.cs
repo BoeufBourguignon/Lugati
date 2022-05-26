@@ -13,7 +13,7 @@ namespace Lugati.dll
 {
     public static class Passerelle
     {
-        #region Chaine de Connexion //////////////////////////////////////////////
+        #region Chaine de Connexion //////////////////////////////////////////////////////
         /// <summary>
         /// Chaine de Connexion à la BDD Lugati sur SQL SERVER
         /// </summary>
@@ -24,51 +24,56 @@ namespace Lugati.dll
             "Password=b4n4n3");
         #endregion
 
-        #region Sessions //////////////////////////////////////////////////////////
+        #region Sessions /////////////////////////////////////////////////////////////////
         /// <summary>
         /// Retourne toutes les sessions présentes dans la base de données
         /// </summary>
-        /// <returns>Collection de sessions</returns>
         public static List<Session> GetLesSessions()
         {
             List<Session> lesSessions = new List<Session>();
 
-            SqlCommand reqLesSessions =
-                new SqlCommand("SELECT numSession, libelle, tarif, nbPlaces, date, heure " +
-                                "FROM Session",
+            SqlCommand reqLesSessions = new SqlCommand(
+                "SELECT numSession, libelle, tarif, nbPlaces, date, heure " +
+                "FROM Session",
                 Passerelle.connexionBaseLugati);
 
-            Passerelle.connexionBaseLugati.Open();
-
-            SqlDataReader readerLesSessions = reqLesSessions.ExecuteReader();
-
-            if (readerLesSessions.HasRows)
+            try
             {
-                while (readerLesSessions.Read())
+                Passerelle.connexionBaseLugati.Open();
+
+                SqlDataReader readerLesSessions = reqLesSessions.ExecuteReader();
+
+                if (readerLesSessions.HasRows)
                 {
-                    lesSessions.Add(new Session(
-                            (int)readerLesSessions[0],
-                            readerLesSessions[1].ToString(),
-                            (int)readerLesSessions[2],
-                            (int)readerLesSessions[3],
-                            Convert.ToDateTime(readerLesSessions[4]),
-                            (readerLesSessions[5].ToString())));
+                    while (readerLesSessions.Read())
+                    {
+                        lesSessions.Add(new Session(
+                                (int)readerLesSessions[0],
+                                readerLesSessions[1].ToString(),
+                                (int)readerLesSessions[2],
+                                (int)readerLesSessions[3],
+                                Convert.ToDateTime(readerLesSessions[4]),
+                                (readerLesSessions[5].ToString())));
+                    }
+                }
+                else
+                {
+                    throw new Exception("Il n'existe aucune Sessions");
                 }
             }
-            else
+            finally
             {
-                throw new Exception("Il n'existe aucune Sessions");
+                Passerelle.connexionBaseLugati.Close();
             }
-
-            Passerelle.connexionBaseLugati.Close();
 
             return lesSessions;
         }
+
         /// <summary>
-        /// Ajoute la Session à la BDD
+        /// Ajoute une Session à la BDD
         /// </summary>
-        /// <param name="s">paramètre de session</param>
-        /// <returns></returns>
+        /// <param name="s">Session à ajouter à la BDD</param>
+        /// <returns>Id de la session ajoutée</returns>
         public static int AjouterSession(Session s)
         {
             SqlCommand reqAjouterSession =
@@ -99,33 +104,59 @@ namespace Lugati.dll
         }
 
         /// <summary>
-        /// Supprimer une Session
+        /// Supprime une session de la BDD
         /// </summary>
-        /// <param name="numSession"></param>
-        public static void SupprimerSession(int numSession)
+        /// <param name="numSession">Num de la session à supprimer</param>
+        public static bool SupprimerSession(int numSession)
         {
-            SqlCommand reqSupprimerSession = new SqlCommand(
-                "DELETE FROM Session WHERE numSession = @id",
+            bool peutEtreSupprime = false;
+
+            //On vérifie que la session peut être supprimée
+            SqlCommand reqPeutEtreSupprime = new SqlCommand(
+                "SELECT count(*) FROM inscrire WHERE numSession = @num",
                 Passerelle.connexionBaseLugati);
+            reqPeutEtreSupprime.Parameters.AddWithValue("@num", numSession);
 
-            reqSupprimerSession.Parameters.AddWithValue("@id", numSession);
-
+            int nbInscris = 0;
             try
             {
                 Passerelle.connexionBaseLugati.Open();
 
-                reqSupprimerSession.ExecuteNonQuery();
+                nbInscris = (int)reqPeutEtreSupprime.ExecuteScalar();
             }
             finally
             {
                 Passerelle.connexionBaseLugati.Close();
             }
+
+            if (nbInscris == 0)
+            {
+                peutEtreSupprime = true;
+
+                SqlCommand reqSupprimerActivite = new SqlCommand(
+                    "DELETE FROM Session WHERE numSession = @num",
+                    Passerelle.connexionBaseLugati);
+                reqSupprimerActivite.Parameters.AddWithValue("@num", numSession);
+
+                try
+                {
+                    Passerelle.connexionBaseLugati.Open();
+
+                    reqSupprimerActivite.ExecuteNonQuery();
+                }
+                finally
+                {
+                    Passerelle.connexionBaseLugati.Close();
+                }
+            }
+
+            return peutEtreSupprime;
         }
 
         /// <summary>
-        /// Modification session
+        /// Modifie une session dans la BDD
         /// </summary>
-        /// <param name="s"></param>
+        /// <param name="s">Session à modifier</param>
         public static void ModifierSession(Session s)
         {
             SqlCommand reqModifierSession =
@@ -150,10 +181,12 @@ namespace Lugati.dll
                 Passerelle.connexionBaseLugati.Close();
             }
         }
-
         #endregion
 
-        #region Activites //////////////////////////////////////////////////////////////
+        #region Activites ////////////////////////////////////////////////////////////////
+        /// <summary>
+        /// Récupère toutes les activités
+        /// </summary>
         public static List<Activite> GetLesActivites()
         {
             List<Activite> lesActivites = new List<Activite>();
@@ -163,37 +196,43 @@ namespace Lugati.dll
                                 "FROM Activite",
                 Passerelle.connexionBaseLugati);
 
-            Passerelle.connexionBaseLugati.Open();
-
-            SqlDataReader readerLesActivites = reqLesActivites.ExecuteReader();
-
-            if (readerLesActivites.HasRows)
+            try
             {
-                while (readerLesActivites.Read())
+                Passerelle.connexionBaseLugati.Open();
+
+                SqlDataReader readerLesActivites = reqLesActivites.ExecuteReader();
+
+                if (readerLesActivites.HasRows)
                 {
-                    lesActivites.Add(new Activite(
-                            (int)readerLesActivites[0],
-                            readerLesActivites[1].ToString(),
-                            (int)readerLesActivites[2],
-                            (int)readerLesActivites[3],
-                            Convert.ToDateTime(readerLesActivites[4]),
-                            readerLesActivites[5].ToString()));
+                    while (readerLesActivites.Read())
+                    {
+                        lesActivites.Add(new Activite(
+                                (int)readerLesActivites[0],
+                                readerLesActivites[1].ToString(),
+                                (int)readerLesActivites[2],
+                                (int)readerLesActivites[3],
+                                Convert.ToDateTime(readerLesActivites[4]),
+                                readerLesActivites[5].ToString()));
+                    }
+                }
+                else
+                {
+                    throw new Exception("Il n'existe aucune Sessions");
                 }
             }
-            else
+            finally
             {
-                throw new Exception("Il n'existe aucune Sessions");
+                Passerelle.connexionBaseLugati.Close();
             }
-
-            Passerelle.connexionBaseLugati.Close();
 
             return lesActivites;
         }
+
         /// <summary>
-        /// Ajouter Activiter
+        /// Ajoute une activité à la base de données
         /// </summary>
-        /// <param name="a"></param>
-        /// <returns></returns>
+        /// <param name="a">Activité à ajouter</param>
+        /// <returns>Id de l'activité ajoutée</returns>
         public static int AjouterActivite(Activite a)
         {
             SqlCommand reqAjouterActivite =
@@ -222,10 +261,11 @@ namespace Lugati.dll
 
             return id;
         }
+
         /// <summary>
-        /// Supprimer Activiter
+        /// Supprimer une activité de la base de données
         /// </summary>
-        /// <param name="numActivite"></param>
+        /// <param name="numActivite">Numéro de l'activité à supprimer</param>
         public static bool SupprimerActivite(int numActivite)
         {
             bool peutEtreSupprime = false;
@@ -273,9 +313,9 @@ namespace Lugati.dll
         }
 
         /// <summary>
-        /// Modification Activite
+        /// Met à jour une activité dans la base de données
         /// </summary>
-        /// <param name="a"></param>
+        /// <param name="a">Activité à mettre à jour</param>
         public static void ModifierActivite(Activite a)
         {
             SqlCommand reqModifierActivite =
@@ -287,7 +327,7 @@ namespace Lugati.dll
             reqModifierActivite.Parameters.AddWithValue("@nbPlaces", a.nbPlaces);
             reqModifierActivite.Parameters.AddWithValue("@date", a.date);
             reqModifierActivite.Parameters.AddWithValue("@heure", a.heure);
-            reqModifierActivite.Parameters.AddWithValue("@numSession", a.numActivite);
+            reqModifierActivite.Parameters.AddWithValue("@numActivite", a.numActivite);
 
             try
             {
@@ -303,7 +343,7 @@ namespace Lugati.dll
 
         #endregion
 
-        #region Participant ////////////////////////////////////////////////////////////
+        #region Participant //////////////////////////////////////////////////////////////
         /// <summary>
         /// Ajouter un participant
         /// </summary>
@@ -430,7 +470,7 @@ namespace Lugati.dll
         }
         #endregion
 
-        #region Hebergement ////////////////////////////////////////////////////////////////////
+        #region Hebergement //////////////////////////////////////////////////////////////
         /// <summary>
         /// Retourne tous les Hotels présent dans la base de données
         /// </summary>
@@ -591,7 +631,7 @@ namespace Lugati.dll
         }
         #endregion
 
-        #region Participer ////////////////////////////////////////////////////////////////////////
+        #region Participer ///////////////////////////////////////////////////////////////
         public static List<Participer> GetLesParticipations()
         {
             List<Participer> lesParticipants = new List<Participer>();
@@ -671,7 +711,7 @@ namespace Lugati.dll
         }
         #endregion
 
-        #region Inscrire ///////////////////////////////////////////////////////////////////
+        #region Inscrire /////////////////////////////////////////////////////////////////
         public static List<Inscrire> GetLesInscriptions()
         {
             List<Inscrire> lesInscris = new List<Inscrire>();
@@ -750,7 +790,7 @@ namespace Lugati.dll
         }
         #endregion
 
-        #region ProcedureMontantTotal //////////////////////////////////////////////////////////
+        #region ProcedureMontantTotal ////////////////////////////////////////////////////
         public static float GetLeMontantTotal(int idParticipant)
         {
             SqlCommand reqLesMontants =
@@ -839,7 +879,7 @@ namespace Lugati.dll
         }
         #endregion
 
-        #region Ligue
+        #region Ligue ////////////////////////////////////////////////////////////////////
         public static List<Ligue> GetLesLigues()
         {
             List<Ligue> lesLigues = new List<Ligue>();

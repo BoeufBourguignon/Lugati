@@ -66,6 +66,9 @@
             // 
             this.dataGridActivite.AllowUserToAddRows = false;
             this.dataGridActivite.AllowUserToDeleteRows = false;
+            this.dataGridActivite.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridActivite.AutoGenerateColumns = false;
             this.dataGridActivite.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridActivite.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -84,7 +87,7 @@
             this.dataGridActivite.ReadOnly = true;
             this.dataGridActivite.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridActivite.Size = new System.Drawing.Size(700, 200);
-            this.dataGridActivite.TabIndex = 0;
+            this.dataGridActivite.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -158,7 +161,7 @@
             this.grpInfos.Location = new System.Drawing.Point(12, 217);
             this.grpInfos.Name = "grpInfos";
             this.grpInfos.Size = new System.Drawing.Size(507, 259);
-            this.grpInfos.TabIndex = 34;
+            this.grpInfos.TabIndex = 2;
             this.grpInfos.TabStop = false;
             this.grpInfos.Text = "Informations";
             // 
@@ -169,7 +172,7 @@
             this.maskedTextBoxNbPlaces.Mask = "9999";
             this.maskedTextBoxNbPlaces.Name = "maskedTextBoxNbPlaces";
             this.maskedTextBoxNbPlaces.Size = new System.Drawing.Size(150, 20);
-            this.maskedTextBoxNbPlaces.TabIndex = 20;
+            this.maskedTextBoxNbPlaces.TabIndex = 5;
             // 
             // maskedTextBoxTarif
             // 
@@ -178,7 +181,7 @@
             this.maskedTextBoxTarif.Mask = "99999";
             this.maskedTextBoxTarif.Name = "maskedTextBoxTarif";
             this.maskedTextBoxTarif.Size = new System.Drawing.Size(150, 20);
-            this.maskedTextBoxTarif.TabIndex = 19;
+            this.maskedTextBoxTarif.TabIndex = 4;
             // 
             // comboBoxHeure
             // 
@@ -191,14 +194,15 @@
             this.comboBoxHeure.Location = new System.Drawing.Point(319, 141);
             this.comboBoxHeure.Name = "comboBoxHeure";
             this.comboBoxHeure.Size = new System.Drawing.Size(165, 21);
-            this.comboBoxHeure.TabIndex = 18;
+            this.comboBoxHeure.TabIndex = 7;
             // 
             // dateTimePickerDate
             // 
+            this.dateTimePickerDate.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bindingSourceActivite, "date", true));
             this.dateTimePickerDate.Location = new System.Drawing.Point(319, 97);
             this.dateTimePickerDate.Name = "dateTimePickerDate";
             this.dateTimePickerDate.Size = new System.Drawing.Size(165, 20);
-            this.dateTimePickerDate.TabIndex = 17;
+            this.dateTimePickerDate.TabIndex = 6;
             // 
             // labelLibelleSession
             // 
@@ -218,7 +222,7 @@
             this.textBoxLibelleActivite.MaxLength = 100;
             this.textBoxLibelleActivite.Name = "textBoxLibelleActivite";
             this.textBoxLibelleActivite.Size = new System.Drawing.Size(150, 20);
-            this.textBoxLibelleActivite.TabIndex = 6;
+            this.textBoxLibelleActivite.TabIndex = 3;
             // 
             // labelAdresseHotel
             // 
@@ -275,7 +279,7 @@
             this.grpBoutons.Location = new System.Drawing.Point(586, 217);
             this.grpBoutons.Name = "grpBoutons";
             this.grpBoutons.Size = new System.Drawing.Size(126, 145);
-            this.grpBoutons.TabIndex = 37;
+            this.grpBoutons.TabIndex = 8;
             this.grpBoutons.TabStop = false;
             // 
             // btnModifierActivité
@@ -286,7 +290,7 @@
             this.btnModifierActivité.Location = new System.Drawing.Point(6, 101);
             this.btnModifierActivité.Name = "btnModifierActivité";
             this.btnModifierActivité.Size = new System.Drawing.Size(114, 35);
-            this.btnModifierActivité.TabIndex = 13;
+            this.btnModifierActivité.TabIndex = 11;
             this.btnModifierActivité.Text = "Modifier";
             this.btnModifierActivité.UseVisualStyleBackColor = false;
             this.btnModifierActivité.Click += new System.EventHandler(this.btnModifierActivité_Click);
@@ -299,7 +303,7 @@
             this.btnSupprimerActivite.Location = new System.Drawing.Point(6, 60);
             this.btnSupprimerActivite.Name = "btnSupprimerActivite";
             this.btnSupprimerActivite.Size = new System.Drawing.Size(114, 35);
-            this.btnSupprimerActivite.TabIndex = 12;
+            this.btnSupprimerActivite.TabIndex = 10;
             this.btnSupprimerActivite.Text = "Supprimer l\'activité";
             this.btnSupprimerActivite.UseVisualStyleBackColor = false;
             this.btnSupprimerActivite.Click += new System.EventHandler(this.btnSupprimerActivite_Click);
@@ -312,19 +316,20 @@
             this.btnAjouterActivite.Location = new System.Drawing.Point(6, 19);
             this.btnAjouterActivite.Name = "btnAjouterActivite";
             this.btnAjouterActivite.Size = new System.Drawing.Size(114, 35);
-            this.btnAjouterActivite.TabIndex = 11;
+            this.btnAjouterActivite.TabIndex = 9;
             this.btnAjouterActivite.Text = "Ajouter une activité";
             this.btnAjouterActivite.UseVisualStyleBackColor = false;
             this.btnAjouterActivite.Click += new System.EventHandler(this.btnAjouterActivite_Click);
             // 
             // grpBtnsSaveCancel
             // 
+            this.grpBtnsSaveCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.grpBtnsSaveCancel.Controls.Add(this.btnEnregistrerActivité);
             this.grpBtnsSaveCancel.Controls.Add(this.btnAnnuler);
             this.grpBtnsSaveCancel.Location = new System.Drawing.Point(586, 372);
             this.grpBtnsSaveCancel.Name = "grpBtnsSaveCancel";
             this.grpBtnsSaveCancel.Size = new System.Drawing.Size(126, 104);
-            this.grpBtnsSaveCancel.TabIndex = 38;
+            this.grpBtnsSaveCancel.TabIndex = 12;
             this.grpBtnsSaveCancel.TabStop = false;
             this.grpBtnsSaveCancel.Visible = false;
             // 
@@ -336,7 +341,7 @@
             this.btnEnregistrerActivité.Location = new System.Drawing.Point(6, 19);
             this.btnEnregistrerActivité.Name = "btnEnregistrerActivité";
             this.btnEnregistrerActivité.Size = new System.Drawing.Size(114, 35);
-            this.btnEnregistrerActivité.TabIndex = 15;
+            this.btnEnregistrerActivité.TabIndex = 13;
             this.btnEnregistrerActivité.Text = "Enregistrer modifications";
             this.btnEnregistrerActivité.UseVisualStyleBackColor = false;
             this.btnEnregistrerActivité.Click += new System.EventHandler(this.btnEnregistrerActivite_Click);
@@ -349,7 +354,7 @@
             this.btnAnnuler.Location = new System.Drawing.Point(6, 60);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(114, 35);
-            this.btnAnnuler.TabIndex = 16;
+            this.btnAnnuler.TabIndex = 14;
             this.btnAnnuler.Text = "Annuler";
             this.btnAnnuler.UseVisualStyleBackColor = false;
             this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);

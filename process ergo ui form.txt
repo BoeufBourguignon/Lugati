@@ -27,3 +27,14 @@
  -grpBtnsSaveCancel visible
  -grpBtns désactivé
  -grpInfos activé
+
+
+
+Faits:
+-Hebergement
+-Activités
+
+A faire:
+-Session
+-Participant
+-Ligue

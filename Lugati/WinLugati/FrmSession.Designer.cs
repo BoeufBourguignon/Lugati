@@ -29,15 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnAnnuler = new System.Windows.Forms.Button();
-            this.btnEnregistrerSession = new System.Windows.Forms.Button();
-            this.grpAjouterSupprimer = new System.Windows.Forms.GroupBox();
-            this.btnSupprimerSession = new System.Windows.Forms.Button();
-            this.btnAjouterSession = new System.Windows.Forms.Button();
             this.grpInfos = new System.Windows.Forms.GroupBox();
             this.comboBoxHeure = new System.Windows.Forms.ComboBox();
-            this.bindingSourceSession = new System.Windows.Forms.BindingSource(this.components);
             this.dateTimePickerDate = new System.Windows.Forms.DateTimePicker();
             this.maskedTextBoxNbPlaces = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBoxTarif = new System.Windows.Forms.MaskedTextBox();
@@ -48,96 +41,26 @@
             this.labelVilleHotel = new System.Windows.Forms.Label();
             this.labelTelHotel = new System.Windows.Forms.Label();
             this.dataGridSession = new System.Windows.Forms.DataGridView();
+            this.grpBoutons = new System.Windows.Forms.GroupBox();
+            this.btnModifierSession = new System.Windows.Forms.Button();
+            this.btnSupprimerSession = new System.Windows.Forms.Button();
+            this.btnAjouterSession = new System.Windows.Forms.Button();
+            this.grpBtnsSaveCancel = new System.Windows.Forms.GroupBox();
+            this.btnEnregistrerSession = new System.Windows.Forms.Button();
+            this.btnAnnuler = new System.Windows.Forms.Button();
             this.numSessionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tarifDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nbPlacesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.libelleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.heureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox2.SuspendLayout();
-            this.grpAjouterSupprimer.SuspendLayout();
+            this.bindingSourceSession = new System.Windows.Forms.BindingSource(this.components);
             this.grpInfos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSession)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSession)).BeginInit();
+            this.grpBoutons.SuspendLayout();
+            this.grpBtnsSaveCancel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSession)).BeginInit();
             this.SuspendLayout();
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox2.Controls.Add(this.btnAnnuler);
-            this.groupBox2.Controls.Add(this.btnEnregistrerSession);
-            this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(601, 357);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(126, 119);
-            this.groupBox2.TabIndex = 33;
-            this.groupBox2.TabStop = false;
-            // 
-            // btnAnnuler
-            // 
-            this.btnAnnuler.BackColor = System.Drawing.Color.White;
-            this.btnAnnuler.ForeColor = System.Drawing.Color.Black;
-            this.btnAnnuler.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnAnnuler.Location = new System.Drawing.Point(6, 65);
-            this.btnAnnuler.Name = "btnAnnuler";
-            this.btnAnnuler.Size = new System.Drawing.Size(114, 40);
-            this.btnAnnuler.TabIndex = 2;
-            this.btnAnnuler.Text = "Annuler";
-            this.btnAnnuler.UseVisualStyleBackColor = false;
-            this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
-            // 
-            // btnEnregistrerSession
-            // 
-            this.btnEnregistrerSession.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnEnregistrerSession.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnEnregistrerSession.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnEnregistrerSession.Location = new System.Drawing.Point(6, 19);
-            this.btnEnregistrerSession.Name = "btnEnregistrerSession";
-            this.btnEnregistrerSession.Size = new System.Drawing.Size(114, 40);
-            this.btnEnregistrerSession.TabIndex = 22;
-            this.btnEnregistrerSession.Text = "Enregistrer modifications";
-            this.btnEnregistrerSession.UseVisualStyleBackColor = false;
-            this.btnEnregistrerSession.Click += new System.EventHandler(this.btnEnregistrerSession_Click);
-            // 
-            // grpAjouterSupprimer
-            // 
-            this.grpAjouterSupprimer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.grpAjouterSupprimer.BackColor = System.Drawing.Color.Transparent;
-            this.grpAjouterSupprimer.Controls.Add(this.btnSupprimerSession);
-            this.grpAjouterSupprimer.Controls.Add(this.btnAjouterSession);
-            this.grpAjouterSupprimer.ForeColor = System.Drawing.Color.White;
-            this.grpAjouterSupprimer.Location = new System.Drawing.Point(601, 218);
-            this.grpAjouterSupprimer.Name = "grpAjouterSupprimer";
-            this.grpAjouterSupprimer.Size = new System.Drawing.Size(126, 119);
-            this.grpAjouterSupprimer.TabIndex = 32;
-            this.grpAjouterSupprimer.TabStop = false;
-            // 
-            // btnSupprimerSession
-            // 
-            this.btnSupprimerSession.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnSupprimerSession.ForeColor = System.Drawing.Color.Black;
-            this.btnSupprimerSession.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnSupprimerSession.Location = new System.Drawing.Point(6, 65);
-            this.btnSupprimerSession.Name = "btnSupprimerSession";
-            this.btnSupprimerSession.Size = new System.Drawing.Size(114, 40);
-            this.btnSupprimerSession.TabIndex = 2;
-            this.btnSupprimerSession.Text = "Supprimer la Session";
-            this.btnSupprimerSession.UseVisualStyleBackColor = false;
-            this.btnSupprimerSession.Click += new System.EventHandler(this.btnSupprimerSession_Click);
-            // 
-            // btnAjouterSession
-            // 
-            this.btnAjouterSession.BackColor = System.Drawing.Color.White;
-            this.btnAjouterSession.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnAjouterSession.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnAjouterSession.Location = new System.Drawing.Point(6, 19);
-            this.btnAjouterSession.Name = "btnAjouterSession";
-            this.btnAjouterSession.Size = new System.Drawing.Size(114, 40);
-            this.btnAjouterSession.TabIndex = 22;
-            this.btnAjouterSession.Text = "Ajouter une Session";
-            this.btnAjouterSession.UseVisualStyleBackColor = false;
-            this.btnAjouterSession.Click += new System.EventHandler(this.btnAjouterSession_Click);
             // 
             // grpInfos
             // 
@@ -154,10 +77,11 @@
             this.grpInfos.Controls.Add(this.labelPrixHotel);
             this.grpInfos.Controls.Add(this.labelVilleHotel);
             this.grpInfos.Controls.Add(this.labelTelHotel);
+            this.grpInfos.Enabled = false;
             this.grpInfos.ForeColor = System.Drawing.Color.Black;
             this.grpInfos.Location = new System.Drawing.Point(12, 217);
             this.grpInfos.Name = "grpInfos";
-            this.grpInfos.Size = new System.Drawing.Size(536, 259);
+            this.grpInfos.Size = new System.Drawing.Size(507, 259);
             this.grpInfos.TabIndex = 31;
             this.grpInfos.TabStop = false;
             this.grpInfos.Text = "Informations";
@@ -173,13 +97,8 @@
             "14:30"});
             this.comboBoxHeure.Location = new System.Drawing.Point(290, 140);
             this.comboBoxHeure.Name = "comboBoxHeure";
-            this.comboBoxHeure.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxHeure.Size = new System.Drawing.Size(193, 21);
             this.comboBoxHeure.TabIndex = 20;
-            // 
-            // bindingSourceSession
-            // 
-            this.bindingSourceSession.AllowNew = true;
-            this.bindingSourceSession.DataSource = typeof(Lugati.dll.Session);
             // 
             // dateTimePickerDate
             // 
@@ -223,6 +142,7 @@
             // 
             this.textBoxLibelleSession.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceSession, "libelle", true));
             this.textBoxLibelleSession.Location = new System.Drawing.Point(73, 73);
+            this.textBoxLibelleSession.MaxLength = 100;
             this.textBoxLibelleSession.Name = "textBoxLibelleSession";
             this.textBoxLibelleSession.Size = new System.Drawing.Size(150, 20);
             this.textBoxLibelleSession.TabIndex = 6;
@@ -295,56 +215,152 @@
             this.dataGridSession.Name = "dataGridSession";
             this.dataGridSession.ReadOnly = true;
             this.dataGridSession.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridSession.Size = new System.Drawing.Size(715, 194);
+            this.dataGridSession.Size = new System.Drawing.Size(700, 194);
             this.dataGridSession.TabIndex = 0;
+            // 
+            // grpBoutons
+            // 
+            this.grpBoutons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpBoutons.BackColor = System.Drawing.Color.Transparent;
+            this.grpBoutons.Controls.Add(this.btnModifierSession);
+            this.grpBoutons.Controls.Add(this.btnSupprimerSession);
+            this.grpBoutons.Controls.Add(this.btnAjouterSession);
+            this.grpBoutons.ForeColor = System.Drawing.Color.White;
+            this.grpBoutons.Location = new System.Drawing.Point(586, 217);
+            this.grpBoutons.Name = "grpBoutons";
+            this.grpBoutons.Size = new System.Drawing.Size(126, 145);
+            this.grpBoutons.TabIndex = 34;
+            this.grpBoutons.TabStop = false;
+            // 
+            // btnModifierSession
+            // 
+            this.btnModifierSession.BackColor = System.Drawing.Color.White;
+            this.btnModifierSession.ForeColor = System.Drawing.Color.Black;
+            this.btnModifierSession.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnModifierSession.Location = new System.Drawing.Point(6, 101);
+            this.btnModifierSession.Name = "btnModifierSession";
+            this.btnModifierSession.Size = new System.Drawing.Size(114, 35);
+            this.btnModifierSession.TabIndex = 11;
+            this.btnModifierSession.Text = "Modifier";
+            this.btnModifierSession.UseVisualStyleBackColor = false;
+            this.btnModifierSession.Click += new System.EventHandler(this.btnModifierSession_Click);
+            // 
+            // btnSupprimerSession
+            // 
+            this.btnSupprimerSession.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnSupprimerSession.ForeColor = System.Drawing.Color.Black;
+            this.btnSupprimerSession.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnSupprimerSession.Location = new System.Drawing.Point(6, 60);
+            this.btnSupprimerSession.Name = "btnSupprimerSession";
+            this.btnSupprimerSession.Size = new System.Drawing.Size(114, 35);
+            this.btnSupprimerSession.TabIndex = 10;
+            this.btnSupprimerSession.Text = "Supprimer la session";
+            this.btnSupprimerSession.UseVisualStyleBackColor = false;
+            this.btnSupprimerSession.Click += new System.EventHandler(this.btnSupprimerSession_Click);
+            // 
+            // btnAjouterSession
+            // 
+            this.btnAjouterSession.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnAjouterSession.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnAjouterSession.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnAjouterSession.Location = new System.Drawing.Point(6, 19);
+            this.btnAjouterSession.Name = "btnAjouterSession";
+            this.btnAjouterSession.Size = new System.Drawing.Size(114, 35);
+            this.btnAjouterSession.TabIndex = 9;
+            this.btnAjouterSession.Text = "Ajouter une session";
+            this.btnAjouterSession.UseVisualStyleBackColor = false;
+            this.btnAjouterSession.Click += new System.EventHandler(this.btnAjouterSession_Click);
+            // 
+            // grpBtnsSaveCancel
+            // 
+            this.grpBtnsSaveCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpBtnsSaveCancel.Controls.Add(this.btnEnregistrerSession);
+            this.grpBtnsSaveCancel.Controls.Add(this.btnAnnuler);
+            this.grpBtnsSaveCancel.Location = new System.Drawing.Point(586, 372);
+            this.grpBtnsSaveCancel.Name = "grpBtnsSaveCancel";
+            this.grpBtnsSaveCancel.Size = new System.Drawing.Size(126, 104);
+            this.grpBtnsSaveCancel.TabIndex = 35;
+            this.grpBtnsSaveCancel.TabStop = false;
+            this.grpBtnsSaveCancel.Visible = false;
+            // 
+            // btnEnregistrerSession
+            // 
+            this.btnEnregistrerSession.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnEnregistrerSession.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnEnregistrerSession.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnEnregistrerSession.Location = new System.Drawing.Point(6, 19);
+            this.btnEnregistrerSession.Name = "btnEnregistrerSession";
+            this.btnEnregistrerSession.Size = new System.Drawing.Size(114, 35);
+            this.btnEnregistrerSession.TabIndex = 13;
+            this.btnEnregistrerSession.Text = "Enregistrer modifications";
+            this.btnEnregistrerSession.UseVisualStyleBackColor = false;
+            this.btnEnregistrerSession.Click += new System.EventHandler(this.btnEnregistrerSession_Click);
+            // 
+            // btnAnnuler
+            // 
+            this.btnAnnuler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnAnnuler.ForeColor = System.Drawing.Color.Black;
+            this.btnAnnuler.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnAnnuler.Location = new System.Drawing.Point(6, 60);
+            this.btnAnnuler.Name = "btnAnnuler";
+            this.btnAnnuler.Size = new System.Drawing.Size(114, 35);
+            this.btnAnnuler.TabIndex = 14;
+            this.btnAnnuler.Text = "Annuler";
+            this.btnAnnuler.UseVisualStyleBackColor = false;
+            this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
             // 
             // numSessionDataGridViewTextBoxColumn
             // 
             this.numSessionDataGridViewTextBoxColumn.DataPropertyName = "numSession";
-            this.numSessionDataGridViewTextBoxColumn.HeaderText = "numSession";
+            this.numSessionDataGridViewTextBoxColumn.HeaderText = "Numéro";
             this.numSessionDataGridViewTextBoxColumn.Name = "numSessionDataGridViewTextBoxColumn";
             this.numSessionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.numSessionDataGridViewTextBoxColumn.Width = 89;
+            this.numSessionDataGridViewTextBoxColumn.Width = 69;
             // 
             // tarifDataGridViewTextBoxColumn
             // 
             this.tarifDataGridViewTextBoxColumn.DataPropertyName = "tarif";
-            this.tarifDataGridViewTextBoxColumn.HeaderText = "tarif";
+            this.tarifDataGridViewTextBoxColumn.HeaderText = "Tarif";
             this.tarifDataGridViewTextBoxColumn.Name = "tarifDataGridViewTextBoxColumn";
             this.tarifDataGridViewTextBoxColumn.ReadOnly = true;
-            this.tarifDataGridViewTextBoxColumn.Width = 49;
+            this.tarifDataGridViewTextBoxColumn.Width = 53;
             // 
             // nbPlacesDataGridViewTextBoxColumn
             // 
             this.nbPlacesDataGridViewTextBoxColumn.DataPropertyName = "nbPlaces";
-            this.nbPlacesDataGridViewTextBoxColumn.HeaderText = "nbPlaces";
+            this.nbPlacesDataGridViewTextBoxColumn.HeaderText = "Nombre de places";
             this.nbPlacesDataGridViewTextBoxColumn.Name = "nbPlacesDataGridViewTextBoxColumn";
             this.nbPlacesDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nbPlacesDataGridViewTextBoxColumn.Width = 76;
+            this.nbPlacesDataGridViewTextBoxColumn.Width = 80;
             // 
             // libelleDataGridViewTextBoxColumn
             // 
             this.libelleDataGridViewTextBoxColumn.DataPropertyName = "libelle";
-            this.libelleDataGridViewTextBoxColumn.HeaderText = "libelle";
+            this.libelleDataGridViewTextBoxColumn.HeaderText = "Nom";
             this.libelleDataGridViewTextBoxColumn.Name = "libelleDataGridViewTextBoxColumn";
             this.libelleDataGridViewTextBoxColumn.ReadOnly = true;
-            this.libelleDataGridViewTextBoxColumn.Width = 58;
+            this.libelleDataGridViewTextBoxColumn.Width = 54;
             // 
             // dateDataGridViewTextBoxColumn
             // 
             this.dateDataGridViewTextBoxColumn.DataPropertyName = "date";
-            this.dateDataGridViewTextBoxColumn.HeaderText = "date";
+            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
             this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
             this.dateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dateDataGridViewTextBoxColumn.Width = 53;
+            this.dateDataGridViewTextBoxColumn.Width = 55;
             // 
             // heureDataGridViewTextBoxColumn
             // 
             this.heureDataGridViewTextBoxColumn.DataPropertyName = "heure";
-            this.heureDataGridViewTextBoxColumn.HeaderText = "heure";
+            this.heureDataGridViewTextBoxColumn.HeaderText = "Heure";
             this.heureDataGridViewTextBoxColumn.Name = "heureDataGridViewTextBoxColumn";
             this.heureDataGridViewTextBoxColumn.ReadOnly = true;
-            this.heureDataGridViewTextBoxColumn.Width = 59;
+            this.heureDataGridViewTextBoxColumn.Width = 61;
+            // 
+            // bindingSourceSession
+            // 
+            this.bindingSourceSession.AllowNew = true;
+            this.bindingSourceSession.DataSource = typeof(Lugati.dll.Session);
             // 
             // FrmSession
             // 
@@ -352,31 +368,25 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.ClientSize = new System.Drawing.Size(739, 488);
+            this.ClientSize = new System.Drawing.Size(724, 488);
+            this.Controls.Add(this.grpBtnsSaveCancel);
+            this.Controls.Add(this.grpBoutons);
             this.Controls.Add(this.dataGridSession);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.grpAjouterSupprimer);
             this.Controls.Add(this.grpInfos);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "FrmSession";
-            this.Text = "Session";
-            this.groupBox2.ResumeLayout(false);
-            this.grpAjouterSupprimer.ResumeLayout(false);
+            this.Text = "Sessions";
             this.grpInfos.ResumeLayout(false);
             this.grpInfos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSession)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSession)).EndInit();
+            this.grpBoutons.ResumeLayout(false);
+            this.grpBtnsSaveCancel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSession)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btnAnnuler;
-        private System.Windows.Forms.Button btnEnregistrerSession;
-        private System.Windows.Forms.GroupBox grpAjouterSupprimer;
-        private System.Windows.Forms.Button btnSupprimerSession;
-        private System.Windows.Forms.Button btnAjouterSession;
         private System.Windows.Forms.GroupBox grpInfos;
         private System.Windows.Forms.Label labelLibelleSession;
         private System.Windows.Forms.TextBox textBoxLibelleSession;
@@ -386,15 +396,22 @@
         private System.Windows.Forms.Label labelTelHotel;
         private System.Windows.Forms.BindingSource bindingSourceSession;
         private System.Windows.Forms.DataGridView dataGridSession;
+        private System.Windows.Forms.DateTimePicker dateTimePickerDate;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxNbPlaces;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxTarif;
+        private System.Windows.Forms.ComboBox comboBoxHeure;
+        private System.Windows.Forms.GroupBox grpBoutons;
+        private System.Windows.Forms.Button btnModifierSession;
+        private System.Windows.Forms.Button btnSupprimerSession;
+        private System.Windows.Forms.Button btnAjouterSession;
+        private System.Windows.Forms.GroupBox grpBtnsSaveCancel;
+        private System.Windows.Forms.Button btnEnregistrerSession;
+        private System.Windows.Forms.Button btnAnnuler;
         private System.Windows.Forms.DataGridViewTextBoxColumn numSessionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tarifDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nbPlacesDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn libelleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn heureDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DateTimePicker dateTimePickerDate;
-        private System.Windows.Forms.MaskedTextBox maskedTextBoxNbPlaces;
-        private System.Windows.Forms.MaskedTextBox maskedTextBoxTarif;
-        private System.Windows.Forms.ComboBox comboBoxHeure;
     }
 }
