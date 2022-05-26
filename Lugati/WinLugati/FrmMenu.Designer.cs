@@ -96,6 +96,7 @@
             this.MainMenuStrip = this.menuLugati;
             this.Name = "FrmMenu";
             this.Text = "Sports et Santé";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMenu_FormClosing);
             this.menuLugati.ResumeLayout(false);
             this.menuLugati.PerformLayout();
             this.ResumeLayout(false);
