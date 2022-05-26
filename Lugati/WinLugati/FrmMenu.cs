@@ -25,7 +25,7 @@ namespace WinLugati
               e.Cancel = true;
         }
 
-        private void frmHebergementToolStripMenuItem_Click(object sender, EventArgs e)
+        private void menuLugatiItemHebergement_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms["FrmHebergement"] == null)
             {
@@ -36,11 +36,10 @@ namespace WinLugati
             else
             {
                 Application.OpenForms["FrmHebergement"].BringToFront();
-
             }
         }
 
-        private void frmSessionToolStripMenuItem_Click(object sender, EventArgs e)
+        private void menuLugatiItemSession_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms["FrmSession"] == null)
             {
@@ -51,7 +50,6 @@ namespace WinLugati
             else
             {
                 Application.OpenForms["FrmSession"].BringToFront();
-
             }
         }
 
@@ -66,7 +64,6 @@ namespace WinLugati
             else
             {
                 Application.OpenForms["FrmParticipant"].BringToFront();
-
             }
         }
 
@@ -74,18 +71,17 @@ namespace WinLugati
         {
             if (Application.OpenForms["FrmActivite"] == null)
             {
-                FrmActivite frmS = new FrmActivite();
-                frmS.MdiParent = this;
-                frmS.Show();
+                FrmActivite frmA = new FrmActivite();
+                frmA.MdiParent = this;
+                frmA.Show();
             }
             else
             {
                 Application.OpenForms["FrmActivite"].BringToFront();
-
             }
         }
 
-        private void ligueToolStripMenuItem_Click(object sender, EventArgs e)
+        private void menuLugatiItemLigue_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms["FrmLigue"] == null)
             {
@@ -96,7 +92,6 @@ namespace WinLugati
             else
             {
                 Application.OpenForms["FrmLigue"].BringToFront();
-
             }
         }
     }

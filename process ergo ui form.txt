@@ -1,0 +1,29 @@
+-chargement des données (on peut utiliser que le dgv)
+ -grpBtnsSaveCancel pas visible
+ -grpInfos désactivé
+
+-btnSaveModifs
+ -enregistre les modifs
+  -endEdit pour mettre le binding à jour avec les nouvelles infos
+  -si erreur, on recharge les données
+ -grpInfos désactivé
+ -grpBtnsSaveCancel pas visible
+ -grpBtns activé
+
+-btnAnnuler
+ -annule les modifs
+ -grpInfos désactivé
+ -grpBtnsSaveCancel pas visible
+ -grpBtns activé
+
+-btnModifier
+ -dgvHotels désactivé
+ -grpInfos activé
+ -grpBtns désactivé
+ -grpBtnsSaveCancel visible
+
+-btnAjouterHotel
+ -dgvHotels désactivé
+ -grpBtnsSaveCancel visible
+ -grpBtns désactivé
+ -grpInfos activé
