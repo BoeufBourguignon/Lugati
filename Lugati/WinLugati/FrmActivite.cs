@@ -141,5 +141,14 @@ namespace WinLugati
             this.bindingSourceActivite.CancelEdit();
             this.EnableModif(false);
         }
+
+        private void bindingSourceActivite_CurrentChanged(object sender, EventArgs e)
+        {
+            Activite a = (Activite)this.bindingSourceActivite.Current;
+            if(a != null)
+            {
+                this.bindingSourceParticipants.DataSource = Passerelle.GetLesParticipations(a.numActivite);
+            }
+        }
     }
 }

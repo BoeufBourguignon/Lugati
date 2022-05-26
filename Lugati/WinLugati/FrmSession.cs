@@ -140,5 +140,14 @@ namespace WinLugati
             this.bindingSourceSession.CancelEdit();
             this.EnableModif(false);
         }
+
+        private void bindingSourceSession_CurrentChanged(object sender, EventArgs e)
+        {
+            Session s = (Session)this.bindingSourceSession.Current;
+            if(s != null)
+            {
+                this.bindingSourceInscris.DataSource = Passerelle.GetLesInscriptions(s.numSession);
+            }
+        }
     }
 }

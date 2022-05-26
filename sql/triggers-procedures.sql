@@ -1,3 +1,6 @@
+use base_lugati;
+go
+
 -- TRIGGERS
 -- Vérification qu'une personne ne participe pas à deux sessions/activités en même temps lors de l'ajout d'une activité
 create or alter trigger ti_participer on participer 

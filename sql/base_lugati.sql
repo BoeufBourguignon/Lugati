@@ -36,6 +36,7 @@ CREATE TABLE participant (
     ville varchar(30),
     cp varchar(5),
 	idHebergement int,
+    acompte decimal(5,2) default 0,
     CONSTRAINT pk_idParticipant PRIMARY KEY (idParticipant),
 	CONSTRAINT fk_participant_idLigue FOREIGN KEY (idLigue) REFERENCES ligue(idLigue),
 	CONSTRAINT fk_participant_idHebergement FOREIGN KEY (idHebergement) REFERENCES hebergement(idHebergement)
@@ -79,8 +80,14 @@ CREATE TABLE inscrire (
     CONSTRAINT fk_inscrire_idParticipant FOREIGN KEY (idParticipant) REFERENCES participant(idParticipant)
 );
 
+IF NOT EXISTS
+    (SELECT name
+     FROM sys.sql_logins
+     WHERE name = 'LugatiApp')
+BEGIN
+	CREATE LOGIN LugatiApp WITH PASSWORD = 'b4n4n3';
+END
 
-CREATE LOGIN LugatiApp WITH PASSWORD = 'b4n4n3';
 CREATE USER LugatiApp FOR LOGIN LugatiApp;
 --Droits tables
 GRANT INSERT, UPDATE, DELETE, SELECT ON ligue TO LugatiApp;

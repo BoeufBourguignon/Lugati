@@ -48,6 +48,10 @@
             this.grpBtnsSaveCancel = new System.Windows.Forms.GroupBox();
             this.btnEnregistrerSession = new System.Windows.Forms.Button();
             this.btnAnnuler = new System.Windows.Forms.Button();
+            this.tabControlSessions = new System.Windows.Forms.TabControl();
+            this.tabPageCRUDSession = new System.Windows.Forms.TabPage();
+            this.tabPageInscris = new System.Windows.Forms.TabPage();
+            this.dataGridViewInscris = new System.Windows.Forms.DataGridView();
             this.numSessionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tarifDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nbPlacesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,11 +59,23 @@
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.heureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingSourceSession = new System.Windows.Forms.BindingSource(this.components);
+            this.nomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prenomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.genreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.adresseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.villeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSourceInscris = new System.Windows.Forms.BindingSource(this.components);
             this.grpInfos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSession)).BeginInit();
             this.grpBoutons.SuspendLayout();
             this.grpBtnsSaveCancel.SuspendLayout();
+            this.tabControlSessions.SuspendLayout();
+            this.tabPageCRUDSession.SuspendLayout();
+            this.tabPageInscris.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInscris)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSession)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceInscris)).BeginInit();
             this.SuspendLayout();
             // 
             // grpInfos
@@ -78,10 +94,10 @@
             this.grpInfos.Controls.Add(this.labelVilleHotel);
             this.grpInfos.Controls.Add(this.labelTelHotel);
             this.grpInfos.Enabled = false;
-            this.grpInfos.ForeColor = System.Drawing.Color.Black;
-            this.grpInfos.Location = new System.Drawing.Point(12, 217);
+            this.grpInfos.ForeColor = System.Drawing.Color.White;
+            this.grpInfos.Location = new System.Drawing.Point(3, 206);
             this.grpInfos.Name = "grpInfos";
-            this.grpInfos.Size = new System.Drawing.Size(507, 259);
+            this.grpInfos.Size = new System.Drawing.Size(507, 252);
             this.grpInfos.TabIndex = 31;
             this.grpInfos.TabStop = false;
             this.grpInfos.Text = "Informations";
@@ -130,7 +146,7 @@
             // labelLibelleSession
             // 
             this.labelLibelleSession.AutoSize = true;
-            this.labelLibelleSession.ForeColor = System.Drawing.Color.Black;
+            this.labelLibelleSession.ForeColor = System.Drawing.Color.White;
             this.labelLibelleSession.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.labelLibelleSession.Location = new System.Drawing.Point(30, 76);
             this.labelLibelleSession.Name = "labelLibelleSession";
@@ -150,7 +166,7 @@
             // labelAdresseHotel
             // 
             this.labelAdresseHotel.AutoSize = true;
-            this.labelAdresseHotel.ForeColor = System.Drawing.Color.Black;
+            this.labelAdresseHotel.ForeColor = System.Drawing.Color.White;
             this.labelAdresseHotel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.labelAdresseHotel.Location = new System.Drawing.Point(254, 100);
             this.labelAdresseHotel.Name = "labelAdresseHotel";
@@ -161,7 +177,7 @@
             // labelPrixHotel
             // 
             this.labelPrixHotel.AutoSize = true;
-            this.labelPrixHotel.ForeColor = System.Drawing.Color.Black;
+            this.labelPrixHotel.ForeColor = System.Drawing.Color.White;
             this.labelPrixHotel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.labelPrixHotel.Location = new System.Drawing.Point(39, 119);
             this.labelPrixHotel.Name = "labelPrixHotel";
@@ -172,7 +188,7 @@
             // labelVilleHotel
             // 
             this.labelVilleHotel.AutoSize = true;
-            this.labelVilleHotel.ForeColor = System.Drawing.Color.Black;
+            this.labelVilleHotel.ForeColor = System.Drawing.Color.White;
             this.labelVilleHotel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.labelVilleHotel.Location = new System.Drawing.Point(248, 143);
             this.labelVilleHotel.Name = "labelVilleHotel";
@@ -183,7 +199,7 @@
             // labelTelHotel
             // 
             this.labelTelHotel.AutoSize = true;
-            this.labelTelHotel.ForeColor = System.Drawing.Color.Black;
+            this.labelTelHotel.ForeColor = System.Drawing.Color.White;
             this.labelTelHotel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.labelTelHotel.Location = new System.Drawing.Point(12, 162);
             this.labelTelHotel.Name = "labelTelHotel";
@@ -210,12 +226,12 @@
             this.dateDataGridViewTextBoxColumn,
             this.heureDataGridViewTextBoxColumn});
             this.dataGridSession.DataSource = this.bindingSourceSession;
-            this.dataGridSession.Location = new System.Drawing.Point(12, 12);
+            this.dataGridSession.Location = new System.Drawing.Point(3, 3);
             this.dataGridSession.MultiSelect = false;
             this.dataGridSession.Name = "dataGridSession";
             this.dataGridSession.ReadOnly = true;
             this.dataGridSession.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridSession.Size = new System.Drawing.Size(700, 194);
+            this.dataGridSession.Size = new System.Drawing.Size(704, 197);
             this.dataGridSession.TabIndex = 0;
             // 
             // grpBoutons
@@ -226,9 +242,9 @@
             this.grpBoutons.Controls.Add(this.btnSupprimerSession);
             this.grpBoutons.Controls.Add(this.btnAjouterSession);
             this.grpBoutons.ForeColor = System.Drawing.Color.White;
-            this.grpBoutons.Location = new System.Drawing.Point(586, 217);
+            this.grpBoutons.Location = new System.Drawing.Point(581, 206);
             this.grpBoutons.Name = "grpBoutons";
-            this.grpBoutons.Size = new System.Drawing.Size(126, 145);
+            this.grpBoutons.Size = new System.Drawing.Size(126, 139);
             this.grpBoutons.TabIndex = 34;
             this.grpBoutons.TabStop = false;
             // 
@@ -237,7 +253,7 @@
             this.btnModifierSession.BackColor = System.Drawing.Color.White;
             this.btnModifierSession.ForeColor = System.Drawing.Color.Black;
             this.btnModifierSession.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnModifierSession.Location = new System.Drawing.Point(6, 101);
+            this.btnModifierSession.Location = new System.Drawing.Point(6, 94);
             this.btnModifierSession.Name = "btnModifierSession";
             this.btnModifierSession.Size = new System.Drawing.Size(114, 35);
             this.btnModifierSession.TabIndex = 11;
@@ -250,7 +266,7 @@
             this.btnSupprimerSession.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnSupprimerSession.ForeColor = System.Drawing.Color.Black;
             this.btnSupprimerSession.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnSupprimerSession.Location = new System.Drawing.Point(6, 60);
+            this.btnSupprimerSession.Location = new System.Drawing.Point(6, 53);
             this.btnSupprimerSession.Name = "btnSupprimerSession";
             this.btnSupprimerSession.Size = new System.Drawing.Size(114, 35);
             this.btnSupprimerSession.TabIndex = 10;
@@ -263,7 +279,7 @@
             this.btnAjouterSession.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnAjouterSession.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnAjouterSession.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnAjouterSession.Location = new System.Drawing.Point(6, 19);
+            this.btnAjouterSession.Location = new System.Drawing.Point(6, 12);
             this.btnAjouterSession.Name = "btnAjouterSession";
             this.btnAjouterSession.Size = new System.Drawing.Size(114, 35);
             this.btnAjouterSession.TabIndex = 9;
@@ -276,7 +292,7 @@
             this.grpBtnsSaveCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.grpBtnsSaveCancel.Controls.Add(this.btnEnregistrerSession);
             this.grpBtnsSaveCancel.Controls.Add(this.btnAnnuler);
-            this.grpBtnsSaveCancel.Location = new System.Drawing.Point(586, 372);
+            this.grpBtnsSaveCancel.Location = new System.Drawing.Point(581, 354);
             this.grpBtnsSaveCancel.Name = "grpBtnsSaveCancel";
             this.grpBtnsSaveCancel.Size = new System.Drawing.Size(126, 104);
             this.grpBtnsSaveCancel.TabIndex = 35;
@@ -308,6 +324,70 @@
             this.btnAnnuler.Text = "Annuler";
             this.btnAnnuler.UseVisualStyleBackColor = false;
             this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
+            // 
+            // tabControlSessions
+            // 
+            this.tabControlSessions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControlSessions.Controls.Add(this.tabPageCRUDSession);
+            this.tabControlSessions.Controls.Add(this.tabPageInscris);
+            this.tabControlSessions.Location = new System.Drawing.Point(12, 12);
+            this.tabControlSessions.Name = "tabControlSessions";
+            this.tabControlSessions.SelectedIndex = 0;
+            this.tabControlSessions.Size = new System.Drawing.Size(718, 487);
+            this.tabControlSessions.TabIndex = 36;
+            // 
+            // tabPageCRUDSession
+            // 
+            this.tabPageCRUDSession.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.tabPageCRUDSession.Controls.Add(this.dataGridSession);
+            this.tabPageCRUDSession.Controls.Add(this.grpBtnsSaveCancel);
+            this.tabPageCRUDSession.Controls.Add(this.grpInfos);
+            this.tabPageCRUDSession.Controls.Add(this.grpBoutons);
+            this.tabPageCRUDSession.Location = new System.Drawing.Point(4, 22);
+            this.tabPageCRUDSession.Name = "tabPageCRUDSession";
+            this.tabPageCRUDSession.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageCRUDSession.Size = new System.Drawing.Size(710, 461);
+            this.tabPageCRUDSession.TabIndex = 0;
+            this.tabPageCRUDSession.Text = "Sessions";
+            // 
+            // tabPageInscris
+            // 
+            this.tabPageInscris.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.tabPageInscris.Controls.Add(this.dataGridViewInscris);
+            this.tabPageInscris.Location = new System.Drawing.Point(4, 22);
+            this.tabPageInscris.Name = "tabPageInscris";
+            this.tabPageInscris.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageInscris.Size = new System.Drawing.Size(710, 461);
+            this.tabPageInscris.TabIndex = 1;
+            this.tabPageInscris.Text = "Inscris";
+            // 
+            // dataGridViewInscris
+            // 
+            this.dataGridViewInscris.AllowUserToAddRows = false;
+            this.dataGridViewInscris.AllowUserToDeleteRows = false;
+            this.dataGridViewInscris.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewInscris.AutoGenerateColumns = false;
+            this.dataGridViewInscris.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewInscris.BackgroundColor = System.Drawing.Color.LightSalmon;
+            this.dataGridViewInscris.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewInscris.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nomDataGridViewTextBoxColumn,
+            this.prenomDataGridViewTextBoxColumn,
+            this.genreDataGridViewTextBoxColumn,
+            this.adresseDataGridViewTextBoxColumn,
+            this.villeDataGridViewTextBoxColumn,
+            this.cpDataGridViewTextBoxColumn});
+            this.dataGridViewInscris.DataSource = this.bindingSourceInscris;
+            this.dataGridViewInscris.Location = new System.Drawing.Point(3, 3);
+            this.dataGridViewInscris.Name = "dataGridViewInscris";
+            this.dataGridViewInscris.ReadOnly = true;
+            this.dataGridViewInscris.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewInscris.Size = new System.Drawing.Size(704, 455);
+            this.dataGridViewInscris.TabIndex = 0;
             // 
             // numSessionDataGridViewTextBoxColumn
             // 
@@ -361,6 +441,59 @@
             // 
             this.bindingSourceSession.AllowNew = true;
             this.bindingSourceSession.DataSource = typeof(Lugati.dll.Session);
+            this.bindingSourceSession.CurrentChanged += new System.EventHandler(this.bindingSourceSession_CurrentChanged);
+            // 
+            // nomDataGridViewTextBoxColumn
+            // 
+            this.nomDataGridViewTextBoxColumn.DataPropertyName = "nom";
+            this.nomDataGridViewTextBoxColumn.HeaderText = "Nom";
+            this.nomDataGridViewTextBoxColumn.Name = "nomDataGridViewTextBoxColumn";
+            this.nomDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nomDataGridViewTextBoxColumn.Width = 54;
+            // 
+            // prenomDataGridViewTextBoxColumn
+            // 
+            this.prenomDataGridViewTextBoxColumn.DataPropertyName = "prenom";
+            this.prenomDataGridViewTextBoxColumn.HeaderText = "Prenom";
+            this.prenomDataGridViewTextBoxColumn.Name = "prenomDataGridViewTextBoxColumn";
+            this.prenomDataGridViewTextBoxColumn.ReadOnly = true;
+            this.prenomDataGridViewTextBoxColumn.Width = 68;
+            // 
+            // genreDataGridViewTextBoxColumn
+            // 
+            this.genreDataGridViewTextBoxColumn.DataPropertyName = "genre";
+            this.genreDataGridViewTextBoxColumn.HeaderText = "Genre";
+            this.genreDataGridViewTextBoxColumn.Name = "genreDataGridViewTextBoxColumn";
+            this.genreDataGridViewTextBoxColumn.ReadOnly = true;
+            this.genreDataGridViewTextBoxColumn.Width = 61;
+            // 
+            // adresseDataGridViewTextBoxColumn
+            // 
+            this.adresseDataGridViewTextBoxColumn.DataPropertyName = "adresse";
+            this.adresseDataGridViewTextBoxColumn.HeaderText = "Adresse";
+            this.adresseDataGridViewTextBoxColumn.Name = "adresseDataGridViewTextBoxColumn";
+            this.adresseDataGridViewTextBoxColumn.ReadOnly = true;
+            this.adresseDataGridViewTextBoxColumn.Width = 70;
+            // 
+            // villeDataGridViewTextBoxColumn
+            // 
+            this.villeDataGridViewTextBoxColumn.DataPropertyName = "ville";
+            this.villeDataGridViewTextBoxColumn.HeaderText = "Ville";
+            this.villeDataGridViewTextBoxColumn.Name = "villeDataGridViewTextBoxColumn";
+            this.villeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.villeDataGridViewTextBoxColumn.Width = 51;
+            // 
+            // cpDataGridViewTextBoxColumn
+            // 
+            this.cpDataGridViewTextBoxColumn.DataPropertyName = "cp";
+            this.cpDataGridViewTextBoxColumn.HeaderText = "CP";
+            this.cpDataGridViewTextBoxColumn.Name = "cpDataGridViewTextBoxColumn";
+            this.cpDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cpDataGridViewTextBoxColumn.Width = 46;
+            // 
+            // bindingSourceInscris
+            // 
+            this.bindingSourceInscris.DataSource = typeof(Lugati.dll.Participant);
             // 
             // FrmSession
             // 
@@ -368,11 +501,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.ClientSize = new System.Drawing.Size(724, 488);
-            this.Controls.Add(this.grpBtnsSaveCancel);
-            this.Controls.Add(this.grpBoutons);
-            this.Controls.Add(this.dataGridSession);
-            this.Controls.Add(this.grpInfos);
+            this.ClientSize = new System.Drawing.Size(742, 511);
+            this.Controls.Add(this.tabControlSessions);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "FrmSession";
             this.Text = "Sessions";
@@ -381,7 +511,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSession)).EndInit();
             this.grpBoutons.ResumeLayout(false);
             this.grpBtnsSaveCancel.ResumeLayout(false);
+            this.tabControlSessions.ResumeLayout(false);
+            this.tabPageCRUDSession.ResumeLayout(false);
+            this.tabPageInscris.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInscris)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSession)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceInscris)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -413,5 +548,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn libelleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn heureDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TabControl tabControlSessions;
+        private System.Windows.Forms.TabPage tabPageCRUDSession;
+        private System.Windows.Forms.TabPage tabPageInscris;
+        private System.Windows.Forms.DataGridView dataGridViewInscris;
+        private System.Windows.Forms.BindingSource bindingSourceInscris;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prenomDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn genreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn adresseDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn villeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cpDataGridViewTextBoxColumn;
     }
 }

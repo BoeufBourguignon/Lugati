@@ -108,11 +108,12 @@ namespace Lugati.dll
         public string adresse { get; set; }
         public string ville { get; set; }
         public string cp { get; set; }
-        //public Hebergement hebergement { get; set; }
-        //public Ligue ligue { get; set; }
-
-        public int idLigue { get; set; }
         public int idHebergement { get; set; }
+        public Hebergement hebergement { get; set; }
+        public int idLigue { get; set; }
+        public Ligue ligue { get; set; }
+
+
         public Participant() { }
 
         public Participant(int idParticipant, string nom, string prenom, char genre, string adresse, string ville, string cp, int idHebergement, int idLigue)

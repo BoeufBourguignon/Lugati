@@ -1,4 +1,5 @@
 ---Jeu d'essai de la base de la gestion des congrés
+use base_lugati;
 
 INSERT INTO ligue (nomLigue,adresse,cp,ville)
 VALUES

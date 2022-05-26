@@ -18,65 +18,23 @@ namespace WinLugati
         public FrmParticipant()
         {
             InitializeComponent();
+
+            this.InitializeData();
         }
 
-        private void FrmParticipant_Load(object sender, EventArgs e)
+        private void InitializeData()
         {
-            bindingSourceParticipant.DataSource = Passerelle.GetLesParticipants();
-            bindingSourceParticiper.DataSource = Passerelle.GetLesParticipations();
-            bindingSourceInscrire.DataSource = Passerelle.GetLesInscriptions();
+            this.bindingSourceLigue.DataSource = Passerelle.GetLesLigues();
+            this.bindingSourceParticipant.DataSource = Passerelle.GetLesParticipants();
 
-           
-        }
-
-        private void btnValiderParticipant_Click(object sender, EventArgs e)
-        {
-            try
+            foreach(Participant unP in this.bindingSourceParticipant)
             {
-                Participant c = (Participant)this.bindingSourceParticipant.Current;
-                if (c.idParticipant == 0)
+                int i = 0;
+                while (i < this.bindingSourceLigue.Count - 1 && unP.idLigue != ((Ligue)this.bindingSourceLigue[i]).idLigue)
                 {
-                    c.idParticipant = Passerelle.AjouterParticipant(c);
+                    i++;
                 }
-                else
-                {
-                    Passerelle.ModifierParticipant(c);
-                }
-                this.bindingSourceParticipant.EndEdit();
-                MessageBox.Show("La a été enregistré", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnAnnulerParticipant_Click(object sender, EventArgs e)
-        {
-            this.bindingSourceParticipant.CancelEdit();
-        }
-
-        private void btnAjouterParticipant_Click(object sender, EventArgs e)
-        {
-            this.bindingSourceParticipant.AddNew();
-
-        }
-
-        private void btnSupprimerPart_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Etes-vous sur de vouloir supprimer ce Participant ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                try
-                {
-                    Passerelle.SupprimerParticipant((int)((Participant)this.bindingSourceParticipant.Current).idParticipant);
-                    this.bindingSourceParticipant.EndEdit();
-                    MessageBox.Show("Le Participant a été enregistré", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                unP.ligue = (Ligue)this.bindingSourceLigue[i];
             }
         }
 
@@ -146,45 +104,6 @@ namespace WinLugati
                 MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             this.bindingSourceInscrire.AddNew();
-        }
-
-        private void bindingSourceParticipant_CurrentChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                Participant c = (Participant)this.bindingSourceParticipant.Current;
-                textBoxMontant.Text = Passerelle.GetLeMontantTotal(c.idParticipant).ToString();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void bindingSourceParticiper_CurrentChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                Participer pa = (Participer)this.bindingSourceParticiper.Current;
-                textBoxNbPlaceDispoA.Text = Passerelle.GetNbPlaceByActivite(pa.numActivite).ToString();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void bindingSourceInscrire_CurrentChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                Inscrire i = (Inscrire)this.bindingSourceInscrire.Current;
-                textBoxNbPlaceDispoS.Text = Passerelle.GetNbPlaceByActivite(i.numSession).ToString();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
     }
 }
