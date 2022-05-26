@@ -95,7 +95,7 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuLugati;
             this.Name = "FrmMenu";
-            this.Text = "FrmMenu";
+            this.Text = "Sports et Santé";
             this.menuLugati.ResumeLayout(false);
             this.menuLugati.PerformLayout();
             this.ResumeLayout(false);
