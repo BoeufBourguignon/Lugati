@@ -123,14 +123,14 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnSupprimerHotel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 65</value>
+    <value>6, 60</value>
   </data>
   <data name="btnSupprimerHotel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 40</value>
+    <value>114, 35</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnSupprimerHotel.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>12</value>
   </data>
   <data name="btnSupprimerHotel.Text" xml:space="preserve">
     <value>Supprimer l'hôtel</value>
@@ -142,10 +142,10 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnSupprimerHotel.Parent" xml:space="preserve">
-    <value>grpAjouterSupprimer</value>
+    <value>grpBoutons</value>
   </data>
   <data name="&gt;&gt;btnSupprimerHotel.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="labelNomHotel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -187,7 +187,7 @@
     <value>150, 20</value>
   </data>
   <data name="textBoxNomHotel.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>3</value>
   </data>
   <data name="&gt;&gt;textBoxNomHotel.Name" xml:space="preserve">
     <value>textBoxNomHotel</value>
@@ -238,7 +238,7 @@
     <value>150, 20</value>
   </data>
   <data name="textBoxAdresseHotel.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+    <value>7</value>
   </data>
   <data name="&gt;&gt;textBoxAdresseHotel.Name" xml:space="preserve">
     <value>textBoxAdresseHotel</value>
@@ -379,7 +379,7 @@
     <value>150, 20</value>
   </data>
   <data name="textBoxVilleHotel.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
+    <value>8</value>
   </data>
   <data name="&gt;&gt;textBoxVilleHotel.Name" xml:space="preserve">
     <value>textBoxVilleHotel</value>
@@ -400,7 +400,7 @@
     <value>150, 20</value>
   </data>
   <data name="textBoxCPHotel.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
+    <value>9</value>
   </data>
   <data name="&gt;&gt;textBoxCPHotel.Name" xml:space="preserve">
     <value>textBoxCPHotel</value>
@@ -451,10 +451,10 @@
     <value>6, 19</value>
   </data>
   <data name="btnAjouterHotel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 40</value>
+    <value>114, 35</value>
   </data>
   <data name="btnAjouterHotel.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
+    <value>11</value>
   </data>
   <data name="btnAjouterHotel.Text" xml:space="preserve">
     <value>Ajouter un hôtel</value>
@@ -466,13 +466,76 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnAjouterHotel.Parent" xml:space="preserve">
-    <value>grpAjouterSupprimer</value>
+    <value>grpBoutons</value>
   </data>
   <data name="&gt;&gt;btnAjouterHotel.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="grpInfos.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;maskedTextBoxNbEtoileHotel.Name" xml:space="preserve">
+    <value>maskedTextBoxNbEtoileHotel</value>
+  </data>
+  <data name="&gt;&gt;maskedTextBoxNbEtoileHotel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MaskedTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;maskedTextBoxNbEtoileHotel.Parent" xml:space="preserve">
+    <value>grpInfos</value>
+  </data>
+  <data name="&gt;&gt;maskedTextBoxNbEtoileHotel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;maskedTextBoxTel.Name" xml:space="preserve">
+    <value>maskedTextBoxTel</value>
+  </data>
+  <data name="&gt;&gt;maskedTextBoxTel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MaskedTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;maskedTextBoxTel.Parent" xml:space="preserve">
+    <value>grpInfos</value>
+  </data>
+  <data name="&gt;&gt;maskedTextBoxTel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;maskedTextBoxPrix.Name" xml:space="preserve">
+    <value>maskedTextBoxPrix</value>
+  </data>
+  <data name="&gt;&gt;maskedTextBoxPrix.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MaskedTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;maskedTextBoxPrix.Parent" xml:space="preserve">
+    <value>grpInfos</value>
+  </data>
+  <data name="&gt;&gt;maskedTextBoxPrix.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="grpInfos.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="grpInfos.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 218</value>
+  </data>
+  <data name="grpInfos.Size" type="System.Drawing.Size, System.Drawing">
+    <value>507, 259</value>
+  </data>
+  <data name="grpInfos.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="grpInfos.Text" xml:space="preserve">
+    <value>Informations</value>
+  </data>
+  <data name="&gt;&gt;grpInfos.Name" xml:space="preserve">
+    <value>grpInfos</value>
+  </data>
+  <data name="&gt;&gt;grpInfos.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;grpInfos.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;grpInfos.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="maskedTextBoxNbEtoileHotel.Location" type="System.Drawing.Point, System.Drawing">
     <value>97, 184</value>
@@ -484,7 +547,7 @@
     <value>150, 20</value>
   </data>
   <data name="maskedTextBoxNbEtoileHotel.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
+    <value>6</value>
   </data>
   <data name="&gt;&gt;maskedTextBoxNbEtoileHotel.Name" xml:space="preserve">
     <value>maskedTextBoxNbEtoileHotel</value>
@@ -508,7 +571,7 @@
     <value>150, 20</value>
   </data>
   <data name="maskedTextBoxTel.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
+    <value>5</value>
   </data>
   <data name="&gt;&gt;maskedTextBoxTel.Name" xml:space="preserve">
     <value>maskedTextBoxTel</value>
@@ -532,7 +595,7 @@
     <value>150, 20</value>
   </data>
   <data name="maskedTextBoxPrix.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
+    <value>4</value>
   </data>
   <data name="&gt;&gt;maskedTextBoxPrix.Name" xml:space="preserve">
     <value>maskedTextBoxPrix</value>
@@ -545,30 +608,6 @@
   </data>
   <data name="&gt;&gt;maskedTextBoxPrix.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="grpInfos.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 218</value>
-  </data>
-  <data name="grpInfos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>507, 259</value>
-  </data>
-  <data name="grpInfos.TabIndex" type="System.Int32, mscorlib">
-    <value>27</value>
-  </data>
-  <data name="grpInfos.Text" xml:space="preserve">
-    <value>Informations</value>
-  </data>
-  <data name="&gt;&gt;grpInfos.Name" xml:space="preserve">
-    <value>grpInfos</value>
-  </data>
-  <data name="&gt;&gt;grpInfos.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;grpInfos.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;grpInfos.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="dataGridHebergement.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -621,6 +660,9 @@
   <data name="dataGridViewTextBoxColumn3.Width" type="System.Int32, mscorlib">
     <value>49</value>
   </data>
+  <metadata name="bindSrcHebergement.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <data name="dataGridHebergement.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 12</value>
   </data>
@@ -628,7 +670,7 @@
     <value>700, 200</value>
   </data>
   <data name="dataGridHebergement.TabIndex" type="System.Int32, mscorlib">
-    <value>28</value>
+    <value>1</value>
   </data>
   <data name="&gt;&gt;dataGridHebergement.Name" xml:space="preserve">
     <value>dataGridHebergement</value>
@@ -642,44 +684,53 @@
   <data name="&gt;&gt;dataGridHebergement.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="grpAjouterSupprimer.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="grpBoutons.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
-  <data name="grpAjouterSupprimer.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="&gt;&gt;btnModifierHotel.Name" xml:space="preserve">
+    <value>btnModifierHotel</value>
+  </data>
+  <data name="&gt;&gt;btnModifierHotel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnModifierHotel.Parent" xml:space="preserve">
+    <value>grpBoutons</value>
+  </data>
+  <data name="&gt;&gt;btnModifierHotel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="grpBoutons.Location" type="System.Drawing.Point, System.Drawing">
     <value>586, 218</value>
   </data>
-  <data name="grpAjouterSupprimer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 119</value>
+  <data name="grpBoutons.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 145</value>
   </data>
-  <data name="grpAjouterSupprimer.TabIndex" type="System.Int32, mscorlib">
-    <value>29</value>
+  <data name="grpBoutons.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
   </data>
-  <data name="&gt;&gt;grpAjouterSupprimer.Name" xml:space="preserve">
-    <value>grpAjouterSupprimer</value>
+  <data name="&gt;&gt;grpBoutons.Name" xml:space="preserve">
+    <value>grpBoutons</value>
   </data>
-  <data name="&gt;&gt;grpAjouterSupprimer.Type" xml:space="preserve">
+  <data name="&gt;&gt;grpBoutons.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;grpAjouterSupprimer.Parent" xml:space="preserve">
+  <data name="&gt;&gt;grpBoutons.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;grpAjouterSupprimer.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;grpBoutons.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="groupBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
   </data>
   <data name="btnAnnuler.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="btnAnnuler.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 65</value>
+    <value>6, 60</value>
   </data>
   <data name="btnAnnuler.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 40</value>
+    <value>114, 35</value>
   </data>
   <data name="btnAnnuler.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>16</value>
   </data>
   <data name="btnAnnuler.Text" xml:space="preserve">
     <value>Annuler</value>
@@ -691,10 +742,10 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnAnnuler.Parent" xml:space="preserve">
-    <value>groupBox1</value>
+    <value>grpBtnsSaveCancel</value>
   </data>
   <data name="&gt;&gt;btnAnnuler.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="btnEnregistrerHotel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -703,10 +754,10 @@
     <value>6, 19</value>
   </data>
   <data name="btnEnregistrerHotel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 40</value>
+    <value>114, 35</value>
   </data>
   <data name="btnEnregistrerHotel.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
+    <value>15</value>
   </data>
   <data name="btnEnregistrerHotel.Text" xml:space="preserve">
     <value>Enregistrer modifications</value>
@@ -718,30 +769,60 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnEnregistrerHotel.Parent" xml:space="preserve">
-    <value>groupBox1</value>
+    <value>grpBtnsSaveCancel</value>
   </data>
   <data name="&gt;&gt;btnEnregistrerHotel.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>0</value>
   </data>
-  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>586, 357</value>
+  <data name="btnModifierHotel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 119</value>
+  <data name="btnModifierHotel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 101</value>
   </data>
-  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>30</value>
+  <data name="btnModifierHotel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 35</value>
   </data>
-  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
-    <value>groupBox1</value>
+  <data name="btnModifierHotel.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
   </data>
-  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
+  <data name="btnModifierHotel.Text" xml:space="preserve">
+    <value>Modifier</value>
+  </data>
+  <data name="&gt;&gt;btnModifierHotel.Name" xml:space="preserve">
+    <value>btnModifierHotel</value>
+  </data>
+  <data name="&gt;&gt;btnModifierHotel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnModifierHotel.Parent" xml:space="preserve">
+    <value>grpBoutons</value>
+  </data>
+  <data name="&gt;&gt;btnModifierHotel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="grpBtnsSaveCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>586, 373</value>
+  </data>
+  <data name="grpBtnsSaveCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 104</value>
+  </data>
+  <data name="grpBtnsSaveCancel.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="grpBtnsSaveCancel.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;grpBtnsSaveCancel.Name" xml:space="preserve">
+    <value>grpBtnsSaveCancel</value>
+  </data>
+  <data name="&gt;&gt;grpBtnsSaveCancel.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;grpBtnsSaveCancel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;grpBtnsSaveCancel.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -758,12 +839,6 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Hebergements</value>
-  </data>
-  <data name="&gt;&gt;bindSrcHebergement.Name" xml:space="preserve">
-    <value>bindSrcHebergement</value>
-  </data>
-  <data name="&gt;&gt;bindSrcHebergement.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;dataGridViewTextBoxColumn1.Name" xml:space="preserve">
     <value>dataGridViewTextBoxColumn1</value>
@@ -812,6 +887,12 @@
   </data>
   <data name="&gt;&gt;dataGridViewTextBoxColumn3.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bindSrcHebergement.Name" xml:space="preserve">
+    <value>bindSrcHebergement</value>
+  </data>
+  <data name="&gt;&gt;bindSrcHebergement.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FrmHebergement</value>

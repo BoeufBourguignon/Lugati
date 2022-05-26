@@ -20,6 +20,11 @@ namespace WinLugati
         {
             InitializeComponent();
 
+            this.InitializeData();
+        }
+
+        public void InitializeData()
+        {
             try
             {
                 this.bindSrcHebergement.DataSource = Passerelle.GetLesHebergements();
@@ -31,9 +36,21 @@ namespace WinLugati
             }
         }
 
+        private void EnableModif(bool autoriserModif)
+        {
+            //pouvoir changer d'hotel dans la data grid view
+            this.dataGridHebergement.Enabled = !autoriserModif;
+            //pouvoir changer les infos de l'hotel 
+            this.grpInfos.Enabled = autoriserModif;
+            //pouvoir annuler ou enregistrer
+            this.grpBtnsSaveCancel.Visible = autoriserModif;
+            //ne pas pouvoir ajouter, supprimer ou modifier un hotel
+            this.grpBoutons.Enabled = !autoriserModif;
+        }
+
         private void btnAjouterHotel_Click(object sender, EventArgs e)
         {
-            this.dataGridHebergement.Enabled = false;
+            this.EnableModif(true);
             this.bindSrcHebergement.AddNew();
         }
 
@@ -49,22 +66,20 @@ namespace WinLugati
                     }
                     else
                     {
-                        this.bindSrcHebergement.EndEdit();
+                        this.bindSrcHebergement.RemoveCurrent();
                         MessageBox.Show("L'hebergement a été supprimée", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 catch(Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    this.Close();
                 }
             }
         }
 
-        private void btnAnnuler_Click(object sender, EventArgs e)
+        private void btnModifierHotel_Click(object sender, EventArgs e)
         {
-            this.bindSrcHebergement.CancelEdit();
-            this.dataGridHebergement.Enabled = true;
+            this.EnableModif(true);
         }
 
         private void btnEnregistrerHotel_Click(object sender, EventArgs e)
@@ -75,20 +90,27 @@ namespace WinLugati
             {
                 if (h.idHebergement == 0)
                 {
-                    Passerelle.AjouterHebergement(h);
+                    h.idHebergement = Passerelle.AjouterHebergement(h);
                 }
                 else
                 {
                     Passerelle.ModifierHebergement(h);
                 }
                 MessageBox.Show("Les modifications ont été enregistrées", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.dataGridHebergement.Enabled = true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.Close();
+                this.InitializeData();
             }
+            this.EnableModif(false);
+        }
+
+        private void btnAnnuler_Click(object sender, EventArgs e)
+        {
+            this.bindSrcHebergement.ResetBindings(false);
+            this.bindSrcHebergement.CancelEdit();
+            this.EnableModif(false);
         }
     }
 }
