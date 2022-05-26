@@ -30,13 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridActivite = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindingSourceActivite = new System.Windows.Forms.BindingSource(this.components);
             this.grpInfos = new System.Windows.Forms.GroupBox();
             this.maskedTextBoxNbPlaces = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBoxTarif = new System.Windows.Forms.MaskedTextBox();
@@ -55,11 +48,18 @@
             this.grpBtnsSaveCancel = new System.Windows.Forms.GroupBox();
             this.btnEnregistrerActivité = new System.Windows.Forms.Button();
             this.btnAnnuler = new System.Windows.Forms.Button();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSourceActivite = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridActivite)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceActivite)).BeginInit();
             this.grpInfos.SuspendLayout();
             this.grpBoutons.SuspendLayout();
             this.grpBtnsSaveCancel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceActivite)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridActivite
@@ -88,58 +88,6 @@
             this.dataGridActivite.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridActivite.Size = new System.Drawing.Size(700, 200);
             this.dataGridActivite.TabIndex = 1;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "numActivite";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Numéro";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 69;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "tarif";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Tarif";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 53;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "nbPlaces";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Nombre de places";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "libelle";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Nom";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 54;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "date";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Date";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 55;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "heure";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Heure";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 61;
-            // 
-            // bindingSourceActivite
-            // 
-            this.bindingSourceActivite.DataSource = typeof(Lugati.dll.Activite);
             // 
             // grpInfos
             // 
@@ -359,12 +307,64 @@
             this.btnAnnuler.UseVisualStyleBackColor = false;
             this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "numActivite";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Numéro";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 69;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "tarif";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Tarif";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 53;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "nbPlaces";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Nombre de places";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "libelle";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Nom";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 54;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "date";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Date";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 55;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "heure";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Heure";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 61;
+            // 
+            // bindingSourceActivite
+            // 
+            this.bindingSourceActivite.DataSource = typeof(Lugati.dll.Activite);
+            // 
             // FrmActivite
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
-            this.BackColor = System.Drawing.Color.Brown;
+            this.BackColor = System.Drawing.Color.Crimson;
             this.ClientSize = new System.Drawing.Size(724, 488);
             this.Controls.Add(this.grpBtnsSaveCancel);
             this.Controls.Add(this.grpBoutons);
@@ -373,11 +373,11 @@
             this.Name = "FrmActivite";
             this.Text = "Activités";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridActivite)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceActivite)).EndInit();
             this.grpInfos.ResumeLayout(false);
             this.grpInfos.PerformLayout();
             this.grpBoutons.ResumeLayout(false);
             this.grpBtnsSaveCancel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceActivite)).EndInit();
             this.ResumeLayout(false);
 
         }
