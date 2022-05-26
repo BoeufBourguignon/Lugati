@@ -226,25 +226,52 @@ namespace Lugati.dll
         /// Supprimer Activiter
         /// </summary>
         /// <param name="numActivite"></param>
-        public static void SupprimerActivite(int numActivite)
+        public static bool SupprimerActivite(int numActivite)
         {
-            SqlCommand reqSupprimerActivite = new SqlCommand(
-                "DELETE FROM Activite WHERE numActivite = @id",
+            bool peutEtreSupprime = false;
+
+            //On vérifie que l'activité peut être supprimée
+            SqlCommand reqPeutEtreSupprime = new SqlCommand(
+                "SELECT count(*) FROM participer WHERE numActivite = @num",
                 Passerelle.connexionBaseLugati);
+            reqPeutEtreSupprime.Parameters.AddWithValue("@num", numActivite);
 
-            reqSupprimerActivite.Parameters.AddWithValue("@id", numActivite);
-
+            int nbParticipants = 0;
             try
             {
                 Passerelle.connexionBaseLugati.Open();
 
-                reqSupprimerActivite.ExecuteNonQuery();
+                nbParticipants = (int)reqPeutEtreSupprime.ExecuteScalar();
             }
             finally
             {
                 Passerelle.connexionBaseLugati.Close();
             }
+
+            if (nbParticipants == 0)
+            {
+                peutEtreSupprime = true;
+
+                SqlCommand reqSupprimerActivite = new SqlCommand(
+                    "DELETE FROM Activite WHERE numActivite = @num",
+                    Passerelle.connexionBaseLugati);
+                reqSupprimerActivite.Parameters.AddWithValue("@num", numActivite);
+
+                try
+                {
+                    Passerelle.connexionBaseLugati.Open();
+
+                    reqSupprimerActivite.ExecuteNonQuery();
+                }
+                finally
+                {
+                    Passerelle.connexionBaseLugati.Close();
+                }
+            }
+
+            return peutEtreSupprime;
         }
+
         /// <summary>
         /// Modification Activite
         /// </summary>

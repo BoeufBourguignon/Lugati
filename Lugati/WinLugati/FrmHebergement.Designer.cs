@@ -34,6 +34,7 @@ namespace WinLugati
             this.btnSupprimerHotel = new System.Windows.Forms.Button();
             this.labelNomHotel = new System.Windows.Forms.Label();
             this.textBoxNomHotel = new System.Windows.Forms.TextBox();
+            this.bindSrcHebergement = new System.Windows.Forms.BindingSource(this.components);
             this.labelAdresseHotel = new System.Windows.Forms.Label();
             this.textBoxAdresseHotel = new System.Windows.Forms.TextBox();
             this.labelPrixHotel = new System.Windows.Forms.Label();
@@ -41,7 +42,6 @@ namespace WinLugati
             this.labelCPHotel = new System.Windows.Forms.Label();
             this.labelTelHotel = new System.Windows.Forms.Label();
             this.textBoxVilleHotel = new System.Windows.Forms.TextBox();
-            this.textBoxCPHotel = new System.Windows.Forms.TextBox();
             this.labelNbEtoileHotel = new System.Windows.Forms.Label();
             this.btnAjouterHotel = new System.Windows.Forms.Button();
             this.grpInfos = new System.Windows.Forms.GroupBox();
@@ -50,8 +50,10 @@ namespace WinLugati
             this.maskedTextBoxPrix = new System.Windows.Forms.MaskedTextBox();
             this.dataGridHebergement = new System.Windows.Forms.DataGridView();
             this.grpBoutons = new System.Windows.Forms.GroupBox();
+            this.btnModifierHotel = new System.Windows.Forms.Button();
             this.btnAnnuler = new System.Windows.Forms.Button();
             this.btnEnregistrerHotel = new System.Windows.Forms.Button();
+            this.grpBtnsSaveCancel = new System.Windows.Forms.GroupBox();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,13 +62,11 @@ namespace WinLugati
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindSrcHebergement = new System.Windows.Forms.BindingSource(this.components);
-            this.btnModifierHotel = new System.Windows.Forms.Button();
-            this.grpBtnsSaveCancel = new System.Windows.Forms.GroupBox();
+            this.maskedTextBoxCPHotel = new System.Windows.Forms.MaskedTextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.bindSrcHebergement)).BeginInit();
             this.grpInfos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridHebergement)).BeginInit();
             this.grpBoutons.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindSrcHebergement)).BeginInit();
             this.grpBtnsSaveCancel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,6 +90,10 @@ namespace WinLugati
             this.textBoxNomHotel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindSrcHebergement, "nomHebergement", true));
             resources.ApplyResources(this.textBoxNomHotel, "textBoxNomHotel");
             this.textBoxNomHotel.Name = "textBoxNomHotel";
+            // 
+            // bindSrcHebergement
+            // 
+            this.bindSrcHebergement.DataSource = typeof(Lugati.dll.Hebergement);
             // 
             // labelAdresseHotel
             // 
@@ -133,12 +137,6 @@ namespace WinLugati
             resources.ApplyResources(this.textBoxVilleHotel, "textBoxVilleHotel");
             this.textBoxVilleHotel.Name = "textBoxVilleHotel";
             // 
-            // textBoxCPHotel
-            // 
-            this.textBoxCPHotel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindSrcHebergement, "cp", true));
-            resources.ApplyResources(this.textBoxCPHotel, "textBoxCPHotel");
-            this.textBoxCPHotel.Name = "textBoxCPHotel";
-            // 
             // labelNbEtoileHotel
             // 
             resources.ApplyResources(this.labelNbEtoileHotel, "labelNbEtoileHotel");
@@ -158,6 +156,7 @@ namespace WinLugati
             // 
             resources.ApplyResources(this.grpInfos, "grpInfos");
             this.grpInfos.BackColor = System.Drawing.Color.Transparent;
+            this.grpInfos.Controls.Add(this.maskedTextBoxCPHotel);
             this.grpInfos.Controls.Add(this.maskedTextBoxNbEtoileHotel);
             this.grpInfos.Controls.Add(this.maskedTextBoxTel);
             this.grpInfos.Controls.Add(this.maskedTextBoxPrix);
@@ -168,7 +167,6 @@ namespace WinLugati
             this.grpInfos.Controls.Add(this.textBoxAdresseHotel);
             this.grpInfos.Controls.Add(this.labelPrixHotel);
             this.grpInfos.Controls.Add(this.labelVilleHotel);
-            this.grpInfos.Controls.Add(this.textBoxCPHotel);
             this.grpInfos.Controls.Add(this.labelCPHotel);
             this.grpInfos.Controls.Add(this.textBoxVilleHotel);
             this.grpInfos.Controls.Add(this.labelTelHotel);
@@ -229,6 +227,15 @@ namespace WinLugati
             this.grpBoutons.Name = "grpBoutons";
             this.grpBoutons.TabStop = false;
             // 
+            // btnModifierHotel
+            // 
+            this.btnModifierHotel.BackColor = System.Drawing.Color.White;
+            this.btnModifierHotel.ForeColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.btnModifierHotel, "btnModifierHotel");
+            this.btnModifierHotel.Name = "btnModifierHotel";
+            this.btnModifierHotel.UseVisualStyleBackColor = false;
+            this.btnModifierHotel.Click += new System.EventHandler(this.btnModifierHotel_Click);
+            // 
             // btnAnnuler
             // 
             this.btnAnnuler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -246,6 +253,14 @@ namespace WinLugati
             this.btnEnregistrerHotel.Name = "btnEnregistrerHotel";
             this.btnEnregistrerHotel.UseVisualStyleBackColor = false;
             this.btnEnregistrerHotel.Click += new System.EventHandler(this.btnEnregistrerHotel_Click);
+            // 
+            // grpBtnsSaveCancel
+            // 
+            this.grpBtnsSaveCancel.Controls.Add(this.btnEnregistrerHotel);
+            this.grpBtnsSaveCancel.Controls.Add(this.btnAnnuler);
+            resources.ApplyResources(this.grpBtnsSaveCancel, "grpBtnsSaveCancel");
+            this.grpBtnsSaveCancel.Name = "grpBtnsSaveCancel";
+            this.grpBtnsSaveCancel.TabStop = false;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -303,26 +318,11 @@ namespace WinLugati
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
-            // bindSrcHebergement
+            // maskedTextBoxCPHotel
             // 
-            this.bindSrcHebergement.DataSource = typeof(Lugati.dll.Hebergement);
-            // 
-            // btnModifierHotel
-            // 
-            this.btnModifierHotel.BackColor = System.Drawing.Color.White;
-            this.btnModifierHotel.ForeColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.btnModifierHotel, "btnModifierHotel");
-            this.btnModifierHotel.Name = "btnModifierHotel";
-            this.btnModifierHotel.UseVisualStyleBackColor = false;
-            this.btnModifierHotel.Click += new System.EventHandler(this.btnModifierHotel_Click);
-            // 
-            // grpBtnsSaveCancel
-            // 
-            this.grpBtnsSaveCancel.Controls.Add(this.btnEnregistrerHotel);
-            this.grpBtnsSaveCancel.Controls.Add(this.btnAnnuler);
-            resources.ApplyResources(this.grpBtnsSaveCancel, "grpBtnsSaveCancel");
-            this.grpBtnsSaveCancel.Name = "grpBtnsSaveCancel";
-            this.grpBtnsSaveCancel.TabStop = false;
+            this.maskedTextBoxCPHotel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindSrcHebergement, "cp", true));
+            resources.ApplyResources(this.maskedTextBoxCPHotel, "maskedTextBoxCPHotel");
+            this.maskedTextBoxCPHotel.Name = "maskedTextBoxCPHotel";
             // 
             // FrmHebergement
             // 
@@ -335,11 +335,11 @@ namespace WinLugati
             this.Controls.Add(this.dataGridHebergement);
             this.Controls.Add(this.grpInfos);
             this.Name = "FrmHebergement";
+            ((System.ComponentModel.ISupportInitialize)(this.bindSrcHebergement)).EndInit();
             this.grpInfos.ResumeLayout(false);
             this.grpInfos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridHebergement)).EndInit();
             this.grpBoutons.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bindSrcHebergement)).EndInit();
             this.grpBtnsSaveCancel.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -356,7 +356,6 @@ namespace WinLugati
         private System.Windows.Forms.Label labelCPHotel;
         private System.Windows.Forms.Label labelTelHotel;
         private System.Windows.Forms.TextBox textBoxVilleHotel;
-        private System.Windows.Forms.TextBox textBoxCPHotel;
         private System.Windows.Forms.Label labelNbEtoileHotel;
         private System.Windows.Forms.Button btnAjouterHotel;
         private System.Windows.Forms.GroupBox grpInfos;
@@ -370,14 +369,6 @@ namespace WinLugati
         private System.Windows.Forms.DataGridViewTextBoxColumn villeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn telDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn prixDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.GroupBox grpBoutons;
         private System.Windows.Forms.Button btnAnnuler;
         private System.Windows.Forms.Button btnEnregistrerHotel;
@@ -386,6 +377,15 @@ namespace WinLugati
         private System.Windows.Forms.MaskedTextBox maskedTextBoxNbEtoileHotel;
         private System.Windows.Forms.Button btnModifierHotel;
         private System.Windows.Forms.GroupBox grpBtnsSaveCancel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxCPHotel;
     }
 }
 

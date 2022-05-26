@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using Lugati.dll;
@@ -18,6 +11,11 @@ namespace WinLugati
         {
             InitializeComponent();
 
+            this.InitializeData();
+        }
+
+        private void InitializeData()
+        {
             try
             {
                 this.bindingSourceActivite.DataSource = Passerelle.GetLesActivites();
@@ -25,25 +23,44 @@ namespace WinLugati
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
             }
+        }
+
+        private void EnableModif(bool autoriserModif)
+        {
+            //pouvoir changer d'hotel dans la data grid view
+            this.dataGridActivite.Enabled = !autoriserModif;
+            //pouvoir changer les infos de l'hotel 
+            this.grpInfos.Enabled = autoriserModif;
+            //pouvoir annuler ou enregistrer
+            this.grpBtnsSaveCancel.Visible = autoriserModif;
+            //ne pas pouvoir ajouter, supprimer ou modifier un hotel
+            this.grpBoutons.Enabled = !autoriserModif;
         }
 
         private void btnAjouterActivite_Click(object sender, EventArgs e)
         {
+            this.EnableModif(true);
             this.bindingSourceActivite.AddNew();
-
+            ((Activite)this.bindingSourceActivite.Current).date = DateTime.Now;
         }
 
         private void btnSupprimerActivite_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Etes-vous sur de vouloir supprimer cette Activite ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Etes-vous sur de vouloir supprimer cette activite ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 try
                 {
-                    Passerelle.SupprimerActivite((int)((Activite)this.bindingSourceActivite.Current).numActivite);
-                    this.bindingSourceActivite.EndEdit();
-                    this.Close();
-                    MessageBox.Show("L'Activité sélectionner a été supprimé", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (Passerelle.SupprimerHebergement((int)((Activite)this.bindingSourceActivite.Current).numActivite) == false)
+                    {
+                        MessageBox.Show("L'activité ne peut pas être supprimée car elle contient des participants", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        this.bindingSourceActivite.RemoveCurrent();
+                        MessageBox.Show("L'activité sélectionnée a été supprimée", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -52,33 +69,77 @@ namespace WinLugati
             }
         }
 
+        private void btnModifierActivité_Click(object sender, EventArgs e)
+        {
+            this.EnableModif(true);
+        }
+
         private void btnEnregistrerActivite_Click(object sender, EventArgs e)
         {
-            try
+            //On vérifie que les champs sont bien remplis
+            bool canSave = true;
+            if (string.IsNullOrWhiteSpace(textBoxLibelleActivite.Text) || textBoxLibelleActivite.Text.Length > 100)
             {
-                Activite a = (Activite)this.bindingSourceActivite.Current;
-                if (a.numActivite == 0)
-                {
-                    Passerelle.AjouterActivite(a);
-                }
-                else
-                {
-                    Passerelle.ModifierActivite(a);
-                }
-                this.bindingSourceActivite.EndEdit();
-                MessageBox.Show("L'activité a été enregistré", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                canSave = false;
+                MessageBox.Show("Le nom de l'activité ne doit pas être vide et ne doit pas faire plus de 100 caractères",
+                    "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (Exception ex)
+            if (int.Parse(maskedTextBoxTarif.Text) == 0)
             {
-                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                canSave = false;
+                MessageBox.Show("Le tarif ne doit pas être égal à 0",
+                    "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (int.Parse(maskedTextBoxNbPlaces.Text) == 0)
+            {
+                canSave = false;
+                MessageBox.Show("Le nombre de places ne doit pas être égal à 0",
+                    "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (string.IsNullOrWhiteSpace(comboBoxHeure.Text) || (comboBoxHeure.Text != "09:00" && comboBoxHeure.Text != "14:30"))
+            {
+                canSave = false;
+                MessageBox.Show("L'heure doit être 09:00 ou 14:30",
+                    "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (dateTimePickerDate.Value < new DateTime(1753, 01, 01) || dateTimePickerDate.Value > new DateTime(9999, 12, 31))
+            {
+                canSave = false;
+                MessageBox.Show("La date est invalide",
+                    "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (canSave)
+            {
+                this.bindingSourceActivite.EndEdit();
+                Activite a = (Activite)this.bindingSourceActivite.Current;
+
+                try
+                {
+                    if (a.numActivite == 0)
+                    {
+                        a.numActivite = Passerelle.AjouterActivite(a);
+                    }
+                    else
+                    {
+                        Passerelle.ModifierActivite(a);
+                    }
+                    MessageBox.Show("Les modifications ont été enregistrées", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.InitializeData();
+                }
+                this.EnableModif(false);
             }
         }
 
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
+            this.bindingSourceActivite.ResetBindings(false);
             this.bindingSourceActivite.CancelEdit();
-
+            this.EnableModif(false);
         }
-
     }
 }

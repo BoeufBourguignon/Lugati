@@ -280,7 +280,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridSession.AutoGenerateColumns = false;
             this.dataGridSession.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridSession.BackgroundColor = System.Drawing.Color.Coral;
+            this.dataGridSession.BackgroundColor = System.Drawing.Color.LightSalmon;
             this.dataGridSession.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridSession.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.numSessionDataGridViewTextBoxColumn,
