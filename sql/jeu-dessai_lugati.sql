@@ -19,7 +19,7 @@ VALUES
   ('Château de Versailles','Place d''Armes','Versailles','78000','0202171242',2,186);
 
 
-INSERT INTO participant (nom,prenom,genre,idLigue,adresse,ville,cp,idHebergement)
+INSERT INTO participant (prenom,nom,genre,idLigue,adresse,ville,cp,idHebergement)
 VALUES
   ('Lucas','BOUCHET','H',2,'1 rue de la roselière','Candyland','34130',3),
   ('Thibaud','LECLERE','H',2,'4 bis rue des Campenottes','Bavans','25550',3),

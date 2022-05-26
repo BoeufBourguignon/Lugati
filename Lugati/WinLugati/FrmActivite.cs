@@ -69,7 +69,7 @@ namespace WinLugati
             }
         }
 
-        private void btnModifierActivité_Click(object sender, EventArgs e)
+        private void btnModifierActivite_Click(object sender, EventArgs e)
         {
             this.EnableModif(true);
         }

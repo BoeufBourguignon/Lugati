@@ -65,6 +65,85 @@ namespace Lugati.dll
             return lesSessions;
         }
 
+        public static List<Session> GetLesSessionsDisponibles(int idParticipant)
+        {
+            List<Session> lesS = new List<Session>();
+
+            SqlCommand reqLesSessions = new SqlCommand(
+                "SELECT s.numSession, s.libelle, s.tarif, s.nbPlaces, s.date, s.heure " +
+                "FROM session s " +
+                "  LEFT JOIN inscrire i on i.numSession = s.numSession " +
+                "WHERE NOT EXISTS (SELECT * FROM inscrire i2 WHERE i.numSession = i2.numSession AND i2.idParticipant = @idParticipant) " +
+                "GROUP BY s.numSession, s.libelle, s.tarif, s.nbPlaces, s.date, s.heure " +
+                "HAVING count(idParticipant) < s.nbPlaces",
+                Passerelle.connexionBaseLugati);
+            reqLesSessions.Parameters.AddWithValue("@idParticipant", idParticipant);
+
+            try
+            {
+                Passerelle.connexionBaseLugati.Open();
+
+                SqlDataReader readerLesSessions = reqLesSessions.ExecuteReader();
+                if(readerLesSessions.HasRows)
+                {
+                    while(readerLesSessions.Read()) {
+                        lesS.Add(new Session(
+                                (int)readerLesSessions[0],
+                                readerLesSessions[1].ToString(),
+                                (int)readerLesSessions[2],
+                                (int)readerLesSessions[3],
+                                Convert.ToDateTime(readerLesSessions[4]),
+                                (readerLesSessions[5].ToString())));
+                    }
+                }
+            }
+            finally
+            {
+                Passerelle.connexionBaseLugati.Close();
+            }
+
+            return lesS;
+        }
+
+        public static List<Session> GetLesSessionsInscrites(int idParticipant)
+        {
+            List<Session> lesS = new List<Session>();
+
+            SqlCommand reqLesSessions = new SqlCommand(
+                "SELECT s.numSession, s.libelle, s.tarif, s.nbPlaces, s.date, s.heure " +
+                "FROM session s " +
+                "  JOIN inscrire i on i.numSession = s.numSession " +
+                "WHERE idParticipant = @idParticipant",
+                Passerelle.connexionBaseLugati);
+            reqLesSessions.Parameters.AddWithValue("@idParticipant", idParticipant);
+
+            try
+            {
+                Passerelle.connexionBaseLugati.Open();
+
+                SqlDataReader readerLesSessions = reqLesSessions.ExecuteReader();
+                if (readerLesSessions.HasRows)
+                {
+                    while (readerLesSessions.Read())
+                    {
+                        lesS.Add(new Session(
+                                (int)readerLesSessions[0],
+                                readerLesSessions[1].ToString(),
+                                (int)readerLesSessions[2],
+                                (int)readerLesSessions[3],
+                                Convert.ToDateTime(readerLesSessions[4]),
+                                (readerLesSessions[5].ToString())));
+                    }
+                }
+            }
+            finally
+            {
+                Passerelle.connexionBaseLugati.Close();
+            }
+
+            return lesS;
+        }
+
         /// <summary>
         /// Ajoute une Session à la BDD
         /// </summary>
@@ -374,9 +453,17 @@ namespace Lugati.dll
 
         public static void ModifierParticipant(Participant p)
         {
-            SqlCommand reqModifierParticipant =
-                new SqlCommand("UPDATE Participant SET nom = @nom, prenom = @prenom, genre = @genre, adresse = @adresse, ville = @ville, cp = @cp, idHebergement = @idHebergement, idLigue = @idLigue " +
-                                "WHERE idParticipant = @idParticipant",
+            SqlCommand reqModifierParticipant = new SqlCommand(
+                "UPDATE participant " +
+                "SET nom = @nom, " +
+                "    prenom = @prenom, " +
+                "    genre = @genre, " +
+                "    idLigue = @idLigue, " +
+                "    adresse = @adresse, " +
+                "    ville = @ville, " +
+                "    cp = @cp, " +
+                "    idHebergement = @idHebergement " +
+                "WHERE idParticipant = @idParticipant",
                 Passerelle.connexionBaseLugati);
             reqModifierParticipant.Parameters.AddWithValue("@nom", p.nom);
             reqModifierParticipant.Parameters.AddWithValue("@prenom", p.prenom);
@@ -387,6 +474,7 @@ namespace Lugati.dll
             reqModifierParticipant.Parameters.AddWithValue("@idHebergement", p.idHebergement);
             reqModifierParticipant.Parameters.AddWithValue("@idLigue", p.idLigue);
             reqModifierParticipant.Parameters.AddWithValue("@idParticipant", p.idParticipant);
+
             try
             {
                 Passerelle.connexionBaseLugati.Open();
@@ -403,61 +491,92 @@ namespace Lugati.dll
         {
             List<Participant> lesParticipants = new List<Participant>();
 
-            SqlCommand reqLesParticipants =
-                new SqlCommand("SELECT idParticipant, nom, prenom, genre, adresse, ville, cp, idHebergement, idLigue " + 
-                                "FROM Participant",
+            SqlCommand reqLesParticipants = new SqlCommand(
+                "SELECT idParticipant, nom, prenom, genre, adresse, ville, cp, idHebergement, idLigue " + 
+                "FROM participant",
                 Passerelle.connexionBaseLugati);
-
-            Passerelle.connexionBaseLugati.Open();
-
-            SqlDataReader readerLesParticipants = reqLesParticipants.ExecuteReader();
-
-            if (readerLesParticipants.HasRows)
-            {
-                while (readerLesParticipants.Read())
-                {
-                    Participant p = new Participant();
-                    p.idParticipant = (int)readerLesParticipants[0];
-                    p.prenom = readerLesParticipants[2].ToString();
-                    p.nom = readerLesParticipants[1].ToString();
-                    p.genre = Convert.ToChar(readerLesParticipants[3].ToString());
-                    p.adresse = readerLesParticipants[4].ToString();
-                    p.cp = readerLesParticipants[6].ToString();
-                    p.ville = readerLesParticipants[5].ToString();
-                    p.idLigue = (int)readerLesParticipants[7];
-                    p.idHebergement = (int)readerLesParticipants[8];
-
-                    lesParticipants.Add(p);
-                }
-            }
-            else
-            {
-                throw new Exception("Il n'existe aucune Sessions");
-            }
-
-            Passerelle.connexionBaseLugati.Close();
-
-            return lesParticipants;
-        }
-
-        public static void SupprimerParticipant(int idParticipant)
-        {
-            SqlCommand reqSupprimerParticipant = new SqlCommand(
-                "DELETE FROM Participant WHERE idParticipant = @id",
-                Passerelle.connexionBaseLugati);
-
-            reqSupprimerParticipant.Parameters.AddWithValue("@id", idParticipant);
 
             try
             {
                 Passerelle.connexionBaseLugati.Open();
 
-                reqSupprimerParticipant.ExecuteNonQuery();
+                SqlDataReader readerLesParticipants = reqLesParticipants.ExecuteReader();
+
+                if (readerLesParticipants.HasRows)
+                {
+                    while (readerLesParticipants.Read())
+                    {
+                        Participant p = new Participant();
+                        p.idParticipant = (int)readerLesParticipants[0];
+                        p.nom = readerLesParticipants[1].ToString();
+                        p.prenom = readerLesParticipants[2].ToString();
+                        p.genre = Convert.ToChar(readerLesParticipants[3].ToString());
+                        p.adresse = readerLesParticipants[4].ToString();
+                        p.ville = readerLesParticipants[5].ToString();
+                        p.cp = readerLesParticipants[6].ToString();
+                        p.idHebergement = (int)readerLesParticipants[7];
+                        p.idLigue = (int)readerLesParticipants[8];
+
+                        lesParticipants.Add(p);
+                    }
+                }
             }
             finally
             {
                 Passerelle.connexionBaseLugati.Close();
             }
+
+            return lesParticipants;
+        }
+
+        public static bool SupprimerParticipant(int idParticipant)
+        {
+            bool peutEtreSupprime = false;
+
+            //On vérifie que le participant peut être supprimée
+            SqlCommand reqPeutEtreSupprime = new SqlCommand(
+                "SELECT count(*) " +
+                "FROM participant p " +
+                " JOIN participer p2 on p2.idParticipant = p.idParticipant " +
+                " JOIN inscrire i on i i.idParticipant = p.idParticipant " +
+                "WHERE idParticipant = @id",
+                Passerelle.connexionBaseLugati);
+            reqPeutEtreSupprime.Parameters.AddWithValue("@id", idParticipant);
+
+            int nbParticipants = 0;
+            try
+            {
+                Passerelle.connexionBaseLugati.Open();
+
+                nbParticipants = (int)reqPeutEtreSupprime.ExecuteScalar();
+            }
+            finally
+            {
+                Passerelle.connexionBaseLugati.Close();
+            }
+
+            if (nbParticipants == 0)
+            {
+                peutEtreSupprime = true;
+
+                SqlCommand reqSupprimerParticipant = new SqlCommand(
+                    "DELETE FROM participant WHERE idParticipant = @id",
+                    Passerelle.connexionBaseLugati);
+                reqSupprimerParticipant.Parameters.AddWithValue("@id", idParticipant);
+
+                try
+                {
+                    Passerelle.connexionBaseLugati.Open();
+
+                    reqSupprimerParticipant.ExecuteNonQuery();
+                }
+                finally
+                {
+                    Passerelle.connexionBaseLugati.Close();
+                }
+            }
+
+            return peutEtreSupprime;
         }
         #endregion
 
@@ -970,31 +1089,32 @@ namespace Lugati.dll
 
             SqlCommand reqlesLigues =
                 new SqlCommand("SELECT idLigue, nomLigue, adresse, cp, ville " +
-                                "FROM Ligue",
+                                "FROM ligue",
                 Passerelle.connexionBaseLugati);
 
-            Passerelle.connexionBaseLugati.Open();
-
-            SqlDataReader readerLesLigues = reqlesLigues.ExecuteReader();
-
-            if (readerLesLigues.HasRows)
+            try
             {
-                while (readerLesLigues.Read())
+                Passerelle.connexionBaseLugati.Open();
+
+                SqlDataReader readerLesLigues = reqlesLigues.ExecuteReader();
+
+                if (readerLesLigues.HasRows)
                 {
-                    lesLigues.Add(new Ligue(
-                            (int)readerLesLigues[0],
-                            readerLesLigues[1].ToString(),
-                            readerLesLigues[2].ToString(),
-                            readerLesLigues[3].ToString(),
-                            readerLesLigues[4].ToString()));
+                    while (readerLesLigues.Read())
+                    {
+                        lesLigues.Add(new Ligue(
+                                (int)readerLesLigues[0],
+                                readerLesLigues[1].ToString(),
+                                readerLesLigues[2].ToString(),
+                                readerLesLigues[3].ToString(),
+                                readerLesLigues[4].ToString()));
+                    }
                 }
             }
-            else
+            finally
             {
-                throw new Exception("Il n'existe aucune Sessions");
+                Passerelle.connexionBaseLugati.Close();
             }
-
-            Passerelle.connexionBaseLugati.Close();
 
             return lesLigues;
         }

@@ -37,7 +37,7 @@ namespace Lugati.dll
 
         public override string ToString()
         {
-            return this.idHebergement + " . " + this.nomHebergement;
+            return this.nomHebergement;
         }
     }
 
@@ -112,6 +112,7 @@ namespace Lugati.dll
         public Hebergement hebergement { get; set; }
         public int idLigue { get; set; }
         public Ligue ligue { get; set; }
+        public List<Session> inscriptions { get; set; }
 
 
         public Participant() { }
@@ -155,6 +156,11 @@ namespace Lugati.dll
             this.adresse = adresse;
             this.cp = cp;
             this.ville = ville;
+        }
+
+        public override string ToString()
+        {
+            return this.nomLigue;
         }
     }
 

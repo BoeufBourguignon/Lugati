@@ -49,7 +49,7 @@
             this.labelVilleHotel = new System.Windows.Forms.Label();
             this.labelTelHotel = new System.Windows.Forms.Label();
             this.grpBoutons = new System.Windows.Forms.GroupBox();
-            this.btnModifierActivité = new System.Windows.Forms.Button();
+            this.btnModifierActivite = new System.Windows.Forms.Button();
             this.btnSupprimerActivite = new System.Windows.Forms.Button();
             this.btnAjouterActivite = new System.Windows.Forms.Button();
             this.grpBtnsSaveCancel = new System.Windows.Forms.GroupBox();
@@ -289,7 +289,7 @@
             // 
             this.grpBoutons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.grpBoutons.BackColor = System.Drawing.Color.Transparent;
-            this.grpBoutons.Controls.Add(this.btnModifierActivité);
+            this.grpBoutons.Controls.Add(this.btnModifierActivite);
             this.grpBoutons.Controls.Add(this.btnSupprimerActivite);
             this.grpBoutons.Controls.Add(this.btnAjouterActivite);
             this.grpBoutons.ForeColor = System.Drawing.Color.White;
@@ -299,18 +299,18 @@
             this.grpBoutons.TabIndex = 8;
             this.grpBoutons.TabStop = false;
             // 
-            // btnModifierActivité
+            // btnModifierActivite
             // 
-            this.btnModifierActivité.BackColor = System.Drawing.Color.White;
-            this.btnModifierActivité.ForeColor = System.Drawing.Color.Black;
-            this.btnModifierActivité.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnModifierActivité.Location = new System.Drawing.Point(6, 96);
-            this.btnModifierActivité.Name = "btnModifierActivité";
-            this.btnModifierActivité.Size = new System.Drawing.Size(114, 35);
-            this.btnModifierActivité.TabIndex = 11;
-            this.btnModifierActivité.Text = "Modifier";
-            this.btnModifierActivité.UseVisualStyleBackColor = false;
-            this.btnModifierActivité.Click += new System.EventHandler(this.btnModifierActivité_Click);
+            this.btnModifierActivite.BackColor = System.Drawing.Color.White;
+            this.btnModifierActivite.ForeColor = System.Drawing.Color.Black;
+            this.btnModifierActivite.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnModifierActivite.Location = new System.Drawing.Point(6, 96);
+            this.btnModifierActivite.Name = "btnModifierActivite";
+            this.btnModifierActivite.Size = new System.Drawing.Size(114, 35);
+            this.btnModifierActivite.TabIndex = 11;
+            this.btnModifierActivite.Text = "Modifier";
+            this.btnModifierActivite.UseVisualStyleBackColor = false;
+            this.btnModifierActivite.Click += new System.EventHandler(this.btnModifierActivite_Click);
             // 
             // btnSupprimerActivite
             // 
@@ -535,7 +535,7 @@
         private System.Windows.Forms.ComboBox comboBoxHeure;
         private System.Windows.Forms.DateTimePicker dateTimePickerDate;
         private System.Windows.Forms.GroupBox grpBoutons;
-        private System.Windows.Forms.Button btnModifierActivité;
+        private System.Windows.Forms.Button btnModifierActivite;
         private System.Windows.Forms.Button btnSupprimerActivite;
         private System.Windows.Forms.Button btnAjouterActivite;
         private System.Windows.Forms.GroupBox grpBtnsSaveCancel;
