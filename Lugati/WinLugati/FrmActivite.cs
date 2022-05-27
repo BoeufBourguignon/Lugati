@@ -147,10 +147,18 @@ namespace WinLugati
             Activite a = (Activite)this.bindingSourceActivite.Current;
             if(a != null)
             {
-                //On récupère la liste des personnes inscrites à l'activité sélectionnée
-                this.bindingSourceParticipants.DataSource = Passerelle.GetLesParticipations(a.numActivite);
-                //On récupère le nombre de places restantes
-                this.txtNbPlacesRestantes.Text = Passerelle.GetNbPlaceByActivite(a.numActivite).ToString();
+                try
+                {
+                    //On récupère la liste des personnes inscrites à l'activité sélectionnée
+                    this.bindingSourceParticipants.DataSource = Passerelle.GetLesParticipations(a.numActivite);
+                    //On récupère le nombre de places restantes
+                    this.txtNbPlacesRestantes.Text = Passerelle.GetNbPlaceByActivite(a.numActivite).ToString();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                }
             }
         }
     }

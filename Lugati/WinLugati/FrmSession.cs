@@ -146,10 +146,18 @@ namespace WinLugati
             Session s = (Session)this.bindingSourceSession.Current;
             if(s != null)
             {
-                //On récupère la liste des personnes inscrites à la session sélectionnée
-                this.bindingSourceInscris.DataSource = Passerelle.GetLesInscriptions(s.numSession);
-                //On récupère le nombre de places restantes
-                this.txtNbPlacesRestantes.Text = Passerelle.GetNbPlaceBySession(s.numSession).ToString();
+                try
+                {
+                    //On récupère la liste des personnes inscrites à la session sélectionnée
+                    this.bindingSourceInscris.DataSource = Passerelle.GetLesInscriptions(s.numSession);
+                    //On récupère le nombre de places restantes
+                    this.txtNbPlacesRestantes.Text = Passerelle.GetNbPlaceBySession(s.numSession).ToString();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                }
             }
         }
     }

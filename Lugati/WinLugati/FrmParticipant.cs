@@ -28,9 +28,17 @@ namespace WinLugati
 
         private void InitializeData()
         {
-            this.bindingSourceLigue.DataSource = Passerelle.GetLesLigues();
-            this.bindingSourceHebergement.DataSource = Passerelle.GetLesHebergements();
-            this.bindingSourceParticipant.DataSource = Passerelle.GetLesParticipants();
+            try
+            {
+                this.bindingSourceLigue.DataSource = Passerelle.GetLesLigues();
+                this.bindingSourceHebergement.DataSource = Passerelle.GetLesHebergements();
+                this.bindingSourceParticipant.DataSource = Passerelle.GetLesParticipants();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+            }
 
             foreach (Participant unP in this.bindingSourceParticipant)
             {
