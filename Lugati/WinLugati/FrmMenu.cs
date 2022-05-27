@@ -94,5 +94,10 @@ namespace WinLugati
                 Application.OpenForms["FrmLigue"].BringToFront();
             }
         }
+
+        private void FrmMenu_Load(object sender, EventArgs e)
+        {
+            this.Controls.OfType<MdiClient>().FirstOrDefault().BackColor = Color.FromArgb(245,215,255);
+        }
     }
 }

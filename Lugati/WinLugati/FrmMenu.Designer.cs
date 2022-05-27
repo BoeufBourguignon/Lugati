@@ -39,6 +39,7 @@
             // 
             // menuLugati
             // 
+            this.menuLugati.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.menuLugati.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuLugatiItemParticipant,
             this.menuLugatiItemHebergement,
@@ -90,6 +91,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.menuLugati);
             this.IsMdiContainer = true;
@@ -97,6 +99,7 @@
             this.Name = "FrmMenu";
             this.Text = "Sports et Santé";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMenu_FormClosing);
+            this.Load += new System.EventHandler(this.FrmMenu_Load);
             this.menuLugati.ResumeLayout(false);
             this.menuLugati.PerformLayout();
             this.ResumeLayout(false);

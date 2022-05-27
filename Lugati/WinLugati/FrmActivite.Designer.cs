@@ -399,8 +399,9 @@
             // 
             // tabActivites
             // 
-            this.tabActivites.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.tabActivites.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabActivites.Controls.Add(this.tabActivites_CRUDActivite);
             this.tabActivites.Controls.Add(this.tabActivites_Participants);
             this.tabActivites.Location = new System.Drawing.Point(12, 12);
