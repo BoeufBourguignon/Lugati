@@ -108,6 +108,7 @@ namespace Lugati.dll
         public string adresse { get; set; }
         public string ville { get; set; }
         public string cp { get; set; }
+        public float acompte { get; set; }
         public int idHebergement { get; set; }
         public Hebergement hebergement { get; set; }
         public int idLigue { get; set; }

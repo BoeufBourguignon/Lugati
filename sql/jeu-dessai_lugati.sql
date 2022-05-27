@@ -19,15 +19,15 @@ VALUES
   ('Château de Versailles','Place d''Armes','Versailles','78000','0202171242',2,186);
 
 
-INSERT INTO participant (prenom,nom,genre,idLigue,adresse,ville,cp,idHebergement)
+INSERT INTO participant (prenom,nom,genre,idLigue,adresse,ville,cp,idHebergement,acompte)
 VALUES
-  ('Lucas','BOUCHET','H',2,'1 rue de la roselière','Candyland','34130',3),
-  ('Thibaud','LECLERE','H',2,'4 bis rue des Campenottes','Bavans','25550',3),
-  ('Gabriel','BOIG-SIMON','H',4,'500 rue des aires','Saint-Brès','34670',4),
-  ('Dodo','PRESIDENT','H',3,'3 rue de la perte','Gigean','34770',1),
-  ('Nino','DIDIER','H',2,'26 rue Méjane','Olargues','34390',1),
-  ('Odile','CROC','F',1,'1 rue des Pertuisanes','Montpellier','34000',5),
-  ('Afida','TURNER','F',1,'11 rue de Biche','Woippy','57140',4);
+  ('Lucas','BOUCHET','H',2,'1 rue de la roselière','Candyland','34130',3, 10),
+  ('Thibaud','LECLERE','H',2,'4 bis rue des Campenottes','Bavans','25550',3, 10),
+  ('Gabriel','BOIG-SIMON','H',4,'500 rue des aires','Saint-Brès','34670',4, 10),
+  ('Dodo','PRESIDENT','H',3,'3 rue de la perte','Gigean','34770',1, 10),
+  ('Nino','DIDIER','H',2,'26 rue Méjane','Olargues','34390',1, 10),
+  ('Odile','CROC','F',1,'1 rue des Pertuisanes','Montpellier','34000',5, 10),
+  ('Afida','TURNER','F',1,'11 rue de Biche','Woippy','57140',4, 10);
 
 
 INSERT INTO session (libelle,tarif,nbPlaces,date,heure)

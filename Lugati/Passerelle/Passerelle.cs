@@ -572,7 +572,7 @@ namespace Lugati.dll
             List<Participant> lesParticipants = new List<Participant>();
 
             SqlCommand reqLesParticipants = new SqlCommand(
-                "SELECT idParticipant, nom, prenom, genre, adresse, ville, cp, idHebergement, idLigue " + 
+                "SELECT idParticipant, nom, prenom, genre, adresse, ville, cp, idHebergement, idLigue, acompte " + 
                 "FROM participant",
                 Passerelle.connexionBaseLugati);
 
@@ -596,6 +596,7 @@ namespace Lugati.dll
                         p.cp = readerLesParticipants[6].ToString();
                         p.idHebergement = (int)readerLesParticipants[7];
                         p.idLigue = (int)readerLesParticipants[8];
+                        p.acompte = Convert.ToSingle(readerLesParticipants[9].ToString());
 
                         lesParticipants.Add(p);
                     }
@@ -1074,9 +1075,7 @@ namespace Lugati.dll
             SqlCommand reqLesMontants =
                 new SqlCommand("MontantTotalCongressiste",
                 Passerelle.connexionBaseLugati);
-        
             reqLesMontants.Parameters.AddWithValue("@idP", idParticipant);
-
             reqLesMontants.CommandType = CommandType.StoredProcedure;
 
             float montantTot = 0;

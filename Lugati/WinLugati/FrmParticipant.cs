@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 using Lugati.dll;
 
@@ -179,6 +180,9 @@ namespace WinLugati
                 this.lblTitreInscriptions.Text = "Inscriptions de " + participant.prenom + " " + participant.nom;
                 try
                 {
+                    //On récupère le montant total à régler
+                    Debug.WriteLine(Passerelle.GetLeMontantTotal(this.participant.idParticipant));
+
                     //On récupère les sessions disponibles (places restantes & pas déjà inscrit)
                     this.bindingSourceSessionsDispo.DataSource = Passerelle.GetLesSessionsDisponibles(this.participant.idParticipant);
                     //On récupère les sessions inscrites

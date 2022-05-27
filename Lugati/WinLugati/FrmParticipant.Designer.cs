@@ -34,6 +34,8 @@ namespace WinLugati
             this.bindingSourceParticipant = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceLigue = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.txtAcompte = new System.Windows.Forms.TextBox();
+            this.lblAcompte = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBoxActivites = new System.Windows.Forms.GroupBox();
             this.dataGridViewActivitesDispo = new System.Windows.Forms.DataGridView();
@@ -111,8 +113,11 @@ namespace WinLugati
             this.ligue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hebergement = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabParticipant = new System.Windows.Forms.TabControl();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.txtTotal = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceParticipant)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceLigue)).BeginInit();
+            this.tabPage4.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBoxActivites.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewActivitesDispo)).BeginInit();
@@ -145,12 +150,34 @@ namespace WinLugati
             // tabPage4
             // 
             this.tabPage4.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage4.Controls.Add(this.txtTotal);
+            this.tabPage4.Controls.Add(this.lblTotal);
+            this.tabPage4.Controls.Add(this.txtAcompte);
+            this.tabPage4.Controls.Add(this.lblAcompte);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(1132, 480);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Comptes";
+            // 
+            // txtAcompte
+            // 
+            this.txtAcompte.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceParticipant, "acompte", true));
+            this.txtAcompte.Enabled = false;
+            this.txtAcompte.Location = new System.Drawing.Point(127, 78);
+            this.txtAcompte.Name = "txtAcompte";
+            this.txtAcompte.Size = new System.Drawing.Size(100, 20);
+            this.txtAcompte.TabIndex = 1;
+            // 
+            // lblAcompte
+            // 
+            this.lblAcompte.AutoSize = true;
+            this.lblAcompte.Location = new System.Drawing.Point(72, 81);
+            this.lblAcompte.Name = "lblAcompte";
+            this.lblAcompte.Size = new System.Drawing.Size(49, 13);
+            this.lblAcompte.TabIndex = 0;
+            this.lblAcompte.Text = "Acompte";
             // 
             // tabPage3
             // 
@@ -950,6 +977,23 @@ namespace WinLugati
             this.tabParticipant.Size = new System.Drawing.Size(1140, 506);
             this.tabParticipant.TabIndex = 0;
             // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Location = new System.Drawing.Point(58, 39);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(63, 13);
+            this.lblTotal.TabIndex = 0;
+            this.lblTotal.Text = "Motant total";
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.Enabled = false;
+            this.txtTotal.Location = new System.Drawing.Point(127, 36);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(100, 20);
+            this.txtTotal.TabIndex = 1;
+            // 
             // FrmParticipant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -961,6 +1005,8 @@ namespace WinLugati
             this.Text = "Participants";
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceParticipant)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceLigue)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.groupBoxActivites.ResumeLayout(false);
@@ -1068,5 +1114,9 @@ namespace WinLugati
         private System.Windows.Forms.DataGridViewTextBoxColumn libelleDataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn heureDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.TextBox txtAcompte;
+        private System.Windows.Forms.Label lblAcompte;
+        private System.Windows.Forms.TextBox txtTotal;
+        private System.Windows.Forms.Label lblTotal;
     }
 }
