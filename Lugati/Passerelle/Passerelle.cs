@@ -299,6 +299,86 @@ namespace Lugati.dll
             return lesActivites;
         }
 
+        public static List<Activite> GetLesActivitesDisponibles(int idParticipant)
+        {
+            List<Activite> lesA = new List<Activite>();
+
+            SqlCommand reqLesActivites = new SqlCommand(
+                "SELECT a.numActivite, a.libelle, a.tarif, a.nbPlaces, a.date, a.heure " +
+                "FROM activite a " +
+                "  LEFT JOIN participer p on p.numActivite = a.numActivite " +
+                "WHERE NOT EXISTS (SELECT * FROM participer p2 WHERE p.numActivite = p2.numActivite AND p2.idParticipant = @idParticipant) " +
+                "GROUP BY a.numActivite, a.libelle, a.tarif, a.nbPlaces, a.date, a.heure " +
+                "HAVING count(idParticipant) < a.nbPlaces",
+                Passerelle.connexionBaseLugati);
+            reqLesActivites.Parameters.AddWithValue("@idParticipant", idParticipant);
+
+            try
+            {
+                Passerelle.connexionBaseLugati.Open();
+
+                SqlDataReader readerLesActivites = reqLesActivites.ExecuteReader();
+                if (readerLesActivites.HasRows)
+                {
+                    while (readerLesActivites.Read())
+                    {
+                        lesA.Add(new Activite(
+                                (int)readerLesActivites[0],
+                                readerLesActivites[1].ToString(),
+                                (int)readerLesActivites[2],
+                                (int)readerLesActivites[3],
+                                Convert.ToDateTime(readerLesActivites[4]),
+                                (readerLesActivites[5].ToString())));
+                    }
+                }
+            }
+            finally
+            {
+                Passerelle.connexionBaseLugati.Close();
+            }
+
+            return lesA;
+        }
+
+        public static List<Activite> GetLesActivitesInsrites(int idParticipant)
+        {
+            List<Activite> lesA = new List<Activite>();
+
+            SqlCommand reqLesActivites = new SqlCommand(
+                "SELECT a.numActivite, a.libelle, a.tarif, a.nbPlaces, a.date, a.heure " +
+                "FROM activite a " +
+                "  JOIN participer p on p.numActivite = a.numActivite " +
+                "WHERE idParticipant = @idParticipant",
+                Passerelle.connexionBaseLugati);
+            reqLesActivites.Parameters.AddWithValue("@idParticipant", idParticipant);
+
+            try
+            {
+                Passerelle.connexionBaseLugati.Open();
+
+                SqlDataReader readerLesActivites = reqLesActivites.ExecuteReader();
+                if (readerLesActivites.HasRows)
+                {
+                    while (readerLesActivites.Read())
+                    {
+                        lesA.Add(new Activite(
+                                (int)readerLesActivites[0],
+                                readerLesActivites[1].ToString(),
+                                (int)readerLesActivites[2],
+                                (int)readerLesActivites[3],
+                                Convert.ToDateTime(readerLesActivites[4]),
+                                (readerLesActivites[5].ToString())));
+                    }
+                }
+            }
+            finally
+            {
+                Passerelle.connexionBaseLugati.Close();
+            }
+
+            return lesA;
+        }
+
         /// <summary>
         /// Ajoute une activité à la base de données
         /// </summary>
@@ -821,39 +901,36 @@ namespace Lugati.dll
             return lesParticipants;
         }
 
-        public static int AjouterParticiper(Participer p)
+        public static void AjouterParticipation(int idParticipant, int numActivite)
         {
             SqlCommand reqAjouterParticiper =
-                new SqlCommand("INSERT INTO Participer (idParticipant, numActivite) " +
-                                "OUTPUT INSERTED.idParticipant " +
+                new SqlCommand("INSERT INTO participer (idParticipant, numActivite) " +
                                 "VALUES (@idParticipant, @numActivite)",
                 Passerelle.connexionBaseLugati);
-            reqAjouterParticiper.Parameters.AddWithValue("@idParticipant", p.idParticipant);
-            reqAjouterParticiper.Parameters.AddWithValue("@numActivite", p.numActivite);
-
-            int id = 0;
+            reqAjouterParticiper.Parameters.AddWithValue("@idParticipant", idParticipant);
+            reqAjouterParticiper.Parameters.AddWithValue("@numActivite", numActivite);
 
             try
             {
                 Passerelle.connexionBaseLugati.Open();
 
-                id = (int)reqAjouterParticiper.ExecuteScalar();
+                reqAjouterParticiper.ExecuteNonQuery();
             }
             finally
             {
                 Passerelle.connexionBaseLugati.Close();
             }
-
-            return id;
         }
 
-        public static void SupprimerParticiper(int idParticipant)
+        public static void SupprimerParticipation(int idParticipant, int numActivite)
         {
             SqlCommand reqSupprimerParticiper = new SqlCommand(
-                "DELETE FROM Participer WHERE idParticipant = @id",
+                "DELETE FROM participer " +
+                "WHERE idParticipant = @id " +
+                "AND numActivite = @num",
                 Passerelle.connexionBaseLugati);
-
             reqSupprimerParticiper.Parameters.AddWithValue("@id", idParticipant);
+            reqSupprimerParticiper.Parameters.AddWithValue("@num", numActivite);
 
             try
             {
@@ -947,38 +1024,36 @@ namespace Lugati.dll
             return lesParticipants;
         }
 
-        public static int AjouterInscription(Inscrire i)
+        public static void AjouterInscription(int idParticipant, int numSession)
         {
             SqlCommand reqAjouterInscris =
                 new SqlCommand("INSERT INTO Inscrire (idParticipant, numSession) " +
-                                "OUTPUT INSERTED.idParticipant " +
                                 "VALUES (@idParticipant, @numSession)",
                 Passerelle.connexionBaseLugati);
-            reqAjouterInscris.Parameters.AddWithValue("@idParticipant", i.idParticipant);
-            reqAjouterInscris.Parameters.AddWithValue("@numSession", i.numSession);
-
-            int id = 0;
+            reqAjouterInscris.Parameters.AddWithValue("@idParticipant", idParticipant);
+            reqAjouterInscris.Parameters.AddWithValue("@numSession", numSession);
 
             try
             {
                 Passerelle.connexionBaseLugati.Open();
 
-                id = (int)reqAjouterInscris.ExecuteScalar();
+                reqAjouterInscris.ExecuteNonQuery();
             }
             finally
             {
                 Passerelle.connexionBaseLugati.Close();
             }
-
-            return id;
         }
-        public static void SupprimerInscrire(int idParticipant)
+
+        public static void SupprimerInscription(int idParticipant, int numSession)
         {
             SqlCommand reqSupprimerInscrire = new SqlCommand(
-                "DELETE FROM Inscrire WHERE idParticipant = @id",
+                "DELETE FROM Inscrire " +
+                "WHERE idParticipant = @id " +
+                "AND numSession = @num",
                 Passerelle.connexionBaseLugati);
-
             reqSupprimerInscrire.Parameters.AddWithValue("@id", idParticipant);
+            reqSupprimerInscrire.Parameters.AddWithValue("@num", numSession);
 
             try
             {

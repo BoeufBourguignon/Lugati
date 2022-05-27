@@ -14,6 +14,8 @@ namespace WinLugati
 {
     public partial class FrmParticipant : Form
     {
+        Participant participant;
+
         public FrmParticipant()
         {
             InitializeComponent();
@@ -171,14 +173,146 @@ namespace WinLugati
 
         private void bindingSourceParticipant_CurrentChanged(object sender, EventArgs e)
         {
-            Participant p = (Participant)this.bindingSourceParticipant.Current;
-            if (p != null)
+            this.participant = (Participant)this.bindingSourceParticipant.Current;
+            if (this.participant != null)
             {
-                this.lblTitreInscriptions.Text = "Inscriptions de " + p.prenom + " " + p.nom;
+                this.lblTitreInscriptions.Text = "Inscriptions de " + participant.prenom + " " + participant.nom;
                 try
                 {
-                    this.bindingSourceSessionsDispo.DataSource = Passerelle.GetLesSessionsDisponibles(p.idParticipant);
-                    this.bindingSourceSessionsInscrites.DataSource = Passerelle.GetLesSessionsInscrites(p.idParticipant);
+                    //On récupère les sessions disponibles (places restantes & pas déjà inscrit)
+                    this.bindingSourceSessionsDispo.DataSource = Passerelle.GetLesSessionsDisponibles(this.participant.idParticipant);
+                    //On récupère les sessions inscrites
+                    this.bindingSourceSessionsInscrites.DataSource = Passerelle.GetLesSessionsInscrites(this.participant.idParticipant);
+                    //On récupère les activités disponibles (places restantes & pas déjà inscrit)
+                    this.bindingSourceActivitesDispo.DataSource = Passerelle.GetLesActivitesDisponibles(this.participant.idParticipant);
+                    //On récupère les activités inscrites
+                    this.bindingSourceActivitesInscrites.DataSource = Passerelle.GetLesActivitesInsrites(this.participant.idParticipant);
+
+                    this.CheckBoutonsEnabled();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                }
+            }
+        }
+
+        private void CheckBoutonsEnabled()
+        {
+            //S'il n'y a pas de session dispo on désactive le bouton ajouter
+            if (this.bindingSourceSessionsDispo.Count == 0)
+            {
+                this.btnAjouterSession.Enabled = false;
+            } 
+            else
+            {
+                this.btnAjouterSession.Enabled = true;
+            }
+            //S'il n'y a pas de session inscrite on désactive le bouton supprimer
+            if (this.bindingSourceSessionsInscrites.Count == 0)
+            {
+                this.btnSupprimerSession.Enabled = false;
+            }
+            else
+            {
+                this.btnSupprimerSession.Enabled = true;
+            }
+            //S'il n'y a pas d'activité dispo on désactive le bouton ajouter
+            if (this.bindingSourceActivitesDispo.Count == 0)
+            {
+                this.btnAjouterActivite.Enabled = false;
+            }
+            else
+            {
+                this.btnAjouterActivite.Enabled = true;
+            }
+            //S'il n'y a pas d'activité inscrite on désactive le bouton supprimer
+            if (this.bindingSourceActivitesInscrites.Count == 0)
+            {
+                this.btnSupprimerActivite.Enabled = false;
+            }
+            else
+            {
+                this.btnSupprimerActivite.Enabled = true;
+            }
+        }
+
+        private void btnAjouterSession_Click(object sender, EventArgs e)
+        {
+            Session sessionAAjouter = (Session)this.bindingSourceSessionsDispo.Current;
+            if (sessionAAjouter != null)
+            {
+                try
+                {
+                    Passerelle.AjouterInscription(this.participant.idParticipant, sessionAAjouter.numSession);
+                    this.bindingSourceSessionsInscrites.Add(sessionAAjouter);
+                    this.bindingSourceSessionsDispo.RemoveCurrent();
+
+                    this.CheckBoutonsEnabled();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                }
+            }
+        }
+
+        private void btnSupprimerSession_Click(object sender, EventArgs e)
+        {
+            Session sessionASupprimer = (Session)this.bindingSourceSessionsInscrites.Current;
+            if (sessionASupprimer != null)
+            {
+                try
+                {
+                    Passerelle.SupprimerInscription(this.participant.idParticipant, sessionASupprimer.numSession);
+                    this.bindingSourceSessionsDispo.Add(sessionASupprimer);
+                    this.bindingSourceSessionsInscrites.RemoveCurrent();
+
+                    this.CheckBoutonsEnabled();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                }
+            }
+        }
+
+        private void btnAjouterActivite_Click(object sender, EventArgs e)
+        {
+            Activite activiteAAjouter = (Activite)this.bindingSourceActivitesDispo.Current;
+            if (activiteAAjouter != null)
+            {
+                try
+                {
+                    Passerelle.AjouterParticipation(this.participant.idParticipant, activiteAAjouter.numActivite);
+                    this.bindingSourceActivitesInscrites.Add(activiteAAjouter);
+                    this.bindingSourceActivitesDispo.RemoveCurrent();
+
+                    this.CheckBoutonsEnabled();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                }
+            }
+        }
+
+        private void btnSupprimerActivite_Click(object sender, EventArgs e)
+        {
+            Activite activiteASupprimer = (Activite)this.bindingSourceActivitesInscrites.Current;
+            if (activiteASupprimer != null)
+            {
+                try
+                {
+                    Passerelle.SupprimerParticipation(this.participant.idParticipant, activiteASupprimer.numActivite);
+                    this.bindingSourceActivitesDispo.Add(activiteASupprimer);
+                    this.bindingSourceActivitesInscrites.RemoveCurrent();
+
+                    this.CheckBoutonsEnabled();
                 }
                 catch (Exception ex)
                 {

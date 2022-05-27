@@ -112,7 +112,6 @@ namespace Lugati.dll
         public Hebergement hebergement { get; set; }
         public int idLigue { get; set; }
         public Ligue ligue { get; set; }
-        public List<Session> inscriptions { get; set; }
 
 
         public Participant() { }
