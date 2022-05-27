@@ -29,25 +29,27 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dataGridActivite = new System.Windows.Forms.DataGridView();
+            this.dgvActivite = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindingSourceActivite = new System.Windows.Forms.BindingSource(this.components);
+            this.bindSrcActivite = new System.Windows.Forms.BindingSource(this.components);
             this.grpInfos = new System.Windows.Forms.GroupBox();
-            this.maskedTextBoxNbPlaces = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBoxTarif = new System.Windows.Forms.MaskedTextBox();
-            this.comboBoxHeure = new System.Windows.Forms.ComboBox();
-            this.dateTimePickerDate = new System.Windows.Forms.DateTimePicker();
-            this.labelLibelleSession = new System.Windows.Forms.Label();
-            this.textBoxLibelleActivite = new System.Windows.Forms.TextBox();
-            this.labelAdresseHotel = new System.Windows.Forms.Label();
-            this.labelPrixHotel = new System.Windows.Forms.Label();
-            this.labelVilleHotel = new System.Windows.Forms.Label();
-            this.labelTelHotel = new System.Windows.Forms.Label();
+            this.lblNbPlacesRestantes = new System.Windows.Forms.Label();
+            this.txtNbPlacesRestantes = new System.Windows.Forms.TextBox();
+            this.maskTxtNbPlaces = new System.Windows.Forms.MaskedTextBox();
+            this.maskTxtTarif = new System.Windows.Forms.MaskedTextBox();
+            this.comboHeure = new System.Windows.Forms.ComboBox();
+            this.dtPickerDate = new System.Windows.Forms.DateTimePicker();
+            this.lblLibelle = new System.Windows.Forms.Label();
+            this.txtLibelle = new System.Windows.Forms.TextBox();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.lblTarif = new System.Windows.Forms.Label();
+            this.lblHeure = new System.Windows.Forms.Label();
+            this.lblNbPlaces = new System.Windows.Forms.Label();
             this.grpBoutons = new System.Windows.Forms.GroupBox();
             this.btnModifierActivite = new System.Windows.Forms.Button();
             this.btnSupprimerActivite = new System.Windows.Forms.Button();
@@ -55,57 +57,55 @@
             this.grpBtnsSaveCancel = new System.Windows.Forms.GroupBox();
             this.btnEnregistrerActivité = new System.Windows.Forms.Button();
             this.btnAnnuler = new System.Windows.Forms.Button();
-            this.tabControlActivites = new System.Windows.Forms.TabControl();
-            this.tabPageCRUDActivite = new System.Windows.Forms.TabPage();
-            this.tabPageParticipants = new System.Windows.Forms.TabPage();
-            this.dataGridViewParticipants = new System.Windows.Forms.DataGridView();
+            this.tabActivites = new System.Windows.Forms.TabControl();
+            this.tabActivites_CRUDActivite = new System.Windows.Forms.TabPage();
+            this.tabActivites_Participants = new System.Windows.Forms.TabPage();
+            this.dgvParticipants = new System.Windows.Forms.DataGridView();
             this.nomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prenomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.genreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.adresseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.villeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindingSourceParticipants = new System.Windows.Forms.BindingSource(this.components);
-            this.txtNbPlacesRestantes = new System.Windows.Forms.TextBox();
-            this.lblNbPlacesRestantes = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridActivite)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceActivite)).BeginInit();
+            this.bindSrcParticipants = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvActivite)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindSrcActivite)).BeginInit();
             this.grpInfos.SuspendLayout();
             this.grpBoutons.SuspendLayout();
             this.grpBtnsSaveCancel.SuspendLayout();
-            this.tabControlActivites.SuspendLayout();
-            this.tabPageCRUDActivite.SuspendLayout();
-            this.tabPageParticipants.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewParticipants)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceParticipants)).BeginInit();
+            this.tabActivites.SuspendLayout();
+            this.tabActivites_CRUDActivite.SuspendLayout();
+            this.tabActivites_Participants.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvParticipants)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindSrcParticipants)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridActivite
+            // dgvActivite
             // 
-            this.dataGridActivite.AllowUserToAddRows = false;
-            this.dataGridActivite.AllowUserToDeleteRows = false;
-            this.dataGridActivite.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvActivite.AllowUserToAddRows = false;
+            this.dgvActivite.AllowUserToDeleteRows = false;
+            this.dgvActivite.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridActivite.AutoGenerateColumns = false;
-            this.dataGridActivite.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridActivite.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.dataGridActivite.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridActivite.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvActivite.AutoGenerateColumns = false;
+            this.dgvActivite.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvActivite.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.dgvActivite.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvActivite.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6});
-            this.dataGridActivite.DataSource = this.bindingSourceActivite;
-            this.dataGridActivite.Location = new System.Drawing.Point(3, 3);
-            this.dataGridActivite.MultiSelect = false;
-            this.dataGridActivite.Name = "dataGridActivite";
-            this.dataGridActivite.ReadOnly = true;
-            this.dataGridActivite.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridActivite.Size = new System.Drawing.Size(706, 197);
-            this.dataGridActivite.TabIndex = 1;
+            this.dgvActivite.DataSource = this.bindSrcActivite;
+            this.dgvActivite.Location = new System.Drawing.Point(3, 3);
+            this.dgvActivite.MultiSelect = false;
+            this.dgvActivite.Name = "dgvActivite";
+            this.dgvActivite.ReadOnly = true;
+            this.dgvActivite.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvActivite.Size = new System.Drawing.Size(706, 197);
+            this.dgvActivite.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -155,10 +155,10 @@
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
             this.dataGridViewTextBoxColumn6.Width = 61;
             // 
-            // bindingSourceActivite
+            // bindSrcActivite
             // 
-            this.bindingSourceActivite.DataSource = typeof(Lugati.dll.Activite);
-            this.bindingSourceActivite.CurrentChanged += new System.EventHandler(this.bindingSourceActivite_CurrentChanged);
+            this.bindSrcActivite.DataSource = typeof(Lugati.dll.Activite);
+            this.bindSrcActivite.CurrentChanged += new System.EventHandler(this.bindingSourceActivite_CurrentChanged);
             // 
             // grpInfos
             // 
@@ -167,16 +167,16 @@
             this.grpInfos.BackColor = System.Drawing.Color.Transparent;
             this.grpInfos.Controls.Add(this.lblNbPlacesRestantes);
             this.grpInfos.Controls.Add(this.txtNbPlacesRestantes);
-            this.grpInfos.Controls.Add(this.maskedTextBoxNbPlaces);
-            this.grpInfos.Controls.Add(this.maskedTextBoxTarif);
-            this.grpInfos.Controls.Add(this.comboBoxHeure);
-            this.grpInfos.Controls.Add(this.dateTimePickerDate);
-            this.grpInfos.Controls.Add(this.labelLibelleSession);
-            this.grpInfos.Controls.Add(this.textBoxLibelleActivite);
-            this.grpInfos.Controls.Add(this.labelAdresseHotel);
-            this.grpInfos.Controls.Add(this.labelPrixHotel);
-            this.grpInfos.Controls.Add(this.labelVilleHotel);
-            this.grpInfos.Controls.Add(this.labelTelHotel);
+            this.grpInfos.Controls.Add(this.maskTxtNbPlaces);
+            this.grpInfos.Controls.Add(this.maskTxtTarif);
+            this.grpInfos.Controls.Add(this.comboHeure);
+            this.grpInfos.Controls.Add(this.dtPickerDate);
+            this.grpInfos.Controls.Add(this.lblLibelle);
+            this.grpInfos.Controls.Add(this.txtLibelle);
+            this.grpInfos.Controls.Add(this.lblDate);
+            this.grpInfos.Controls.Add(this.lblTarif);
+            this.grpInfos.Controls.Add(this.lblHeure);
+            this.grpInfos.Controls.Add(this.lblNbPlaces);
             this.grpInfos.Enabled = false;
             this.grpInfos.ForeColor = System.Drawing.Color.White;
             this.grpInfos.Location = new System.Drawing.Point(3, 206);
@@ -186,108 +186,125 @@
             this.grpInfos.TabStop = false;
             this.grpInfos.Text = "Informations";
             // 
-            // maskedTextBoxNbPlaces
+            // lblNbPlacesRestantes
             // 
-            this.maskedTextBoxNbPlaces.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceActivite, "nbPlaces", true));
-            this.maskedTextBoxNbPlaces.Location = new System.Drawing.Point(74, 162);
-            this.maskedTextBoxNbPlaces.Mask = "9999";
-            this.maskedTextBoxNbPlaces.Name = "maskedTextBoxNbPlaces";
-            this.maskedTextBoxNbPlaces.Size = new System.Drawing.Size(150, 20);
-            this.maskedTextBoxNbPlaces.TabIndex = 5;
+            this.lblNbPlacesRestantes.AutoSize = true;
+            this.lblNbPlacesRestantes.Location = new System.Drawing.Point(236, 22);
+            this.lblNbPlacesRestantes.Name = "lblNbPlacesRestantes";
+            this.lblNbPlacesRestantes.Size = new System.Drawing.Size(139, 13);
+            this.lblNbPlacesRestantes.TabIndex = 14;
+            this.lblNbPlacesRestantes.Text = "Nombre de places restantes";
             // 
-            // maskedTextBoxTarif
+            // txtNbPlacesRestantes
             // 
-            this.maskedTextBoxTarif.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceActivite, "tarif", true));
-            this.maskedTextBoxTarif.Location = new System.Drawing.Point(74, 119);
-            this.maskedTextBoxTarif.Mask = "99999";
-            this.maskedTextBoxTarif.Name = "maskedTextBoxTarif";
-            this.maskedTextBoxTarif.Size = new System.Drawing.Size(150, 20);
-            this.maskedTextBoxTarif.TabIndex = 4;
+            this.txtNbPlacesRestantes.Location = new System.Drawing.Point(381, 19);
+            this.txtNbPlacesRestantes.Name = "txtNbPlacesRestantes";
+            this.txtNbPlacesRestantes.ReadOnly = true;
+            this.txtNbPlacesRestantes.Size = new System.Drawing.Size(100, 20);
+            this.txtNbPlacesRestantes.TabIndex = 13;
             // 
-            // comboBoxHeure
+            // maskTxtNbPlaces
             // 
-            this.comboBoxHeure.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.bindingSourceActivite, "heure", true));
-            this.comboBoxHeure.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxHeure.FormattingEnabled = true;
-            this.comboBoxHeure.Items.AddRange(new object[] {
+            this.maskTxtNbPlaces.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindSrcActivite, "nbPlaces", true));
+            this.maskTxtNbPlaces.Location = new System.Drawing.Point(74, 162);
+            this.maskTxtNbPlaces.Mask = "9999";
+            this.maskTxtNbPlaces.Name = "maskTxtNbPlaces";
+            this.maskTxtNbPlaces.Size = new System.Drawing.Size(150, 20);
+            this.maskTxtNbPlaces.TabIndex = 5;
+            // 
+            // maskTxtTarif
+            // 
+            this.maskTxtTarif.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindSrcActivite, "tarif", true));
+            this.maskTxtTarif.Location = new System.Drawing.Point(74, 119);
+            this.maskTxtTarif.Mask = "99999";
+            this.maskTxtTarif.Name = "maskTxtTarif";
+            this.maskTxtTarif.Size = new System.Drawing.Size(150, 20);
+            this.maskTxtTarif.TabIndex = 4;
+            // 
+            // comboHeure
+            // 
+            this.comboHeure.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.bindSrcActivite, "heure", true));
+            this.comboHeure.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboHeure.FormattingEnabled = true;
+            this.comboHeure.Items.AddRange(new object[] {
             "09:00",
             "14:30"});
-            this.comboBoxHeure.Location = new System.Drawing.Point(316, 139);
-            this.comboBoxHeure.Name = "comboBoxHeure";
-            this.comboBoxHeure.Size = new System.Drawing.Size(165, 21);
-            this.comboBoxHeure.TabIndex = 7;
+            this.comboHeure.Location = new System.Drawing.Point(316, 139);
+            this.comboHeure.Name = "comboHeure";
+            this.comboHeure.Size = new System.Drawing.Size(165, 21);
+            this.comboHeure.TabIndex = 7;
             // 
-            // dateTimePickerDate
+            // dtPickerDate
             // 
-            this.dateTimePickerDate.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bindingSourceActivite, "date", true));
-            this.dateTimePickerDate.Location = new System.Drawing.Point(316, 95);
-            this.dateTimePickerDate.Name = "dateTimePickerDate";
-            this.dateTimePickerDate.Size = new System.Drawing.Size(165, 20);
-            this.dateTimePickerDate.TabIndex = 6;
+            this.dtPickerDate.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bindSrcActivite, "date", true));
+            this.dtPickerDate.Location = new System.Drawing.Point(316, 95);
+            this.dtPickerDate.Name = "dtPickerDate";
+            this.dtPickerDate.Size = new System.Drawing.Size(165, 20);
+            this.dtPickerDate.TabIndex = 6;
             // 
-            // labelLibelleSession
+            // lblLibelle
             // 
-            this.labelLibelleSession.AutoSize = true;
-            this.labelLibelleSession.ForeColor = System.Drawing.Color.White;
-            this.labelLibelleSession.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.labelLibelleSession.Location = new System.Drawing.Point(34, 79);
-            this.labelLibelleSession.Name = "labelLibelleSession";
-            this.labelLibelleSession.Size = new System.Drawing.Size(37, 13);
-            this.labelLibelleSession.TabIndex = 4;
-            this.labelLibelleSession.Text = "Libelle";
+            this.lblLibelle.AutoSize = true;
+            this.lblLibelle.ForeColor = System.Drawing.Color.White;
+            this.lblLibelle.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblLibelle.Location = new System.Drawing.Point(34, 79);
+            this.lblLibelle.Name = "lblLibelle";
+            this.lblLibelle.Size = new System.Drawing.Size(37, 13);
+            this.lblLibelle.TabIndex = 4;
+            this.lblLibelle.Text = "Libelle";
             // 
-            // textBoxLibelleActivite
+            // txtLibelle
             // 
-            this.textBoxLibelleActivite.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceActivite, "libelle", true));
-            this.textBoxLibelleActivite.Location = new System.Drawing.Point(74, 76);
-            this.textBoxLibelleActivite.MaxLength = 100;
-            this.textBoxLibelleActivite.Name = "textBoxLibelleActivite";
-            this.textBoxLibelleActivite.Size = new System.Drawing.Size(150, 20);
-            this.textBoxLibelleActivite.TabIndex = 3;
+            this.txtLibelle.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindSrcActivite, "libelle", true));
+            this.txtLibelle.Location = new System.Drawing.Point(74, 76);
+            this.txtLibelle.MaxLength = 100;
+            this.txtLibelle.Name = "txtLibelle";
+            this.txtLibelle.Size = new System.Drawing.Size(150, 20);
+            this.txtLibelle.TabIndex = 3;
             // 
-            // labelAdresseHotel
+            // lblDate
             // 
-            this.labelAdresseHotel.AutoSize = true;
-            this.labelAdresseHotel.ForeColor = System.Drawing.Color.White;
-            this.labelAdresseHotel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.labelAdresseHotel.Location = new System.Drawing.Point(280, 99);
-            this.labelAdresseHotel.Name = "labelAdresseHotel";
-            this.labelAdresseHotel.Size = new System.Drawing.Size(30, 13);
-            this.labelAdresseHotel.TabIndex = 7;
-            this.labelAdresseHotel.Text = "Date";
+            this.lblDate.AutoSize = true;
+            this.lblDate.ForeColor = System.Drawing.Color.White;
+            this.lblDate.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblDate.Location = new System.Drawing.Point(280, 99);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(30, 13);
+            this.lblDate.TabIndex = 7;
+            this.lblDate.Text = "Date";
             // 
-            // labelPrixHotel
+            // lblTarif
             // 
-            this.labelPrixHotel.AutoSize = true;
-            this.labelPrixHotel.ForeColor = System.Drawing.Color.White;
-            this.labelPrixHotel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.labelPrixHotel.Location = new System.Drawing.Point(43, 122);
-            this.labelPrixHotel.Name = "labelPrixHotel";
-            this.labelPrixHotel.Size = new System.Drawing.Size(28, 13);
-            this.labelPrixHotel.TabIndex = 9;
-            this.labelPrixHotel.Text = "Tarif";
+            this.lblTarif.AutoSize = true;
+            this.lblTarif.ForeColor = System.Drawing.Color.White;
+            this.lblTarif.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblTarif.Location = new System.Drawing.Point(43, 122);
+            this.lblTarif.Name = "lblTarif";
+            this.lblTarif.Size = new System.Drawing.Size(28, 13);
+            this.lblTarif.TabIndex = 9;
+            this.lblTarif.Text = "Tarif";
             // 
-            // labelVilleHotel
+            // lblHeure
             // 
-            this.labelVilleHotel.AutoSize = true;
-            this.labelVilleHotel.ForeColor = System.Drawing.Color.White;
-            this.labelVilleHotel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.labelVilleHotel.Location = new System.Drawing.Point(274, 142);
-            this.labelVilleHotel.Name = "labelVilleHotel";
-            this.labelVilleHotel.Size = new System.Drawing.Size(36, 13);
-            this.labelVilleHotel.TabIndex = 10;
-            this.labelVilleHotel.Text = "Heure";
+            this.lblHeure.AutoSize = true;
+            this.lblHeure.ForeColor = System.Drawing.Color.White;
+            this.lblHeure.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblHeure.Location = new System.Drawing.Point(274, 142);
+            this.lblHeure.Name = "lblHeure";
+            this.lblHeure.Size = new System.Drawing.Size(36, 13);
+            this.lblHeure.TabIndex = 10;
+            this.lblHeure.Text = "Heure";
             // 
-            // labelTelHotel
+            // lblNbPlaces
             // 
-            this.labelTelHotel.AutoSize = true;
-            this.labelTelHotel.ForeColor = System.Drawing.Color.White;
-            this.labelTelHotel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.labelTelHotel.Location = new System.Drawing.Point(13, 165);
-            this.labelTelHotel.Name = "labelTelHotel";
-            this.labelTelHotel.Size = new System.Drawing.Size(55, 13);
-            this.labelTelHotel.TabIndex = 12;
-            this.labelTelHotel.Text = "Nb places";
+            this.lblNbPlaces.AutoSize = true;
+            this.lblNbPlaces.ForeColor = System.Drawing.Color.White;
+            this.lblNbPlaces.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblNbPlaces.Location = new System.Drawing.Point(13, 165);
+            this.lblNbPlaces.Name = "lblNbPlaces";
+            this.lblNbPlaces.Size = new System.Drawing.Size(55, 13);
+            this.lblNbPlaces.TabIndex = 12;
+            this.lblNbPlaces.Text = "Nb places";
             // 
             // grpBoutons
             // 
@@ -380,68 +397,68 @@
             this.btnAnnuler.UseVisualStyleBackColor = false;
             this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
             // 
-            // tabControlActivites
+            // tabActivites
             // 
-            this.tabControlActivites.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tabActivites.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.tabControlActivites.Controls.Add(this.tabPageCRUDActivite);
-            this.tabControlActivites.Controls.Add(this.tabPageParticipants);
-            this.tabControlActivites.Location = new System.Drawing.Point(12, 12);
-            this.tabControlActivites.Name = "tabControlActivites";
-            this.tabControlActivites.SelectedIndex = 0;
-            this.tabControlActivites.Size = new System.Drawing.Size(720, 487);
-            this.tabControlActivites.TabIndex = 13;
+            this.tabActivites.Controls.Add(this.tabActivites_CRUDActivite);
+            this.tabActivites.Controls.Add(this.tabActivites_Participants);
+            this.tabActivites.Location = new System.Drawing.Point(12, 12);
+            this.tabActivites.Name = "tabActivites";
+            this.tabActivites.SelectedIndex = 0;
+            this.tabActivites.Size = new System.Drawing.Size(720, 487);
+            this.tabActivites.TabIndex = 13;
             // 
-            // tabPageCRUDActivite
+            // tabActivites_CRUDActivite
             // 
-            this.tabPageCRUDActivite.BackColor = System.Drawing.Color.Crimson;
-            this.tabPageCRUDActivite.Controls.Add(this.dataGridActivite);
-            this.tabPageCRUDActivite.Controls.Add(this.grpBtnsSaveCancel);
-            this.tabPageCRUDActivite.Controls.Add(this.grpBoutons);
-            this.tabPageCRUDActivite.Controls.Add(this.grpInfos);
-            this.tabPageCRUDActivite.Location = new System.Drawing.Point(4, 22);
-            this.tabPageCRUDActivite.Name = "tabPageCRUDActivite";
-            this.tabPageCRUDActivite.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageCRUDActivite.Size = new System.Drawing.Size(712, 461);
-            this.tabPageCRUDActivite.TabIndex = 0;
-            this.tabPageCRUDActivite.Text = "Activités";
+            this.tabActivites_CRUDActivite.BackColor = System.Drawing.Color.Crimson;
+            this.tabActivites_CRUDActivite.Controls.Add(this.dgvActivite);
+            this.tabActivites_CRUDActivite.Controls.Add(this.grpBtnsSaveCancel);
+            this.tabActivites_CRUDActivite.Controls.Add(this.grpBoutons);
+            this.tabActivites_CRUDActivite.Controls.Add(this.grpInfos);
+            this.tabActivites_CRUDActivite.Location = new System.Drawing.Point(4, 22);
+            this.tabActivites_CRUDActivite.Name = "tabActivites_CRUDActivite";
+            this.tabActivites_CRUDActivite.Padding = new System.Windows.Forms.Padding(3);
+            this.tabActivites_CRUDActivite.Size = new System.Drawing.Size(712, 461);
+            this.tabActivites_CRUDActivite.TabIndex = 0;
+            this.tabActivites_CRUDActivite.Text = "Activités";
             // 
-            // tabPageParticipants
+            // tabActivites_Participants
             // 
-            this.tabPageParticipants.BackColor = System.Drawing.Color.Crimson;
-            this.tabPageParticipants.Controls.Add(this.dataGridViewParticipants);
-            this.tabPageParticipants.Location = new System.Drawing.Point(4, 22);
-            this.tabPageParticipants.Name = "tabPageParticipants";
-            this.tabPageParticipants.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageParticipants.Size = new System.Drawing.Size(712, 461);
-            this.tabPageParticipants.TabIndex = 1;
-            this.tabPageParticipants.Text = "Participants";
+            this.tabActivites_Participants.BackColor = System.Drawing.Color.Crimson;
+            this.tabActivites_Participants.Controls.Add(this.dgvParticipants);
+            this.tabActivites_Participants.Location = new System.Drawing.Point(4, 22);
+            this.tabActivites_Participants.Name = "tabActivites_Participants";
+            this.tabActivites_Participants.Padding = new System.Windows.Forms.Padding(3);
+            this.tabActivites_Participants.Size = new System.Drawing.Size(712, 461);
+            this.tabActivites_Participants.TabIndex = 1;
+            this.tabActivites_Participants.Text = "Participants";
             // 
-            // dataGridViewParticipants
+            // dgvParticipants
             // 
-            this.dataGridViewParticipants.AllowUserToAddRows = false;
-            this.dataGridViewParticipants.AllowUserToDeleteRows = false;
-            this.dataGridViewParticipants.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvParticipants.AllowUserToAddRows = false;
+            this.dgvParticipants.AllowUserToDeleteRows = false;
+            this.dgvParticipants.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewParticipants.AutoGenerateColumns = false;
-            this.dataGridViewParticipants.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridViewParticipants.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.dataGridViewParticipants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewParticipants.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvParticipants.AutoGenerateColumns = false;
+            this.dgvParticipants.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvParticipants.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.dgvParticipants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvParticipants.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nomDataGridViewTextBoxColumn,
             this.prenomDataGridViewTextBoxColumn,
             this.genreDataGridViewTextBoxColumn,
             this.adresseDataGridViewTextBoxColumn,
             this.villeDataGridViewTextBoxColumn,
             this.cpDataGridViewTextBoxColumn});
-            this.dataGridViewParticipants.DataSource = this.bindingSourceParticipants;
-            this.dataGridViewParticipants.Location = new System.Drawing.Point(3, 3);
-            this.dataGridViewParticipants.Name = "dataGridViewParticipants";
-            this.dataGridViewParticipants.ReadOnly = true;
-            this.dataGridViewParticipants.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewParticipants.Size = new System.Drawing.Size(704, 455);
-            this.dataGridViewParticipants.TabIndex = 0;
+            this.dgvParticipants.DataSource = this.bindSrcParticipants;
+            this.dgvParticipants.Location = new System.Drawing.Point(3, 3);
+            this.dgvParticipants.Name = "dgvParticipants";
+            this.dgvParticipants.ReadOnly = true;
+            this.dgvParticipants.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvParticipants.Size = new System.Drawing.Size(704, 455);
+            this.dgvParticipants.TabIndex = 0;
             // 
             // nomDataGridViewTextBoxColumn
             // 
@@ -491,26 +508,9 @@
             this.cpDataGridViewTextBoxColumn.ReadOnly = true;
             this.cpDataGridViewTextBoxColumn.Width = 46;
             // 
-            // bindingSourceParticipants
+            // bindSrcParticipants
             // 
-            this.bindingSourceParticipants.DataSource = typeof(Lugati.dll.Participant);
-            // 
-            // txtNbPlacesRestantes
-            // 
-            this.txtNbPlacesRestantes.Location = new System.Drawing.Point(381, 19);
-            this.txtNbPlacesRestantes.Name = "txtNbPlacesRestantes";
-            this.txtNbPlacesRestantes.ReadOnly = true;
-            this.txtNbPlacesRestantes.Size = new System.Drawing.Size(100, 20);
-            this.txtNbPlacesRestantes.TabIndex = 13;
-            // 
-            // lblNbPlacesRestantes
-            // 
-            this.lblNbPlacesRestantes.AutoSize = true;
-            this.lblNbPlacesRestantes.Location = new System.Drawing.Point(236, 22);
-            this.lblNbPlacesRestantes.Name = "lblNbPlacesRestantes";
-            this.lblNbPlacesRestantes.Size = new System.Drawing.Size(139, 13);
-            this.lblNbPlacesRestantes.TabIndex = 14;
-            this.lblNbPlacesRestantes.Text = "Nombre de places restantes";
+            this.bindSrcParticipants.DataSource = typeof(Lugati.dll.Participant);
             // 
             // FrmActivite
             // 
@@ -519,42 +519,42 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.BackColor = System.Drawing.Color.Crimson;
             this.ClientSize = new System.Drawing.Size(744, 511);
-            this.Controls.Add(this.tabControlActivites);
+            this.Controls.Add(this.tabActivites);
             this.Name = "FrmActivite";
             this.Text = "Activités";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridActivite)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceActivite)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvActivite)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindSrcActivite)).EndInit();
             this.grpInfos.ResumeLayout(false);
             this.grpInfos.PerformLayout();
             this.grpBoutons.ResumeLayout(false);
             this.grpBtnsSaveCancel.ResumeLayout(false);
-            this.tabControlActivites.ResumeLayout(false);
-            this.tabPageCRUDActivite.ResumeLayout(false);
-            this.tabPageParticipants.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewParticipants)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceParticipants)).EndInit();
+            this.tabActivites.ResumeLayout(false);
+            this.tabActivites_CRUDActivite.ResumeLayout(false);
+            this.tabActivites_Participants.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvParticipants)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindSrcParticipants)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dataGridActivite;
+        private System.Windows.Forms.DataGridView dgvActivite;
         private System.Windows.Forms.DataGridViewTextBoxColumn numActiviteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn libelleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn heureDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tarifDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nbPlacesDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource bindingSourceActivite;
+        private System.Windows.Forms.BindingSource bindSrcActivite;
         private System.Windows.Forms.GroupBox grpInfos;
-        private System.Windows.Forms.Label labelLibelleSession;
-        private System.Windows.Forms.TextBox textBoxLibelleActivite;
-        private System.Windows.Forms.Label labelAdresseHotel;
-        private System.Windows.Forms.Label labelPrixHotel;
-        private System.Windows.Forms.Label labelVilleHotel;
-        private System.Windows.Forms.Label labelTelHotel;
-        private System.Windows.Forms.ComboBox comboBoxHeure;
-        private System.Windows.Forms.DateTimePicker dateTimePickerDate;
+        private System.Windows.Forms.Label lblLibelle;
+        private System.Windows.Forms.TextBox txtLibelle;
+        private System.Windows.Forms.Label lblDate;
+        private System.Windows.Forms.Label lblTarif;
+        private System.Windows.Forms.Label lblHeure;
+        private System.Windows.Forms.Label lblNbPlaces;
+        private System.Windows.Forms.ComboBox comboHeure;
+        private System.Windows.Forms.DateTimePicker dtPickerDate;
         private System.Windows.Forms.GroupBox grpBoutons;
         private System.Windows.Forms.Button btnModifierActivite;
         private System.Windows.Forms.Button btnSupprimerActivite;
@@ -568,13 +568,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.MaskedTextBox maskedTextBoxNbPlaces;
-        private System.Windows.Forms.MaskedTextBox maskedTextBoxTarif;
-        private System.Windows.Forms.TabControl tabControlActivites;
-        private System.Windows.Forms.TabPage tabPageCRUDActivite;
-        private System.Windows.Forms.TabPage tabPageParticipants;
-        private System.Windows.Forms.DataGridView dataGridViewParticipants;
-        private System.Windows.Forms.BindingSource bindingSourceParticipants;
+        private System.Windows.Forms.MaskedTextBox maskTxtNbPlaces;
+        private System.Windows.Forms.MaskedTextBox maskTxtTarif;
+        private System.Windows.Forms.TabControl tabActivites;
+        private System.Windows.Forms.TabPage tabActivites_CRUDActivite;
+        private System.Windows.Forms.TabPage tabActivites_Participants;
+        private System.Windows.Forms.DataGridView dgvParticipants;
+        private System.Windows.Forms.BindingSource bindSrcParticipants;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn prenomDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn genreDataGridViewTextBoxColumn;

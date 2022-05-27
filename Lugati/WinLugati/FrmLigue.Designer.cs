@@ -29,42 +29,42 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dataGridLigue = new System.Windows.Forms.DataGridView();
+            this.dgvLigue = new System.Windows.Forms.DataGridView();
             this.idLigueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomLigueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.adresseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.villeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindingSourceLigue = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridLigue)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceLigue)).BeginInit();
+            this.bindSrcLigue = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLigue)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindSrcLigue)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridLigue
+            // dgvLigue
             // 
-            this.dataGridLigue.AllowUserToAddRows = false;
-            this.dataGridLigue.AllowUserToDeleteRows = false;
-            this.dataGridLigue.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvLigue.AllowUserToAddRows = false;
+            this.dgvLigue.AllowUserToDeleteRows = false;
+            this.dgvLigue.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridLigue.AutoGenerateColumns = false;
-            this.dataGridLigue.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridLigue.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
-            this.dataGridLigue.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridLigue.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvLigue.AutoGenerateColumns = false;
+            this.dgvLigue.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvLigue.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
+            this.dgvLigue.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLigue.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idLigueDataGridViewTextBoxColumn,
             this.nomLigueDataGridViewTextBoxColumn,
             this.adresseDataGridViewTextBoxColumn,
             this.cpDataGridViewTextBoxColumn,
             this.villeDataGridViewTextBoxColumn});
-            this.dataGridLigue.DataSource = this.bindingSourceLigue;
-            this.dataGridLigue.GridColor = System.Drawing.Color.Khaki;
-            this.dataGridLigue.Location = new System.Drawing.Point(12, 12);
-            this.dataGridLigue.Name = "dataGridLigue";
-            this.dataGridLigue.ReadOnly = true;
-            this.dataGridLigue.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridLigue.Size = new System.Drawing.Size(705, 426);
-            this.dataGridLigue.TabIndex = 0;
+            this.dgvLigue.DataSource = this.bindSrcLigue;
+            this.dgvLigue.GridColor = System.Drawing.Color.Khaki;
+            this.dgvLigue.Location = new System.Drawing.Point(12, 12);
+            this.dgvLigue.Name = "dgvLigue";
+            this.dgvLigue.ReadOnly = true;
+            this.dgvLigue.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvLigue.Size = new System.Drawing.Size(705, 426);
+            this.dgvLigue.TabIndex = 0;
             // 
             // idLigueDataGridViewTextBoxColumn
             // 
@@ -106,9 +106,9 @@
             this.villeDataGridViewTextBoxColumn.ReadOnly = true;
             this.villeDataGridViewTextBoxColumn.Width = 51;
             // 
-            // bindingSourceLigue
+            // bindSrcLigue
             // 
-            this.bindingSourceLigue.DataSource = typeof(Lugati.dll.Ligue);
+            this.bindSrcLigue.DataSource = typeof(Lugati.dll.Ligue);
             // 
             // FrmLigue
             // 
@@ -116,18 +116,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(231)))), ((int)(((byte)(159)))));
             this.ClientSize = new System.Drawing.Size(729, 450);
-            this.Controls.Add(this.dataGridLigue);
+            this.Controls.Add(this.dgvLigue);
             this.Name = "FrmLigue";
             this.Text = "Ligues";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridLigue)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceLigue)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLigue)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindSrcLigue)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dataGridLigue;
-        private System.Windows.Forms.BindingSource bindingSourceLigue;
+        private System.Windows.Forms.DataGridView dgvLigue;
+        private System.Windows.Forms.BindingSource bindSrcLigue;
         private System.Windows.Forms.DataGridViewTextBoxColumn idLigueDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomLigueDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn adresseDataGridViewTextBoxColumn;

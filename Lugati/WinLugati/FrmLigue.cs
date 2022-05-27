@@ -24,7 +24,7 @@ namespace WinLugati
         {
             try
             {
-                this.bindingSourceLigue.DataSource = Passerelle.GetLesLigues();
+                this.bindSrcLigue.DataSource = Passerelle.GetLesLigues();
             }
             catch (Exception ex)
             {

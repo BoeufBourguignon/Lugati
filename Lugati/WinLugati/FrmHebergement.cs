@@ -30,7 +30,7 @@ namespace WinLugati
         private void EnableModif(bool autoriserModif)
         {
             //pouvoir changer d'hotel dans la data grid view
-            this.dataGridHebergement.Enabled = !autoriserModif;
+            this.dgvHebergement.Enabled = !autoriserModif;
             //pouvoir changer les infos de l'hotel 
             this.grpInfos.Enabled = autoriserModif;
             //pouvoir annuler ou enregistrer
@@ -77,43 +77,43 @@ namespace WinLugati
         {
             //D'abord on vérifie que les champs sont bien remplis
             bool canSave = true;
-            if (string.IsNullOrWhiteSpace(textBoxNomHotel.Text) || textBoxNomHotel.Text.Length > 30)
+            if (string.IsNullOrWhiteSpace(txtNom.Text) || txtNom.Text.Length > 30)
             {
                 canSave = false;
                 MessageBox.Show("Le nom de l'hébergement ne doit pas être vide et ne doit pas faire plus de 30 caractères", 
                     "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            if (int.Parse(maskedTextBoxPrix.Text) == 0)
+            if (int.Parse(maskTxtPrix.Text) == 0)
             {
                 canSave = false;
                 MessageBox.Show("Le prix ne doit pas être égal à 0",
                     "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            if (string.IsNullOrWhiteSpace(maskedTextBoxTel.Text) || maskedTextBoxTel.Text.Length != 10)
+            if (string.IsNullOrWhiteSpace(maskTxtTel.Text) || maskTxtTel.Text.Length != 10)
             {
                 canSave = false;
                 MessageBox.Show("Le numéro de téléphone doit être composé de 10 chiffres",
                     "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            if (int.Parse(maskedTextBoxNbEtoileHotel.Text) < 1 && int.Parse(maskedTextBoxNbEtoileHotel.Text) > 3)
+            if (int.Parse(maskTxtNbEtoiles.Text) < 1 && int.Parse(maskTxtNbEtoiles.Text) > 3)
             {
                 canSave = false;
                 MessageBox.Show("L'hébergement doit avoir entre 1 et 3 étoiles",
                     "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            if (string.IsNullOrWhiteSpace(textBoxAdresseHotel.Text) || textBoxAdresseHotel.Text.Length > 50)
+            if (string.IsNullOrWhiteSpace(txtAdresse.Text) || txtAdresse.Text.Length > 50)
             {
                 canSave = false;
                 MessageBox.Show("L'adresse de l'hébergement ne doit pas être vide et ne doit pas faire plus de 50 caractères",
                     "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            if (string.IsNullOrWhiteSpace(textBoxVilleHotel.Text) || textBoxVilleHotel.Text.Length > 50)
+            if (string.IsNullOrWhiteSpace(txtVille.Text) || txtVille.Text.Length > 50)
             {
                 canSave = false;
                 MessageBox.Show("La ville de l'hébergement ne doit pas être vide et ne doit pas faire plus de 30 caractères",
                     "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            if (string.IsNullOrWhiteSpace(maskedTextBoxCPHotel.Text) || maskedTextBoxCPHotel.Text.Length != 5)
+            if (string.IsNullOrWhiteSpace(maskTxtCP.Text) || maskTxtCP.Text.Length != 5)
             {
                 canSave = false;
                 MessageBox.Show("Le code postal doit être composé de 5 chiffres",

@@ -21,7 +21,7 @@ namespace WinLugati
         {
             InitializeComponent();
 
-            this.comboBoxGenre.DataSource = new List<char> { 'H', 'F' };
+            this.comboGenre.DataSource = new List<char> { 'H', 'F' };
 
             this.InitializeData();
         }
@@ -30,9 +30,9 @@ namespace WinLugati
         {
             try
             {
-                this.bindingSourceLigue.DataSource = Passerelle.GetLesLigues();
-                this.bindingSourceHebergement.DataSource = Passerelle.GetLesHebergements();
-                this.bindingSourceParticipant.DataSource = Passerelle.GetLesParticipants();
+                this.bindSrcLigue.DataSource = Passerelle.GetLesLigues();
+                this.bindSrcHebergement.DataSource = Passerelle.GetLesHebergements();
+                this.bindSrcParticipant.DataSource = Passerelle.GetLesParticipants();
             }
             catch (Exception ex)
             {
@@ -40,28 +40,28 @@ namespace WinLugati
                 this.Close();
             }
 
-            foreach (Participant unP in this.bindingSourceParticipant)
+            foreach (Participant unP in this.bindSrcParticipant)
             {
                 int i = 0;
-                while (i < this.bindingSourceLigue.Count - 1 && unP.idLigue != ((Ligue)this.bindingSourceLigue[i]).idLigue)
+                while (i < this.bindSrcLigue.Count - 1 && unP.idLigue != ((Ligue)this.bindSrcLigue[i]).idLigue)
                 {
                     i++;
                 }
-                unP.ligue = (Ligue)this.bindingSourceLigue[i];
+                unP.ligue = (Ligue)this.bindSrcLigue[i];
 
                 int j = 0;
-                while (j < this.bindingSourceHebergement.Count - 1 && unP.idHebergement != ((Hebergement)this.bindingSourceHebergement[j]).idHebergement)
+                while (j < this.bindSrcHebergement.Count - 1 && unP.idHebergement != ((Hebergement)this.bindSrcHebergement[j]).idHebergement)
                 {
                     j++;
                 }
-                unP.hebergement = (Hebergement)this.bindingSourceHebergement[j];
+                unP.hebergement = (Hebergement)this.bindSrcHebergement[j];
             }
         }
 
         private void EnableModif(bool autoriserModif)
         {
             //pouvoir changer d'hotel dans la data grid view
-            this.dataGridParticipant.Enabled = !autoriserModif;
+            this.dgvParticipants.Enabled = !autoriserModif;
             //pouvoir changer les infos de l'hotel 
             this.grpInfos.Enabled = autoriserModif;
             //pouvoir annuler ou enregistrer
@@ -73,7 +73,7 @@ namespace WinLugati
         private void btnAjouterParticipant_Click(object sender, EventArgs e)
         {
             this.EnableModif(true);
-            this.bindingSourceParticipant.AddNew();
+            this.bindSrcParticipant.AddNew();
         }
 
         private void btnSupprimerParticipant_Click(object sender, EventArgs e)
@@ -82,13 +82,13 @@ namespace WinLugati
             {
                 try
                 {
-                    if (Passerelle.SupprimerParticipant((int)((Participant)this.bindingSourceParticipant.Current).idParticipant) == false)
+                    if (Passerelle.SupprimerParticipant((int)((Participant)this.bindSrcParticipant.Current).idParticipant) == false)
                     {
                         MessageBox.Show("Le participant ne peut pas être supprimée car il participe à des activités ou à des sessions", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
-                        this.bindingSourceParticipant.RemoveCurrent();
+                        this.bindSrcParticipant.RemoveCurrent();
                         MessageBox.Show("Le participant sélectionnée a été supprimée", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
@@ -108,37 +108,37 @@ namespace WinLugati
         {
             //On vérifie que les champs soient bien remplis
             bool canSave = true;
-            if (string.IsNullOrWhiteSpace(textBoxNom.Text) || textBoxNom.Text.Length > 30)
+            if (string.IsNullOrWhiteSpace(txtNom.Text) || txtNom.Text.Length > 30)
             {
                 canSave = false;
                 MessageBox.Show("Le nom du participant ne doit pas être vide et ne doit pas faire plus de 30 caractères",
                     "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            if (string.IsNullOrWhiteSpace(textBoxAdresse.Text) || textBoxAdresse.Text.Length > 50)
+            if (string.IsNullOrWhiteSpace(txtAdresse.Text) || txtAdresse.Text.Length > 50)
             {
                 canSave = false;
                 MessageBox.Show("L'adresse du participant ne doit pas être vide et ne doit pas faire plus de 50 caractères",
                     "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            if (string.IsNullOrWhiteSpace(textBoxPrenom.Text) || textBoxPrenom.Text.Length > 30)
+            if (string.IsNullOrWhiteSpace(txtPrenom.Text) || txtPrenom.Text.Length > 30)
             {
                 canSave = false;
                 MessageBox.Show("Le prénom du participant ne doit pas être vide et ne doit pas faire plus de 30 caractères",
                     "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            if (string.IsNullOrWhiteSpace(textBoxVille.Text) || textBoxVille.Text.Length > 30)
+            if (string.IsNullOrWhiteSpace(txtVille.Text) || txtVille.Text.Length > 30)
             {
                 canSave = false;
                 MessageBox.Show("La ville du participant ne doit pas être vide et ne doit pas faire plus de 30 caractères",
                     "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            if (string.IsNullOrWhiteSpace(comboBoxGenre.Text) || (comboBoxGenre.Text != "F" && comboBoxGenre.Text != "H")) 
+            if (string.IsNullOrWhiteSpace(comboGenre.Text) || (comboGenre.Text != "F" && comboGenre.Text != "H")) 
             {
                 canSave = false;
                 MessageBox.Show("Le genre du participant est invalide",
                     "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            if (string.IsNullOrWhiteSpace(maskedTextBoxCP.Text) || maskedTextBoxCP.Text.Length != 5)
+            if (string.IsNullOrWhiteSpace(maskTxtCP.Text) || maskTxtCP.Text.Length != 5)
             {
                 canSave = false;
                 MessageBox.Show("Le code postal doit être composé de 5 chiffres",
@@ -147,8 +147,8 @@ namespace WinLugati
 
             if (canSave)
             {
-                this.bindingSourceParticipant.EndEdit();
-                Participant p = (Participant)this.bindingSourceParticipant.Current;
+                this.bindSrcParticipant.EndEdit();
+                Participant p = (Participant)this.bindSrcParticipant.Current;
                 p.idHebergement = p.hebergement.idHebergement;
                 p.idLigue = p.ligue.idLigue;
 
@@ -175,14 +175,14 @@ namespace WinLugati
 
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
-            this.bindingSourceParticipant.ResetBindings(false);
-            this.bindingSourceParticipant.CancelEdit();
+            this.bindSrcParticipant.ResetBindings(false);
+            this.bindSrcParticipant.CancelEdit();
             this.EnableModif(false);
         }
 
         private void bindingSourceParticipant_CurrentChanged(object sender, EventArgs e)
         {
-            this.participant = (Participant)this.bindingSourceParticipant.Current;
+            this.participant = (Participant)this.bindSrcParticipant.Current;
             if (this.participant != null)
             {
                 this.lblTitreInscriptions.Text = "Inscriptions de " + participant.prenom + " " + participant.nom;
@@ -195,13 +195,13 @@ namespace WinLugati
                     this.txtReste.Text = (montantTotal - this.participant.acompte).ToString();
 
                     //On récupère les sessions disponibles (places restantes & pas déjà inscrit)
-                    this.bindingSourceSessionsDispo.DataSource = Passerelle.GetLesSessionsDisponibles(this.participant.idParticipant);
+                    this.bindSrcSessionsDispo.DataSource = Passerelle.GetLesSessionsDisponibles(this.participant.idParticipant);
                     //On récupère les sessions inscrites
-                    this.bindingSourceSessionsInscrites.DataSource = Passerelle.GetLesSessionsInscrites(this.participant.idParticipant);
+                    this.bindSrcSessionsInscrites.DataSource = Passerelle.GetLesSessionsInscrites(this.participant.idParticipant);
                     //On récupère les activités disponibles (places restantes & pas déjà inscrit)
-                    this.bindingSourceActivitesDispo.DataSource = Passerelle.GetLesActivitesDisponibles(this.participant.idParticipant);
+                    this.bindSrcActivitesDispo.DataSource = Passerelle.GetLesActivitesDisponibles(this.participant.idParticipant);
                     //On récupère les activités inscrites
-                    this.bindingSourceActivitesInscrites.DataSource = Passerelle.GetLesActivitesInsrites(this.participant.idParticipant);
+                    this.bindSrcActivitesInscrites.DataSource = Passerelle.GetLesActivitesInsrites(this.participant.idParticipant);
 
                     this.CheckBoutonsEnabled();
                 }
@@ -216,7 +216,7 @@ namespace WinLugati
         private void CheckBoutonsEnabled()
         {
             //S'il n'y a pas de session dispo on désactive le bouton ajouter
-            if (this.bindingSourceSessionsDispo.Count == 0)
+            if (this.bindSrcSessionsDispo.Count == 0)
             {
                 this.btnAjouterSession.Enabled = false;
             } 
@@ -225,7 +225,7 @@ namespace WinLugati
                 this.btnAjouterSession.Enabled = true;
             }
             //S'il n'y a pas de session inscrite on désactive le bouton supprimer
-            if (this.bindingSourceSessionsInscrites.Count == 0)
+            if (this.bindSrcSessionsInscrites.Count == 0)
             {
                 this.btnSupprimerSession.Enabled = false;
             }
@@ -234,7 +234,7 @@ namespace WinLugati
                 this.btnSupprimerSession.Enabled = true;
             }
             //S'il n'y a pas d'activité dispo on désactive le bouton ajouter
-            if (this.bindingSourceActivitesDispo.Count == 0)
+            if (this.bindSrcActivitesDispo.Count == 0)
             {
                 this.btnAjouterActivite.Enabled = false;
             }
@@ -243,7 +243,7 @@ namespace WinLugati
                 this.btnAjouterActivite.Enabled = true;
             }
             //S'il n'y a pas d'activité inscrite on désactive le bouton supprimer
-            if (this.bindingSourceActivitesInscrites.Count == 0)
+            if (this.bindSrcActivitesInscrites.Count == 0)
             {
                 this.btnSupprimerActivite.Enabled = false;
             }
@@ -255,14 +255,14 @@ namespace WinLugati
 
         private void btnAjouterSession_Click(object sender, EventArgs e)
         {
-            Session sessionAAjouter = (Session)this.bindingSourceSessionsDispo.Current;
+            Session sessionAAjouter = (Session)this.bindSrcSessionsDispo.Current;
             if (sessionAAjouter != null)
             {
                 try
                 {
                     Passerelle.AjouterInscription(this.participant.idParticipant, sessionAAjouter.numSession);
-                    this.bindingSourceSessionsInscrites.Add(sessionAAjouter);
-                    this.bindingSourceSessionsDispo.RemoveCurrent();
+                    this.bindSrcSessionsInscrites.Add(sessionAAjouter);
+                    this.bindSrcSessionsDispo.RemoveCurrent();
 
                     this.CheckBoutonsEnabled();
                 }
@@ -276,14 +276,14 @@ namespace WinLugati
 
         private void btnSupprimerSession_Click(object sender, EventArgs e)
         {
-            Session sessionASupprimer = (Session)this.bindingSourceSessionsInscrites.Current;
+            Session sessionASupprimer = (Session)this.bindSrcSessionsInscrites.Current;
             if (sessionASupprimer != null)
             {
                 try
                 {
                     Passerelle.SupprimerInscription(this.participant.idParticipant, sessionASupprimer.numSession);
-                    this.bindingSourceSessionsDispo.Add(sessionASupprimer);
-                    this.bindingSourceSessionsInscrites.RemoveCurrent();
+                    this.bindSrcSessionsDispo.Add(sessionASupprimer);
+                    this.bindSrcSessionsInscrites.RemoveCurrent();
 
                     this.CheckBoutonsEnabled();
                 }
@@ -297,14 +297,14 @@ namespace WinLugati
 
         private void btnAjouterActivite_Click(object sender, EventArgs e)
         {
-            Activite activiteAAjouter = (Activite)this.bindingSourceActivitesDispo.Current;
+            Activite activiteAAjouter = (Activite)this.bindSrcActivitesDispo.Current;
             if (activiteAAjouter != null)
             {
                 try
                 {
                     Passerelle.AjouterParticipation(this.participant.idParticipant, activiteAAjouter.numActivite);
-                    this.bindingSourceActivitesInscrites.Add(activiteAAjouter);
-                    this.bindingSourceActivitesDispo.RemoveCurrent();
+                    this.bindSrcActivitesInscrites.Add(activiteAAjouter);
+                    this.bindSrcActivitesDispo.RemoveCurrent();
 
                     this.CheckBoutonsEnabled();
                 }
@@ -318,14 +318,14 @@ namespace WinLugati
 
         private void btnSupprimerActivite_Click(object sender, EventArgs e)
         {
-            Activite activiteASupprimer = (Activite)this.bindingSourceActivitesInscrites.Current;
+            Activite activiteASupprimer = (Activite)this.bindSrcActivitesInscrites.Current;
             if (activiteASupprimer != null)
             {
                 try
                 {
                     Passerelle.SupprimerParticipation(this.participant.idParticipant, activiteASupprimer.numActivite);
-                    this.bindingSourceActivitesDispo.Add(activiteASupprimer);
-                    this.bindingSourceActivitesInscrites.RemoveCurrent();
+                    this.bindSrcActivitesDispo.Add(activiteASupprimer);
+                    this.bindSrcActivitesInscrites.RemoveCurrent();
 
                     this.CheckBoutonsEnabled();
                 }
