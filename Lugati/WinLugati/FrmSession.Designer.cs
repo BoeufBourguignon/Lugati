@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.grpInfos = new System.Windows.Forms.GroupBox();
             this.comboBoxHeure = new System.Windows.Forms.ComboBox();
+            this.bindingSourceSession = new System.Windows.Forms.BindingSource(this.components);
             this.dateTimePickerDate = new System.Windows.Forms.DateTimePicker();
             this.maskedTextBoxNbPlaces = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBoxTarif = new System.Windows.Forms.MaskedTextBox();
@@ -41,6 +42,12 @@
             this.labelVilleHotel = new System.Windows.Forms.Label();
             this.labelTelHotel = new System.Windows.Forms.Label();
             this.dataGridSession = new System.Windows.Forms.DataGridView();
+            this.numSessionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tarifDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nbPlacesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.libelleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.heureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpBoutons = new System.Windows.Forms.GroupBox();
             this.btnModifierSession = new System.Windows.Forms.Button();
             this.btnSupprimerSession = new System.Windows.Forms.Button();
@@ -52,13 +59,6 @@
             this.tabPageCRUDSession = new System.Windows.Forms.TabPage();
             this.tabPageInscris = new System.Windows.Forms.TabPage();
             this.dataGridViewInscris = new System.Windows.Forms.DataGridView();
-            this.numSessionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tarifDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nbPlacesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.libelleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.heureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindingSourceSession = new System.Windows.Forms.BindingSource(this.components);
             this.nomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prenomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.genreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,7 +66,10 @@
             this.villeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingSourceInscris = new System.Windows.Forms.BindingSource(this.components);
+            this.lblNbPlacesRestantes = new System.Windows.Forms.Label();
+            this.txtNbPlacesRestantes = new System.Windows.Forms.TextBox();
             this.grpInfos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSession)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSession)).BeginInit();
             this.grpBoutons.SuspendLayout();
             this.grpBtnsSaveCancel.SuspendLayout();
@@ -74,7 +77,6 @@
             this.tabPageCRUDSession.SuspendLayout();
             this.tabPageInscris.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInscris)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSession)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceInscris)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,6 +85,8 @@
             this.grpInfos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpInfos.BackColor = System.Drawing.Color.Transparent;
+            this.grpInfos.Controls.Add(this.txtNbPlacesRestantes);
+            this.grpInfos.Controls.Add(this.lblNbPlacesRestantes);
             this.grpInfos.Controls.Add(this.comboBoxHeure);
             this.grpInfos.Controls.Add(this.dateTimePickerDate);
             this.grpInfos.Controls.Add(this.maskedTextBoxNbPlaces);
@@ -111,18 +115,23 @@
             this.comboBoxHeure.Items.AddRange(new object[] {
             "09:00",
             "14:30"});
-            this.comboBoxHeure.Location = new System.Drawing.Point(290, 140);
+            this.comboBoxHeure.Location = new System.Drawing.Point(318, 140);
             this.comboBoxHeure.Name = "comboBoxHeure";
-            this.comboBoxHeure.Size = new System.Drawing.Size(193, 21);
+            this.comboBoxHeure.Size = new System.Drawing.Size(165, 21);
             this.comboBoxHeure.TabIndex = 20;
+            // 
+            // bindingSourceSession
+            // 
+            this.bindingSourceSession.AllowNew = true;
+            this.bindingSourceSession.DataSource = typeof(Lugati.dll.Session);
+            this.bindingSourceSession.CurrentChanged += new System.EventHandler(this.bindingSourceSession_CurrentChanged);
             // 
             // dateTimePickerDate
             // 
             this.dateTimePickerDate.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bindingSourceSession, "date", true));
-            this.dateTimePickerDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerDate.Location = new System.Drawing.Point(290, 96);
+            this.dateTimePickerDate.Location = new System.Drawing.Point(318, 96);
             this.dateTimePickerDate.Name = "dateTimePickerDate";
-            this.dateTimePickerDate.Size = new System.Drawing.Size(193, 20);
+            this.dateTimePickerDate.Size = new System.Drawing.Size(165, 20);
             this.dateTimePickerDate.TabIndex = 19;
             // 
             // maskedTextBoxNbPlaces
@@ -168,7 +177,7 @@
             this.labelAdresseHotel.AutoSize = true;
             this.labelAdresseHotel.ForeColor = System.Drawing.Color.White;
             this.labelAdresseHotel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.labelAdresseHotel.Location = new System.Drawing.Point(254, 100);
+            this.labelAdresseHotel.Location = new System.Drawing.Point(282, 99);
             this.labelAdresseHotel.Name = "labelAdresseHotel";
             this.labelAdresseHotel.Size = new System.Drawing.Size(30, 13);
             this.labelAdresseHotel.TabIndex = 7;
@@ -190,7 +199,7 @@
             this.labelVilleHotel.AutoSize = true;
             this.labelVilleHotel.ForeColor = System.Drawing.Color.White;
             this.labelVilleHotel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.labelVilleHotel.Location = new System.Drawing.Point(248, 143);
+            this.labelVilleHotel.Location = new System.Drawing.Point(276, 143);
             this.labelVilleHotel.Name = "labelVilleHotel";
             this.labelVilleHotel.Size = new System.Drawing.Size(36, 13);
             this.labelVilleHotel.TabIndex = 10;
@@ -233,6 +242,54 @@
             this.dataGridSession.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridSession.Size = new System.Drawing.Size(704, 197);
             this.dataGridSession.TabIndex = 0;
+            // 
+            // numSessionDataGridViewTextBoxColumn
+            // 
+            this.numSessionDataGridViewTextBoxColumn.DataPropertyName = "numSession";
+            this.numSessionDataGridViewTextBoxColumn.HeaderText = "Numéro";
+            this.numSessionDataGridViewTextBoxColumn.Name = "numSessionDataGridViewTextBoxColumn";
+            this.numSessionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.numSessionDataGridViewTextBoxColumn.Width = 69;
+            // 
+            // tarifDataGridViewTextBoxColumn
+            // 
+            this.tarifDataGridViewTextBoxColumn.DataPropertyName = "tarif";
+            this.tarifDataGridViewTextBoxColumn.HeaderText = "Tarif";
+            this.tarifDataGridViewTextBoxColumn.Name = "tarifDataGridViewTextBoxColumn";
+            this.tarifDataGridViewTextBoxColumn.ReadOnly = true;
+            this.tarifDataGridViewTextBoxColumn.Width = 53;
+            // 
+            // nbPlacesDataGridViewTextBoxColumn
+            // 
+            this.nbPlacesDataGridViewTextBoxColumn.DataPropertyName = "nbPlaces";
+            this.nbPlacesDataGridViewTextBoxColumn.HeaderText = "Nombre de places";
+            this.nbPlacesDataGridViewTextBoxColumn.Name = "nbPlacesDataGridViewTextBoxColumn";
+            this.nbPlacesDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nbPlacesDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // libelleDataGridViewTextBoxColumn
+            // 
+            this.libelleDataGridViewTextBoxColumn.DataPropertyName = "libelle";
+            this.libelleDataGridViewTextBoxColumn.HeaderText = "Nom";
+            this.libelleDataGridViewTextBoxColumn.Name = "libelleDataGridViewTextBoxColumn";
+            this.libelleDataGridViewTextBoxColumn.ReadOnly = true;
+            this.libelleDataGridViewTextBoxColumn.Width = 54;
+            // 
+            // dateDataGridViewTextBoxColumn
+            // 
+            this.dateDataGridViewTextBoxColumn.DataPropertyName = "date";
+            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
+            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dateDataGridViewTextBoxColumn.Width = 55;
+            // 
+            // heureDataGridViewTextBoxColumn
+            // 
+            this.heureDataGridViewTextBoxColumn.DataPropertyName = "heure";
+            this.heureDataGridViewTextBoxColumn.HeaderText = "Heure";
+            this.heureDataGridViewTextBoxColumn.Name = "heureDataGridViewTextBoxColumn";
+            this.heureDataGridViewTextBoxColumn.ReadOnly = true;
+            this.heureDataGridViewTextBoxColumn.Width = 61;
             // 
             // grpBoutons
             // 
@@ -389,60 +446,6 @@
             this.dataGridViewInscris.Size = new System.Drawing.Size(704, 455);
             this.dataGridViewInscris.TabIndex = 0;
             // 
-            // numSessionDataGridViewTextBoxColumn
-            // 
-            this.numSessionDataGridViewTextBoxColumn.DataPropertyName = "numSession";
-            this.numSessionDataGridViewTextBoxColumn.HeaderText = "Numéro";
-            this.numSessionDataGridViewTextBoxColumn.Name = "numSessionDataGridViewTextBoxColumn";
-            this.numSessionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.numSessionDataGridViewTextBoxColumn.Width = 69;
-            // 
-            // tarifDataGridViewTextBoxColumn
-            // 
-            this.tarifDataGridViewTextBoxColumn.DataPropertyName = "tarif";
-            this.tarifDataGridViewTextBoxColumn.HeaderText = "Tarif";
-            this.tarifDataGridViewTextBoxColumn.Name = "tarifDataGridViewTextBoxColumn";
-            this.tarifDataGridViewTextBoxColumn.ReadOnly = true;
-            this.tarifDataGridViewTextBoxColumn.Width = 53;
-            // 
-            // nbPlacesDataGridViewTextBoxColumn
-            // 
-            this.nbPlacesDataGridViewTextBoxColumn.DataPropertyName = "nbPlaces";
-            this.nbPlacesDataGridViewTextBoxColumn.HeaderText = "Nombre de places";
-            this.nbPlacesDataGridViewTextBoxColumn.Name = "nbPlacesDataGridViewTextBoxColumn";
-            this.nbPlacesDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nbPlacesDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // libelleDataGridViewTextBoxColumn
-            // 
-            this.libelleDataGridViewTextBoxColumn.DataPropertyName = "libelle";
-            this.libelleDataGridViewTextBoxColumn.HeaderText = "Nom";
-            this.libelleDataGridViewTextBoxColumn.Name = "libelleDataGridViewTextBoxColumn";
-            this.libelleDataGridViewTextBoxColumn.ReadOnly = true;
-            this.libelleDataGridViewTextBoxColumn.Width = 54;
-            // 
-            // dateDataGridViewTextBoxColumn
-            // 
-            this.dateDataGridViewTextBoxColumn.DataPropertyName = "date";
-            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
-            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
-            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dateDataGridViewTextBoxColumn.Width = 55;
-            // 
-            // heureDataGridViewTextBoxColumn
-            // 
-            this.heureDataGridViewTextBoxColumn.DataPropertyName = "heure";
-            this.heureDataGridViewTextBoxColumn.HeaderText = "Heure";
-            this.heureDataGridViewTextBoxColumn.Name = "heureDataGridViewTextBoxColumn";
-            this.heureDataGridViewTextBoxColumn.ReadOnly = true;
-            this.heureDataGridViewTextBoxColumn.Width = 61;
-            // 
-            // bindingSourceSession
-            // 
-            this.bindingSourceSession.AllowNew = true;
-            this.bindingSourceSession.DataSource = typeof(Lugati.dll.Session);
-            this.bindingSourceSession.CurrentChanged += new System.EventHandler(this.bindingSourceSession_CurrentChanged);
-            // 
             // nomDataGridViewTextBoxColumn
             // 
             this.nomDataGridViewTextBoxColumn.DataPropertyName = "nom";
@@ -495,6 +498,23 @@
             // 
             this.bindingSourceInscris.DataSource = typeof(Lugati.dll.Participant);
             // 
+            // lblNbPlacesRestantes
+            // 
+            this.lblNbPlacesRestantes.AutoSize = true;
+            this.lblNbPlacesRestantes.Location = new System.Drawing.Point(238, 19);
+            this.lblNbPlacesRestantes.Name = "lblNbPlacesRestantes";
+            this.lblNbPlacesRestantes.Size = new System.Drawing.Size(139, 13);
+            this.lblNbPlacesRestantes.TabIndex = 21;
+            this.lblNbPlacesRestantes.Text = "Nombre de places restantes";
+            // 
+            // txtNbPlacesRestantes
+            // 
+            this.txtNbPlacesRestantes.Location = new System.Drawing.Point(383, 16);
+            this.txtNbPlacesRestantes.Name = "txtNbPlacesRestantes";
+            this.txtNbPlacesRestantes.ReadOnly = true;
+            this.txtNbPlacesRestantes.Size = new System.Drawing.Size(100, 20);
+            this.txtNbPlacesRestantes.TabIndex = 22;
+            // 
             // FrmSession
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -508,6 +528,7 @@
             this.Text = "Sessions";
             this.grpInfos.ResumeLayout(false);
             this.grpInfos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSession)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSession)).EndInit();
             this.grpBoutons.ResumeLayout(false);
             this.grpBtnsSaveCancel.ResumeLayout(false);
@@ -515,7 +536,6 @@
             this.tabPageCRUDSession.ResumeLayout(false);
             this.tabPageInscris.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInscris)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSession)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceInscris)).EndInit();
             this.ResumeLayout(false);
 
@@ -559,5 +579,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn adresseDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn villeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cpDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TextBox txtNbPlacesRestantes;
+        private System.Windows.Forms.Label lblNbPlacesRestantes;
     }
 }

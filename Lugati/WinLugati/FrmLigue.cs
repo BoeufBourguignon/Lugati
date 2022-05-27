@@ -15,12 +15,22 @@ namespace WinLugati
     {
         public FrmLigue()
         {
-            InitializeComponent();    
+            InitializeComponent();
+
+            this.InitializeData();
         }
 
-        private void FrmLigue_Load(object sender, EventArgs e)
+        private void InitializeData()
         {
-            bindingSourceLigue.DataSource = Passerelle.GetLesLigues();
+            try
+            {
+                this.bindingSourceLigue.DataSource = Passerelle.GetLesLigues();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+            }
         }
     }
 }

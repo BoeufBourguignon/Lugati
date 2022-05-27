@@ -34,6 +34,8 @@ namespace WinLugati
             this.bindingSourceParticipant = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceLigue = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.lblTotal = new System.Windows.Forms.Label();
             this.txtAcompte = new System.Windows.Forms.TextBox();
             this.lblAcompte = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -113,8 +115,11 @@ namespace WinLugati
             this.ligue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hebergement = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabParticipant = new System.Windows.Forms.TabControl();
-            this.lblTotal = new System.Windows.Forms.Label();
-            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.lblEurosTotal = new System.Windows.Forms.Label();
+            this.lblEurosAcompte = new System.Windows.Forms.Label();
+            this.lblReste = new System.Windows.Forms.Label();
+            this.txtReste = new System.Windows.Forms.TextBox();
+            this.lblEurosReste = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceParticipant)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceLigue)).BeginInit();
             this.tabPage4.SuspendLayout();
@@ -151,7 +156,12 @@ namespace WinLugati
             // 
             this.tabPage4.BackColor = System.Drawing.SystemColors.Control;
             this.tabPage4.Controls.Add(this.txtTotal);
+            this.tabPage4.Controls.Add(this.lblEurosReste);
+            this.tabPage4.Controls.Add(this.lblEurosAcompte);
+            this.tabPage4.Controls.Add(this.lblEurosTotal);
             this.tabPage4.Controls.Add(this.lblTotal);
+            this.tabPage4.Controls.Add(this.txtReste);
+            this.tabPage4.Controls.Add(this.lblReste);
             this.tabPage4.Controls.Add(this.txtAcompte);
             this.tabPage4.Controls.Add(this.lblAcompte);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
@@ -161,11 +171,28 @@ namespace WinLugati
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Comptes";
             // 
+            // txtTotal
+            // 
+            this.txtTotal.Enabled = false;
+            this.txtTotal.Location = new System.Drawing.Point(153, 36);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(100, 20);
+            this.txtTotal.TabIndex = 1;
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Location = new System.Drawing.Point(84, 39);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(63, 13);
+            this.lblTotal.TabIndex = 0;
+            this.lblTotal.Text = "Motant total";
+            // 
             // txtAcompte
             // 
             this.txtAcompte.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceParticipant, "acompte", true));
             this.txtAcompte.Enabled = false;
-            this.txtAcompte.Location = new System.Drawing.Point(127, 78);
+            this.txtAcompte.Location = new System.Drawing.Point(153, 78);
             this.txtAcompte.Name = "txtAcompte";
             this.txtAcompte.Size = new System.Drawing.Size(100, 20);
             this.txtAcompte.TabIndex = 1;
@@ -173,7 +200,7 @@ namespace WinLugati
             // lblAcompte
             // 
             this.lblAcompte.AutoSize = true;
-            this.lblAcompte.Location = new System.Drawing.Point(72, 81);
+            this.lblAcompte.Location = new System.Drawing.Point(98, 81);
             this.lblAcompte.Name = "lblAcompte";
             this.lblAcompte.Size = new System.Drawing.Size(49, 13);
             this.lblAcompte.TabIndex = 0;
@@ -977,22 +1004,49 @@ namespace WinLugati
             this.tabParticipant.Size = new System.Drawing.Size(1140, 506);
             this.tabParticipant.TabIndex = 0;
             // 
-            // lblTotal
+            // lblEurosTotal
             // 
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(58, 39);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(63, 13);
-            this.lblTotal.TabIndex = 0;
-            this.lblTotal.Text = "Motant total";
+            this.lblEurosTotal.AutoSize = true;
+            this.lblEurosTotal.Location = new System.Drawing.Point(255, 39);
+            this.lblEurosTotal.Name = "lblEurosTotal";
+            this.lblEurosTotal.Size = new System.Drawing.Size(13, 13);
+            this.lblEurosTotal.TabIndex = 0;
+            this.lblEurosTotal.Text = "€";
             // 
-            // txtTotal
+            // lblEurosAcompte
             // 
-            this.txtTotal.Enabled = false;
-            this.txtTotal.Location = new System.Drawing.Point(127, 36);
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(100, 20);
-            this.txtTotal.TabIndex = 1;
+            this.lblEurosAcompte.AutoSize = true;
+            this.lblEurosAcompte.Location = new System.Drawing.Point(255, 81);
+            this.lblEurosAcompte.Name = "lblEurosAcompte";
+            this.lblEurosAcompte.Size = new System.Drawing.Size(13, 13);
+            this.lblEurosAcompte.TabIndex = 0;
+            this.lblEurosAcompte.Text = "€";
+            // 
+            // lblReste
+            // 
+            this.lblReste.AutoSize = true;
+            this.lblReste.Location = new System.Drawing.Point(74, 123);
+            this.lblReste.Name = "lblReste";
+            this.lblReste.Size = new System.Drawing.Size(73, 13);
+            this.lblReste.TabIndex = 0;
+            this.lblReste.Text = "Reste à payer";
+            // 
+            // txtReste
+            // 
+            this.txtReste.Enabled = false;
+            this.txtReste.Location = new System.Drawing.Point(153, 120);
+            this.txtReste.Name = "txtReste";
+            this.txtReste.Size = new System.Drawing.Size(100, 20);
+            this.txtReste.TabIndex = 1;
+            // 
+            // lblEurosReste
+            // 
+            this.lblEurosReste.AutoSize = true;
+            this.lblEurosReste.Location = new System.Drawing.Point(255, 123);
+            this.lblEurosReste.Name = "lblEurosReste";
+            this.lblEurosReste.Size = new System.Drawing.Size(13, 13);
+            this.lblEurosReste.TabIndex = 0;
+            this.lblEurosReste.Text = "€";
             // 
             // FrmParticipant
             // 
@@ -1118,5 +1172,10 @@ namespace WinLugati
         private System.Windows.Forms.Label lblAcompte;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Label lblEurosAcompte;
+        private System.Windows.Forms.Label lblEurosTotal;
+        private System.Windows.Forms.Label lblEurosReste;
+        private System.Windows.Forms.TextBox txtReste;
+        private System.Windows.Forms.Label lblReste;
     }
 }

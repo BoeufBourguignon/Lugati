@@ -14,9 +14,6 @@ namespace Lugati.dll
     public static class Passerelle
     {
         #region Chaine de Connexion //////////////////////////////////////////////////////
-        /// <summary>
-        /// Chaine de Connexion à la BDD Lugati sur SQL SERVER
-        /// </summary>
         private static SqlConnection connexionBaseLugati = new SqlConnection(
             "Data Source=" + Environment.MachineName.ToString() + ";" +
             "Initial Catalog=base_lugati;" +
@@ -24,9 +21,11 @@ namespace Lugati.dll
             "Password=b4n4n3");
         #endregion
 
+
         #region Sessions /////////////////////////////////////////////////////////////////
+
         /// <summary>
-        /// Retourne toutes les sessions présentes dans la base de données
+        /// Retourne toutes les sessions
         /// </summary>
         public static List<Session> GetLesSessions()
         {
@@ -65,6 +64,11 @@ namespace Lugati.dll
             return lesSessions;
         }
 
+        /// <summary>
+        /// Retourne toutes les sessions disponibles pour un participant
+        /// C'est à dire celles où il n'est pas inscrit et où il reste de la place disponible
+        /// </summary>
+        /// <param name="idParticipant">Identifiant du participant</param>
         public static List<Session> GetLesSessionsDisponibles(int idParticipant)
         {
             List<Session> lesS = new List<Session>();
@@ -105,6 +109,10 @@ namespace Lugati.dll
             return lesS;
         }
 
+        /// <summary>
+        /// Retourne toutes les sessions dans lesquelles un participant est inscrit
+        /// </summary>
+        /// <param name="idParticipant">Identifiant du participant</param>
         public static List<Session> GetLesSessionsInscrites(int idParticipant)
         {
             List<Session> lesS = new List<Session>();
@@ -145,10 +153,10 @@ namespace Lugati.dll
         }
 
         /// <summary>
-        /// Ajoute une Session à la BDD
+        /// Ajoute une session à la base de données
         /// </summary>
-        /// <param name="s">Session à ajouter à la BDD</param>
-        /// <returns>Id de la session ajoutée</returns>
+        /// <param name="s">Objet de la session à ajouter</param>
+        /// <returns>Identifiant de la session ajoutée</returns>
         public static int AjouterSession(Session s)
         {
             SqlCommand reqAjouterSession =
@@ -179,14 +187,16 @@ namespace Lugati.dll
         }
 
         /// <summary>
-        /// Supprime une session de la BDD
+        /// Supprime une session de la base de données
         /// </summary>
-        /// <param name="numSession">Num de la session à supprimer</param>
+        /// <param name="numSession">Identifiant de la session à supprimer</param>
+        /// <returns>false si des participants sont déjà inscrits</returns>
         public static bool SupprimerSession(int numSession)
         {
             bool peutEtreSupprime = false;
 
-            //On vérifie que la session peut être supprimée
+            //D'abord on vérifie que la session peut être supprimée
+            //C'est à dire qu'elle ne fait pas l'objet d'inscriptions
             SqlCommand reqPeutEtreSupprime = new SqlCommand(
                 "SELECT count(*) FROM inscrire WHERE numSession = @num",
                 Passerelle.connexionBaseLugati);
@@ -204,6 +214,7 @@ namespace Lugati.dll
                 Passerelle.connexionBaseLugati.Close();
             }
 
+            //Si la session n'a pas d'inscrits, on peut la supprimer
             if (nbInscris == 0)
             {
                 peutEtreSupprime = true;
@@ -229,14 +240,19 @@ namespace Lugati.dll
         }
 
         /// <summary>
-        /// Modifie une session dans la BDD
+        /// Modifie une session dans la base de données
         /// </summary>
-        /// <param name="s">Session à modifier</param>
+        /// <param name="s">Objet de la session à modifier</param>
         public static void ModifierSession(Session s)
         {
-            SqlCommand reqModifierSession =
-                new SqlCommand("UPDATE Session SET libelle = @libelle, tarif = @tarif, nbPlaces = @nbPlaces, date = @date, heure = @heure " +
-                                "WHERE numSession = @numSession",
+            SqlCommand reqModifierSession = new SqlCommand(
+                "UPDATE Session " +
+                "SET libelle = @libelle, " +
+                "    tarif = @tarif, " +
+                "    nbPlaces = @nbPlaces, " +
+                "    date = @date, " +
+                "    heure = @heure " +
+                "WHERE numSession = @numSession",
                 Passerelle.connexionBaseLugati);
             reqModifierSession.Parameters.AddWithValue("@libelle", s.libelle);
             reqModifierSession.Parameters.AddWithValue("@tarif", s.tarif);
@@ -256,19 +272,22 @@ namespace Lugati.dll
                 Passerelle.connexionBaseLugati.Close();
             }
         }
+
         #endregion
 
+
         #region Activites ////////////////////////////////////////////////////////////////
+
         /// <summary>
-        /// Récupère toutes les activités
+        /// Retourne toutes les activités
         /// </summary>
         public static List<Activite> GetLesActivites()
         {
             List<Activite> lesActivites = new List<Activite>();
 
-            SqlCommand reqLesActivites =
-                new SqlCommand("SELECT numActivite, libelle, tarif, nbPlaces, date, heure " +
-                                "FROM Activite",
+            SqlCommand reqLesActivites = new SqlCommand(
+                "SELECT numActivite, libelle, tarif, nbPlaces, date, heure " +
+                "FROM Activite",
                 Passerelle.connexionBaseLugati);
 
             try
@@ -299,6 +318,11 @@ namespace Lugati.dll
             return lesActivites;
         }
 
+        /// <summary>
+        /// Retourne toutes les activités disponibles pour un participant
+        /// C'est à dire celles où il n'est pas inscrit et où il reste de la place disponible
+        /// </summary>
+        /// <param name="idParticipant">Identifiant du participant</param>
         public static List<Activite> GetLesActivitesDisponibles(int idParticipant)
         {
             List<Activite> lesA = new List<Activite>();
@@ -340,6 +364,10 @@ namespace Lugati.dll
             return lesA;
         }
 
+        /// <summary>
+        /// Retourne toutes les activités dans lesquelles un participant est inscrit
+        /// </summary>
+        /// <param name="idParticipant">Identifiant du participant</param>
         public static List<Activite> GetLesActivitesInsrites(int idParticipant)
         {
             List<Activite> lesA = new List<Activite>();
@@ -382,14 +410,14 @@ namespace Lugati.dll
         /// <summary>
         /// Ajoute une activité à la base de données
         /// </summary>
-        /// <param name="a">Activité à ajouter</param>
-        /// <returns>Id de l'activité ajoutée</returns>
+        /// <param name="a">Objet de l'activité à ajouter</param>
+        /// <returns>Identifiant de l'activité ajoutée</returns>
         public static int AjouterActivite(Activite a)
         {
-            SqlCommand reqAjouterActivite =
-                new SqlCommand("INSERT INTO Activite (libelle, tarif, nbPlaces, date, heure) " +
-                                "OUTPUT INSERTED.numActivite " +
-                                "VALUES (@libelle, @tarif, @nbPlaces, @date, @heure)",
+            SqlCommand reqAjouterActivite = new SqlCommand(
+                "INSERT INTO Activite (libelle, tarif, nbPlaces, date, heure) " +
+                "OUTPUT INSERTED.numActivite " +
+                "VALUES (@libelle, @tarif, @nbPlaces, @date, @heure)",
                 Passerelle.connexionBaseLugati);
             reqAjouterActivite.Parameters.AddWithValue("@libelle", a.libelle);
             reqAjouterActivite.Parameters.AddWithValue("@tarif", a.tarif);
@@ -414,9 +442,10 @@ namespace Lugati.dll
         }
 
         /// <summary>
-        /// Supprimer une activité de la base de données
+        /// Supprime une activité de la base de données
         /// </summary>
-        /// <param name="numActivite">Numéro de l'activité à supprimer</param>
+        /// <param name="numActivite">Identifiant de l'activité à supprimer</param>
+        /// <returns>false si des participants sont déjà inscrits</returns>
         public static bool SupprimerActivite(int numActivite)
         {
             bool peutEtreSupprime = false;
@@ -464,14 +493,19 @@ namespace Lugati.dll
         }
 
         /// <summary>
-        /// Met à jour une activité dans la base de données
+        /// Modifie une activité dans la base de données
         /// </summary>
-        /// <param name="a">Activité à mettre à jour</param>
+        /// <param name="a">Objet de l'activité à modifier</param>
         public static void ModifierActivite(Activite a)
         {
-            SqlCommand reqModifierActivite =
-                new SqlCommand("UPDATE Activite SET libelle = @libelle, tarif = @tarif, nbPlaces = @nbPlaces, date = @date, heure = @heure " +
-                                "WHERE numActivite = @numActivite",
+            SqlCommand reqModifierActivite = new SqlCommand(
+                "UPDATE Activite " +
+                "SET libelle = @libelle, " +
+                "    tarif = @tarif, " +
+                "    nbPlaces = @nbPlaces, " +
+                "    date = @date, " +
+                "    heure = @heure " +
+                "WHERE numActivite = @numActivite",
                 Passerelle.connexionBaseLugati);
             reqModifierActivite.Parameters.AddWithValue("@libelle", a.libelle);
             reqModifierActivite.Parameters.AddWithValue("@tarif", a.tarif);
@@ -491,88 +525,21 @@ namespace Lugati.dll
                 Passerelle.connexionBaseLugati.Close();
             }
         }
+
         #endregion
 
+
         #region Participant //////////////////////////////////////////////////////////////
+
         /// <summary>
-        /// Ajouter un participant
+        /// Retourne toutes les activités
         /// </summary>
-        /// <param name="p">Paramètre</param>
-        /// <returns></returns>
-        public static int AjouterParticipant(Participant p)
-        {
-            SqlCommand reqAjouterParticipant =
-                new SqlCommand("INSERT INTO Participant (nom, prenom, genre, adresse, ville, cp, idHebergement, idLigue) " +
-                                "OUTPUT INSERTED.idParticipant " +
-                                "VALUES (@nom, @prenom, @genre, @adresse, @ville, @cp, @idHebergement, @idLigue)",
-                Passerelle.connexionBaseLugati);
-            reqAjouterParticipant.Parameters.AddWithValue("@nom", p.nom);
-            reqAjouterParticipant.Parameters.AddWithValue("@prenom", p.prenom);
-            reqAjouterParticipant.Parameters.AddWithValue("@genre", p.genre);
-            reqAjouterParticipant.Parameters.AddWithValue("@adresse", p.adresse);
-            reqAjouterParticipant.Parameters.AddWithValue("@ville", p.ville);
-            reqAjouterParticipant.Parameters.AddWithValue("@cp", p.cp);
-            reqAjouterParticipant.Parameters.AddWithValue("@idHebergement", p.idHebergement);
-            reqAjouterParticipant.Parameters.AddWithValue("@idLigue", p.idLigue);
-
-            int id = 0;
-
-            try
-            {
-                Passerelle.connexionBaseLugati.Open();
-
-                id = (int)reqAjouterParticipant.ExecuteScalar();
-            }
-            finally
-            {
-                Passerelle.connexionBaseLugati.Close();
-            }
-
-            return id;
-        }
-
-        public static void ModifierParticipant(Participant p)
-        {
-            SqlCommand reqModifierParticipant = new SqlCommand(
-                "UPDATE participant " +
-                "SET nom = @nom, " +
-                "    prenom = @prenom, " +
-                "    genre = @genre, " +
-                "    idLigue = @idLigue, " +
-                "    adresse = @adresse, " +
-                "    ville = @ville, " +
-                "    cp = @cp, " +
-                "    idHebergement = @idHebergement " +
-                "WHERE idParticipant = @idParticipant",
-                Passerelle.connexionBaseLugati);
-            reqModifierParticipant.Parameters.AddWithValue("@nom", p.nom);
-            reqModifierParticipant.Parameters.AddWithValue("@prenom", p.prenom);
-            reqModifierParticipant.Parameters.AddWithValue("@genre", p.genre);
-            reqModifierParticipant.Parameters.AddWithValue("@adresse", p.adresse);
-            reqModifierParticipant.Parameters.AddWithValue("@ville", p.ville);
-            reqModifierParticipant.Parameters.AddWithValue("@cp", p.cp);
-            reqModifierParticipant.Parameters.AddWithValue("@idHebergement", p.idHebergement);
-            reqModifierParticipant.Parameters.AddWithValue("@idLigue", p.idLigue);
-            reqModifierParticipant.Parameters.AddWithValue("@idParticipant", p.idParticipant);
-
-            try
-            {
-                Passerelle.connexionBaseLugati.Open();
-
-                reqModifierParticipant.ExecuteNonQuery();
-            }
-            finally
-            {
-                Passerelle.connexionBaseLugati.Close();
-            }
-        }
-
         public static List<Participant> GetLesParticipants()
         {
             List<Participant> lesParticipants = new List<Participant>();
 
             SqlCommand reqLesParticipants = new SqlCommand(
-                "SELECT idParticipant, nom, prenom, genre, adresse, ville, cp, idHebergement, idLigue, acompte " + 
+                "SELECT idParticipant, nom, prenom, genre, adresse, ville, cp, idHebergement, idLigue, acompte " +
                 "FROM participant",
                 Passerelle.connexionBaseLugati);
 
@@ -610,6 +577,48 @@ namespace Lugati.dll
             return lesParticipants;
         }
 
+        /// <summary>
+        /// Ajoute un participant à la base de données
+        /// </summary>
+        /// <param name="p">Objet du participant à ajouter</param>
+        /// <returns>Identifiant deu participant ajouté</returns>
+        public static int AjouterParticipant(Participant p)
+        {
+            SqlCommand reqAjouterParticipant = new SqlCommand(
+                "INSERT INTO Participant (nom, prenom, genre, adresse, ville, cp, idHebergement, idLigue) " +
+                "OUTPUT INSERTED.idParticipant " +
+                "VALUES (@nom, @prenom, @genre, @adresse, @ville, @cp, @idHebergement, @idLigue)",
+                Passerelle.connexionBaseLugati);
+            reqAjouterParticipant.Parameters.AddWithValue("@nom", p.nom);
+            reqAjouterParticipant.Parameters.AddWithValue("@prenom", p.prenom);
+            reqAjouterParticipant.Parameters.AddWithValue("@genre", p.genre);
+            reqAjouterParticipant.Parameters.AddWithValue("@adresse", p.adresse);
+            reqAjouterParticipant.Parameters.AddWithValue("@ville", p.ville);
+            reqAjouterParticipant.Parameters.AddWithValue("@cp", p.cp);
+            reqAjouterParticipant.Parameters.AddWithValue("@idHebergement", p.idHebergement);
+            reqAjouterParticipant.Parameters.AddWithValue("@idLigue", p.idLigue);
+
+            int id = 0;
+
+            try
+            {
+                Passerelle.connexionBaseLugati.Open();
+
+                id = (int)reqAjouterParticipant.ExecuteScalar();
+            }
+            finally
+            {
+                Passerelle.connexionBaseLugati.Close();
+            }
+
+            return id;
+        }
+
+        /// <summary>
+        /// Supprime un participant de la base de données
+        /// </summary>
+        /// <param name="idParticipant">Identifiant du participant à supprimer</param>
+        /// <returns>false si le participant participe à des sessions ou des activités</returns>
         public static bool SupprimerParticipant(int idParticipant)
         {
             bool peutEtreSupprime = false;
@@ -659,13 +668,99 @@ namespace Lugati.dll
 
             return peutEtreSupprime;
         }
+
+        /// <summary>
+        /// Modifie un participant dans la base de données
+        /// </summary>
+        /// <param name="p">Objet du participant à modifier</param>
+        public static void ModifierParticipant(Participant p)
+        {
+            SqlCommand reqModifierParticipant = new SqlCommand(
+                "UPDATE participant " +
+                "SET nom = @nom, " +
+                "    prenom = @prenom, " +
+                "    genre = @genre, " +
+                "    idLigue = @idLigue, " +
+                "    adresse = @adresse, " +
+                "    ville = @ville, " +
+                "    cp = @cp, " +
+                "    idHebergement = @idHebergement " +
+                "WHERE idParticipant = @idParticipant",
+                Passerelle.connexionBaseLugati);
+            reqModifierParticipant.Parameters.AddWithValue("@nom", p.nom);
+            reqModifierParticipant.Parameters.AddWithValue("@prenom", p.prenom);
+            reqModifierParticipant.Parameters.AddWithValue("@genre", p.genre);
+            reqModifierParticipant.Parameters.AddWithValue("@adresse", p.adresse);
+            reqModifierParticipant.Parameters.AddWithValue("@ville", p.ville);
+            reqModifierParticipant.Parameters.AddWithValue("@cp", p.cp);
+            reqModifierParticipant.Parameters.AddWithValue("@idHebergement", p.idHebergement);
+            reqModifierParticipant.Parameters.AddWithValue("@idLigue", p.idLigue);
+            reqModifierParticipant.Parameters.AddWithValue("@idParticipant", p.idParticipant);
+
+            try
+            {
+                Passerelle.connexionBaseLugati.Open();
+
+                reqModifierParticipant.ExecuteNonQuery();
+            }
+            finally
+            {
+                Passerelle.connexionBaseLugati.Close();
+            }
+        }
+
         #endregion
 
-        #region Hebergement //////////////////////////////////////////////////////////////
+
+        #region Ligue ////////////////////////////////////////////////////////////////////
+
         /// <summary>
-        /// Retourne tous les Hotels présent dans la base de données
+        /// Retourne la liste des ligues
         /// </summary>
-        /// <returns>Collection d'Hotels</returns>
+        public static List<Ligue> GetLesLigues()
+        {
+            List<Ligue> lesLigues = new List<Ligue>();
+
+            SqlCommand reqlesLigues = new SqlCommand(
+                "SELECT idLigue, nomLigue, adresse, cp, ville " +
+                "FROM ligue",
+                Passerelle.connexionBaseLugati);
+
+            try
+            {
+                Passerelle.connexionBaseLugati.Open();
+
+                SqlDataReader readerLesLigues = reqlesLigues.ExecuteReader();
+
+                if (readerLesLigues.HasRows)
+                {
+                    while (readerLesLigues.Read())
+                    {
+                        lesLigues.Add(new Ligue(
+                                (int)readerLesLigues[0],
+                                readerLesLigues[1].ToString(),
+                                readerLesLigues[2].ToString(),
+                                readerLesLigues[3].ToString(),
+                                readerLesLigues[4].ToString()));
+                    }
+                }
+            }
+            finally
+            {
+                Passerelle.connexionBaseLugati.Close();
+            }
+
+            return lesLigues;
+        }
+
+        #endregion
+
+
+        #region Hebergement //////////////////////////////////////////////////////////////
+
+        /// <summary>
+        /// Retourne tous les hébergements
+        /// </summary>
         public static List<Hebergement> GetLesHebergements()
         {
             List<Hebergement> lesHebergements = new List<Hebergement>();
@@ -706,16 +801,16 @@ namespace Lugati.dll
         }
 
         /// <summary>
-        /// Ajoute un heberegment à la base de donénes
+        /// Ajoute un héberegment à la base de données
         /// </summary>
-        /// <param name="h">Hebergement à ajouter</param>
-        /// <returns>Id de l'hebergement ajouté</returns>
+        /// <param name="h">Objet de l'hébergement à ajouter</param>
+        /// <returns>Identifiant de l'hébergement ajouté</returns>
         public static int AjouterHebergement(Hebergement h)
         {
-            SqlCommand reqAjouterHebergement =
-                new SqlCommand("INSERT INTO Hebergement (nomHebergement, adresse, ville, cp, tel, nbEtoile, prix) " +
-                                "OUTPUT INSERTED.idHebergement " +
-                                "VALUES (@nomHebergement, @adresse, @ville, @cp, @tel, @nbEtoile, @prix)",
+            SqlCommand reqAjouterHebergement = new SqlCommand(
+                "INSERT INTO Hebergement (nomHebergement, adresse, ville, cp, tel, nbEtoile, prix) " +
+                "OUTPUT INSERTED.idHebergement " +
+                "VALUES (@nomHebergement, @adresse, @ville, @cp, @tel, @nbEtoile, @prix)",
                 Passerelle.connexionBaseLugati);
             reqAjouterHebergement.Parameters.AddWithValue("@nomHebergement", h.nomHebergement);
             reqAjouterHebergement.Parameters.AddWithValue("@adresse", h.adresse);
@@ -742,9 +837,10 @@ namespace Lugati.dll
         }
 
         /// <summary>
-        /// Supprimer un hébergement
+        /// Supprimer un hébergement de la base de données
         /// </summary>
-        /// <param name="idHebergement">Hebergement à supprimer</param>
+        /// <param name="idHebergement">Identifiant de l'hébergement à supprimer</param>
+        /// <returns>false si des participants sont déjà hébergés</returns>
         public static bool SupprimerHebergement(int idHebergement)
         {
             bool peutEtreSupprime = false;
@@ -772,8 +868,8 @@ namespace Lugati.dll
                 peutEtreSupprime = true;
 
                 SqlCommand reqSupprimerHebergement = new SqlCommand(
-                "DELETE FROM Hebergement WHERE idHebergement = @id",
-                Passerelle.connexionBaseLugati);
+                    "DELETE FROM Hebergement WHERE idHebergement = @id",
+                    Passerelle.connexionBaseLugati);
                 reqSupprimerHebergement.Parameters.AddWithValue("@id", idHebergement);
 
                 try
@@ -792,14 +888,20 @@ namespace Lugati.dll
         }
 
         /// <summary>
-        /// Modifie un hebergement dans la base de données
+        /// Modifie un hébergement dans la base de données
         /// </summary>
-        /// <param name="h">Hebergement à modifier</param>
+        /// <param name="h">Objet de l'hébergement à modifier</param>
         public static void ModifierHebergement(Hebergement h)
         {
-            SqlCommand reqModifierHebergement =
-                new SqlCommand("UPDATE Hebergement SET nomHebergement = @nomHebergement, adresse = @adresse, ville = @ville, cp = @cp, tel = @tel, nbEtoile = @nbEtoile, prix = @prix " +
-                                "WHERE idHebergement = @idHebergement",
+            SqlCommand reqModifierHebergement = new SqlCommand(
+                "UPDATE Hebergement " +
+                "SET nomHebergement = @nomHebergement, " +
+                "    adresse = @adresse, " +
+                "    ville = @ville, " +
+                "    cp = @cp, tel = @tel, " +
+                "    nbEtoile = @nbEtoile, " +
+                "    prix = @prix " +
+                "WHERE idHebergement = @idHebergement",
                 Passerelle.connexionBaseLugati);
             reqModifierHebergement.Parameters.AddWithValue("@nomHebergement", h.nomHebergement);
             reqModifierHebergement.Parameters.AddWithValue("@adresse", h.adresse);
@@ -823,40 +925,13 @@ namespace Lugati.dll
         }
         #endregion
 
+
         #region Participer ///////////////////////////////////////////////////////////////
-        public static List<Participer> GetLesParticipations()
-        {
-            List<Participer> lesParticipants = new List<Participer>();
 
-            SqlCommand reqLesParticipants =
-                new SqlCommand("SELECT idParticipant, numActivite " +
-                                "FROM Participer",
-                Passerelle.connexionBaseLugati);
-
-            Passerelle.connexionBaseLugati.Open();
-
-            SqlDataReader readerLesParticipants = reqLesParticipants.ExecuteReader();
-
-            if (readerLesParticipants.HasRows)
-            {
-                while (readerLesParticipants.Read())
-                {
-                    Participer p = new Participer();
-                    p.idParticipant = (int)readerLesParticipants[0];
-                    p.numActivite = (int)readerLesParticipants[1];
-                    lesParticipants.Add(p);
-                }
-            }
-            else
-            {
-                throw new Exception("Il n'existe aucune Participation");
-            }
-
-            Passerelle.connexionBaseLugati.Close();
-
-            return lesParticipants;
-        }
-
+        /// <summary>
+        /// Retourne les participants inscrits à une activité
+        /// </summary>
+        /// <param name="numActivite">Identifiant de l'activité</param>
         public static List<Participant> GetLesParticipations(int numActivite)
         {
             List<Participant> lesParticipants = new List<Participant>();
@@ -864,7 +939,7 @@ namespace Lugati.dll
             SqlCommand reqLesParticipants = new SqlCommand(
                 "SELECT p1.idParticipant, nom, prenom, genre, adresse, ville, cp, idHebergement, idLigue " +
                 "FROM participant p1 " +
-                " JOIN participer p2 on p2.idParticipant = p1.idParticipant " +
+                "  JOIN participer p2 on p2.idParticipant = p1.idParticipant " +
                 "WHERE numActivite = @numA",
                 Passerelle.connexionBaseLugati);
             reqLesParticipants.Parameters.AddWithValue("@numA", numActivite);
@@ -902,11 +977,16 @@ namespace Lugati.dll
             return lesParticipants;
         }
 
+        /// <summary>
+        /// Ajoute une participation d'un participant à une activité
+        /// </summary>
+        /// <param name="idParticipant">Idnetifiant du participant</param>
+        /// <param name="numActivite">Identifiant de l'activité</param>
         public static void AjouterParticipation(int idParticipant, int numActivite)
         {
-            SqlCommand reqAjouterParticiper =
-                new SqlCommand("INSERT INTO participer (idParticipant, numActivite) " +
-                                "VALUES (@idParticipant, @numActivite)",
+            SqlCommand reqAjouterParticiper = new SqlCommand(
+                "INSERT INTO participer (idParticipant, numActivite) " +
+                "VALUES (@idParticipant, @numActivite)",
                 Passerelle.connexionBaseLugati);
             reqAjouterParticiper.Parameters.AddWithValue("@idParticipant", idParticipant);
             reqAjouterParticiper.Parameters.AddWithValue("@numActivite", numActivite);
@@ -923,6 +1003,11 @@ namespace Lugati.dll
             }
         }
 
+        /// <summary>
+        /// Supprime une participation d'un participant à une activité
+        /// </summary>
+        /// <param name="idParticipant">Identifiant du participant</param>
+        /// <param name="numActivite">Identifiant de l'activité</param>
         public static void SupprimerParticipation(int idParticipant, int numActivite)
         {
             SqlCommand reqSupprimerParticiper = new SqlCommand(
@@ -944,42 +1029,16 @@ namespace Lugati.dll
                 Passerelle.connexionBaseLugati.Close();
             }
         }
+
         #endregion
 
+
         #region Inscrire /////////////////////////////////////////////////////////////////
-        public static List<Inscrire> GetLesInscriptions()
-        {
-            List<Inscrire> lesInscris = new List<Inscrire>();
 
-            SqlCommand reqLesInscris =
-                new SqlCommand("SELECT idParticipant, numSession " +
-                                "FROM Inscrire",
-                Passerelle.connexionBaseLugati);
-
-            Passerelle.connexionBaseLugati.Open();
-
-            SqlDataReader readerLesInscris = reqLesInscris.ExecuteReader();
-
-            if (readerLesInscris.HasRows)
-            {
-                while (readerLesInscris.Read())
-                {
-                    Inscrire i = new Inscrire();
-                    i.idParticipant = (int)readerLesInscris[0];
-                    i.numSession = (int)readerLesInscris[1];
-                    lesInscris.Add(i);
-                }
-            }
-            else
-            {
-                throw new Exception("Il n'existe aucune Participation");
-            }
-
-            Passerelle.connexionBaseLugati.Close();
-
-            return lesInscris;
-        }
-
+        /// <summary>
+        /// Retourne les participants inscrits à une session
+        /// </summary>
+        /// <param name="numSession">Identifiant de la session</param>
         public static List<Participant> GetLesInscriptions(int numSession)
         {
             List<Participant> lesParticipants = new List<Participant>();
@@ -987,7 +1046,7 @@ namespace Lugati.dll
             SqlCommand reqLesParticipants = new SqlCommand(
                 "SELECT p.idParticipant, nom, prenom, genre, adresse, ville, cp, idHebergement, idLigue " +
                 "FROM participant p " +
-                " JOIN inscrire i on i.idParticipant = p.idParticipant " +
+                "  JOIN inscrire i on i.idParticipant = p.idParticipant " +
                 "WHERE numSession = @numS",
                 Passerelle.connexionBaseLugati);
             reqLesParticipants.Parameters.AddWithValue("@numS", numSession);
@@ -1025,11 +1084,16 @@ namespace Lugati.dll
             return lesParticipants;
         }
 
+        /// <summary>
+        /// Ajoute une inscription d'un participant à une session
+        /// </summary>
+        /// <param name="idParticipant">Identifiant du participant</param>
+        /// <param name="numSession">Identifiant de la session</param>
         public static void AjouterInscription(int idParticipant, int numSession)
         {
-            SqlCommand reqAjouterInscris =
-                new SqlCommand("INSERT INTO Inscrire (idParticipant, numSession) " +
-                                "VALUES (@idParticipant, @numSession)",
+            SqlCommand reqAjouterInscris = new SqlCommand(
+                "INSERT INTO Inscrire (idParticipant, numSession) " +
+                "VALUES (@idParticipant, @numSession)",
                 Passerelle.connexionBaseLugati);
             reqAjouterInscris.Parameters.AddWithValue("@idParticipant", idParticipant);
             reqAjouterInscris.Parameters.AddWithValue("@numSession", numSession);
@@ -1046,6 +1110,11 @@ namespace Lugati.dll
             }
         }
 
+        /// <summary>
+        /// Supprime une inscription d'un participant à une session
+        /// </summary>
+        /// <param name="idParticipant">Identifiant du participant</param>
+        /// <param name="numSession">Identifiant de la session</param>
         public static void SupprimerInscription(int idParticipant, int numSession)
         {
             SqlCommand reqSupprimerInscrire = new SqlCommand(
@@ -1067,13 +1136,20 @@ namespace Lugati.dll
                 Passerelle.connexionBaseLugati.Close();
             }
         }
+
         #endregion
 
-        #region ProcedureMontantTotal ////////////////////////////////////////////////////
+        
+        #region Procédures ///////////////////////////////////////////////////////////////
+
+        /// <summary>
+        /// Retourne le montant total demandé à un participant
+        /// </summary>
+        /// <param name="idParticipant">Identifiant du participant</param>
         public static float GetLeMontantTotal(int idParticipant)
         {
-            SqlCommand reqLesMontants =
-                new SqlCommand("MontantTotalCongressiste",
+            SqlCommand reqLesMontants = new SqlCommand(
+                "MontantTotalCongressiste",
                 Passerelle.connexionBaseLugati);
             reqLesMontants.Parameters.AddWithValue("@idP", idParticipant);
             reqLesMontants.CommandType = CommandType.StoredProcedure;
@@ -1092,22 +1168,17 @@ namespace Lugati.dll
 
             return montantTot;
         }
-        #endregion
 
-        #region ProcedureNbPlace /////////////////////////////////////////////////////////
         /// <summary>
-        /// Procedure Nombre de Place par Activites
+        /// Retourne le nombre de places restantes à une activité
         /// </summary>
-        /// <param name="numActivite"></param>
-        /// <returns></returns>
+        /// <param name="numActivite">Identifiant de l'activité</param>
         public static float GetNbPlaceByActivite(int numActivite)
         {
-            SqlCommand reqLesActivites =
-                new SqlCommand("NbPlaceParActivite",
+            SqlCommand reqLesActivites = new SqlCommand(
+                "NbPlaceParActivite",
                 Passerelle.connexionBaseLugati);
-
             reqLesActivites.Parameters.AddWithValue("@numA", numActivite);
-
             reqLesActivites.CommandType = CommandType.StoredProcedure;
 
             float nbPlaceA = 0;
@@ -1126,18 +1197,15 @@ namespace Lugati.dll
         }
 
         /// <summary>
-        /// Nombre de Place par Sessions
+        /// Retourne le nombre de places restantes à une session
         /// </summary>
-        /// <param name="numSession"></param>
-        /// <returns></returns>
+        /// <param name="numSession">Identifiant de la session</param>
         public static float GetNbPlaceBySession(int numSession)
         {
-            SqlCommand reqLesSessions =
-                new SqlCommand("NbPlaceParSession",
+            SqlCommand reqLesSessions = new SqlCommand(
+                "NbPlaceParSession",
                 Passerelle.connexionBaseLugati);
-
             reqLesSessions.Parameters.AddWithValue("@numS", numSession);
-
             reqLesSessions.CommandType = CommandType.StoredProcedure;
 
             float nbPlaceS = 0;
@@ -1154,44 +1222,7 @@ namespace Lugati.dll
 
             return nbPlaceS;
         }
-        #endregion
 
-        #region Ligue ////////////////////////////////////////////////////////////////////
-        public static List<Ligue> GetLesLigues()
-        {
-            List<Ligue> lesLigues = new List<Ligue>();
-
-            SqlCommand reqlesLigues =
-                new SqlCommand("SELECT idLigue, nomLigue, adresse, cp, ville " +
-                                "FROM ligue",
-                Passerelle.connexionBaseLugati);
-
-            try
-            {
-                Passerelle.connexionBaseLugati.Open();
-
-                SqlDataReader readerLesLigues = reqlesLigues.ExecuteReader();
-
-                if (readerLesLigues.HasRows)
-                {
-                    while (readerLesLigues.Read())
-                    {
-                        lesLigues.Add(new Ligue(
-                                (int)readerLesLigues[0],
-                                readerLesLigues[1].ToString(),
-                                readerLesLigues[2].ToString(),
-                                readerLesLigues[3].ToString(),
-                                readerLesLigues[4].ToString()));
-                    }
-                }
-            }
-            finally
-            {
-                Passerelle.connexionBaseLugati.Close();
-            }
-
-            return lesLigues;
-        }
         #endregion
     }
 }

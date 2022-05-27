@@ -66,6 +66,8 @@
             this.villeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingSourceParticipants = new System.Windows.Forms.BindingSource(this.components);
+            this.txtNbPlacesRestantes = new System.Windows.Forms.TextBox();
+            this.lblNbPlacesRestantes = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridActivite)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceActivite)).BeginInit();
             this.grpInfos.SuspendLayout();
@@ -163,6 +165,8 @@
             this.grpInfos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpInfos.BackColor = System.Drawing.Color.Transparent;
+            this.grpInfos.Controls.Add(this.lblNbPlacesRestantes);
+            this.grpInfos.Controls.Add(this.txtNbPlacesRestantes);
             this.grpInfos.Controls.Add(this.maskedTextBoxNbPlaces);
             this.grpInfos.Controls.Add(this.maskedTextBoxTarif);
             this.grpInfos.Controls.Add(this.comboBoxHeure);
@@ -185,7 +189,7 @@
             // maskedTextBoxNbPlaces
             // 
             this.maskedTextBoxNbPlaces.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceActivite, "nbPlaces", true));
-            this.maskedTextBoxNbPlaces.Location = new System.Drawing.Point(94, 162);
+            this.maskedTextBoxNbPlaces.Location = new System.Drawing.Point(74, 162);
             this.maskedTextBoxNbPlaces.Mask = "9999";
             this.maskedTextBoxNbPlaces.Name = "maskedTextBoxNbPlaces";
             this.maskedTextBoxNbPlaces.Size = new System.Drawing.Size(150, 20);
@@ -194,7 +198,7 @@
             // maskedTextBoxTarif
             // 
             this.maskedTextBoxTarif.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceActivite, "tarif", true));
-            this.maskedTextBoxTarif.Location = new System.Drawing.Point(94, 119);
+            this.maskedTextBoxTarif.Location = new System.Drawing.Point(74, 119);
             this.maskedTextBoxTarif.Mask = "99999";
             this.maskedTextBoxTarif.Name = "maskedTextBoxTarif";
             this.maskedTextBoxTarif.Size = new System.Drawing.Size(150, 20);
@@ -226,7 +230,7 @@
             this.labelLibelleSession.AutoSize = true;
             this.labelLibelleSession.ForeColor = System.Drawing.Color.White;
             this.labelLibelleSession.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.labelLibelleSession.Location = new System.Drawing.Point(54, 79);
+            this.labelLibelleSession.Location = new System.Drawing.Point(34, 79);
             this.labelLibelleSession.Name = "labelLibelleSession";
             this.labelLibelleSession.Size = new System.Drawing.Size(37, 13);
             this.labelLibelleSession.TabIndex = 4;
@@ -235,7 +239,7 @@
             // textBoxLibelleActivite
             // 
             this.textBoxLibelleActivite.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceActivite, "libelle", true));
-            this.textBoxLibelleActivite.Location = new System.Drawing.Point(94, 76);
+            this.textBoxLibelleActivite.Location = new System.Drawing.Point(74, 76);
             this.textBoxLibelleActivite.MaxLength = 100;
             this.textBoxLibelleActivite.Name = "textBoxLibelleActivite";
             this.textBoxLibelleActivite.Size = new System.Drawing.Size(150, 20);
@@ -257,7 +261,7 @@
             this.labelPrixHotel.AutoSize = true;
             this.labelPrixHotel.ForeColor = System.Drawing.Color.White;
             this.labelPrixHotel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.labelPrixHotel.Location = new System.Drawing.Point(63, 122);
+            this.labelPrixHotel.Location = new System.Drawing.Point(43, 122);
             this.labelPrixHotel.Name = "labelPrixHotel";
             this.labelPrixHotel.Size = new System.Drawing.Size(28, 13);
             this.labelPrixHotel.TabIndex = 9;
@@ -281,9 +285,9 @@
             this.labelTelHotel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.labelTelHotel.Location = new System.Drawing.Point(13, 165);
             this.labelTelHotel.Name = "labelTelHotel";
-            this.labelTelHotel.Size = new System.Drawing.Size(78, 13);
+            this.labelTelHotel.Size = new System.Drawing.Size(55, 13);
             this.labelTelHotel.TabIndex = 12;
-            this.labelTelHotel.Text = "Nombre places";
+            this.labelTelHotel.Text = "Nb places";
             // 
             // grpBoutons
             // 
@@ -491,6 +495,23 @@
             // 
             this.bindingSourceParticipants.DataSource = typeof(Lugati.dll.Participant);
             // 
+            // txtNbPlacesRestantes
+            // 
+            this.txtNbPlacesRestantes.Location = new System.Drawing.Point(381, 19);
+            this.txtNbPlacesRestantes.Name = "txtNbPlacesRestantes";
+            this.txtNbPlacesRestantes.ReadOnly = true;
+            this.txtNbPlacesRestantes.Size = new System.Drawing.Size(100, 20);
+            this.txtNbPlacesRestantes.TabIndex = 13;
+            // 
+            // lblNbPlacesRestantes
+            // 
+            this.lblNbPlacesRestantes.AutoSize = true;
+            this.lblNbPlacesRestantes.Location = new System.Drawing.Point(236, 22);
+            this.lblNbPlacesRestantes.Name = "lblNbPlacesRestantes";
+            this.lblNbPlacesRestantes.Size = new System.Drawing.Size(139, 13);
+            this.lblNbPlacesRestantes.TabIndex = 14;
+            this.lblNbPlacesRestantes.Text = "Nombre de places restantes";
+            // 
             // FrmActivite
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -560,5 +581,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn adresseDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn villeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cpDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TextBox txtNbPlacesRestantes;
+        private System.Windows.Forms.Label lblNbPlacesRestantes;
     }
 }

@@ -181,7 +181,10 @@ namespace WinLugati
                 try
                 {
                     //On récupère le montant total à régler
-                    Debug.WriteLine(Passerelle.GetLeMontantTotal(this.participant.idParticipant));
+                    float montantTotal = Passerelle.GetLeMontantTotal(this.participant.idParticipant);
+                    this.txtTotal.Text = montantTotal.ToString();
+                    //On calcule le reste à payer
+                    this.txtReste.Text = (montantTotal - this.participant.acompte).ToString();
 
                     //On récupère les sessions disponibles (places restantes & pas déjà inscrit)
                     this.bindingSourceSessionsDispo.DataSource = Passerelle.GetLesSessionsDisponibles(this.participant.idParticipant);
