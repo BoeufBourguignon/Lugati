@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using Lugati.dll;
@@ -19,221 +11,146 @@ namespace WinLugati
         {
             InitializeComponent();
 
-            dataGridHebergement.DataSource = Passerelle.GetLesHebergements();
-
-            labelNomHotel.Visible = false;
-            labelAdresseHotel.Visible = false;
-            labelVilleHotel.Visible = false;
-            labelCPHotel.Visible = false;
-            labelTelHotel.Visible = false;
-            labelNbEtoileHotel.Visible = false;
-            labelPrixHotel.Visible = false;
-
-            textBoxNomHotel.Visible = false;
-            textBoxAdresseHotel.Visible = false;
-            textBoxVilleHotel.Visible = false;
-            textBoxCPHotel.Visible = false;
-            textBoxTelHotel.Visible = false;
-            textBoxNbEtoileHotel.Visible = false;
-            textBoxPrixHotel.Visible = false;
-
-            BtnValiderHotel.Visible = false;
-            BtnAnnulerHotel.Visible = false;
-
-            BtnValiderModifHotel.Visible = false;
-            BtnAnnulerModifHotel.Visible = false;
-
-            comboBoxIdHotel.Visible = false;
+            this.InitializeData();
         }
 
-        private void BtnAjouterHebergement_Click(object sender, EventArgs e)
+        private void InitializeData()
         {
-
-            labelNomHotel.Visible = true;
-            labelAdresseHotel.Visible = true;
-            labelVilleHotel.Visible = true;
-            labelCPHotel.Visible = true;
-            labelTelHotel.Visible = true;
-            labelNbEtoileHotel.Visible = true;
-            labelPrixHotel.Visible = true;
-
-            textBoxNomHotel.Visible = true;
-            textBoxAdresseHotel.Visible = true;
-            textBoxVilleHotel.Visible = true;
-            textBoxCPHotel.Visible = true;
-            textBoxTelHotel.Visible = true;
-            textBoxNbEtoileHotel.Visible = true;
-            textBoxPrixHotel.Visible = true;
-
-            BtnValiderHotel.Visible = true;
-            BtnAnnulerHotel.Visible = true;
-        }
-
-        private void BtnAnnulerHotel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void BtnValiderHotel_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(textBoxNomHotel.Text) ||
-                string.IsNullOrWhiteSpace(textBoxAdresseHotel.Text) ||
-                string.IsNullOrWhiteSpace(textBoxVilleHotel.Text) ||
-                string.IsNullOrWhiteSpace(textBoxCPHotel.Text) ||
-                string.IsNullOrWhiteSpace(textBoxTelHotel.Text) ||
-                string.IsNullOrWhiteSpace(textBoxPrixHotel.Text) ||
-                string.IsNullOrWhiteSpace(textBoxNbEtoileHotel.Text)
-            )
+            try
             {
-                MessageBox.Show("Vous devez remplir toutes les informations !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.bindSrcHebergement.DataSource = Passerelle.GetLesHebergements();
             }
-            else
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+            }
+        }
+
+        private void EnableModif(bool autoriserModif)
+        {
+            //pouvoir changer d'hotel dans la data grid view
+            this.dgvHebergement.Enabled = !autoriserModif;
+            //pouvoir changer les infos de l'hotel 
+            this.grpInfos.Enabled = autoriserModif;
+            //pouvoir annuler ou enregistrer
+            this.grpBtnsSaveCancel.Visible = autoriserModif;
+            //ne pas pouvoir ajouter, supprimer ou modifier un hotel
+            this.grpBoutons.Enabled = !autoriserModif;
+        }
+
+        private void btnAjouterHotel_Click(object sender, EventArgs e)
+        {
+            this.EnableModif(true);
+            this.bindSrcHebergement.AddNew();
+        }
+
+        private void btnSupprimerHotel_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("Etes-vous sur de vouloir supprimer cet hôtel ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 try
                 {
-                    int idHotel = Passerelle.GetIdHebergement(textBoxNomHotel.Text, textBoxAdresseHotel.Text, textBoxVilleHotel.Text, textBoxCPHotel.Text, textBoxTelHotel.Text, int.Parse(textBoxNbEtoileHotel.Text), int.Parse(textBoxPrixHotel.Text));
-                    if (idHotel == 0)
+                    if(Passerelle.SupprimerHebergement((int)((Hebergement)this.bindSrcHebergement.Current).idHebergement) == false)
                     {
-                        idHotel = Passerelle.AjouterHebergement(textBoxNomHotel.Text, textBoxAdresseHotel.Text, textBoxVilleHotel.Text, textBoxCPHotel.Text, textBoxTelHotel.Text, int.Parse(textBoxNbEtoileHotel.Text), int.Parse(textBoxPrixHotel.Text));
-                        this.Close();
+                        MessageBox.Show("L'hebergement ne peut pas être supprimé car il héberge des participants", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
-                    { MessageBox.Show("Cet Hotel existe déjà : n°" + idHotel, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                    {
+                        this.bindSrcHebergement.RemoveCurrent();
+                        MessageBox.Show("L'hebergement a été supprimée", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
-                catch (Exception ex)
+                catch(Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
-        private void BtnSupprimerHotel_Click(object sender, EventArgs e)
+        private void btnModifierHotel_Click(object sender, EventArgs e)
         {
-            List<int> hotelsASupprimer = new List<int>();
+            this.EnableModif(true);
+        }
 
-            if (MessageBox.Show("Etes-vous sûr de vouloir supprimer le(s) hotel(s) sélectionné(s) définitivement, et tout ce qui les concerne ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+        private void btnEnregistrerHotel_Click(object sender, EventArgs e)
+        {
+            //D'abord on vérifie que les champs sont bien remplis
+            bool canSave = true;
+            if (string.IsNullOrWhiteSpace(txtNom.Text) || txtNom.Text.Length > 30)
             {
-                foreach (DataGridViewRow row in dataGridHebergement.SelectedRows)
-                {
-                    hotelsASupprimer.Add(Convert.ToInt32(row.Cells[0].Value));
-                }
+                canSave = false;
+                MessageBox.Show("Le nom de l'hébergement ne doit pas être vide et ne doit pas faire plus de 30 caractères", 
+                    "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (int.Parse(maskTxtPrix.Text) == 0)
+            {
+                canSave = false;
+                MessageBox.Show("Le prix ne doit pas être égal à 0",
+                    "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (string.IsNullOrWhiteSpace(maskTxtTel.Text) || maskTxtTel.Text.Length != 10)
+            {
+                canSave = false;
+                MessageBox.Show("Le numéro de téléphone doit être composé de 10 chiffres",
+                    "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (int.Parse(maskTxtNbEtoiles.Text) < 1 && int.Parse(maskTxtNbEtoiles.Text) > 3)
+            {
+                canSave = false;
+                MessageBox.Show("L'hébergement doit avoir entre 1 et 3 étoiles",
+                    "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (string.IsNullOrWhiteSpace(txtAdresse.Text) || txtAdresse.Text.Length > 50)
+            {
+                canSave = false;
+                MessageBox.Show("L'adresse de l'hébergement ne doit pas être vide et ne doit pas faire plus de 50 caractères",
+                    "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (string.IsNullOrWhiteSpace(txtVille.Text) || txtVille.Text.Length > 50)
+            {
+                canSave = false;
+                MessageBox.Show("La ville de l'hébergement ne doit pas être vide et ne doit pas faire plus de 30 caractères",
+                    "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (string.IsNullOrWhiteSpace(maskTxtCP.Text) || maskTxtCP.Text.Length != 5)
+            {
+                canSave = false;
+                MessageBox.Show("Le code postal doit être composé de 5 chiffres",
+                    "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (canSave)
+            {
+                this.bindSrcHebergement.EndEdit();
+                Hebergement h = (Hebergement)this.bindSrcHebergement.Current;
+
                 try
                 {
-                    Passerelle.SupprimerLesHebergements(hotelsASupprimer);
-
-                    if (dataGridHebergement.SelectedRows.Count == 1)
+                    if (h.idHebergement == 0)
                     {
-                        dataGridHebergement.Rows.Remove(dataGridHebergement.SelectedRows[0]);
+                        h.idHebergement = Passerelle.AjouterHebergement(h);
                     }
                     else
                     {
-                        dataGridHebergement.Rows.Clear();
+                        Passerelle.ModifierHebergement(h);
                     }
+                    MessageBox.Show("Les modifications ont été enregistrées", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.InitializeData();
                 }
+                this.EnableModif(false);
             }
         }
 
-        private void BtnModifierHotel_Click(object sender, EventArgs e)
+        private void btnAnnuler_Click(object sender, EventArgs e)
         {
-            labelNomHotel.Visible = true;
-            labelAdresseHotel.Visible = true;
-            labelVilleHotel.Visible = true;
-            labelCPHotel.Visible = true;
-            labelTelHotel.Visible = true;
-            labelNbEtoileHotel.Visible = true;
-            labelPrixHotel.Visible = true;
-
-            textBoxNomHotel.Visible = true;
-            textBoxAdresseHotel.Visible = true;
-            textBoxVilleHotel.Visible = true;
-            textBoxCPHotel.Visible = true;
-            textBoxTelHotel.Visible = true;
-            textBoxNbEtoileHotel.Visible = true;
-            textBoxPrixHotel.Visible = true;
-
-            BtnValiderModifHotel.Visible = true;
-            BtnAnnulerModifHotel.Visible = true;
-
-            comboBoxIdHotel.Visible = true;
-        }
-
-        private void BtnValiderModifHotel_Click(object sender, EventArgs e)
-        {
-            Hebergement hebergementSelectionne = (Hebergement)comboBoxIdHotel.SelectedItem;
-            if (string.IsNullOrWhiteSpace(textBoxNomHotel.Text) ||
-                string.IsNullOrWhiteSpace(textBoxAdresseHotel.Text) ||
-                string.IsNullOrWhiteSpace(textBoxVilleHotel.Text) ||
-                string.IsNullOrWhiteSpace(textBoxCPHotel.Text) ||
-                string.IsNullOrWhiteSpace(textBoxTelHotel.Text) ||
-                string.IsNullOrWhiteSpace(textBoxPrixHotel.Text) ||
-                string.IsNullOrWhiteSpace(textBoxNbEtoileHotel.Text)
-            )
-            {
-                MessageBox.Show("Vous devez remplir TOUS les champs !", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                //On demande à l'utilisateur de confirmer la modification
-                if (MessageBox.Show("Etes-vous sûr de vouloir modifier le hebergement ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    try
-                    {
-                        //L'utilisateur confirme la modification des valeurs
-                        Passerelle.ModifierHebergement(hebergementSelectionne.idHebergement, textBoxNomHotel.Text, textBoxAdresseHotel.Text, textBoxVilleHotel.Text, textBoxCPHotel.Text, textBoxTelHotel.Text, int.Parse(textBoxNbEtoileHotel.Text), int.Parse(textBoxPrixHotel.Text));
-
-                        //On actualise la comboBox
-                        int index = comboBoxIdHotel.SelectedIndex; //On sauvegarde l'index du hebergement modifié
-                        comboBoxIdHotel.DataSource = Passerelle.GetLesHebergements(); //On recharge tous les hebergements dans la comboBox
-                        comboBoxIdHotel.SelectedIndex = index; //On sélectionne l'index du hebergement modifié dans la comboBox
-                        this.Close();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                else
-                {
-                    //On affiche à nouveau le détail du hebergement
-                    textBoxNomHotel.Text = hebergementSelectionne.nomHebergement;
-                    textBoxAdresseHotel.Text = hebergementSelectionne.adresse;
-                    textBoxVilleHotel.Text = hebergementSelectionne.ville;
-                    textBoxCPHotel.Text = hebergementSelectionne.cp;
-                    textBoxTelHotel.Text = hebergementSelectionne.tel;
-                    textBoxNbEtoileHotel.Text = hebergementSelectionne.nbEtoile.ToString();
-                    textBoxPrixHotel.Text = hebergementSelectionne.prix.ToString();
-                }
-            }
-        }
-
-        private void BtnAnnulerModifHotel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void comboBoxIdHotel_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //A chaque changement d'index dans la comboBox, on récupère le voyage selectionné
-            Hebergement hotelSelectionne = (Hebergement)comboBoxIdHotel.SelectedItem;
-
-            //On affiche son détail dans les TextBox
-            AfficheDetailHotel(hotelSelectionne);
-        }
-
-        private void AfficheDetailHotel(Hebergement unHotel)
-        {
-            //On affiche dans les différents composants les données de l'objet voyage passé en paramètre
-            textBoxNomHotel.Text = unHotel.nomHebergement;
-            textBoxAdresseHotel.Text = unHotel.adresse;
-            textBoxVilleHotel.Text = unHotel.ville;
-            textBoxCPHotel.Text = unHotel.cp;
-            textBoxTelHotel.Text = unHotel.tel;
-            textBoxNbEtoileHotel.Text = unHotel.nbEtoile.ToString();
-            textBoxPrixHotel.Text = unHotel.prix.ToString();
+            this.bindSrcHebergement.ResetBindings(false);
+            this.bindSrcHebergement.CancelEdit();
+            this.EnableModif(false);
         }
     }
 }

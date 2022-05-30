@@ -1,3 +1,6 @@
+use base_lugati;
+go
+
 -- TRIGGERS
 -- Vérification qu'une personne ne participe pas à deux sessions/activités en même temps lors de l'ajout d'une activité
 create or alter trigger ti_participer on participer 
@@ -79,12 +82,15 @@ go
 --Procédure qui obtient le prix total à payer (sessions et activités comprises) pour un idParticipant passé en paramètres
 create or alter procedure MontantTotalCongressiste (@idP int)
 as
-	select SUM(S.tarif) + SUM(A.tarif) as prixTotal
-	from activite A
-		join participer P ON P.numActivite = A.numActivite
-		join inscrire I ON I.idParticipant = P.idParticipant
-		join session S ON S.numSession = I.numSession
-	where P.idParticipant = @idP
+	SELECT ISNULL(prix + SUM(A.tarif) + SUM(S.tarif), 0) as total
+	FROM participant Pt
+		JOIN hebergement H ON H.idHebergement = Pt.idHebergement
+		LEFT JOIN participer P ON P.idParticipant = Pt.idParticipant
+		LEFT JOIN activite A ON A.numActivite = P.numActivite
+		LEFT JOIN inscrire I ON I.idParticipant = Pt.idParticipant
+		LEFT JOIN session S ON S.numSession = I.numSession
+	WHERE Pt.idParticipant = @idP
+	GROUP BY Pt.idParticipant, prix
 go
 
 

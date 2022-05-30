@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using Lugati.dll;
+
 namespace WinLugati
 {
     public partial class FrmMenu : Form
@@ -17,24 +19,15 @@ namespace WinLugati
             InitializeComponent();
         }
 
-        private void participantToolStripMenuItem_Click(object sender, EventArgs e)
+        private void FrmMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (Application.OpenForms["FrmParticipant"] == null)
-            {
-                FrmParticipant frmParticipant = new FrmParticipant();
-                frmParticipant.MdiParent = this;
-                frmParticipant.Show();
-            }
-            else
-            {
-                Application.OpenForms["FrmParticipant"].BringToFront();
-
-            }
+          if (MessageBox.Show("Etes-vous sûr de vouloir quitter ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+              e.Cancel = true;
         }
 
-        private void hebergementToolStripMenuItem_Click(object sender, EventArgs e)
+        private void menuLugatiItemHebergement_Click(object sender, EventArgs e)
         {
-            if(Application.OpenForms["FrmHebergement"] == null)
+            if (Application.OpenForms["FrmHebergement"] == null)
             {
                 FrmHebergement frmH = new FrmHebergement();
                 frmH.MdiParent = this;
@@ -43,11 +36,10 @@ namespace WinLugati
             else
             {
                 Application.OpenForms["FrmHebergement"].BringToFront();
-
             }
         }
 
-        private void sessionToolStripMenuItem_Click(object sender, EventArgs e)
+        private void menuLugatiItemSession_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms["FrmSession"] == null)
             {
@@ -58,11 +50,24 @@ namespace WinLugati
             else
             {
                 Application.OpenForms["FrmSession"].BringToFront();
-
             }
         }
 
-        private void activiteToolStripMenuItem_Click(object sender, EventArgs e)
+        private void menuLugatiItemParticipant_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["FrmParticipant"] == null)
+            {
+                FrmParticipant frmParticipant = new FrmParticipant();
+                frmParticipant.MdiParent = this;
+                frmParticipant.Show();
+            }
+            else
+            {
+                Application.OpenForms["FrmParticipant"].BringToFront();
+            }
+        }
+
+        private void menuLugatiItemActivite_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms["FrmActivite"] == null)
             {
@@ -73,8 +78,26 @@ namespace WinLugati
             else
             {
                 Application.OpenForms["FrmActivite"].BringToFront();
-
             }
+        }
+
+        private void menuLugatiItemLigue_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["FrmLigue"] == null)
+            {
+                FrmLigue frmL = new FrmLigue();
+                frmL.MdiParent = this;
+                frmL.Show();
+            }
+            else
+            {
+                Application.OpenForms["FrmLigue"].BringToFront();
+            }
+        }
+
+        private void FrmMenu_Load(object sender, EventArgs e)
+        {
+            this.Controls.OfType<MdiClient>().FirstOrDefault().BackColor = Color.FromArgb(245,215,255);
         }
     }
 }

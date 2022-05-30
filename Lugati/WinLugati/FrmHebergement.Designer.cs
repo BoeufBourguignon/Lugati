@@ -31,353 +31,361 @@ namespace WinLugati
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmHebergement));
-            this.BtnAjouterHebergement = new System.Windows.Forms.Button();
-            this.labelNomHotel = new System.Windows.Forms.Label();
-            this.textBoxNomHotel = new System.Windows.Forms.TextBox();
-            this.labelAdresseHotel = new System.Windows.Forms.Label();
-            this.textBoxAdresseHotel = new System.Windows.Forms.TextBox();
-            this.labelPrixHotel = new System.Windows.Forms.Label();
-            this.labelVilleHotel = new System.Windows.Forms.Label();
-            this.labelCPHotel = new System.Windows.Forms.Label();
-            this.labelTelHotel = new System.Windows.Forms.Label();
-            this.textBoxPrixHotel = new System.Windows.Forms.TextBox();
-            this.textBoxVilleHotel = new System.Windows.Forms.TextBox();
-            this.textBoxCPHotel = new System.Windows.Forms.TextBox();
-            this.textBoxTelHotel = new System.Windows.Forms.TextBox();
-            this.labelNbEtoileHotel = new System.Windows.Forms.Label();
-            this.textBoxNbEtoileHotel = new System.Windows.Forms.TextBox();
-            this.BtnValiderHotel = new System.Windows.Forms.Button();
-            this.BtnAnnulerHotel = new System.Windows.Forms.Button();
-            this.BtnSupprimerHotel = new System.Windows.Forms.Button();
-            this.BtnModifierHotel = new System.Windows.Forms.Button();
-            this.BtnValiderModifHotel = new System.Windows.Forms.Button();
-            this.BtnAnnulerModifHotel = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.comboBoxIdHotel = new System.Windows.Forms.ComboBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dataGridHebergement = new System.Windows.Forms.DataGridView();
+            this.btnSupprimerHotel = new System.Windows.Forms.Button();
+            this.lblNom = new System.Windows.Forms.Label();
+            this.txtNom = new System.Windows.Forms.TextBox();
             this.bindSrcHebergement = new System.Windows.Forms.BindingSource(this.components);
-            this.idHebergementDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nbEtoileDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prixDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomHebergementDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.adresseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.villeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridHebergement)).BeginInit();
+            this.lblAdresse = new System.Windows.Forms.Label();
+            this.txtAdresse = new System.Windows.Forms.TextBox();
+            this.lblPrix = new System.Windows.Forms.Label();
+            this.lblVille = new System.Windows.Forms.Label();
+            this.lblCP = new System.Windows.Forms.Label();
+            this.lblTel = new System.Windows.Forms.Label();
+            this.txtVille = new System.Windows.Forms.TextBox();
+            this.lblNbEtoiles = new System.Windows.Forms.Label();
+            this.btnAjouterHotel = new System.Windows.Forms.Button();
+            this.grpInfos = new System.Windows.Forms.GroupBox();
+            this.maskTxtCP = new System.Windows.Forms.MaskedTextBox();
+            this.maskTxtNbEtoiles = new System.Windows.Forms.MaskedTextBox();
+            this.maskTxtTel = new System.Windows.Forms.MaskedTextBox();
+            this.maskTxtPrix = new System.Windows.Forms.MaskedTextBox();
+            this.dgvHebergement = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grpBoutons = new System.Windows.Forms.GroupBox();
+            this.btnModifierHotel = new System.Windows.Forms.Button();
+            this.btnAnnuler = new System.Windows.Forms.Button();
+            this.btnEnregistrerHotel = new System.Windows.Forms.Button();
+            this.grpBtnsSaveCancel = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.bindSrcHebergement)).BeginInit();
+            this.grpInfos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHebergement)).BeginInit();
+            this.grpBoutons.SuspendLayout();
+            this.grpBtnsSaveCancel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // BtnAjouterHebergement
+            // btnSupprimerHotel
             // 
-            this.BtnAjouterHebergement.BackColor = System.Drawing.Color.GhostWhite;
-            resources.ApplyResources(this.BtnAjouterHebergement, "BtnAjouterHebergement");
-            this.BtnAjouterHebergement.Name = "BtnAjouterHebergement";
-            this.BtnAjouterHebergement.UseVisualStyleBackColor = false;
-            this.BtnAjouterHebergement.Click += new System.EventHandler(this.BtnAjouterHebergement_Click);
+            this.btnSupprimerHotel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnSupprimerHotel.ForeColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.btnSupprimerHotel, "btnSupprimerHotel");
+            this.btnSupprimerHotel.Name = "btnSupprimerHotel";
+            this.btnSupprimerHotel.UseVisualStyleBackColor = false;
+            this.btnSupprimerHotel.Click += new System.EventHandler(this.btnSupprimerHotel_Click);
             // 
-            // labelNomHotel
+            // lblNom
             // 
-            resources.ApplyResources(this.labelNomHotel, "labelNomHotel");
-            this.labelNomHotel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelNomHotel.Name = "labelNomHotel";
+            resources.ApplyResources(this.lblNom, "lblNom");
+            this.lblNom.ForeColor = System.Drawing.Color.White;
+            this.lblNom.Name = "lblNom";
             // 
-            // textBoxNomHotel
+            // txtNom
             // 
-            resources.ApplyResources(this.textBoxNomHotel, "textBoxNomHotel");
-            this.textBoxNomHotel.Name = "textBoxNomHotel";
-            // 
-            // labelAdresseHotel
-            // 
-            resources.ApplyResources(this.labelAdresseHotel, "labelAdresseHotel");
-            this.labelAdresseHotel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelAdresseHotel.Name = "labelAdresseHotel";
-            // 
-            // textBoxAdresseHotel
-            // 
-            resources.ApplyResources(this.textBoxAdresseHotel, "textBoxAdresseHotel");
-            this.textBoxAdresseHotel.Name = "textBoxAdresseHotel";
-            // 
-            // labelPrixHotel
-            // 
-            resources.ApplyResources(this.labelPrixHotel, "labelPrixHotel");
-            this.labelPrixHotel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelPrixHotel.Name = "labelPrixHotel";
-            // 
-            // labelVilleHotel
-            // 
-            resources.ApplyResources(this.labelVilleHotel, "labelVilleHotel");
-            this.labelVilleHotel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelVilleHotel.Name = "labelVilleHotel";
-            // 
-            // labelCPHotel
-            // 
-            resources.ApplyResources(this.labelCPHotel, "labelCPHotel");
-            this.labelCPHotel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelCPHotel.Name = "labelCPHotel";
-            // 
-            // labelTelHotel
-            // 
-            resources.ApplyResources(this.labelTelHotel, "labelTelHotel");
-            this.labelTelHotel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelTelHotel.Name = "labelTelHotel";
-            // 
-            // textBoxPrixHotel
-            // 
-            resources.ApplyResources(this.textBoxPrixHotel, "textBoxPrixHotel");
-            this.textBoxPrixHotel.Name = "textBoxPrixHotel";
-            // 
-            // textBoxVilleHotel
-            // 
-            resources.ApplyResources(this.textBoxVilleHotel, "textBoxVilleHotel");
-            this.textBoxVilleHotel.Name = "textBoxVilleHotel";
-            // 
-            // textBoxCPHotel
-            // 
-            resources.ApplyResources(this.textBoxCPHotel, "textBoxCPHotel");
-            this.textBoxCPHotel.Name = "textBoxCPHotel";
-            // 
-            // textBoxTelHotel
-            // 
-            resources.ApplyResources(this.textBoxTelHotel, "textBoxTelHotel");
-            this.textBoxTelHotel.Name = "textBoxTelHotel";
-            // 
-            // labelNbEtoileHotel
-            // 
-            resources.ApplyResources(this.labelNbEtoileHotel, "labelNbEtoileHotel");
-            this.labelNbEtoileHotel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelNbEtoileHotel.Name = "labelNbEtoileHotel";
-            // 
-            // textBoxNbEtoileHotel
-            // 
-            resources.ApplyResources(this.textBoxNbEtoileHotel, "textBoxNbEtoileHotel");
-            this.textBoxNbEtoileHotel.Name = "textBoxNbEtoileHotel";
-            // 
-            // BtnValiderHotel
-            // 
-            resources.ApplyResources(this.BtnValiderHotel, "BtnValiderHotel");
-            this.BtnValiderHotel.Name = "BtnValiderHotel";
-            this.BtnValiderHotel.UseVisualStyleBackColor = true;
-            this.BtnValiderHotel.Click += new System.EventHandler(this.BtnValiderHotel_Click);
-            // 
-            // BtnAnnulerHotel
-            // 
-            resources.ApplyResources(this.BtnAnnulerHotel, "BtnAnnulerHotel");
-            this.BtnAnnulerHotel.Name = "BtnAnnulerHotel";
-            this.BtnAnnulerHotel.UseVisualStyleBackColor = true;
-            this.BtnAnnulerHotel.Click += new System.EventHandler(this.BtnAnnulerHotel_Click);
-            // 
-            // BtnSupprimerHotel
-            // 
-            this.BtnSupprimerHotel.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.BtnSupprimerHotel.ForeColor = System.Drawing.SystemColors.ControlText;
-            resources.ApplyResources(this.BtnSupprimerHotel, "BtnSupprimerHotel");
-            this.BtnSupprimerHotel.Name = "BtnSupprimerHotel";
-            this.BtnSupprimerHotel.UseVisualStyleBackColor = false;
-            this.BtnSupprimerHotel.Click += new System.EventHandler(this.BtnSupprimerHotel_Click);
-            // 
-            // BtnModifierHotel
-            // 
-            this.BtnModifierHotel.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            resources.ApplyResources(this.BtnModifierHotel, "BtnModifierHotel");
-            this.BtnModifierHotel.Name = "BtnModifierHotel";
-            this.BtnModifierHotel.UseVisualStyleBackColor = false;
-            this.BtnModifierHotel.Click += new System.EventHandler(this.BtnModifierHotel_Click);
-            // 
-            // BtnValiderModifHotel
-            // 
-            resources.ApplyResources(this.BtnValiderModifHotel, "BtnValiderModifHotel");
-            this.BtnValiderModifHotel.Name = "BtnValiderModifHotel";
-            this.BtnValiderModifHotel.UseVisualStyleBackColor = true;
-            this.BtnValiderModifHotel.Click += new System.EventHandler(this.BtnValiderModifHotel_Click);
-            // 
-            // BtnAnnulerModifHotel
-            // 
-            resources.ApplyResources(this.BtnAnnulerModifHotel, "BtnAnnulerModifHotel");
-            this.BtnAnnulerModifHotel.Name = "BtnAnnulerModifHotel";
-            this.BtnAnnulerModifHotel.UseVisualStyleBackColor = true;
-            this.BtnAnnulerModifHotel.Click += new System.EventHandler(this.BtnAnnulerModifHotel_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.groupBox2.Controls.Add(this.comboBoxIdHotel);
-            this.groupBox2.Controls.Add(this.BtnValiderModifHotel);
-            this.groupBox2.Controls.Add(this.BtnModifierHotel);
-            this.groupBox2.Controls.Add(this.BtnAnnulerModifHotel);
-            resources.ApplyResources(this.groupBox2, "groupBox2");
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.TabStop = false;
-            // 
-            // comboBoxIdHotel
-            // 
-            this.comboBoxIdHotel.FormattingEnabled = true;
-            resources.ApplyResources(this.comboBoxIdHotel, "comboBoxIdHotel");
-            this.comboBoxIdHotel.Name = "comboBoxIdHotel";
-            this.comboBoxIdHotel.SelectedIndexChanged += new System.EventHandler(this.comboBoxIdHotel_SelectedIndexChanged);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.groupBox3.Controls.Add(this.BtnSupprimerHotel);
-            this.groupBox3.Controls.Add(this.BtnAjouterHebergement);
-            this.groupBox3.Controls.Add(this.labelNomHotel);
-            this.groupBox3.Controls.Add(this.BtnAnnulerHotel);
-            this.groupBox3.Controls.Add(this.textBoxNomHotel);
-            this.groupBox3.Controls.Add(this.BtnValiderHotel);
-            this.groupBox3.Controls.Add(this.labelAdresseHotel);
-            this.groupBox3.Controls.Add(this.textBoxNbEtoileHotel);
-            this.groupBox3.Controls.Add(this.textBoxAdresseHotel);
-            this.groupBox3.Controls.Add(this.labelNbEtoileHotel);
-            this.groupBox3.Controls.Add(this.labelPrixHotel);
-            this.groupBox3.Controls.Add(this.textBoxTelHotel);
-            this.groupBox3.Controls.Add(this.labelVilleHotel);
-            this.groupBox3.Controls.Add(this.textBoxCPHotel);
-            this.groupBox3.Controls.Add(this.labelCPHotel);
-            this.groupBox3.Controls.Add(this.textBoxVilleHotel);
-            this.groupBox3.Controls.Add(this.labelTelHotel);
-            this.groupBox3.Controls.Add(this.textBoxPrixHotel);
-            resources.ApplyResources(this.groupBox3, "groupBox3");
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.TabStop = false;
-            // 
-            // dataGridHebergement
-            // 
-            resources.ApplyResources(this.dataGridHebergement, "dataGridHebergement");
-            this.dataGridHebergement.AutoGenerateColumns = false;
-            this.dataGridHebergement.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridHebergement.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.dataGridHebergement.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridHebergement.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idHebergementDataGridViewTextBoxColumn,
-            this.nbEtoileDataGridViewTextBoxColumn,
-            this.prixDataGridViewTextBoxColumn,
-            this.nomHebergementDataGridViewTextBoxColumn,
-            this.adresseDataGridViewTextBoxColumn,
-            this.villeDataGridViewTextBoxColumn,
-            this.cpDataGridViewTextBoxColumn,
-            this.telDataGridViewTextBoxColumn});
-            this.dataGridHebergement.DataSource = this.bindSrcHebergement;
-            this.dataGridHebergement.Name = "dataGridHebergement";
-            this.dataGridHebergement.ReadOnly = true;
-            this.dataGridHebergement.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.txtNom.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindSrcHebergement, "nomHebergement", true));
+            resources.ApplyResources(this.txtNom, "txtNom");
+            this.txtNom.Name = "txtNom";
             // 
             // bindSrcHebergement
             // 
             this.bindSrcHebergement.DataSource = typeof(Lugati.dll.Hebergement);
             // 
-            // idHebergementDataGridViewTextBoxColumn
+            // lblAdresse
             // 
-            this.idHebergementDataGridViewTextBoxColumn.DataPropertyName = "idHebergement";
-            resources.ApplyResources(this.idHebergementDataGridViewTextBoxColumn, "idHebergementDataGridViewTextBoxColumn");
-            this.idHebergementDataGridViewTextBoxColumn.Name = "idHebergementDataGridViewTextBoxColumn";
-            this.idHebergementDataGridViewTextBoxColumn.ReadOnly = true;
+            resources.ApplyResources(this.lblAdresse, "lblAdresse");
+            this.lblAdresse.ForeColor = System.Drawing.Color.White;
+            this.lblAdresse.Name = "lblAdresse";
             // 
-            // nbEtoileDataGridViewTextBoxColumn
+            // txtAdresse
             // 
-            this.nbEtoileDataGridViewTextBoxColumn.DataPropertyName = "nbEtoile";
-            resources.ApplyResources(this.nbEtoileDataGridViewTextBoxColumn, "nbEtoileDataGridViewTextBoxColumn");
-            this.nbEtoileDataGridViewTextBoxColumn.Name = "nbEtoileDataGridViewTextBoxColumn";
-            this.nbEtoileDataGridViewTextBoxColumn.ReadOnly = true;
+            this.txtAdresse.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindSrcHebergement, "adresse", true));
+            resources.ApplyResources(this.txtAdresse, "txtAdresse");
+            this.txtAdresse.Name = "txtAdresse";
             // 
-            // prixDataGridViewTextBoxColumn
+            // lblPrix
             // 
-            this.prixDataGridViewTextBoxColumn.DataPropertyName = "prix";
-            resources.ApplyResources(this.prixDataGridViewTextBoxColumn, "prixDataGridViewTextBoxColumn");
-            this.prixDataGridViewTextBoxColumn.Name = "prixDataGridViewTextBoxColumn";
-            this.prixDataGridViewTextBoxColumn.ReadOnly = true;
+            resources.ApplyResources(this.lblPrix, "lblPrix");
+            this.lblPrix.ForeColor = System.Drawing.Color.White;
+            this.lblPrix.Name = "lblPrix";
             // 
-            // nomHebergementDataGridViewTextBoxColumn
+            // lblVille
             // 
-            this.nomHebergementDataGridViewTextBoxColumn.DataPropertyName = "nomHebergement";
-            resources.ApplyResources(this.nomHebergementDataGridViewTextBoxColumn, "nomHebergementDataGridViewTextBoxColumn");
-            this.nomHebergementDataGridViewTextBoxColumn.Name = "nomHebergementDataGridViewTextBoxColumn";
-            this.nomHebergementDataGridViewTextBoxColumn.ReadOnly = true;
+            resources.ApplyResources(this.lblVille, "lblVille");
+            this.lblVille.ForeColor = System.Drawing.Color.White;
+            this.lblVille.Name = "lblVille";
             // 
-            // adresseDataGridViewTextBoxColumn
+            // lblCP
             // 
-            this.adresseDataGridViewTextBoxColumn.DataPropertyName = "adresse";
-            resources.ApplyResources(this.adresseDataGridViewTextBoxColumn, "adresseDataGridViewTextBoxColumn");
-            this.adresseDataGridViewTextBoxColumn.Name = "adresseDataGridViewTextBoxColumn";
-            this.adresseDataGridViewTextBoxColumn.ReadOnly = true;
+            resources.ApplyResources(this.lblCP, "lblCP");
+            this.lblCP.ForeColor = System.Drawing.Color.White;
+            this.lblCP.Name = "lblCP";
             // 
-            // villeDataGridViewTextBoxColumn
+            // lblTel
             // 
-            this.villeDataGridViewTextBoxColumn.DataPropertyName = "ville";
-            resources.ApplyResources(this.villeDataGridViewTextBoxColumn, "villeDataGridViewTextBoxColumn");
-            this.villeDataGridViewTextBoxColumn.Name = "villeDataGridViewTextBoxColumn";
-            this.villeDataGridViewTextBoxColumn.ReadOnly = true;
+            resources.ApplyResources(this.lblTel, "lblTel");
+            this.lblTel.ForeColor = System.Drawing.Color.White;
+            this.lblTel.Name = "lblTel";
             // 
-            // cpDataGridViewTextBoxColumn
+            // txtVille
             // 
-            this.cpDataGridViewTextBoxColumn.DataPropertyName = "cp";
-            resources.ApplyResources(this.cpDataGridViewTextBoxColumn, "cpDataGridViewTextBoxColumn");
-            this.cpDataGridViewTextBoxColumn.Name = "cpDataGridViewTextBoxColumn";
-            this.cpDataGridViewTextBoxColumn.ReadOnly = true;
+            this.txtVille.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindSrcHebergement, "ville", true));
+            resources.ApplyResources(this.txtVille, "txtVille");
+            this.txtVille.Name = "txtVille";
             // 
-            // telDataGridViewTextBoxColumn
+            // lblNbEtoiles
             // 
-            this.telDataGridViewTextBoxColumn.DataPropertyName = "tel";
-            resources.ApplyResources(this.telDataGridViewTextBoxColumn, "telDataGridViewTextBoxColumn");
-            this.telDataGridViewTextBoxColumn.Name = "telDataGridViewTextBoxColumn";
-            this.telDataGridViewTextBoxColumn.ReadOnly = true;
+            resources.ApplyResources(this.lblNbEtoiles, "lblNbEtoiles");
+            this.lblNbEtoiles.ForeColor = System.Drawing.Color.White;
+            this.lblNbEtoiles.Name = "lblNbEtoiles";
+            // 
+            // btnAjouterHotel
+            // 
+            this.btnAjouterHotel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnAjouterHotel.ForeColor = System.Drawing.SystemColors.ControlText;
+            resources.ApplyResources(this.btnAjouterHotel, "btnAjouterHotel");
+            this.btnAjouterHotel.Name = "btnAjouterHotel";
+            this.btnAjouterHotel.UseVisualStyleBackColor = false;
+            this.btnAjouterHotel.Click += new System.EventHandler(this.btnAjouterHotel_Click);
+            // 
+            // grpInfos
+            // 
+            resources.ApplyResources(this.grpInfos, "grpInfos");
+            this.grpInfos.BackColor = System.Drawing.Color.Transparent;
+            this.grpInfos.Controls.Add(this.maskTxtCP);
+            this.grpInfos.Controls.Add(this.maskTxtNbEtoiles);
+            this.grpInfos.Controls.Add(this.maskTxtTel);
+            this.grpInfos.Controls.Add(this.maskTxtPrix);
+            this.grpInfos.Controls.Add(this.lblNom);
+            this.grpInfos.Controls.Add(this.txtNom);
+            this.grpInfos.Controls.Add(this.lblAdresse);
+            this.grpInfos.Controls.Add(this.lblNbEtoiles);
+            this.grpInfos.Controls.Add(this.txtAdresse);
+            this.grpInfos.Controls.Add(this.lblPrix);
+            this.grpInfos.Controls.Add(this.lblVille);
+            this.grpInfos.Controls.Add(this.lblCP);
+            this.grpInfos.Controls.Add(this.txtVille);
+            this.grpInfos.Controls.Add(this.lblTel);
+            this.grpInfos.ForeColor = System.Drawing.Color.White;
+            this.grpInfos.Name = "grpInfos";
+            this.grpInfos.TabStop = false;
+            // 
+            // maskTxtCP
+            // 
+            this.maskTxtCP.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindSrcHebergement, "cp", true));
+            resources.ApplyResources(this.maskTxtCP, "maskTxtCP");
+            this.maskTxtCP.Name = "maskTxtCP";
+            // 
+            // maskTxtNbEtoiles
+            // 
+            this.maskTxtNbEtoiles.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindSrcHebergement, "nbEtoile", true));
+            resources.ApplyResources(this.maskTxtNbEtoiles, "maskTxtNbEtoiles");
+            this.maskTxtNbEtoiles.Name = "maskTxtNbEtoiles";
+            // 
+            // maskTxtTel
+            // 
+            this.maskTxtTel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindSrcHebergement, "tel", true));
+            resources.ApplyResources(this.maskTxtTel, "maskTxtTel");
+            this.maskTxtTel.Name = "maskTxtTel";
+            // 
+            // maskTxtPrix
+            // 
+            this.maskTxtPrix.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindSrcHebergement, "prix", true));
+            resources.ApplyResources(this.maskTxtPrix, "maskTxtPrix");
+            this.maskTxtPrix.Name = "maskTxtPrix";
+            // 
+            // dgvHebergement
+            // 
+            this.dgvHebergement.AllowUserToAddRows = false;
+            this.dgvHebergement.AllowUserToDeleteRows = false;
+            resources.ApplyResources(this.dgvHebergement, "dgvHebergement");
+            this.dgvHebergement.AutoGenerateColumns = false;
+            this.dgvHebergement.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvHebergement.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.dgvHebergement.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHebergement.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn3});
+            this.dgvHebergement.DataSource = this.bindSrcHebergement;
+            this.dgvHebergement.MultiSelect = false;
+            this.dgvHebergement.Name = "dgvHebergement";
+            this.dgvHebergement.ReadOnly = true;
+            this.dgvHebergement.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "idHebergement";
+            resources.ApplyResources(this.dataGridViewTextBoxColumn1, "dataGridViewTextBoxColumn1");
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "nomHebergement";
+            resources.ApplyResources(this.dataGridViewTextBoxColumn4, "dataGridViewTextBoxColumn4");
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "nbEtoile";
+            resources.ApplyResources(this.dataGridViewTextBoxColumn2, "dataGridViewTextBoxColumn2");
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "adresse";
+            resources.ApplyResources(this.dataGridViewTextBoxColumn5, "dataGridViewTextBoxColumn5");
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "cp";
+            resources.ApplyResources(this.dataGridViewTextBoxColumn7, "dataGridViewTextBoxColumn7");
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "ville";
+            resources.ApplyResources(this.dataGridViewTextBoxColumn6, "dataGridViewTextBoxColumn6");
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "tel";
+            resources.ApplyResources(this.dataGridViewTextBoxColumn8, "dataGridViewTextBoxColumn8");
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "prix";
+            resources.ApplyResources(this.dataGridViewTextBoxColumn3, "dataGridViewTextBoxColumn3");
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // grpBoutons
+            // 
+            resources.ApplyResources(this.grpBoutons, "grpBoutons");
+            this.grpBoutons.BackColor = System.Drawing.Color.Transparent;
+            this.grpBoutons.Controls.Add(this.btnModifierHotel);
+            this.grpBoutons.Controls.Add(this.btnSupprimerHotel);
+            this.grpBoutons.Controls.Add(this.btnAjouterHotel);
+            this.grpBoutons.ForeColor = System.Drawing.Color.White;
+            this.grpBoutons.Name = "grpBoutons";
+            this.grpBoutons.TabStop = false;
+            // 
+            // btnModifierHotel
+            // 
+            this.btnModifierHotel.BackColor = System.Drawing.Color.White;
+            this.btnModifierHotel.ForeColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.btnModifierHotel, "btnModifierHotel");
+            this.btnModifierHotel.Name = "btnModifierHotel";
+            this.btnModifierHotel.UseVisualStyleBackColor = false;
+            this.btnModifierHotel.Click += new System.EventHandler(this.btnModifierHotel_Click);
+            // 
+            // btnAnnuler
+            // 
+            this.btnAnnuler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnAnnuler.ForeColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.btnAnnuler, "btnAnnuler");
+            this.btnAnnuler.Name = "btnAnnuler";
+            this.btnAnnuler.UseVisualStyleBackColor = false;
+            this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
+            // 
+            // btnEnregistrerHotel
+            // 
+            this.btnEnregistrerHotel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnEnregistrerHotel.ForeColor = System.Drawing.SystemColors.ControlText;
+            resources.ApplyResources(this.btnEnregistrerHotel, "btnEnregistrerHotel");
+            this.btnEnregistrerHotel.Name = "btnEnregistrerHotel";
+            this.btnEnregistrerHotel.UseVisualStyleBackColor = false;
+            this.btnEnregistrerHotel.Click += new System.EventHandler(this.btnEnregistrerHotel_Click);
+            // 
+            // grpBtnsSaveCancel
+            // 
+            this.grpBtnsSaveCancel.Controls.Add(this.btnEnregistrerHotel);
+            this.grpBtnsSaveCancel.Controls.Add(this.btnAnnuler);
+            resources.ApplyResources(this.grpBtnsSaveCancel, "grpBtnsSaveCancel");
+            this.grpBtnsSaveCancel.Name = "grpBtnsSaveCancel";
+            this.grpBtnsSaveCancel.TabStop = false;
             // 
             // FrmHebergement
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.Controls.Add(this.dataGridHebergement);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
+            this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.Controls.Add(this.grpBtnsSaveCancel);
+            this.Controls.Add(this.grpBoutons);
+            this.Controls.Add(this.dgvHebergement);
+            this.Controls.Add(this.grpInfos);
             this.Name = "FrmHebergement";
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridHebergement)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindSrcHebergement)).EndInit();
+            this.grpInfos.ResumeLayout(false);
+            this.grpInfos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHebergement)).EndInit();
+            this.grpBoutons.ResumeLayout(false);
+            this.grpBtnsSaveCancel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Button BtnAjouterHebergement;
-        private System.Windows.Forms.Label labelNomHotel;
-        private System.Windows.Forms.TextBox textBoxNomHotel;
-        private System.Windows.Forms.Label labelAdresseHotel;
-        private System.Windows.Forms.TextBox textBoxAdresseHotel;
-        private System.Windows.Forms.Label labelPrixHotel;
-        private System.Windows.Forms.Label labelVilleHotel;
-        private System.Windows.Forms.Label labelCPHotel;
-        private System.Windows.Forms.Label labelTelHotel;
-        private System.Windows.Forms.TextBox textBoxPrixHotel;
-        private System.Windows.Forms.TextBox textBoxVilleHotel;
-        private System.Windows.Forms.TextBox textBoxCPHotel;
-        private System.Windows.Forms.TextBox textBoxTelHotel;
-        private System.Windows.Forms.Label labelNbEtoileHotel;
-        private System.Windows.Forms.TextBox textBoxNbEtoileHotel;
-        private System.Windows.Forms.Button BtnValiderHotel;
-        private System.Windows.Forms.Button BtnAnnulerHotel;
-        private System.Windows.Forms.Button BtnSupprimerHotel;
-        private System.Windows.Forms.Button BtnModifierHotel;
-        private System.Windows.Forms.Button BtnValiderModifHotel;
-        private System.Windows.Forms.Button BtnAnnulerModifHotel;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.ComboBox comboBoxIdHotel;
+        private System.Windows.Forms.Button btnSupprimerHotel;
+        private System.Windows.Forms.Label lblNom;
+        private System.Windows.Forms.TextBox txtNom;
+        private System.Windows.Forms.Label lblAdresse;
+        private System.Windows.Forms.TextBox txtAdresse;
+        private System.Windows.Forms.Label lblPrix;
+        private System.Windows.Forms.Label lblVille;
+        private System.Windows.Forms.Label lblCP;
+        private System.Windows.Forms.Label lblTel;
+        private System.Windows.Forms.TextBox txtVille;
+        private System.Windows.Forms.Label lblNbEtoiles;
+        private System.Windows.Forms.Button btnAjouterHotel;
+        private System.Windows.Forms.GroupBox grpInfos;
         private System.Windows.Forms.BindingSource bindSrcHebergement;
-        private System.Windows.Forms.DataGridView dataGridHebergement;
+        private System.Windows.Forms.DataGridView dgvHebergement;
         private System.Windows.Forms.DataGridViewTextBoxColumn idHebergementDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nbEtoileDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prixDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomHebergementDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nbEtoileDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn adresseDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn villeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cpDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn villeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn telDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prixDataGridViewTextBoxColumn;
+        private System.Windows.Forms.GroupBox grpBoutons;
+        private System.Windows.Forms.Button btnAnnuler;
+        private System.Windows.Forms.Button btnEnregistrerHotel;
+        private System.Windows.Forms.MaskedTextBox maskTxtPrix;
+        private System.Windows.Forms.MaskedTextBox maskTxtTel;
+        private System.Windows.Forms.MaskedTextBox maskTxtNbEtoiles;
+        private System.Windows.Forms.Button btnModifierHotel;
+        private System.Windows.Forms.GroupBox grpBtnsSaveCancel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.MaskedTextBox maskTxtCP;
     }
 }
 
