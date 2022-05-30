@@ -82,7 +82,7 @@ go
 --Procédure qui obtient le prix total à payer (sessions et activités comprises) pour un idParticipant passé en paramètres
 create or alter procedure MontantTotalCongressiste (@idP int)
 as
-	SELECT ISNULL(prix + SUM(A.tarif) + SUM(S.tarif), 0) as total
+	SELECT prix + ISNULL(SUM(A.tarif), 0) + ISNULL(SUM(S.tarif), 0) as prixTotal
 	FROM participant Pt
 		JOIN hebergement H ON H.idHebergement = Pt.idHebergement
 		LEFT JOIN participer P ON P.idParticipant = Pt.idParticipant
@@ -92,7 +92,6 @@ as
 	WHERE Pt.idParticipant = @idP
 	GROUP BY Pt.idParticipant, prix
 go
-
 
 --Le nombre de places disponibles à une session donnée;
 create or alter procedure NbPlaceParSession (@numS int)
