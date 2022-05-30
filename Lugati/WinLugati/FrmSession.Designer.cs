@@ -108,6 +108,7 @@
             // 
             // txtNbPlacesRestantes
             // 
+            this.txtNbPlacesRestantes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNbPlacesRestantes.Location = new System.Drawing.Point(383, 16);
             this.txtNbPlacesRestantes.Name = "txtNbPlacesRestantes";
             this.txtNbPlacesRestantes.ReadOnly = true;
@@ -116,6 +117,7 @@
             // 
             // lblNbPlacesRestantes
             // 
+            this.lblNbPlacesRestantes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNbPlacesRestantes.AutoSize = true;
             this.lblNbPlacesRestantes.Location = new System.Drawing.Point(238, 19);
             this.lblNbPlacesRestantes.Name = "lblNbPlacesRestantes";

@@ -318,9 +318,9 @@ namespace WinLugati
             // 
             // grpBtnsSaveCancel
             // 
+            resources.ApplyResources(this.grpBtnsSaveCancel, "grpBtnsSaveCancel");
             this.grpBtnsSaveCancel.Controls.Add(this.btnEnregistrerHotel);
             this.grpBtnsSaveCancel.Controls.Add(this.btnAnnuler);
-            resources.ApplyResources(this.grpBtnsSaveCancel, "grpBtnsSaveCancel");
             this.grpBtnsSaveCancel.Name = "grpBtnsSaveCancel";
             this.grpBtnsSaveCancel.TabStop = false;
             // 

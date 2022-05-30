@@ -204,9 +204,6 @@
   <data name="&gt;&gt;txtNom.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <metadata name="bindSrcHebergement.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <data name="lblAdresse.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -591,27 +588,6 @@
   <data name="dgvHebergement.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="dgvHebergement.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 12</value>
-  </data>
-  <data name="dgvHebergement.Size" type="System.Drawing.Size, System.Drawing">
-    <value>700, 200</value>
-  </data>
-  <data name="dgvHebergement.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;dgvHebergement.Name" xml:space="preserve">
-    <value>dgvHebergement</value>
-  </data>
-  <data name="&gt;&gt;dgvHebergement.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dgvHebergement.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;dgvHebergement.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="dataGridViewTextBoxColumn1.HeaderText" xml:space="preserve">
     <value>Identifiant</value>
   </data>
@@ -660,8 +636,44 @@
   <data name="dataGridViewTextBoxColumn3.Width" type="System.Int32, mscorlib">
     <value>49</value>
   </data>
+  <data name="dgvHebergement.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="dgvHebergement.Size" type="System.Drawing.Size, System.Drawing">
+    <value>700, 200</value>
+  </data>
+  <data name="dgvHebergement.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;dgvHebergement.Name" xml:space="preserve">
+    <value>dgvHebergement</value>
+  </data>
+  <data name="&gt;&gt;dgvHebergement.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dgvHebergement.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;dgvHebergement.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="grpBoutons.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
+  </data>
+  <data name="btnModifierHotel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnModifierHotel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 101</value>
+  </data>
+  <data name="btnModifierHotel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 35</value>
+  </data>
+  <data name="btnModifierHotel.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="btnModifierHotel.Text" xml:space="preserve">
+    <value>Modifier</value>
   </data>
   <data name="&gt;&gt;btnModifierHotel.Name" xml:space="preserve">
     <value>btnModifierHotel</value>
@@ -695,33 +707,6 @@
   </data>
   <data name="&gt;&gt;grpBoutons.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="btnModifierHotel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnModifierHotel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 101</value>
-  </data>
-  <data name="btnModifierHotel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 35</value>
-  </data>
-  <data name="btnModifierHotel.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="btnModifierHotel.Text" xml:space="preserve">
-    <value>Modifier</value>
-  </data>
-  <data name="&gt;&gt;btnModifierHotel.Name" xml:space="preserve">
-    <value>btnModifierHotel</value>
-  </data>
-  <data name="&gt;&gt;btnModifierHotel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnModifierHotel.Parent" xml:space="preserve">
-    <value>grpBoutons</value>
-  </data>
-  <data name="&gt;&gt;btnModifierHotel.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <data name="btnAnnuler.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -776,6 +761,9 @@
   </data>
   <data name="&gt;&gt;btnEnregistrerHotel.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="grpBtnsSaveCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
   </data>
   <data name="grpBtnsSaveCancel.Location" type="System.Drawing.Point, System.Drawing">
     <value>586, 373</value>
