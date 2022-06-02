@@ -269,7 +269,6 @@ namespace WinLugati
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    this.Close();
                 }
             }
         }
@@ -290,7 +289,6 @@ namespace WinLugati
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    this.Close();
                 }
             }
         }
@@ -311,7 +309,6 @@ namespace WinLugati
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    this.Close();
                 }
             }
         }
@@ -332,7 +329,6 @@ namespace WinLugati
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    this.Close();
                 }
             }
         }
