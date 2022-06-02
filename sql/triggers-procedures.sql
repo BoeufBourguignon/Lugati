@@ -28,7 +28,7 @@ begin
 				union
 				select concat(date, ' ', heure) from session s join inscrire i on i.numSession = s.numSession and i.idParticipant = @idParticipant)
 			)
-			throw 50001, 'Le participant ne peut pas participer à l''activité . Il a déjà quelque chose de prévu à cette heure là ce jour.', 1
+			throw 50001, 'Le participant ne peut pas participer à l''activité . Il a déjà quelque chose de prévu à cette heure là ce jour.', 1;
 		else
 			insert into participer (idParticipant, numActivite) values (@idParticipant, @numActivite)
 
@@ -65,7 +65,7 @@ begin
 				union
 				select concat(date, ' ', heure) from session s join inscrire i on i.numSession = s.numSession and i.idParticipant = @idParticipant)
 			)
-			throw 50002, 'Le participant ne peut pas participer à l''activité. Il a déjà quelque chose de prévu à cette heure là ce jour.', 1
+			throw 50002, 'Le participant ne peut pas participer à la session . Il a déjà quelque chose de prévu à cette heure là ce jour.', 1;
 		else 
 			insert into inscrire(idParticipant, numSession) values (@idParticipant, @numSession)
 
