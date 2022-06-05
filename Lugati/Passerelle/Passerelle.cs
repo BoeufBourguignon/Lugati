@@ -18,7 +18,7 @@ namespace Lugati.dll
             "Data Source=" + Environment.MachineName.ToString() + ";" +
             "Initial Catalog=base_lugati;" +
             "User Id=LugatiApp;" +
-            "Password=b4n4n3");
+            "Password=B4n4n€#P0mM3");
         #endregion
 
 

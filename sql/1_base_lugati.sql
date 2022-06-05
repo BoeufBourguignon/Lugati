@@ -85,7 +85,7 @@ IF NOT EXISTS
      FROM sys.sql_logins
      WHERE name = 'LugatiApp')
 BEGIN
-	CREATE LOGIN LugatiApp WITH PASSWORD = 'b4n4n3';
+	CREATE LOGIN LugatiApp WITH PASSWORD = 'B4n4n€#P0mM3';
 END
 
 CREATE USER LugatiApp FOR LOGIN LugatiApp;
