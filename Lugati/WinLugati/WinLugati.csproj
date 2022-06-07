@@ -52,6 +52,12 @@
     <Compile Include="FrmActivite.Designer.cs">
       <DependentUpon>FrmActivite.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAnimateur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAnimateur.Designer.cs">
+      <DependentUpon>FrmAnimateur.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmHebergement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmActivite.resx">
       <DependentUpon>FrmActivite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAnimateur.resx">
+      <DependentUpon>FrmAnimateur.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmHebergement.resx">
       <DependentUpon>FrmHebergement.cs</DependentUpon>

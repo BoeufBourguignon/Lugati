@@ -81,10 +81,12 @@ namespace Lugati.dll
         public DateTime date { get; set; }
         public string heure { get; set; } //Conversion heure de type "time" en type "string" pour l'affichage dans le DataGrid.
 
+        public int idAnimateur { get; set; }
+
 
         public Activite() { }
 
-        public Activite(int numActivite, string libelle, int tarif, int nbPlaces, DateTime date, string heure)
+        public Activite(int numActivite, string libelle, int tarif, int nbPlaces, DateTime date, string heure, int idAnimateur)
         {
             this.numActivite = numActivite;
             this.libelle = libelle;
@@ -92,6 +94,7 @@ namespace Lugati.dll
             this.nbPlaces = nbPlaces;
             this.date = date;
             this.heure = heure;
+            this.idAnimateur = idAnimateur;
         }
     }
 
@@ -199,5 +202,24 @@ namespace Lugati.dll
             this.numActivite = numActivite;
         }
 
+    }
+
+    public class Animateur
+    {
+        public int idAnimateur { get; set; }
+        public string nom { get; set; }
+        public string prenom { get; set; }
+
+        public int pourcentage { get; set; }
+
+        public Animateur() { }
+
+        public Animateur (int idAnimateur, string nom, string prenom, int pourcentage)
+        {
+            this.idAnimateur = idAnimateur;
+            this.nom = nom;
+            this.prenom = prenom;
+            this.pourcentage = pourcentage;
+        }
     }
 }
