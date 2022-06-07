@@ -52,7 +52,7 @@ CREATE TABLE session (
     CONSTRAINT pk_numSession PRIMARY KEY (numSession)
 );
 
-
+drop table activite
 CREATE TABLE activite (
     numActivite int NOT NULL IDENTITY,
     libelle varchar(100),
@@ -60,9 +60,17 @@ CREATE TABLE activite (
     nbPlaces int,
     date date,
     heure varchar(5) CHECK (heure IN('09:00','14:30')),
-    CONSTRAINT pk_numActivite PRIMARY KEY (numActivite)
+	idAnimateur int,
+    CONSTRAINT pk_numActivite PRIMARY KEY (numActivite),
+	CONSTRAINT fk_activite_idAnimateur FOREIGN KEY (idAnimateur) REFERENCES animateur(idAnimateur)
 );
 
+CREATE TABLE animateur(
+	idAnimateur int not null IDENTITY,
+	nom varchar(100),
+	prenom varchar(100),
+	pourcentage int
+);
 
 CREATE TABLE participer (
     numActivite int,
@@ -91,7 +99,7 @@ END
 CREATE USER LugatiApp FOR LOGIN LugatiApp;
 --Droits tables
 GRANT INSERT, UPDATE, DELETE, SELECT ON ligue TO LugatiApp;
-GRANT INSERT, UPDATE, DELETE, SELECT ON activite TO LugatiApp;
+GRANT INSERT, UPDATE, DELETE, SELECT, ON activite TO LugatiApp;
 GRANT INSERT, UPDATE, DELETE, SELECT ON hebergement TO LugatiApp;
 GRANT INSERT, UPDATE, DELETE, SELECT ON inscrire TO LugatiApp;
 GRANT INSERT, UPDATE, DELETE, SELECT ON participant TO LugatiApp;

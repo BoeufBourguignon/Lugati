@@ -286,7 +286,7 @@ namespace Lugati.dll
             List<Activite> lesActivites = new List<Activite>();
 
             SqlCommand reqLesActivites = new SqlCommand(
-                "SELECT numActivite, libelle, tarif, nbPlaces, date, heure " +
+                "SELECT numActivite, libelle, tarif, nbPlaces, date, heure, idAnimateur " +
                 "FROM Activite",
                 Passerelle.connexionBaseLugati);
 
@@ -306,7 +306,8 @@ namespace Lugati.dll
                                 (int)readerLesActivites[2],
                                 (int)readerLesActivites[3],
                                 Convert.ToDateTime(readerLesActivites[4]),
-                                readerLesActivites[5].ToString()));
+                                readerLesActivites[5].ToString(),
+                                (int)readerLesActivites[6]));
                     }
                 }
             }
@@ -1224,5 +1225,48 @@ namespace Lugati.dll
         }
 
         #endregion
+
+        #region Animateur 
+        /// <summary>
+        /// Retourne l'ensemble des Animateurs présent en bdd
+        /// </summary>
+        /// <returns></returns>
+        public static List<Animateur> GetLesAnimateurs()
+        {
+            List<Animateur> lesAnimateurs = new List<Animateur>();
+
+            SqlCommand reqLesAnimateurs = new SqlCommand(
+                "SELECT idAnimateur, nom, prenom, pourcentage " +
+                "FROM animateur",
+                Passerelle.connexionBaseLugati);
+
+            try
+            {
+                Passerelle.connexionBaseLugati.Open();
+
+                SqlDataReader readerLesAnimateurs = reqLesAnimateurs.ExecuteReader();
+
+                if (readerLesAnimateurs.HasRows)
+                {
+                    while (readerLesAnimateurs.Read())
+                    {
+                        lesAnimateurs.Add(new Animateur(
+                                (int)readerLesAnimateurs[0],
+                                readerLesAnimateurs[1].ToString(),
+                                readerLesAnimateurs[2].ToString(),
+                                (int)readerLesAnimateurs[3]));
+                    }
+                }
+            }
+            finally
+            {
+                Passerelle.connexionBaseLugati.Close();
+            }
+
+            return lesAnimateurs;
+        }
+
+        public 
+        #endregion 
     }
 }

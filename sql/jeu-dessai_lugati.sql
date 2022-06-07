@@ -51,6 +51,16 @@ VALUES
   ('Rénovation de livres',35,37,'17-4-2023','14:30'),
   ('Barbecue collectif',39,11,'6-10-2021','14:30');
 
+INSERT INTO animateur (idAnimateur, nom, prenom, pourcentage)
+VALUES	
+	(1, 'BOUCHET', 'Lucas', 25),
+	(2, 'BOUCHET', 'Lucas', 25),
+	(3, 'BOUCHET', 'Lucas', 25),
+	(4, 'BOUCHET', 'Lucas', 25),
+	(5, 'BOUCHET', 'Lucas', 25),
+	(6, 'BOUCHET', 'Lucas', 25),
+	(7, 'BOUCHET', 'Lucas', 25);
+
 DELETE FROM inscrire; DELETE FROM participer;
 
 INSERT INTO inscrire (idParticipant, numSession)
